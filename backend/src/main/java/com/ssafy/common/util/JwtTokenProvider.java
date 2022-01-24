@@ -7,33 +7,36 @@ import com.auth0.jwt.exceptions.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.NativeWebRequest;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
 /**
- * jwt 토큰 유틸 정의.
+ * jwt 토큰 유틸 정의. JWT 쓸 건지 Jwts 쓸건지
  */
 @Component
-public class JwtTokenUtil {
+public class JwtTokenProvider {
     private static String secretKey;
     private static Integer expirationTime;
 
     public static final String TOKEN_PREFIX = "Bearer ";
     public static final String HEADER_STRING = "Authorization";
-    public static final String ISSUER = "ssafy.com";
+    public static final String ISSUER = "ssaraoke";
     
     @Autowired
-	public JwtTokenUtil(@Value("${jwt.secret}") String secretKey, @Value("${jwt.expiration}") Integer expirationTime) {
+	public JwtTokenProvider(@Value("${jwt.secret}") String secretKey, @Value("${jwt.expiration}") Integer expirationTime) {
 		this.secretKey = secretKey;
 		this.expirationTime = expirationTime;
 	}
     
 	public void setExpirationTime() {
     		//JwtTokenUtil.expirationTime = Integer.parseInt(expirationTime);
-    		JwtTokenUtil.expirationTime = expirationTime;
+    		JwtTokenProvider.expirationTime = expirationTime;
 	}
 
 	public static JWTVerifier getVerifier() {
@@ -43,10 +46,10 @@ public class JwtTokenUtil {
                 .build();
     }
     
-    public static String getToken(String userId) {
-    		Date expires = JwtTokenUtil.getTokenExpiration(expirationTime);
-        return JWT.create()
-                .withSubject(userId)
+    public static String getToken(Long userSeq) {
+    		Date expires = JwtTokenProvider.getTokenExpiration(expirationTime);
+        return JWT.create() //Buils create 차이
+                .withSubject(String.valueOf(userSeq))   //Long을 String으로
                 .withExpiresAt(expires)
                 .withIssuer(ISSUER)
                 .withIssuedAt(Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant()))
@@ -66,6 +69,21 @@ public class JwtTokenUtil {
     		Date now = new Date();
     		return new Date(now.getTime() + expirationTime);
     }
+
+    ///////////////////////////////////////Filter 대신 NativeWebRequest 씀
+    public static String extractToken(HttpServletRequest request) {
+        return request.getHeader(HEADER_STRING);
+    }
+
+    public static String extractTokenByWebRequset(NativeWebRequest webRequest) {
+        return webRequest.getHeader(HEADER_STRING);
+    }
+
+    public static void setTokenInHeader(HttpServletResponse response, String token) {
+        response.setHeader(HEADER_STRING, token);
+    }
+    ///////////////////////////////////////
+
 
     public static void handleError(String token) {
         JWTVerifier verifier = JWT

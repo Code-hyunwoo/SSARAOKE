@@ -15,16 +15,26 @@ public class OAuthInfo {
 
     //여러개 연동할 수 있나? 없나? 없으면 id 필요없는디 아닌가?
     @Column
-    private String oAuthId;
+    private String oAuthSeq;
 
     @Enumerated(EnumType.STRING)
     private OAuthType oAuthType;
 
     @Column
-    private String access_token;
+    private String accessToken;
 
     @Column
-    private String profile_path;
+    private String profilePath;
+
+    public void setOauthInfo(String oAuthSeq, OAuthType oAuthType, String profilePath){
+        this.oAuthSeq = oAuthSeq;
+        this.oAuthType = oAuthType;
+        this.profilePath = profilePath;
+    }
+
+    public void setAccessToken(String accessToken){
+        this.accessToken = accessToken;
+    }
 
 
 }

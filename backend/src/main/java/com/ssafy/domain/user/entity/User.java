@@ -58,5 +58,12 @@ public class User extends BaseTimeEntity {
         this.password = password;
     }
 
+    @Builder
+    public User(String email, String nickname, String oAuthSeq, OAuthType oAuthType, String profilePath){
+        this.email = email;
+        this.nickname = nickname;
+        this.oAuthInfo.setOauthInfo(oAuthSeq, oAuthType, profilePath);
+    }
+
 
 }
