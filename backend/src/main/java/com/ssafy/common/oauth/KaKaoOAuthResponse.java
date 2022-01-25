@@ -3,30 +3,32 @@ package com.ssafy.common.oauth;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Getter
+@Setter
 @NoArgsConstructor
 public class KaKaoOAuthResponse{
     private String id;
-    private LocalDateTime connectedAt;
+    private LocalDateTime connected_at;
     private Properties properties;
-    private KakaoAccount kakaoAccount;
+    private KakaoAccount kakao_account;
     private String email;
 
     public KaKaoOAuthResponse(String id, LocalDateTime connectedAt, Properties properties, KakaoAccount account, String email){
         this.id = id;
-        this.connectedAt = connectedAt;
+        this.connected_at = connectedAt;
         this.properties = properties;
-        this.kakaoAccount = account;
+        this.kakao_account = account;
         this.email = email;
     }
 
     public KaKaoOAuthResponse of(String socialId, LocalDateTime connectedAt, String nickname, String thumbnail_image_url, String profile_image_url, String email) {
         return new KaKaoOAuthResponse(socialId, connectedAt,
                 new Properties(nickname),
-                new KakaoAccount(true, new Profile(nickname, thumbnail_image_url, profile_image_url)),
+                new KakaoAccount(new Profile(nickname, thumbnail_image_url, profile_image_url), getEmail()),
                 email);
     }
 
@@ -34,7 +36,7 @@ public class KaKaoOAuthResponse{
         return this.properties.getNickname();
     }
     public String getOAuthProfilePath(){
-        return this.kakaoAccount.getProfile().getProfile_image_url();
+        return this.kakao_account.getProfile().getProfile_image_url();
     }
 
     //https://developers.kakao.com/tool/rest-api/open/get/v2-user-me 참고
@@ -49,8 +51,8 @@ public class KaKaoOAuthResponse{
     @NoArgsConstructor
     @AllArgsConstructor
     private static class KakaoAccount {
-        private boolean profileNeedsAgreement;
         private Profile profile;
+        private String email;
     }
 
     @Getter
