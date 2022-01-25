@@ -1,7 +1,6 @@
 package com.ssafy.api.auth.controller;
 
 import com.ssafy.api.auth.dto.request.AuthCreationRequestDto;
-import com.ssafy.api.auth.dto.request.AuthRequestDto;
 import com.ssafy.api.auth.dto.response.OAuthDto;
 import com.ssafy.api.auth.service.AuthService;
 import com.ssafy.common.util.JwtTokenProvider;
@@ -22,14 +21,8 @@ import java.net.URI;
 public class AuthController {
     private final AuthService authService;
 
-    @PostMapping("/")
-    public ResponseEntity<Void> authenticateLegacy(@RequestBody AuthRequestDto requestDto, HttpServletResponse response){
-        OAuthDto oAuthDto = authService.authenticate(requestDto);
-        JwtTokenProvider.setTokenInHeader(response, oAuthDto.getToken());
-        return ResponseEntity.ok().build();
-    }
 
-    @PostMapping("/join")
+    @PostMapping("/kakao")
     public ResponseEntity<URI> join(@RequestBody AuthCreationRequestDto requestDto, HttpServletResponse response){
         OAuthDto oAuthDto = authService.signUp(requestDto);
         JwtTokenProvider.setTokenInHeader(response, oAuthDto.getToken());

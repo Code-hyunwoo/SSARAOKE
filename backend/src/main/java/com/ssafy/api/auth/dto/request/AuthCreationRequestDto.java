@@ -12,6 +12,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class AuthCreationRequestDto {
     private OAuthType oAuthType;
-    private String nickname;
     private String accessToken;
+    private String refreshToken;
 }
