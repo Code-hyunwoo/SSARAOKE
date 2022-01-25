@@ -69,9 +69,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+<<<<<<< HEAD
 
 
 Git branch naming convention 참고자료 - 승원
 
 https://velog.io/@kim-jaemin420/Git-branch-naming
+=======
+hello ssssssssssssssssssssafy!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+>>>>>>> 6244c9887c07a92b7e2aeaef3624c2850cc7b776
 
