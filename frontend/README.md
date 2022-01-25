@@ -72,7 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 
-Git branch naming convention 참고자료 - 승원
+Git branch 충돌충돌충돌 -현우
 
-https://velog.io/@kim-jaemin420/Git-branch-naming
+https://velog.io/@kim-jaemin420/Git-branch-namingzzzzz
 =======
