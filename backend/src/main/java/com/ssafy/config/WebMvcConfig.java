@@ -1,6 +1,8 @@
 package com.ssafy.config;
 
+import com.ssafy.api.auth.resolver.AuthHandlerMethodArgumentResolver;
 import com.ssafy.common.util.JwtTokenProvider;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,13 +10,19 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CommonsRequestLoggingFilter;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.Filter;
+import java.util.List;
 
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
+
+    @Autowired
+    AuthHandlerMethodArgumentResolver authHandlerMethodArgumentResolver;
+
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
@@ -42,9 +50,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     				.addResourceLocations("classpath:/META-INF/resources/webjars/");
     		
     		/*
-    		 * 
     		 * Front-end에서 참조하는 URL을 /dist로 매핑
-    		 * 
     		 */
         registry.addResourceHandler("/css/**")
         			.addResourceLocations("classpath:/dist/css/");
@@ -74,4 +80,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registration.addUrlPatterns("/api/*");
         return registration;
     }
+
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+        argumentResolvers.add(authHandlerMethodArgumentResolver);
+    }
+
 }

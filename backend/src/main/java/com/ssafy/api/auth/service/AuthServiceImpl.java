@@ -8,6 +8,7 @@ import com.ssafy.common.util.JwtTokenProvider;
 import com.ssafy.domain.user.entity.User;
 import com.ssafy.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -15,6 +16,7 @@ import java.security.InvalidParameterException;
 import java.util.Objects;
 import java.util.Optional;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -37,6 +39,7 @@ public class AuthServiceImpl implements AuthService {
         //굳이 Optional객체 이렇게 써야하나 현타옴...
         if(existUser.isPresent()){
             String token = JwtTokenProvider.getToken(existUser.get().getSeq());
+            log.error("login: " + existUser.get().getSeq());
             return new OAuthDto(existUser.get().getSeq(), token, requestDto.getOAuthType());
         }
         //회원가입 로직
@@ -49,6 +52,7 @@ public class AuthServiceImpl implements AuthService {
                     .profilePath(profile.getOAuthProfilePath())
                     .build();
             User savedUser = userRepository.save(newUser);
+
             String token = JwtTokenProvider.getToken(savedUser.getSeq());
             return new OAuthDto(savedUser.getSeq(), token, requestDto.getOAuthType());
         }
