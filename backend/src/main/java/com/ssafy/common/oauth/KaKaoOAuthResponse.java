@@ -23,8 +23,6 @@ public class KaKaoOAuthResponse{
         this.kakao_account = account;
     }
 
-
-
     public String getOAuthNickname(){
         return this.properties.getNickname();
     }
@@ -47,6 +45,7 @@ public class KaKaoOAuthResponse{
     private static class KakaoAccount {
         private Profile profile;
         private String email;
+
     }
 
     @Getter

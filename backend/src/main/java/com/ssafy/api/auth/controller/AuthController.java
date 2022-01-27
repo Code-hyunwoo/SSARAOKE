@@ -3,6 +3,7 @@ package com.ssafy.api.auth.controller;
 import com.ssafy.api.auth.dto.request.AuthCreationRequestDto;
 import com.ssafy.api.auth.dto.response.OAuthDto;
 import com.ssafy.api.auth.service.AuthService;
+import com.ssafy.common.model.response.BaseResponseBody;
 import com.ssafy.common.util.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,15 +24,10 @@ public class AuthController {
 
 
     @PostMapping("/kakao")
-    public ResponseEntity<URI> join(@RequestBody AuthCreationRequestDto requestDto, HttpServletResponse response){
+    public ResponseEntity<? extends BaseResponseBody> join(@RequestBody AuthCreationRequestDto requestDto, HttpServletResponse response){
         OAuthDto oAuthDto = authService.signUp(requestDto);
-        JwtTokenProvider.setTokenInHeader(response, oAuthDto.getToken());
-        URI userCreateUri = ServletUriComponentsBuilder
-                .fromCurrentServletMapping()
-                .path("/api/v1/users/{id}")
-                .buildAndExpand(oAuthDto.getSeq())
-                .toUri();
-        return ResponseEntity.created(userCreateUri).build();
+        JwtTokenProvider.setTokenInHeader(response, "Bearer " + oAuthDto.getToken());
+        return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
     }
 
 }
