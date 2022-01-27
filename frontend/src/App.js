@@ -1,8 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+
+// import './App.css';
 import MainLobby from './components/lobby/MainLobby';
 import Button from "./Button"
 import Video from "./Video";
+// import {  BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
@@ -24,7 +25,20 @@ function App() {
       <div>
         <Button text={"Cam"} />
       </div>
+
       <MainLobby />
+
+      {/* <Router>
+          <Switch>
+            <Route path="/lobby">
+              <MainLobby />
+            </Route>
+            {/* <Route path="/">
+            </Route> */}
+
+          {/* </Switch>
+      </Router> */}
+
     </div>
   );
 }
