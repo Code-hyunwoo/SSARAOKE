@@ -23,7 +23,20 @@ function App() {
       <div>
         <Button text={"Cam"} />
       </div>
+
       <MainLobby />
+
+      {/* <Router>
+          <Switch>
+            <Route path="/lobby">
+              <MainLobby />
+            </Route>
+            {/* <Route path="/">
+            </Route> */}
+
+          {/* </Switch>
+      </Router> */}
+
     </div>
 
 
