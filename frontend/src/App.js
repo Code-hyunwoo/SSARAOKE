@@ -1,9 +1,7 @@
-
-// import './App.css';
 import MainLobby from './components/lobby/MainLobby';
 import Button from "./Button"
 import Video from "./Video";
-// import {  BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 
 function App() {
   return (
@@ -40,6 +38,8 @@ function App() {
       </Router> */}
 
     </div>
+
+
   );
 }
 
