@@ -5,12 +5,15 @@ import NormalCam from "./NormalCam";
 import RoomChat from "./R_Chat";
 import Button from "./Button";
 import MirrorBall from "./MirrorBall";
+import LightRope from "./LightRope";
+import Marquee from "react-fast-marquee"
 
 function Solo (){
 
 
     return (
         <div className={styles.room}>
+            <LightRope />
             <Musicbar />
             <MirrorBall />
             <Screen mode={styles.ScreenSolo}/>

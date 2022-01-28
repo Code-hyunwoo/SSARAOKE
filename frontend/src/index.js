@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Solo />
   </React.StrictMode>,
   document.getElementById('root')
 );

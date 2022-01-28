@@ -5,12 +5,14 @@ import NormalCam from "./NormalCam";
 import RoomChat from "./R_Chat";
 import Button from "./Button";
 import MirrorBall from "./MirrorBall";
+import LightRope from "./LightRope";
 
 function Free (){
 
 
     return (
         <div className={styles.room}>
+            <LightRope />
             <Musicbar />
             <MirrorBall />
             <Screen mode={styles.ScreenFree}/>

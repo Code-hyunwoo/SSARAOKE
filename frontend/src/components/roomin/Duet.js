@@ -6,12 +6,14 @@ import RoomChat from "./R_Chat";
 import Button from "./Button";
 import MirrorBall from "./MirrorBall";
 import SingerCam from "./SingerCam";
+import LightRope from "./LightRope";
 
-function Free (){
+function Duet (){
 
 
     return (
-        <div className={styles.room}>
+        <div className={styles.room}>   
+            <LightRope />        
             <Musicbar />
             <MirrorBall />
             <Screen mode={styles.ScreenFree}/>
@@ -36,10 +38,11 @@ function Free (){
                 <Button text={"모드선택"}/>
                 <Button text={"나가기"}/>
             </div> 
+        
         </div>
     ) 
 }
 
 
 
-export default Free;
+export default Duet;
