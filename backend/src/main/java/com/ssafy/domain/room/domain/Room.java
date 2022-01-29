@@ -49,13 +49,13 @@ public class Room extends BaseTimeEntity{
     @OneToMany(mappedBy = "room")
     private List<RoomUser> roomUsers = new ArrayList<RoomUser>();
 
-    @OneToMany(mappedBy = "room")
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reservation> reservations = new ArrayList<Reservation>();
 
-    @OneToMany(mappedBy = "room")
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RoomTag> roomTags = new ArrayList<RoomTag>();
 
-    @OneToMany(mappedBy = "room")
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RoomBan> roomBans = new ArrayList<RoomBan>();
 
 

@@ -47,10 +47,10 @@ public class User extends BaseTimeEntity {
     @Embedded
     private final OAuthInfo oAuthInfo = new OAuthInfo();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Bookmark> bookmarks = new ArrayList<Bookmark>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RoomUser> roomUsers = new ArrayList<RoomUser>();
 
     public User(String email, String password){
