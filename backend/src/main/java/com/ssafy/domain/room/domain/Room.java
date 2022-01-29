@@ -2,6 +2,8 @@ package com.ssafy.domain.room.domain;
 
 import com.ssafy.domain.common.BaseTimeEntity;
 import com.ssafy.domain.reservation.domain.Reservation;
+import com.ssafy.domain.tag.domain.Tag;
+import com.ssafy.domain.user.entity.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -49,6 +51,12 @@ public class Room extends BaseTimeEntity{
 
     @OneToMany(mappedBy = "room")
     private List<Reservation> reservations = new ArrayList<Reservation>();
+
+    @OneToMany(mappedBy = "room")
+    private List<RoomTag> roomTags = new ArrayList<RoomTag>();
+
+    @OneToMany(mappedBy = "room")
+    private List<RoomBan> roomBans = new ArrayList<RoomBan>();
 
 
 }
