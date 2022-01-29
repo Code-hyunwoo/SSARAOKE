@@ -65,5 +65,9 @@ public class User extends BaseTimeEntity {
         this.oAuthInfo.setOauthInfo(oAuthSeq, oAuthType, profilePath);
     }
 
+    public void updateNickname(String nickname){
+        this.nickname = nickname;
+    }
+
 
 }

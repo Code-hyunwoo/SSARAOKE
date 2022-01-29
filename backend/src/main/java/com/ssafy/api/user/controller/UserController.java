@@ -1,10 +1,9 @@
 package com.ssafy.api.user.controller;
 
-import com.ssafy.api.auth.dto.request.AuthCreationRequestDto;
-import com.ssafy.api.auth.dto.response.OAuthDto;
 import com.ssafy.api.auth.resolver.Auth;
+import com.ssafy.api.user.dto.request.UserUpdateRequest;
+import com.ssafy.api.user.service.UserService;
 import com.ssafy.common.model.response.BaseResponseBody;
-import com.ssafy.common.util.JwtTokenProvider;
 import com.ssafy.domain.user.entity.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,9 +18,17 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 public class UserController {
 
+    private final UserService userService;
+
     @GetMapping("")
     public ResponseEntity<User> getUserInfo(@Auth User user){
-        Long seq = user.getSeq();
         return ResponseEntity.status(200).body(user);
     }
+
+    @PatchMapping("")
+    public ResponseEntity<? extends BaseResponseBody> updateUserInfo(@Auth User user, @RequestBody UserUpdateRequest request){
+
+        return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
+    }
+
 }

@@ -19,4 +19,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     //String으로 들어오는지 확인해봐야함
     @Query("select u from User u where u.oAuthInfo.oAuthSeq = :seq")
     Optional<User> findByOAuthSeq(@Param("seq") String oAuthSeq);
+
+    boolean existsByNickname(String nickname);
 }
