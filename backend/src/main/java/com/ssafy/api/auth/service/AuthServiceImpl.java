@@ -1,6 +1,6 @@
 package com.ssafy.api.auth.service;
 
-import com.ssafy.api.auth.dto.request.AuthCreationRequestDto;
+import com.ssafy.api.auth.dto.request.AuthRequestDto;
 import com.ssafy.api.auth.dto.response.OAuthDto;
 import com.ssafy.common.oauth.KaKaoOAuthResponse;
 import com.ssafy.common.oauth.OAuthClient;
@@ -27,7 +27,7 @@ public class AuthServiceImpl implements AuthService {
     //회원가입
     @Transactional
     @Override
-    public OAuthDto signUp(AuthCreationRequestDto requestDto) {
+    public OAuthDto signUp(AuthRequestDto requestDto) {
         //validation
         if(Objects.isNull(requestDto.getOAuthType())){
             throw new InvalidParameterException("OAuth type이 null로 요청됨");
