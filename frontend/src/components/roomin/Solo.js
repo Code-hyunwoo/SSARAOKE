@@ -6,9 +6,12 @@ import RoomChat from "./R_Chat";
 import Button from "./Button";
 import MirrorBall from "./MirrorBall";
 import LightRope from "./LightRope";
-import Marquee from "react-fast-marquee"
+import ChangeMode from "./ChangeMode";
+import { useState } from "react"
+
 
 function Solo (){
+    const [openChangeMode, setOpenChangeMode] = useState(false);
 
 
     return (
@@ -33,7 +36,12 @@ function Solo (){
                 <Button text={"마이크, 캠"}/>
                 <Button text={"리모콘"}/>
                 <Button text={"컨텐츠"}/>
-                <Button text={"모드선택"}/>
+                <button className={styles.btn, styles.neon} id={styles.unfolding}
+                onClick={()=> {
+                    setOpenChangeMode(true);
+                }}> 모드선택 </button>
+                {openChangeMode && <ChangeMode closeChangeMode={setOpenChangeMode}/>}
+                
                 <Button text={"나가기"}/>
             </div> 
         </div>

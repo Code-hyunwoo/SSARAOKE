@@ -1,11 +1,12 @@
 import styles from "./Room.module.css";
 
 
-function Button ({text}){
+function Button ({text, modal}){
         
     return (
         <div >
-            <button className={styles.btn, styles.neon}>{text}</button>
+            <button className={styles.btn, styles.neon}
+            >{text}</button>
         </div>
     )
 
