@@ -3,9 +3,11 @@ package com.ssafy.domain.user.entity;
 import com.ssafy.domain.bookmark.entity.Bookmark;
 import com.ssafy.domain.common.BaseTimeEntity;
 import com.ssafy.domain.room.entity.RoomUser;
+import com.ssafy.domain.video.entity.Video;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import reactor.core.dynamic.annotation.On;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -50,10 +52,9 @@ public class User extends BaseTimeEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RoomUser> roomUsers = new ArrayList<RoomUser>();
 
-    public User(String email){
-        this.email = email;
-//        this.password = password;
-    }
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Video> videos = new ArrayList<Video>();
+
 
     @Builder
     public User(String email, String nickname, String oAuthSeq, OAuthType oAuthType, String profilePath){
