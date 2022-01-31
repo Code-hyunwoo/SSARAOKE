@@ -14,5 +14,6 @@ public class OAuthDto {
     private Long seq;
     private String token;
     private OAuthType oAuthType;
+    private String nickname;
 
 }

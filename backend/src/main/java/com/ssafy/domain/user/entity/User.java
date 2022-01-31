@@ -1,11 +1,8 @@
 package com.ssafy.domain.user.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import com.ssafy.domain.bookmark.domain.Bookmark;
+import com.ssafy.domain.bookmark.entity.Bookmark;
 import com.ssafy.domain.common.BaseTimeEntity;
-import com.ssafy.domain.room.domain.RoomUser;
+import com.ssafy.domain.room.entity.RoomUser;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -65,8 +62,11 @@ public class User extends BaseTimeEntity {
         this.oAuthInfo.setOauthInfo(oAuthSeq, oAuthType, profilePath);
     }
 
-    public void updateNickname(String nickname){
-        this.nickname = nickname;
+    public void updateNicknameAndEmail(String nickname, String email){
+        if(nickname != null)
+            this.nickname = nickname;
+        if(email != null)
+            this.email = email;
     }
 
 

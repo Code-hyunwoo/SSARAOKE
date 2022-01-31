@@ -1,6 +1,6 @@
-package com.ssafy.domain.bookmark.domain;
+package com.ssafy.domain.reservation.entity;
 
-import com.ssafy.domain.user.entity.User;
+import com.ssafy.domain.room.entity.Room;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -8,29 +8,25 @@ import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
-@Table(name = "TB_BOOKMARK")
+@Table(name = "TB_RESERVATION")
 @Entity
-public class Bookmark {
+public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "bookmark_seq")
+    @Column(name = "reservation_seq")
     private Long seq;
 
     @ManyToOne
-    @JoinColumn(name = "user_seq")
-    private User user;
+    @JoinColumn(name = "room_seq")
+    private Room room;
 
     @Column
     private int song_no;
-
-    @Column(columnDefinition = "varchar(10) default 'TJ'")
-    private String company;
 
     @Column(name = "song_title")
     private String title;
 
     @Column
     private String artist;
-
 
 }

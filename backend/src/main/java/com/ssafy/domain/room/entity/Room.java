@@ -1,9 +1,7 @@
-package com.ssafy.domain.room.domain;
+package com.ssafy.domain.room.entity;
 
 import com.ssafy.domain.common.BaseTimeEntity;
-import com.ssafy.domain.reservation.domain.Reservation;
-import com.ssafy.domain.tag.domain.Tag;
-import com.ssafy.domain.user.entity.User;
+import com.ssafy.domain.reservation.entity.Reservation;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

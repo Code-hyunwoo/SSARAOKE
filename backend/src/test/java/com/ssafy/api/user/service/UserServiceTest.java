@@ -1,5 +1,6 @@
 package com.ssafy.api.user.service;
 
+import com.ssafy.api.user.dto.request.UserUpdateRequest;
 import com.ssafy.domain.user.entity.User;
 import com.ssafy.domain.user.repository.UserRepository;
 import org.junit.jupiter.api.Test;
@@ -22,8 +23,10 @@ class UserServiceTest {
         User user = User.builder().nickname("first").oAuthSeq("123").email("eee@gmail.com").profilePath("somewhere").build();
         User createdUser = userRepository.save(user);
 
-        String newNickname = "changed";
-        userService.updateUserNickname(createdUser, newNickname);
+        String newNickname = "changedEmail";
+        String newEmail = "changedEmail";
+        UserUpdateRequest request = new UserUpdateRequest(newNickname, newEmail);
+        userService.updateUserNickname(createdUser, request);
 
         User modifiedUser = userRepository.findById(createdUser.getSeq()).get();
         assertEquals(newNickname, modifiedUser.getNickname());

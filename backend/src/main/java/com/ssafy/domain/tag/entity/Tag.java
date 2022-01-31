@@ -1,4 +1,4 @@
-package com.ssafy.domain.tag.domain;
+package com.ssafy.domain.tag.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

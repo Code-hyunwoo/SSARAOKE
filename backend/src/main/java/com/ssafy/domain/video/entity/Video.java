@@ -1,4 +1,4 @@
-package com.ssafy.domain.video.domain;
+package com.ssafy.domain.video.entity;
 
 import com.ssafy.domain.common.BaseTimeEntity;
 import com.ssafy.domain.user.entity.User;

@@ -1,16 +1,15 @@
-package com.ssafy.domain.room.domain;
+package com.ssafy.domain.room.entity;
 
-import com.ssafy.domain.tag.domain.Tag;
+import com.ssafy.domain.user.entity.User;
 import lombok.Getter;
 
 import javax.persistence.*;
 
 @Getter
-@Table(name = "TB_ROOM_TAG")
+@Table(name = "TB_ROOM_BAN")
 @Entity
-public class RoomTag {
-
-    @Column(name = "roomtag_seq")
+public class RoomBan {
+    @Column(name = "room_ban_seq")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     Long id;
@@ -20,8 +19,7 @@ public class RoomTag {
     Room room;
 
     @ManyToOne
-    @JoinColumn(name = "tag_seq")
-    Tag tag;
-
+    @JoinColumn(name = "user_seq")
+    User user;
 
 }

@@ -2,6 +2,8 @@ package com.ssafy.api.user.controller;
 
 import com.ssafy.api.auth.resolver.Auth;
 import com.ssafy.api.user.dto.request.UserUpdateRequest;
+import com.ssafy.api.user.dto.response.UserResponse;
+import com.ssafy.api.user.dto.response.UserUpdateResponse;
 import com.ssafy.api.user.service.UserService;
 import com.ssafy.common.model.response.BaseResponseBody;
 import com.ssafy.domain.user.entity.User;
@@ -21,13 +23,15 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("")
-    public ResponseEntity<User> getUserInfo(@Auth User user){
-        return ResponseEntity.status(200).body(user);
+    public ResponseEntity<UserResponse> getUserInfo(@Auth User user){
+        UserResponse response = userService.getMyPage(user);
+        return ResponseEntity.ok().body(response);
     }
 
     @PatchMapping("")
-    public ResponseEntity<? extends BaseResponseBody> updateUserInfo(@Auth User user, @RequestBody UserUpdateRequest request){
-        return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
+    public ResponseEntity<UserUpdateResponse> updateUserInfo(@Auth User user, @RequestBody UserUpdateRequest request){
+        UserUpdateResponse response = userService.updateUserNickname(user, request);
+        return ResponseEntity.ok().body(response);
     }
 
 }

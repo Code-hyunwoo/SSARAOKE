@@ -22,10 +22,9 @@ public class AuthController {
 
 
     @PostMapping("/kakao")
-    public ResponseEntity<? extends BaseResponseBody> userEnter(@RequestBody AuthRequestDto requestDto, HttpServletResponse response){
+    public ResponseEntity<OAuthDto> userEnter(@RequestBody AuthRequestDto requestDto, HttpServletResponse response){
         OAuthDto oAuthDto = authService.signUp(requestDto);
-        JwtTokenProvider.setTokenInHeader(response, "Bearer " + oAuthDto.getToken());
-        return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
+        return ResponseEntity.ok().body(oAuthDto);
     }
 
 }

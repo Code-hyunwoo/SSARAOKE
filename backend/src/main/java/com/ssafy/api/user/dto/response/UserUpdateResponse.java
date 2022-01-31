@@ -1,15 +1,14 @@
-package com.ssafy.api.user.dto.request;
+package com.ssafy.api.user.dto.response;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class UserUpdateRequest {
+@NoArgsConstructor
+public class UserUpdateResponse {
     private String nickname;
     private String email;
+
 }

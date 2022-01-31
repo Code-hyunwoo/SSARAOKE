@@ -1,33 +1,36 @@
-package com.ssafy.domain.reservation.domain;
+package com.ssafy.domain.bookmark.entity;
 
-import com.ssafy.domain.room.domain.Room;
+import com.ssafy.domain.user.entity.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.checkerframework.checker.units.qual.C;
 
 import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
-@Table(name = "TB_RESERVATION")
+@Table(name = "TB_BOOKMARK")
 @Entity
-public class Reservation {
+public class Bookmark {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "reservation_seq")
+    @Column(name = "bookmark_seq")
     private Long seq;
 
     @ManyToOne
-    @JoinColumn(name = "room_seq")
-    private Room room;
+    @JoinColumn(name = "user_seq")
+    private User user;
 
     @Column
     private int song_no;
+
+    @Column(columnDefinition = "varchar(10) default 'TJ'")
+    private String company;
 
     @Column(name = "song_title")
     private String title;
 
     @Column
     private String artist;
+
 
 }
