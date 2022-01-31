@@ -39,7 +39,6 @@ public class AuthServiceImpl implements AuthService {
         //굳이 Optional객체 이렇게 써야하나 현타옴...
         if(existUser.isPresent()){
             String token = JwtTokenProvider.getToken(existUser.get().getSeq());
-            log.error("login: " + existUser.get().getSeq());
             return new OAuthDto(existUser.get().getSeq(), token, requestDto.getOAuthType());
         }
         //회원가입 로직

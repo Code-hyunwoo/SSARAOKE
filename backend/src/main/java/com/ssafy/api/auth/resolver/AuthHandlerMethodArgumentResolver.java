@@ -40,8 +40,6 @@ public class AuthHandlerMethodArgumentResolver implements HandlerMethodArgumentR
             JwtTokenProvider.handleError(token);
             DecodedJWT decodedJWT = verifier.verify(token.replace(JwtTokenProvider.TOKEN_PREFIX, ""));
             Long userid = Long.parseLong(decodedJWT.getSubject());
-            log.error("token: " + token);
-            log.error("id: " + userid);
             return userRepository.findById(userid)
                     .orElseThrow(UserNotFoundException::new);
         }else{

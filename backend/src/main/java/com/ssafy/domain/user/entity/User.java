@@ -36,10 +36,10 @@ public class User extends BaseTimeEntity {
     @Column(name = "nickname", unique = true)
     private String nickname;
 
-    @JsonIgnore
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Column(name = "password")
-    private String password;
+//    @JsonIgnore
+//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+//    @Column(name = "password")
+//    private String password;
 
     @Column
     private LocalDateTime date_updated;
@@ -53,9 +53,9 @@ public class User extends BaseTimeEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RoomUser> roomUsers = new ArrayList<RoomUser>();
 
-    public User(String email, String password){
+    public User(String email){
         this.email = email;
-        this.password = password;
+//        this.password = password;
     }
 
     @Builder

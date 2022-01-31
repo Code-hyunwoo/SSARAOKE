@@ -27,7 +27,6 @@ public class UserController {
 
     @PatchMapping("")
     public ResponseEntity<? extends BaseResponseBody> updateUserInfo(@Auth User user, @RequestBody UserUpdateRequest request){
-
         return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
     }
 
