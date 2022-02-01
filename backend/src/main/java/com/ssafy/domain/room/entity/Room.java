@@ -2,8 +2,10 @@ package com.ssafy.domain.room.entity;
 
 import com.ssafy.domain.common.BaseTimeEntity;
 import com.ssafy.domain.reservation.entity.Reservation;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -44,6 +46,9 @@ public class Room extends BaseTimeEntity{
     @Column
     private String owner_nickname;
 
+    @Column
+    private String thumbnail_url;
+
     @OneToMany(mappedBy = "room")
     private List<RoomUser> roomUsers = new ArrayList<RoomUser>();
 
@@ -55,6 +60,18 @@ public class Room extends BaseTimeEntity{
 
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RoomBan> roomBans = new ArrayList<RoomBan>();
+
+
+    @Builder
+    public Room(String title, boolean is_private, Long owner_seq, String owner_nickname, String thumbnail_url){
+        this.title = title;
+        this.is_active = true;
+        this.is_private = is_private;
+        this.owner_seq = owner_seq;
+        this.owner_nickname = owner_nickname;
+        this.thumbnail_url = thumbnail_url;
+
+    }
 
 
 }

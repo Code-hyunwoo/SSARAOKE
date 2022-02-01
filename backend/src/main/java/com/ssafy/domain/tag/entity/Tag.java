@@ -1,5 +1,6 @@
 package com.ssafy.domain.tag.entity;
 
+import com.ssafy.domain.room.entity.RoomTag;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

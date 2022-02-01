@@ -4,6 +4,8 @@ import com.ssafy.domain.tag.entity.Tag;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Table(name = "TB_ROOM_TAG")
