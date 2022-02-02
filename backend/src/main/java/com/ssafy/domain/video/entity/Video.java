@@ -1,4 +1,4 @@
-package com.ssafy.domain.video.domain;
+package com.ssafy.domain.video.entity;
 
 import com.ssafy.domain.common.BaseTimeEntity;
 import com.ssafy.domain.user.entity.User;
@@ -20,8 +20,8 @@ public class Video extends BaseTimeEntity {
     @Column(name = "video_title")
     private String title;
 
-    @Column(name = "video_length")
-    private int length;
+//    @Column(name = "video_length")
+//    private int length;
 
     @Column(name = "video_url")
     private String url;

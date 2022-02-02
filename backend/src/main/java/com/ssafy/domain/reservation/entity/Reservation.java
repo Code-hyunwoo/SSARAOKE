@@ -1,9 +1,8 @@
-package com.ssafy.domain.reservation.domain;
+package com.ssafy.domain.reservation.entity;
 
-import com.ssafy.domain.room.domain.Room;
+import com.ssafy.domain.room.entity.Room;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.checkerframework.checker.units.qual.C;
 
 import javax.persistence.*;
 

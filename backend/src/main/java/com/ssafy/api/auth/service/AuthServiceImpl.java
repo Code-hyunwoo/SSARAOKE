@@ -1,6 +1,6 @@
 package com.ssafy.api.auth.service;
 
-import com.ssafy.api.auth.dto.request.AuthCreationRequestDto;
+import com.ssafy.api.auth.dto.request.AuthRequestDto;
 import com.ssafy.api.auth.dto.response.OAuthDto;
 import com.ssafy.common.oauth.KaKaoOAuthResponse;
 import com.ssafy.common.oauth.OAuthClient;
@@ -27,7 +27,7 @@ public class AuthServiceImpl implements AuthService {
     //회원가입
     @Transactional
     @Override
-    public OAuthDto signUp(AuthCreationRequestDto requestDto) {
+    public OAuthDto signUp(AuthRequestDto requestDto) {
         //validation
         if(Objects.isNull(requestDto.getOAuthType())){
             throw new InvalidParameterException("OAuth type이 null로 요청됨");
@@ -38,9 +38,8 @@ public class AuthServiceImpl implements AuthService {
         //로그인 로직
         //굳이 Optional객체 이렇게 써야하나 현타옴...
         if(existUser.isPresent()){
-            String token = JwtTokenProvider.getToken(existUser.get().getSeq());
-            log.error("login: " + existUser.get().getSeq());
-            return new OAuthDto(existUser.get().getSeq(), token, requestDto.getOAuthType());
+            String token = "Bearer " + JwtTokenProvider.getToken(existUser.get().getSeq());
+            return new OAuthDto(existUser.get().getSeq(), token, requestDto.getOAuthType(), existUser.get().getNickname());
         }
         //회원가입 로직
         else{
@@ -53,8 +52,8 @@ public class AuthServiceImpl implements AuthService {
                     .build();
             User savedUser = userRepository.save(newUser);
 
-            String token = JwtTokenProvider.getToken(savedUser.getSeq());
-            return new OAuthDto(savedUser.getSeq(), token, requestDto.getOAuthType());
+            String token = "Bearer " + JwtTokenProvider.getToken(savedUser.getSeq());
+            return new OAuthDto(savedUser.getSeq(), token, requestDto.getOAuthType(), existUser.get().getNickname());
         }
     }
 

@@ -2,8 +2,8 @@ package com.ssafy.api.auth.resolver;
 
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.ssafy.common.exception.TokenNotFoundException;
-import com.ssafy.common.exception.UserNotFoundException;
+import com.ssafy.common.exception.CustomException;
+import com.ssafy.common.exception.ErrorCode;
 import com.ssafy.common.util.JwtTokenProvider;
 import com.ssafy.domain.user.entity.User;
 import com.ssafy.domain.user.repository.UserRepository;
@@ -40,12 +40,10 @@ public class AuthHandlerMethodArgumentResolver implements HandlerMethodArgumentR
             JwtTokenProvider.handleError(token);
             DecodedJWT decodedJWT = verifier.verify(token.replace(JwtTokenProvider.TOKEN_PREFIX, ""));
             Long userid = Long.parseLong(decodedJWT.getSubject());
-            log.error("token: " + token);
-            log.error("id: " + userid);
             return userRepository.findById(userid)
-                    .orElseThrow(UserNotFoundException::new);
+                    .orElseThrow(()->new CustomException(ErrorCode.USER_NOT_FOUND));
         }else{
-            throw new TokenNotFoundException();
+            throw new CustomException(ErrorCode.TOKEN_NOT_FOUND);
         }
     }
 }

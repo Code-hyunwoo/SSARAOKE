@@ -1,14 +1,13 @@
 package com.ssafy.domain.user.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import com.ssafy.domain.bookmark.domain.Bookmark;
+import com.ssafy.domain.bookmark.entity.Bookmark;
 import com.ssafy.domain.common.BaseTimeEntity;
-import com.ssafy.domain.room.domain.RoomUser;
+import com.ssafy.domain.room.entity.RoomUser;
+import com.ssafy.domain.video.entity.Video;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import reactor.core.dynamic.annotation.On;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -36,10 +35,10 @@ public class User extends BaseTimeEntity {
     @Column(name = "nickname", unique = true)
     private String nickname;
 
-    @JsonIgnore
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Column(name = "password")
-    private String password;
+//    @JsonIgnore
+//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+//    @Column(name = "password")
+//    private String password;
 
     @Column
     private LocalDateTime date_updated;
@@ -47,22 +46,28 @@ public class User extends BaseTimeEntity {
     @Embedded
     private final OAuthInfo oAuthInfo = new OAuthInfo();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Bookmark> bookmarks = new ArrayList<Bookmark>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RoomUser> roomUsers = new ArrayList<RoomUser>();
 
-    public User(String email, String password){
-        this.email = email;
-        this.password = password;
-    }
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Video> videos = new ArrayList<Video>();
+
 
     @Builder
     public User(String email, String nickname, String oAuthSeq, OAuthType oAuthType, String profilePath){
         this.email = email;
         this.nickname = nickname;
         this.oAuthInfo.setOauthInfo(oAuthSeq, oAuthType, profilePath);
+    }
+
+    public void updateNicknameAndEmail(String nickname, String email){
+        if(nickname != null)
+            this.nickname = nickname;
+        if(email != null)
+            this.email = email;
     }
 
 

@@ -1,6 +1,5 @@
-package com.ssafy.api.auth.dto.response;
+package com.ssafy.api.user.dto.request;
 
-import com.ssafy.domain.user.entity.OAuthType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,10 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class OAuthDto {
-    private Long seq;
-    private String token;
-    private OAuthType oAuthType;
+public class UserUpdateRequest {
     private String nickname;
-
+    private String email;
 }

@@ -1,10 +1,8 @@
-package com.ssafy.domain.room.domain;
+package com.ssafy.domain.room.entity;
 
 import com.ssafy.domain.user.entity.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.apache.tomcat.jni.Local;
-import org.checkerframework.checker.units.qual.C;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

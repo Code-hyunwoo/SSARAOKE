@@ -1,4 +1,4 @@
-package com.ssafy.domain.bookmark.domain;
+package com.ssafy.domain.bookmark.entity;
 
 import com.ssafy.domain.user.entity.User;
 import lombok.Getter;
@@ -25,6 +25,12 @@ public class Bookmark {
 
     @Column(columnDefinition = "varchar(10) default 'TJ'")
     private String company;
+
+    @Column(name = "song_title")
+    private String title;
+
+    @Column
+    private String artist;
 
 
 }
