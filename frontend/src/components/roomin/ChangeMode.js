@@ -1,26 +1,29 @@
-import { Button } from "react-bootstrap";
-import Styles from "./ChangeMode.module.css";
-import ChangeMode_modal from "./ChangeMode_modal";
+import React from 'react';
+import styles from "./Button.module.css";
+import { Link } from "react-router-dom";
 
-function ChangeMode() {
+function ChangeMode ({closeChangeMode}){
 
-    return(
-        // 그냥 새로운 페이지로 이동하는 버전
-        <div>
-            <div>
-                <h1 className={Styles.text}>
-                    choose the mode
-                </h1>
+        
+    return (
+        <div className={styles.ChangeModeBackground}>
+         <div className={styles.ChangeModeContainer}>
+            <div className={styles.title}>
+                <span>Select Mode</span>
             </div>
-            <div>
-                <button className={Styles.Basicbtn}>Basic</button>
-                <button className={Styles.Freebtn}>Free</button>
-                <button className={Styles.Solobtn}>Solo</button>
-                <button className={Styles.Duetbtn}>Duet</button>
+            <div className={styles.body}>
+                <button id={styles.modeButton}><Link to='/' id={styles.modeLink}> Basic </Link></button>
+                <button id={styles.modeButton}><Link to='/free' id={styles.modeLink}> Free </Link></button>
+                <button id={styles.modeButton}><Link to='/solo' id={styles.modeLink}> Solo </Link></button>
+                <button id={styles.modeButton}><Link to='/duet' id={styles.modeLink}> duet </Link></button>
             </div>
-            <ChangeMode_modal />
+            <div className={styles.footer}>
+                <button id={styles.backButton} onClick={() => closeChangeMode(false)}>Back</button>
+            </div>
         </div>
+        </div>
+    );
+};
 
-    )
-}
-export default ChangeMode;
+
+export default ChangeMode
