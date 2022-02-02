@@ -1,6 +1,4 @@
 import MainLobby from "./components/lobby/MainLobby";
-import Button from "./Button";
-import Video from "./Video";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Login from "./components/user/Login";
 import AppBar from "./components/layout/Navbar";
