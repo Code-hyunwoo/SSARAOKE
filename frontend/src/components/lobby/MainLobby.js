@@ -51,8 +51,3 @@ function MainLobby() {
 }
 
 export default MainLobby;
-
-// element.style {
-//     padding-right: 300px;
-// }
-

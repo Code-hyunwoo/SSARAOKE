@@ -1,7 +1,10 @@
-import MainLobby from './components/lobby/MainLobby';
-import Button from "./Button"
+import MainLobby from "./components/lobby/MainLobby";
+import Button from "./Button";
 import Video from "./Video";
-import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Login from "./components/user/Login";
+import AppBar from "./components/layout/Navbar";
+import Home from "./components/layout/Home";
 
 import MyVideo from './components/user/MyVideo';
 import Bookmark from './components/user/Bookmark';
@@ -16,25 +19,19 @@ function App() {
   return (
     <div>
 
-{/* 라우터 시도 */}
       <BrowserRouter>
           <Routes>
+            {/* <Route path="/" element={<MainLobby2/>}></Route> */}
             <Route path="/" element={<MainLobby2/>}></Route>
             <Route path="/Mypage" element={<MypageMain/>}></Route>
           </Routes>
       </BrowserRouter>
 
-{/* 테스트 */}
-      {/* <MainLobby /> */}
-      {/* <MainLobby2 /> */}
-      {/* <Mypage_Main /> */}
-      {/* <Bookmark /> */}
-      {/* <MyVideo /> */}
-      {/* <ChangeMode_modal /> */}
-      {/* <Controller /> */}
+      <AppBar />
+      <Login />
+      <Home />
+
     </div>
-
-
   );
 }
 
