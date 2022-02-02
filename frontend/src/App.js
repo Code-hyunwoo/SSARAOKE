@@ -1,12 +1,18 @@
-import MainLobby from './components/lobby/MainLobby';
-import Button from "./Button"
+import MainLobby from "./components/lobby/MainLobby";
+import Button from "./Button";
 import Video from "./Video";
-import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Login from "./components/user/Login";
+import AppBar from "./components/layout/Navbar";
+import Home from "./components/layout/Home";
 
 function App() {
   return (
     <div>
-      <h1> WEBRCT TEST PAGE </h1>
+      <AppBar />
+      <Login />
+      <Home />
+      {/* <h1> WEBRCT TEST PAGE </h1>
       <Video />
       <div>
         <Button text={"Cam"} />
@@ -24,7 +30,7 @@ function App() {
         <Button text={"Cam"} />
       </div>
 
-      <MainLobby />
+      <MainLobby /> */}
 
       {/* <Router>
           <Switch>
@@ -34,12 +40,9 @@ function App() {
             {/* <Route path="/">
             </Route> */}
 
-          {/* </Switch>
+      {/* </Switch>
       </Router> */}
-
     </div>
-
-
   );
 }
 

@@ -1,0 +1,29 @@
+.introPic {
+  width: 450px;
+  height: 300px;
+}
+
+.desc {
+  color: #fff89a;
+  font-size: xx-large;
+  text-align: center;
+  display: flex;
+  font-family: "surroundAir";
+}
+
+.line {
+  border: 1px solid #fff89a;
+  margin: 42px 0;
+}
+
+.footer {
+  padding: 30px;
+  text-align: center;
+  color: var(--dark);
+  margin: 10px;
+}
+
+@font-face {
+  font-family: "surroundAir";
+  src: url(../../fonts/Cafe24SsurroundAir.ttf);
+}
