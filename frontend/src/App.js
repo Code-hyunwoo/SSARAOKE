@@ -1,26 +1,22 @@
 import MainLobby from './components/lobby/MainLobby';
-import Video from "./Video";
 import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
+import Basic from './routes/Basic';
+import Free from './routes/Free';
+import Solo from './routes/Solo';
+import Duet from './routes/Duet';
 
 function App() {
   return (
-    <div>
-      <h1> WEBRCT TEST PAGE </h1>
-
-      <MainLobby />
-
-      {/* <Router>
-          <Switch>
-            <Route path="/lobby">
-              <MainLobby />
-            </Route>
-            {/* <Route path="/">
-            </Route> */}
-
-          {/* </Switch>
-      </Router> */}
-
-    </div>
+    
+    <BrowserRouter>
+      <Routes>
+        <Route path="/basic" element={<Basic/>}></Route>
+        <Route path="/free" element={<Free/>}></Route>
+        <Route path="/solo" element={<Solo/>}></Route>
+        <Route path="/duet" element={<Duet/>}></Route>
+      </Routes>
+    
+    </BrowserRouter>
 
 
   );

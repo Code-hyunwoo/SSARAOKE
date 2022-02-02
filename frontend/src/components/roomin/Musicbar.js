@@ -11,7 +11,7 @@ function Musicbar (){
                 speed={40} className={styles.Musicbar}>
                     <text > [Now Playing]  Fromise9 - DM      
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
-                    [NEXT] 아이유 - 좋은날
+                    [NEXT] Fromise9 - WE GO
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
                     </text>
                 </Marquee>

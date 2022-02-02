@@ -8,7 +8,7 @@ function Screen ({mode}){
         <div>
             <ReactPlayer 
             id={mode} 
-            url={['https://www.youtube.com/watch?v=4gXmClk8rKI', 'https://www.youtube.com/watch?v=t8KtQ8-nImI' ]}
+            url={['https://www.youtube.com/watch?v=4gXmClk8rKI', 'https://www.youtube.com/watch?v=t8KtQ8-nImI']}
             playing={true}
             muted={true}
             controls={true}/>

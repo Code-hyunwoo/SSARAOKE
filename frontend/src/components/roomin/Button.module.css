@@ -61,9 +61,15 @@
     height: 100px;
     background-color: #fff89a;
     font-family: 'Oregano', cursive;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: bold;
     border-radius: 20px;
+  }
+
+  #modeLink {
+    text-decoration: none;
+    color: black;
+
   }
 
   #backButton {
