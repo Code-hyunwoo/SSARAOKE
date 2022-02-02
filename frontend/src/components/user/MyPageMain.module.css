@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Oregano&display=swap');
+
+/* 로비로 나가는 버튼 */
+.backbtn{
+    position: absolute;
+    /* width: 129.08px;
+    height: 134.5px; */
+    width: 0px;
+    height: 0px;
+    left: 10px;
+    top: 890px;
+
+    border-bottom: 50px solid transparent;
+    border-top: 50px solid transparent;
+    border-left: 80px solid #FFCE43;
+    border-right: 80px solid transparent;
+
+    background: none;
+    transform: rotate(180deg);
+}
+
+/* 자판기 큰틀 */
+.machineOutline{
+position: absolute;
+width: 1390px;
+height: 870px;
+left: 310px;
+top: 114px;
+
+background: rgba(255, 206, 67, 0.2);
+border: 10px solid #FFFFFF;
+box-sizing: border-box;
+
+/* border: 0.2rem solid #fff;  */
+border-radius: 2rem; 
+padding: 0.4em; 
+box-shadow: 
+    0 0 .2rem #fff, 
+    0 0 .2rem #fff, 
+    0 0 2rem #fff, 
+    0 0 0.8rem #FFFFFF, 
+    0 0 2.8rem #FFFFFF, 
+    inset 0 0 1.3rem #FFFFFF;
+/* box-shadow: 0 0 .2rem #fff, 0 0 .2rem #fff, 0 0 2rem #bc13fe, 0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe; */
+}
+
+/* 자판기 음료칸 */
+.machineInline{
+    position: absolute;
+    width: 1310px;
+    height: 580px;
+    left: 30px;
+    top: 20px;
+    
+    background: rgba(171, 215, 250, 0.4);
+    border: 10px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 30px;
+    box-shadow: 
+        0 0 .1rem #fff, 
+        0 0 .1rem #fff, 
+        0 0 .1rem #fff, 
+        0 0 0.4rem #FFFFFF, 
+        0 0 1.4rem #FFFFFF, inset 
+        0 0 0.5rem #FFFFFF;    
+}
+
+/* 음료캔_하나만 만들어서 증식하자 */
+/* MyPage_Can css 파일로 따로 만듦. */
+
+/* 음료칸 바 */
+.canBar{
+    position: absolute;
+    width: 1290px;
+    height: 38px;
+    left: 0px;
+    /* top: 230px; */
+    border-radius: 10%;
+    font-weight: bold;
+    font-family: 'Oregano', cursive;
+    background: #E2B73D;
+}
+
+/* 닉네임 박스 */
+.nicnameBox{
+    position: absolute;
+    width: 180px;
+    height: 60px;
+    left: 38px;
+    top: 630px;
+    
+    background: rgba(255, 206, 67, 0.06);
+    border: 6px solid #FFCE43;
+    box-sizing: border-box; 
+    font-weight: bold;
+    font-family: 'Oregano', cursive;
+    font-size: 25px;
+    text-align: center;
+    padding: 5px 0;
+    color: white;
+}
+
+/* 싸라오케 박스 */
+.ssaraoke{
+    position: absolute;
+    width: 180px;
+    height: 60px;
+    left: 250px;
+    top: 630px;
+    
+    background: rgba(255, 206, 67, 0.06);
+    border: 6px solid #FFCE43;
+    box-sizing: border-box; 
+
+    font-weight: bold;
+    font-family: 'Oregano', cursive;
+    font-size: 25px;
+    text-align: center;
+    padding: 5px 0;
+    color: white;
+}
+
+/* 현우님 번호 박스 */
+.phoneN{
+    position: absolute;
+    width: 180px;
+    height: 60px;
+    left: 460px;
+    top: 630px;
+    
+    background: rgba(255, 206, 67, 0.06);
+    border: 6px solid #FFCE43;
+    box-sizing: border-box; 
+
+    font-weight: bold;
+    font-family: 'Oregano', cursive;
+    font-size: 23px;
+    text-align: center;
+    padding: 7px 0;
+    color: white;
+}
+
+/* 이메일 박스 */
+.emailBox{
+    position: absolute;
+    width: 604px;
+    height: 110px;
+    left: 38px;
+    top: 710px;
+    
+    background: rgba(255, 206, 67, 0.6);
+    border: 5px solid #FFCE43;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    font-weight: bold;
+    font-family: 'Oregano', cursive;
+    font-size: 30px;
+    text-align: center;
+    padding: 24px 0;
+    color: white;
+}
+
+/* 지폐칸 */
+.cash{
+    position: absolute;
+    width: 200px;
+    height: 25px;
+    left: 730px;
+    top: 700px;
+    
+    border: 10px solid rgba(255, 206, 67, 0.8);
+    /* border: 10px solid #FFCE43; */
+}
+
+.cashbar{
+    position: absolute;
+    /* width: 0px; */
+    height: 58px;
+    /* left: 720px;
+    top: 682px; */
+    
+    /* border: 10px solid #FFCE43; */
+    border: 10px solid rgba(255, 206, 67, 0.8);
+    /* background-color: rgba(255, 206, 67, 0.8); */
+    /* color: rgba(255, 206, 67, 0.8); */
+}
+
+/* 동전칸 */
+.coin{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 1020px;
+    top: 655px;
+    border-radius: 50%;
+    background: rgba(234, 235, 236, 0.5);
+}
+
+.coinLine{
+    position: absolute;
+    width: 11px;
+    height: 100px;
+    left: 1064px;
+    top: 655px;
+    
+    background: rgba(160, 174, 186, 0.6);
+    border: 1px solid #A0AEBA;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+
+
+/* 자판기 여는 문 */
+.machineDoor{
+    position: absolute;
+    width: 70px;
+    height: 181px;
+    left: 1210px;
+    top: 630px;
+    
+    background: rgba(234, 235, 236, 0.2);
+    border: 5px solid #EAEBEC;
+    box-sizing: border-box;
+}
+
+.machineDoorR{
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    left: 1223px;
+    top: 650px;
+    
+    border-radius: 50%;
+    background: rgba(255, 206, 67, 0.06);
+    border: 3px solid #000000;
+    box-sizing: border-box;
+}
+
+/* 쓰레기통 */
+.trashCan{
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    left: 1900px;
+    top: 820px;
+    /* background: #0381D7; */
+    /* border: 5px solid #0381D7; */
+}
+
+/* 쓰레기통 캔들 */
+.trash1{
+    position: absolute;
+    width: 36.43px;
+    height: 68.11px;
+    left: 1925px;
+    top: 798px;
+    /* top: 810px; */
+    
+    background: #F4E668;
+    border-radius: 20px;
+    transform: matrix(0.99, -0.35, 0.45, 0.99, 0, 0);
+    /* transform: matrix(0.87, 0.45, -0.51, 0.88, 0, 0); */
+}    
+    
+    /* Rectangle 260 */
+    
+.trash2{
+    position: absolute;
+    width: 37px;
+    height: 68px;
+    left: 1940px;
+    top: 800px;
+    
+    background: #0E3892;
+    border: 1px solid #0E3892;
+    box-sizing: border-box;
+    border-radius: 20px;
+    
+}    
+    /* Rectangle 254 */
+    
+.trash3{    
+    position: absolute;
+    width: 36.83px;
+    height: 68.58px;
+    left: 1941px;
+    top: 808.37px;
+    
+    background: #0381D7;
+    border: 1px solid #0381D7;
+    box-sizing: border-box;
+    border-radius: 20px;
+    transform: matrix(0.93, -0.33, 0.38, 0.94, 0, 0);
+}    
+    
+    /* Rectangle 255 */
+    
+.trash4{
+    position: absolute;
+    width: 37px;
+    height: 68.24px;
+    left: 1969px;
+    top: 790px;
+    
+    background: #75B7EC;
+    border: 1px solid #75B7EC;
+    box-sizing: border-box;
+    border-radius: 20px;
+    transform: matrix(0.97, 0.2, -0.23, 0.98, 0, 0);
+}    
+    
+    /* Rectangle 256 */
+    
+.trash5{    
+    position: absolute;
+    width: 36.79px;
+    height: 69.89px;
+    left: 1990px;
+    top: 800px;
+    
+    background: #D6195E;
+    border-radius: 20px;
+    transform: matrix(0.75, -0.61, 0.7, 0.76, 0, 0);
+}    
+    
+    /* Rectangle 257 */
+    
+.trash6{
+    position: absolute;
+    width: 36.61px;
+    height: 69.04px;
+    left: 2030px;
+    top: 805px;
+    
+    background: #ED89B5;
+    border-radius: 20px;
+    transform: matrix(0.87, 0.45, -0.51, 0.88, 0, 0);
+}    
+    
+    /* Rectangle 259 */
+    
+.trash7{    
+    position: absolute;
+    width: 37px;
+    height: 68px;
+    left: 2005px;
+    top: 785px;
+    
+    background: #C445D9;
+    border: 1px solid #C445D9;
+    box-sizing: border-box;
+    border-radius: 20px;   
+} 
+

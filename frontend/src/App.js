@@ -6,42 +6,31 @@ import Login from "./components/user/Login";
 import AppBar from "./components/layout/Navbar";
 import Home from "./components/layout/Home";
 
+import MyVideo from './components/user/MyVideo';
+import Bookmark from './components/user/Bookmark';
+import ChangeMode from './components/roomin/ChangeMode';
+import Controller from './components/remote/Controller';
+import MusicSearchbar from './components/remote/MusicSearchbar';
+import ChangeMode_modal from './components/roomin/ChangeMode_modal';
+import MainLobby2 from './routes/MainLobby2';
+import MypageMain from './routes/MyPage_Main';
+
 function App() {
   return (
     <div>
+
+      <BrowserRouter>
+          <Routes>
+            {/* <Route path="/" element={<MainLobby2/>}></Route> */}
+            <Route path="/" element={<MainLobby2/>}></Route>
+            <Route path="/Mypage" element={<MypageMain/>}></Route>
+          </Routes>
+      </BrowserRouter>
+
       <AppBar />
       <Login />
       <Home />
-      {/* <h1> WEBRCT TEST PAGE </h1>
-      <Video />
-      <div>
-        <Button text={"Cam"} />
-      </div>
-      <Video />
-      <div>
-        <Button text={"Cam"} />
-      </div>
-      <Video />
-      <div>
-        <Button text={"Cam"} />
-      </div>
-      <Video />
-      <div>
-        <Button text={"Cam"} />
-      </div>
 
-      <MainLobby /> */}
-
-      {/* <Router>
-          <Switch>
-            <Route path="/lobby">
-              <MainLobby />
-            </Route>
-            {/* <Route path="/">
-            </Route> */}
-
-      {/* </Switch>
-      </Router> */}
     </div>
   );
 }
