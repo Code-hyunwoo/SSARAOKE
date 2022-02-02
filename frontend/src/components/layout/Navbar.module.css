@@ -1,0 +1,48 @@
+.navbar {
+  background-color: transparent;
+  display: flex;
+  z-index: 5;
+  font-family: "surroundAir";
+}
+
+.left {
+  display: flex;
+  /* align-items: center; */
+  /* flex: none; */
+  margin: 10px 10px 8px;
+}
+
+.right {
+  display: flex;
+  /* flex-direction: row; */
+  margin-left: auto;
+  /* flex: none; */
+}
+
+.title {
+  color: #fff89a;
+  font-size: xx-large;
+  margin: auto 20px;
+  text-decoration: none;
+}
+
+.title:hover {
+  color: #f9b208;
+}
+
+.content {
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #fff89a;
+  font-size: large;
+  margin: auto 10px;
+}
+
+.content:hover {
+  color: #f9b208;
+}
+
+@font-face {
+  font-family: "surroundAir";
+  src: url(../../fonts/Cafe24SsurroundAir.ttf);
+}
