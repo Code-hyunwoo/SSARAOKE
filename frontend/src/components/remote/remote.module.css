@@ -1,0 +1,438 @@
+
+
+/* remote 배경 */
+.remotebg {
+    position: absolute;
+    width: 80%;
+    height: 780px;
+    
+    opacity: 0.9;
+    background: #F9B208;
+    border-radius: 30px;
+    left: 10%;
+    margin-top: 8%;
+    box-shadow: rgba(255, 255, 255, 0.35) 0px 10px 25px;
+    
+
+
+}
+
+/* remote 검색 페이지 배경 */
+/* .searchbg{
+    position: absolute;
+    width: 905px;
+    height: 400px;
+    left: 42px;
+    top: 30px;
+    
+    background: #4b4848cc;
+    border-radius: 60px;    
+} */
+
+.searchpage{
+    position: absolute;
+    /* width: 884px;
+    height: 379px;
+    left: 10px;
+    top: 10px; */
+    width: 90%;
+    height: 420px;
+    left: 5%;
+    top: 30%;
+    border: 10px solid #4b4848cc;
+    background: #E1E1DF;
+    border-radius: 50px;
+}
+
+/* 검색창 */
+.serachbar{
+    position: absolute;
+    width: 95%;
+    height: 14%;
+    left: 3%;
+    top: 3%;
+
+    background: #C4C4C4;
+    border-radius: 30px;
+    font-size: 1.6em;
+    /* font-family: 'Cafe24SsurroundAir'; */
+    font-family: 'Cafe24Ssurround';
+    /* font-family: 'ROKAFSansBold'; */
+}
+
+.serachbtn{
+    position: absolute;
+    width: 13%;
+    height: 12%;
+    left: 84%;
+    top: 4%;
+    border-radius: 30px;
+    /* font-family: 'Cafe24SsurroundAir'; */
+    /* font-family: 'Cafe24Ssurround'; */
+    font-family: 'ROKAFSansBold';
+    font-size: 1.3rem;
+
+}
+
+/* 검색 내용 나오는 창 */
+.searchcontent{
+    position: absolute;
+    width: 95%;
+    height: 76%;
+    left: 2.6%;
+    top: 21%;
+    font-family: 'ROKAFSansBold';
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 30px;
+    font-size: 1.2rem;
+}
+
+/* 좋아요 체크버튼 */
+.likebtn{
+    position: absolute;
+    width: 41px;
+    height: 37px;
+    left: 10px;
+    top: 10px;
+}
+
+/* 예약 삭제 버튼 체크버튼 */
+.bookdel{
+    position: absolute;
+    width: 36px;
+    height: 32px;
+    left: 1183px;
+    top: 268px;
+
+    border: 1px solid #626262;
+    box-sizing: border-box;
+}
+
+
+/* 리모콘 기능들 있는 부분 */
+.remotepage{
+    position: absolute;
+    /* width: 711.97px;
+    height: 249.78px;
+    left: 556.28px; */
+    width: 90%;
+    height: 250px;
+    left: 4.5%;
+    top: 450px;
+    font-family: 'ROKAFSansBold';
+    background: #4b4848cc;
+    border-radius: 60px;
+}
+
+/* 음성, 배경, 박수 등 기능 부분 */
+.effectpage{
+    position: absolute;
+    width: 95%;
+    height: 95px;
+    left: 3%;
+    top: 20px;
+    
+    background: #E1E1DF;
+    border-radius: 60px;
+}
+
+/* 간주점프 */
+.jump{
+    position: absolute;
+    width: 110px;
+    height: 65px;
+    
+    background: #FFCE43;
+    font-size: 20px;
+    border-radius: 30px;
+    font-family: 'ROKAFSansBold';
+}
+
+/* .tempoupbtn{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 60px;
+    top: -9px;
+    border-bottom: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-left: 15px solid #F9B208;
+    border-right: 20px solid transparent;
+    background: none;
+    transform: rotate(-90deg);
+
+    background: none;
+} */
+
+/* 템포 다운 */
+/* .tempodown{
+    position: absolute;
+    width: 96.55px;
+    height: 29.29px;
+    left: 599.09px;
+    top: 714.05px;
+
+    background: #F3E66D;
+    border-radius: 30px;
+} */
+
+/* .tempodownbtn{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 60px;
+    top: 14px;
+    
+    border-bottom: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-left: 15px solid #F9B208;
+    border-right: 20px solid transparent;
+    background: none;
+    transform: rotate(90deg); */
+
+    /* background: #F9B208; */
+    /* background: none;s */
+    /* background: #FFCE43; */
+    /* transform: rotate(-90deg); */
+    /* transform: matrix(-1, 0, 0, -1, 0, 0); */
+/* } */
+
+/* 에코 설정 */
+.echo{
+    position: absolute;
+    width: 15%;
+    height: 35%;
+    left: 19%;
+    top: 13%;
+
+    background: #FFCE43;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-family: 'ROKAFSansBold';
+}
+
+/* 음성변조 */
+.change{
+    position: absolute;
+    width: 15%;
+    height: 35%;
+    left: 19%;
+    top: 55%;
+
+    background: #FFCE43;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-family: 'ROKAFSansBold';
+}
+
+/* 조명  */
+.light{
+    position: absolute;
+    width: 12%;
+    height: 35%;
+    /* left: 50%; */
+    /* top: 677.44px; */
+
+    /* background: #C4C4C4; */
+    background: #FFF89A;
+    border-radius: 30px;
+    font-family: 'ROKAFSansBold';
+}
+
+.lightup{
+    position: absolute;
+    /* width: 0%; */
+    /* height: 50%; */
+    left: 60%;
+    top: -23%;
+    
+    border-bottom: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-left: 15px solid #F9B208;
+    border-right: 20px solid transparent;
+    background: none;
+    transform: rotate(-90deg);
+
+    /* background: #4B4848; */
+}
+
+.lightdown{
+    position: absolute;
+    /* width: 20px; */
+    /* height: 20px; */
+    left: 60%;
+    top: 50%;
+    
+    border-bottom: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-left: 15px solid #F9B208;
+    border-right: 20px solid transparent;
+    background: none;
+    transform: rotate(90deg);
+
+    /* background: #4B4848; */
+    /* transform: matrix(-1, 0, 0, -1, 0, 0); */
+}
+
+/* 필터, 배경 */
+.fgbtn{
+    position: absolute;
+    width: 12%;
+    height: 35%;
+    /* left: 918.56px;
+    top: 677.44px; */
+
+    /* background: #C4C4C4; */
+    background: #FFF89A;
+    border-radius: 30px;
+    font-family: 'ROKAFSansBold';
+}
+
+/* 박수,북,폭죽,좋아요 버튼*/
+.effectbtn{
+    position: absolute;
+    width: 8%;
+    height: 60%;
+    /* left: 1024px;
+    top: 10px; */
+    border-radius: 50%;
+}
+
+/* 북마크 목록 */
+.bookmarklist{
+    position: absolute;
+    width: 15%;
+    height: 45%;
+    left: 6%;
+    top: 50%;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    background: #E4D76A;
+    /* border: 2px solid #000000; */
+}
+
+/* 노래 취소 */
+.songdelete{
+    position: absolute;
+    width: 16%;
+    height: 20%;
+    left: 25%;
+    top: 75%;
+    
+    background: #ff4d4d;
+    border: 3px solid #ff0000;
+    box-sizing: border-box;
+    border-radius: 60px;
+    font-size: 1.3rem;
+    color: white;
+}
+
+/* 노래 시작 */
+.songstart{
+    position: absolute;
+    width: 16%;
+    height: 20%;
+    left: 25%;
+    top: 53%;
+    
+    background: #3f61fa;
+    border: 3px solid #002fff;
+    box-sizing: border-box;
+    border-radius: 60px;
+    font-size: 1.3rem;
+    color: white;
+}
+
+/* 녹화시작 */
+.recordstart{
+    position: absolute;
+    width: 16%;
+    height: 20%;
+    left: 43%;
+    top: 53%;
+    
+    background: #3f61fa;
+    border: 3px solid #002fff;
+    box-sizing: border-box;
+    border-radius: 60px;
+    font-size: 1.2rem;
+    color: white;
+}
+
+/* 녹화끝 */
+.recordend{
+    position: absolute;
+    width: 16%;
+    height: 20%;
+    left: 43%;
+    top: 75%;
+    
+    background: #ff4d4d;
+    border: 3px solid #ff0000;
+    box-sizing: border-box;
+    border-radius: 60px;
+    color: white;
+    font-size: 1.2rem;
+}
+
+
+/* 예약 목록 */
+.booklist{
+    position: absolute;
+    width: 18%;
+    height: 30%;
+    left: 61%;
+    top: 60%;
+    
+    background: rgba(243, 230, 109, 0.91);
+    border-radius: 60px;
+    font-size: 1.4rem;
+}
+
+/* 예약 삭제 */
+.bookdelete{
+    position: absolute;
+    width: 115.86px;
+    height: 48.82px;
+    left: 986.56px;
+    top: 837.72px;
+    
+    background: rgba(243, 230, 109, 0.91);
+    border-radius: 60px;
+}
+
+/* 예약 버튼 */
+.book{
+    position: absolute;
+    width: 15%;
+    height: 45%;
+    left: 81%;
+    top: 50%;
+    
+    border-radius: 50%;
+    background: #E4D76A;
+    font-size: 1.4rem;
+}
+
+
+/* 폰트 */
+@font-face {
+    font-family: 'ROKAFSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cafe24SsurroundAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+

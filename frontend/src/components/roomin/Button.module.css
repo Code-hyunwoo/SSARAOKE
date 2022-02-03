@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Oregano&display=swap');
+
+
+
+
+.ChangeModeBackground {
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -42%;
+    z-index: 5;
+  }
+  
+  .ChangeModeContainer {
+    width: 55%;
+    height: 60%;
+    border-radius: 12px;
+    background-color: black;
+    box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 25px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    z-index: 5;
+  }
+  
+  .ChangeModeContainer .title {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+    font-size: 110px;
+    font-weight: bold;
+    font-family: 'Oregano', cursive;
+  }
+  
+  
+  
+  .ChangeModeContainer .body {
+    flex: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+  }
+  
+  .ChangeModeContainer .footer {
+    flex: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+  #modeButton {
+    width: 25%;
+    height: 40%;
+    background-color: #fff89a;
+    font-family: 'Oregano', cursive;
+    font-size: 3.5rem;
+    font-weight: bold;
+    border-radius: 20px;
+  }
+
+  #modeLink {
+    text-decoration: none;
+    color: black;
+
+  }
+
+  #backButton {
+    width: 25%;
+    height: 60px;
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: 'Oregano', cursive;
+    background-color: black;
+    color: white;
+    border: none;
+  }
+
+
+  /* -----------------------------------------------unfolding */
+  .ChangeModeContainer {
+    animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+
+  .ChangeModeContainer .ChangeModeBackground {
+    transform: scale(0);
+    animation: zoomIn .5s .8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+  
+  .ChangeModeContainer.out {
+    transform: scale(1); 
+    animation: unfoldOut 1s .3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+
+  .ChangeModeContainer.out .ChangeModeBackground {
+    animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+
+/* Dimmed showing */
+  @keyframes unfoldIn { 
+    0% { 
+      transform: scaleX(0) scaleY(0.005); 
+    } 
+    50% { 
+    transform: scaleX(1) scaleY(0.005); 
+  } 
+  100% { 
+  transform: scaleY(1) scaleX(1); 
+} 
+}
+  /* Show modal content */ 
+  @keyframes zoomIn { 
+    from { 
+      transform: scale(0); 
+    } 
+    to { 
+      transform: scale(1); 
+    } 
+  } 
+  /* Hide modal content */
+  @keyframes zoomOut { 
+    from { 
+      transform: scale(1); 
+    } 
+    to { 
+      transform: scale(0); 
+    } 
+  } 
+  /* Dimmed hiding */ 
+  @keyframes unfoldOut { 
+    0% { 
+      transform: scale(1) 
+    } 
+    50% { 
+      transform: scaleX(1) scaleY(0.005); 
+    } 
+    100% { 
+      transform: scaleX(0) scaleY(0.005); 
+    } 
+  }

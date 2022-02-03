@@ -1,0 +1,106 @@
+.btn {
+  border: 2px solid #ffce43;
+  border-radius: 8px;
+  background-color: transparent;
+  padding: 12px 32px;
+  margin: 20px;
+  font-size: 1rem;
+  transition-duration: 0.4s;
+  font-family: "ROKA";
+  color: #ffce43;
+  /* z-index: 10; */
+}
+
+.btn:hover {
+  background-color: #ffce43;
+  color: white;
+}
+
+.main {
+  justify-content: center;
+  margin-top: 200;
+  color: #fff89a;
+  font-family: "yellowtail";
+  font-size: 6rem;
+  animation: flicker 2s infinite alternate;
+  display: inline;
+}
+
+@keyframes flicker {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #fff89a,
+      0 0 80px #fff89a, 0 0 90px #fff89a, 0 0 100px #fff89a, 0 0 150px #fff89a;
+  }
+
+  20%,
+  24%,
+  55% {
+    text-shadow: none;
+  }
+}
+
+.itembg {
+  height: 100vh;
+  margin-top: -78px;
+  background-image: url(../../assets/login-background6.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+  display: flex;
+  position: relative;
+  z-index: -100;
+  flex-direction: column;
+  /* -webkit-box-pack: center; /
+  justify-content: center;
+  / -webkit-box-align: center; */
+  align-items: center;
+  overflow: hidden;
+  justify-content: center;
+}
+
+@font-face {
+  font-family: "Oregano";
+  src: url("../../fonts/Oregano-Regular.ttf");
+}
+
+@font-face {
+  font-family: "neon";
+  src: url(../../fonts/mexcellent\ rg.otf), url(../../fonts/mexcellent\ rg.otf);
+}
+
+@font-face {
+  font-family: "ROKA";
+  src: url(../../fonts/ROKABold.ttf);
+}
+
+@font-face {
+  font-family: "surround";
+  src: url(../../fonts/Cafe24Ssurround.ttf);
+}
+
+@font-face {
+  font-family: "surroundAir";
+  src: url(../../fonts/Cafe24SsurroundAir.ttf);
+}
+
+@font-face {
+  font-family: "yellowtail";
+  src: url(../../fonts/Yellowtail-Regular.ttf);
+}
+
+@font-face {
+  font-family: "bi";
+  src: url(../../fonts/Aurach\ Bi.ttf);
+}
+
+@font-face {
+  font-family: "tri";
+  src: url(../../fonts/Aurach\ Tri.ttf);
+}

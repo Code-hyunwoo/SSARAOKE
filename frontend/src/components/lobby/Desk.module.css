@@ -1,0 +1,421 @@
+/* .modal-content 모달 외의 부분까지 다 적용 */
+.modalContent{
+    /* position: absolute;
+    width: 597px;
+    height: 678px;
+    left: 623px;
+    top: 225px; */
+    /* font-family: 'Cafe24SsurroundAir'; */
+    /* background: rgba(255, 206, 67, 0.9); */
+    background-color: rgba(0, 0, 0, 0);
+    /* border-radius: 15px; */
+}
+
+/* 방생성 모달 */
+.createroombg {
+    position: absolute;
+    width: 120%;
+    height: 550px;
+    left: -10%;
+    top: 60px;
+    
+    background: #ffcd43a8;
+    /* background: rgba(228, 83, 21, 0.61); */
+    border-radius: 2pc;
+}
+
+/* 노래방생성 */
+.createtitle{
+    position: absolute;
+    width: 35%;
+    height: 71.99px;
+    left: 35%;
+    top: 50px;
+
+    /* font-family: Oregano; */
+    font-style: normal;
+    font-weight: normal;
+    font-size: 250%;
+    /* font-size: 40px; */
+    /* line-height: 62px; */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    /* font-family: 'ROKAFSansBold'; */
+    font-family: 'Cafe24Ssurround';
+
+    color: #000000;
+}
+
+/* 방제목 */
+.roomtitle{
+    position: absolute;
+    width: 18%;
+    height: 60px;
+    left: 8%;
+    /* top: 80px; */
+    top: 260%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24Ssurround';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 150%;
+    /* line-height: 39px; */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+.titleinput{
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    left: 25%;
+    top: 95px;
+    
+    border-radius: 1pc;
+    border-color: #ffcd43a8;
+
+    font-family: 'Cafe24SsurroundAir';
+    background-color: #FFF89A ;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 110%;
+    /* line-height: 39px; */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    /* color: #F9B208; */
+}
+
+/* 방타입 */
+.roomtype{
+    position: absolute;
+    width: 18%;
+    height: 60px;
+    left: 8%;
+    top: 450%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24Ssurround';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 150%;
+    /* line-height: 39px; */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.typeB{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    left: 25%;
+    top: 500%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 130%;
+    /* line-height: 39px; */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.typeF{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    left: 55%;
+    top: 500%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 130%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.typeS{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    /* left: 55%; */
+    left: 25%;
+    top: 650%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 130%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.typeD{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    left: 55%;
+    /* left: 25%; */
+    top: 650%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 130%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+/* 태그 */
+.roomtag{
+    position: absolute;
+    width: 18%;
+    height: 60px;
+    left: 8%;
+    top: 790%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24Ssurround';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 150%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.tagB{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    /* left: 55%; */
+    left: 25%;
+    top: 840%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 130%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.tagH{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    /* left: 55%; */
+    left: 55%;
+    top: 840%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 130%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.tagT{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    /* left: 55%; */
+    left: 25%;
+    top: 980%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 130%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.tagP{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    /* left: 55%; */
+    left: 55%;
+    top: 980%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 130%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;  
+}
+
+/* 공개여부 */
+.roomFC{
+    position: absolute;
+    width: 20%;
+    height: 60px;
+    left: 8%;
+    top: 1090%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24Ssurround';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.roomFree{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    /* left: 55%; */
+    left: 29%;
+    top: 1140%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 130%;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.roomclose{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    /* left: 55%; */
+    left: 45%;
+    top: 1140%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 130%;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.roompw{
+    position: absolute;
+    width: 16%;
+    height: 100%;
+    left: 8%;
+    top: 0%;
+    
+    border-radius: 1pc;
+    border-color: #ffcd43a8;
+
+    font-family: 'Cafe24SsurroundAir';
+    background-color: #FFF89A ;
+
+    font-family: Oregano;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 100%;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000; 
+}
+
+/* .createbtn { */
+.btn {
+    position: absolute;
+    width: 13%;
+    height: 120%;
+    left: 45%;
+    top: 1400%;
+    font-family: 'Cafe24SsurroundAir';
+    background-color: rgba(132, 178, 248, 0.9);
+    /* color: rgba(132, 178, 248, 0.9); */
+    border-radius: 1pc;
+ 
+}
+
+/* 폰트 */
+@font-face {
+    font-family: 'ROKAFSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cafe24SsurroundAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

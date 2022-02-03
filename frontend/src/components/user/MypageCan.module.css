@@ -1,0 +1,156 @@
+/* 분홍 */
+.canPink{
+    position: absolute;
+    width: 9%;
+    height: 35%;
+    /* left: 50px; */
+    /* top: 20px; */
+    
+    box-sizing: border-box;
+    border-radius: 30%;   
+
+    background: rgba(237, 137, 180, 0.3);
+    border: 0.5pc solid #ed89b4;
+    box-shadow: 
+        0 0 .10rem #ED89B5, 
+        0 0 .10rem #ED89B5, 
+        0 0 .10rem #ED89B5, 
+        0 0 0.5rem #ED89B5, 
+        0 0 2.0rem #ED89B5, 
+        inset 0 0 0.5rem #ED89B5;
+}
+
+/* 노랑 */
+.canY{
+    position: absolute;
+    width: 9%;
+    height: 35%;
+    /* left: 225px; */
+    /* top: 20px; */
+    
+    box-sizing: border-box;
+    border-radius: 30%;   
+
+    background: rgba(244, 230, 104, 0.3);
+    border: 0.5pc solid #F4E668;
+    box-shadow: 
+        0 0 .10rem #F4E668, 
+        0 0 .10rem #F4E668, 
+        0 0 .10rem #F4E668, 
+        0 0 0.5rem #F4E668, 
+        0 0 2.0rem #F4E668, 
+        inset 0 0 0.5rem #F4E668;
+}
+
+/* 보라 */
+.canP{
+    position: absolute;
+    width: 9%;
+    height: 35%;
+    /* left: 400px; */
+    /* top: 20px; */
+    
+    box-sizing: border-box;
+    border-radius: 30%;   
+
+    
+    background: rgba(196, 69, 217, 0.3);
+    border: 0.5pc solid #C445D9;
+    box-shadow: 
+        0 0 .10rem #C445D9, 
+        0 0 .10rem #C445D9, 
+        0 0 .10rem #C445D9, 
+        0 0 0.5rem #C445D9, 
+        0 0 2.0rem #C445D9, 
+        inset 0 0 0.5rem #C445D9;
+}
+
+
+/* 파랑 */
+.canB{
+    position: absolute;
+    width: 9%;
+    height: 35%;
+    /* left: 575px; */
+    /* top: 20px; */
+    
+    box-sizing: border-box;
+    border-radius: 30%;   
+
+    
+   background: rgba(3, 129, 215, 0.3);
+   border: 0.5pc solid #0381D7;
+   box-shadow: 
+    0 0 .10rem #0381D7, 
+    0 0 .10rem #0381D7, 
+    0 0 .10rem #0381D7, 
+    0 0 0.5rem #0381D7, 
+    0 0 2.0rem #0381D7, 
+    inset 0 0 0.5rem #0381D7;
+}
+
+/* 빨강 */
+.canR{
+    position: absolute;
+    width: 9%;
+    height: 35%;
+    /* left: 750px; */
+    /* top: 20px; */
+    
+    box-sizing: border-box;
+    border-radius: 30%;   
+
+   background: rgba(214, 25, 94, 0.3);
+   border: 0.5pc solid #D6195E;
+   box-shadow: 
+    0 0 .10rem #D6195E, 
+    0 0 .10rem #D6195E, 
+    0 0 .10rem #D6195E, 
+    0 0 0.5rem #D6195E, 
+    0 0 2.0rem #D6195E, 
+    inset 0 0 0.5rem #D6195E;
+}
+
+/* 남색 */
+.canN{
+    position: absolute;
+    width: 9%;
+    height: 35%;
+    /* left: 925px; */
+    /* top: 20px; */
+    
+    box-sizing: border-box;
+    border-radius: 30%;   
+
+   background: rgba(14, 56, 146, 0.3);
+   border: 0.5pc solid #0E3892;
+   box-shadow: 
+    0 0 .10rem #0E3892, 
+    0 0 .10rem #0E3892, 
+    0 0 .10rem #0E3892, 
+    0 0 0.5rem #0E3892, 
+    0 0 2.0rem #0E3892, 
+    inset 0 0 0.5rem #0E3892;
+}
+
+/* 연파랑 */
+.canBB{
+    position: absolute;
+    width: 9%;
+    height: 35%;
+    /* left: 1100px; */
+    /* top: 20px; */
+    
+    box-sizing: border-box;
+    border-radius: 30%;   
+ 
+   background: rgba(117, 183, 236, 0.3);
+   border: 0.5pc solid #75B7EC;
+   box-shadow: 
+    0 0 .10rem #75B7EC,
+    0 0 .10rem #75B7EC, 
+    0 0 .10rem #75B7EC, 
+    0 0 0.5rem #75B7EC, 
+    0 0 2.0rem #75B7EC, 
+    inset 0 0 0.5rem #75B7EC;
+}
