@@ -1,5 +1,6 @@
 package com.ssafy.domain.tag.entity;
 
+import com.ssafy.domain.room.entity.RoomTag;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -14,6 +15,9 @@ public class Tag {
     @Id
     @Column(name = "tag_seq")
     private Long seq;
+
+    @Column(name = "tag_category")
+    private TagCategory category;
 
     @Column
     private String tag_name;

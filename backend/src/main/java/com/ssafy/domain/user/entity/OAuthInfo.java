@@ -27,13 +27,9 @@ public class OAuthInfo {
     private String refreshToken;
 
 
-    @Column
-    private String profilePath;
-
-    public void setOauthInfo(String oAuthSeq, OAuthType oAuthType, String profilePath){
+    public void setOauthInfo(String oAuthSeq, OAuthType oAuthType){
         this.oAuthSeq = oAuthSeq;
         this.oAuthType = oAuthType;
-        this.profilePath = profilePath;
     }
 
     public void setAccessToken(String accessToken){

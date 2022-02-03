@@ -23,9 +23,6 @@ public class Bookmark {
     @Column
     private int song_no;
 
-    @Column(columnDefinition = "varchar(10) default 'TJ'")
-    private String company;
-
     @Column(name = "song_title")
     private String title;
 

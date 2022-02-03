@@ -15,7 +15,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserVideoResponse {
-    private String title;
     private String url;
     private LocalDateTime date_created;
 
@@ -28,6 +27,6 @@ public class UserVideoResponse {
     }
 
     public static UserVideoResponse of(Video video){
-        return new UserVideoResponse(video.getTitle(), video.getUrl(), video.getDate_created());
+        return new UserVideoResponse(video.getUrl(), video.getDate_created());
     }
 }
