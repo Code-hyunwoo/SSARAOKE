@@ -30,9 +30,6 @@ function MainLobby() {
           </div>
         </div>
 
-        <button>
-          <Link to="/Mypage">Mypage</Link>
-        </button>
         <Desk />
       </div>
 
