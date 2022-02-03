@@ -20,9 +20,6 @@ public class RoomServiceImpl implements RoomService{
     @Transactional(readOnly = true)
     @Override
     public List<LobbyResponse> getLobby() {
-        List<Room> rooms = roomRepository.findRoomByIs_activeIsTrue();
-        List<LobbyResponse> response = new ArrayList<>();
-
-        return response;
+        return null;
     }
 }
