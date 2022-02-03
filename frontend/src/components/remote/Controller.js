@@ -7,14 +7,20 @@ import MusicSearchbar from "./MusicSearchbar";
 import MSearchResult from "./M_SearchResult";
 import Record from "./Record";
 import Styles from "./remote.module.css";
+import styles2 from "../roomin/Room.module.css"
+
 
 function Controller() {
     const [show, setShow] = useState(false);
     return (
         <div>
-            <Button onClick={() => setShow(true)}>
-                리모콘
-            </Button>
+            
+            <button className={styles2.btn, styles2.neon} 
+                onClick={()=> {
+                    setShow(true)
+                }}> 리모콘 </button>
+
+
 
             <Modal 
               show={show} 
@@ -25,7 +31,6 @@ function Controller() {
                 <div  className={Styles.remotebg} > 
                     <ModalHeader closeButton >
                         <Modal.Title>
-                            리모콘
                         </Modal.Title>
                     </ModalHeader>
                     <ModalBody>
@@ -50,14 +55,13 @@ function Controller() {
                                 <div>
                                     {/* 북마크 목록 */}
                                     <button className={Styles.bookmarklist}>BookMark</button>
-                                    <button className={Styles.songdelete}>취소</button>
                                     <button className={Styles.songstart}>시작</button>
+                                    <button className={Styles.songdelete}>취소</button>
                                     {/* 녹화 시작/중지 */}
                                     <Record />
                                     {/* 노래 예약, 삭제, 목록 */}
                                     <Book />
                                 </div>
-                            
                         </div>
                     </ModalBody>
                 </div>

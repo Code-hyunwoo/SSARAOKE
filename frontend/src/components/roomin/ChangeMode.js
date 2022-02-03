@@ -12,7 +12,7 @@ function ChangeMode ({closeChangeMode}){
                 <span>Select Mode</span>
             </div>
             <div className={styles.body}>
-                <button id={styles.modeButton}><Link to='/' id={styles.modeLink}> Basic </Link></button>
+                <button id={styles.modeButton}><Link to='/basic' id={styles.modeLink}> Basic </Link></button>
                 <button id={styles.modeButton}><Link to='/free' id={styles.modeLink}> Free </Link></button>
                 <button id={styles.modeButton}><Link to='/solo' id={styles.modeLink}> Solo </Link></button>
                 <button id={styles.modeButton}><Link to='/duet' id={styles.modeLink}> duet </Link></button>

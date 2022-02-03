@@ -58,8 +58,8 @@
     display: inline-block;
     font-size: 1.5rem;
     text-align: center;
-    width: 700px;
-    height: 60px;
+    width: 40%;
+    height: 130%;
     border-radius: 10px;
     font-family: 'ROKAFSansBold';
     color:#FFF89A;
@@ -77,8 +77,8 @@
     display: inline-block;
     font-size: 1.5rem;
     text-align: center;
-    width: 700px;
-    height: 60px;
+    width: 40%;
+    height: 5%;
     border-radius: 10px;
     margin-top: 70px;
     margin-left: 50px;
@@ -93,30 +93,30 @@
 
 
 #ScreenBasic {
-    width: 1100px !important;
-    height: 590px !important;
-    border-radius: 10px;
-    margin-top: 180px;
-    margin-left: 50px;
-    position: absolute;
+  width: 55% !important;
+  height: 60% !important;
+  border-radius: 10px;
+  margin-top: 11%;
+  margin-left: 4%;
+  position: absolute;
 }
 
 #ScreenFree {
-    width: 800px !important;
-    height: 400px !important;
-    border-radius: 10px;
-    position: relative;
-    top: 190px;
-    left: 565px;
+  width: 42% !important;
+  height: 42% !important;
+  border-radius: 10px;
+  position: absolute;
+  top: 24%;
+  left: 29.5%;
 }
 
 #ScreenSolo {
-    width: 650px !important;
-    height: 350px !important;
-    border-radius: 10px;
-    position: relative;
-    top: 195px;
-    left: 50px;
+  width: 35% !important;
+  height: 35% !important;
+  border-radius: 10px;
+  position: absolute;
+  top: 22%;
+  left: 3%;
 }
 
 
@@ -124,31 +124,31 @@
 
 
 #BasicNormalCam {
-    width: 300px;
-    height: 200px;
-    margin: 10px;
-    border-radius: 10px;
+  width: 45%;
+  height: 45%;
+  margin: 10px;
+  border-radius: 10px;
 }
 
 #FreeNormalCam {
-    width: 200px;
-    height: 150px;
-    margin: 10px;
-    border-radius: 10px;
+  width: 40%;
+  height: 50%;
+  margin: 10px;
+  border-radius: 10px;
 }
 
 #SoloNormalCam {
-    width: 200px;
-    height: 180px;
-    margin: 20px;
-    border-radius: 10px;
+  width: 14%;
+  height: 55%;
+  margin: 20px;
+  border-radius: 10px;
 }
 
 #DuetNormalCam {
-    width: 200px;
-    height: 150px;
-    margin: 10px;
-    border-radius: 10px;
+  width: 40%;
+  height: 50%;
+  margin: 10px;
+  border-radius: 10px;
 }
 
 
@@ -156,34 +156,34 @@
 /* ------------------------------------------- SingerCam */
 
 #SoloSingerCam {
-    position: absolute;
-    width: 475px;
-    height: 350px;
-    margin: 10px;
-    border-radius: 10px;
-    top: 185px;
-    left: 740px;
+  position: absolute;
+  width: 27%;
+  height: 35%;
+  margin: 10px;
+  border-radius: 10px;
+  top: 22%;
+  left: 39%;
 }
 
 
 #DuetSingerCam1 {
-    position: absolute;
-    width: 450px;
-    height: 350px;
-    margin: 10px;
-    border-radius: 100px;
-    top: 200px;
-    left: 50px;
+  position: absolute;
+  width: 20%;
+  height: 35%;
+  margin: 10px;
+  border-radius: 50px;
+  top: 25%;
+  left: 4%;
 }
 
 #DuetSingerCam2 {
-    position: absolute;
-    width: 450px;
-    height: 350px;
-    margin: 10px;
-    border-radius: 100px;
-    top: 200px;
-    right: 25px;
+  position: absolute;
+  width: 20%;
+  height: 35%;
+  margin: 10px;
+  border-radius: 50px;
+  top: 25%;
+  right: 4%;
 }
 
 
@@ -192,48 +192,47 @@
 
 
 .BasicCamBox {
-    position: relative;
-    width: 650px;
-    height: 450px;
-    top: 80px;
-    left: 1210px;
-    display: inline-block;
-    border-radius: 10px;
+  position: absolute;
+  width: 35%;
+  height: 47%;
+  top: 12%;
+  left: 63%;
+  display: inline-block;
+  border-radius: 10px;
 }
 
 .SoloCamBox {
-    position: absolute;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    width: 1600px;
-    height: 200px;
-    top: 560px;
-    left: 200px;
-    display: inline-block;
-    border-radius: 10px;
+  position: absolute;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  height: 35%;
+  top: 63%;
+  display: inline-block;
+  border-radius: 10px;
 }
 
 
 
 .DuetCamBox1 {
-    position: absolute;
-    width: 450px;
-    height: 300px;
-    top: 595px;
-    left: 60px;
-    display: inline-block;
-    border-radius: 10px;
+  position: absolute;
+  width: 25%;
+  height: 30%;
+  top: 68%;
+  left: 3.5%;
+  display: inline-block;
+  border-radius: 10px;
 }
 
 .DuetCamBox2 {
-    position: absolute;
-    width: 450px;
-    height: 300px;
-    top: 595px;
-    left: 1430px;
-    display: inline-block;
-    border-radius: 10px;
+  position: absolute;
+  width: 25%;
+  height: 30%;
+  top: 68%;
+  right: 0.5%;
+  display: inline-block;
+  border-radius: 10px;
 }
 
 
@@ -242,36 +241,36 @@
 
 
 .BasicChatBox {
-    background-color: transparent;
-    position: absolute;
-    width: 650px;
-    height: 200px;
-    top: 550px;
-    right: 60px;
-    display: inline-block;
-    border-radius: 10px;
+  background-color: transparent;
+  position: absolute;
+  width: 33%;
+  height: 21%;
+  top: 62%;
+  right: 3.5%;
+  display: inline-block;
+  border-radius: 10px;
 }
 
 .FreeChatBox {
-    background-color: transparent;
-    position: absolute;
-    width: 800px;
-    height: 150px;
-    top: 600px;
-    right: 550px;
-    display: inline-block;
-    border-radius: 10px;
+  background-color: transparent;
+  position: absolute;
+  width: 42%;
+  height: 17%;
+  top: 68%;
+  left: 29.5%;
+  display: inline-block;
+  border-radius: 10px;
 }
 
 .SoloChatBox {
-    background-color: transparent;
-    position: absolute;
-    width: 560px;
-    height: 320px;
-    top: 197px;
-    right: 70px;
-    display: inline-block;
-    border-radius: 10px;
+  background-color: transparent;
+  position: absolute;
+  width: 28%;
+  height: 34%;
+  top: 22%;
+  right: 3.6%;
+  display: inline-block;
+  border-radius: 10px;
 }
 
 
@@ -279,42 +278,42 @@
 /* ------------------------------------------- Chat */
 
 #BasicChat {
-    background-color: rgb(49, 53, 52);
-    color: white;
-    font-size: 2rem;
-    width: 645px;
-    height: 197px;
-    display: inline-block;
-    position: absolute;
-    border-radius: 15px;
-    border:none;
-    font-family: 'Cafe24SsurroundAir';
+  background-color: rgb(49, 53, 52);
+  color: white;
+  font-size: 1.5rem;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  position: absolute;
+  border-radius: 15px;
+  border:none;
+  font-family: 'Cafe24SsurroundAir';
 }
 
 #FreeChat {
-    background-color: rgb(49, 53, 52);
-    color: white;
-    font-size: 2rem;
-    width: 795px;
-    height: 150px;
-    display: inline-block;
-    position: absolute;
-    border-radius: 15px;
-    border:none;
-    font-family: 'Cafe24SsurroundAir';
+  background-color: rgb(49, 53, 52);
+  color: white;
+  font-size: 2rem;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  position: absolute;
+  border-radius: 15px;
+  border:none;
+  font-family: 'Cafe24SsurroundAir';
 }
 
 #SoloChat {
-    background-color: rgb(49, 53, 52);
-    color: white;
-    font-size: 2rem;
-    width: 555px;
-    height: 320px;
-    display: inline-block;
-    position: absolute;
-    border-radius: 15px;
-    border:none;
-    font-family: 'Cafe24SsurroundAir';
+  background-color: rgb(49, 53, 52);
+  color: white;
+  font-size: 2rem;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  position: absolute;
+  border-radius: 15px;
+  border:none;
+  font-family: 'Cafe24SsurroundAir';
 }
 
 
@@ -322,277 +321,279 @@
 /* ------------------------------------------- Button */
 
 .ButtonBox {
-    position: fixed;
-    bottom: 20px;
-    width: 1500px;
-    height: 130px;
-    margin-top: 20px;
-    margin-left: 193px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Cafe24Ssurround';
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  height: 10%;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cafe24Ssurround';
 }
 
 /* .btn {
-    color: white;
-    font-size: 2rem;
-    background-color: tomato;
-    width: 200px;
-    height: 70px;
-    margin: 0 20px;
-    border-radius: 15px;
+  color: white;
+  font-size: 2rem;
+  background-color: tomato;
+  width: 200px;
+  height: 70px;
+  margin: 0 20px;
+  border-radius: 15px;
 } */
 
 
 
 
 :root {
-    /* --clr-neon: hsl(317 100% 54%); */
-    --clr-neon: #F9B208;
+  /* --clr-neon: hsl(317 100% 54%); */
+  --clr-neon: #F9B208;
 
-    --clr-bg: hsl(323 21% 16%);
-  }
+  --clr-bg: hsl(323 21% 16%);
+}
 
-  .neon {
-    font-size: 2rem;
-    background-color: black;
-    display: inline-block;
-    cursor: pointer;
-    text-decoration: none;
-    color: var(--clr-neon);
-    border: var(--clr-neon) 0.125em solid;
-    padding: 0.25em 1em;
-    border-radius: 0.25em;
-  
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
-  
-    box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
-  
-    position: relative;
-    margin: 0 20px;
-  }
-  
-  .neon::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    box-shadow: 0 0 2em 0.5em var(--clr-neon);
-    opacity: 0;
-    background-color: var(--clr-neon);
-    z-index: -1;
-    transition: opacity 100ms linear;
-  }
-  
-  .neon:hover,
-  .neon:focus {
-    color: var(--clr-neon);
-    text-shadow: none;
-  }
-  
-  .neon:hover::before,
-  .neon:focus::before {
-    opacity: 1;
-  }
-  .neon:hover::after,
-  .neon:focus::after {
-    opacity: 1;
-  }
-  
+.neon {
+  font-size: 2rem;
+  background-color: black;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--clr-neon);
+  border: var(--clr-neon) 0.125em solid;
+  padding: 0.25em 1em;
+  border-radius: 0.25em;
+
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+
+  position: relative;
+  margin: 0 20px;
+}
+
+.neon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 2em 0.5em var(--clr-neon);
+  opacity: 0;
+  background-color: var(--clr-neon);
+  z-index: -1;
+  transition: opacity 100ms linear;
+}
+
+.neon:hover,
+.neon:focus {
+  color: var(--clr-neon);
+  text-shadow: none;
+}
+
+.neon:hover::before,
+.neon:focus::before {
+  opacity: 1;
+}
+.neon:hover::after,
+.neon:focus::after {
+  opacity: 1;
+}
+
 
 /* ------------------------------------------- MirrorBall */
 
-  #MirrorBall {
-    display: flex;
-    position: fixed;
-    /* justify-content: center; */
-    /* align-items: center; */
-    min-height: 100vh;
-    transform-style: preserve-3d;
-    top: 8%;
-    left: 50%;
-  }
+#MirrorBall {
+  display: flex;
+  position: fixed;
+  /* justify-content: center; */
+  /* align-items: center; */
+  min-height: 100vh;
+  transform-style: preserve-3d;
+  top: 8%;
+  left: 50%;
+}
 
-  .disco {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    width: 130px;
-    height: 130px;
-    background: url(https://previews.123rf.com/images/pauljune/pauljune1312/pauljune131200121/24680710-patr%C3%B3n-de-rejilla-de-arco-iris-transparente.jpg);
-    background-size: cover;
-    background-repeat: repeat-x;
-    border-radius: 50%;
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 1),
-    0 0 50px #acacaa;
-    animation: animateDisco 5s linear infinite;
-  }
-  
-  @keyframes animateDisco
+.disco {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 130px;
+  height: 130px;
+  background: url(https://previews.123rf.com/images/pauljune/pauljune1312/pauljune131200121/24680710-patr%C3%B3n-de-rejilla-de-arco-iris-transparente.jpg);
+  background-size: cover;
+  background-repeat: repeat-x;
+  border-radius: 50%;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 1),
+  0 0 50px #acacaa;
+  animation: animateDisco 5s linear infinite;
+}
+
+@keyframes animateDisco
+{
+  0%
   {
-    0%
-    {
-      background-position: 0 0;
-    }
-    100%
-    {
-      background-position: 1300px 0;
-    }
+    background-position: 0 0;
   }
-  
+  100%
+  {
+    background-position: 1300px 0;
+  }
+}
+
 
 
 /* ------------------------------------------- Lightrope */
 .lightrope {
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    position: absolute;
-    z-index: 1;
-    margin: -15px 0 0 0;
-    padding: 0;
-    pointer-events: none;
-    width: 100%;
-  }
-  .lightrope li {
-    position: relative;
-    -webkit-animation-fill-mode: both;
-            animation-fill-mode: both;
-    -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: block;
-    width: 12px;
-    height: 28px;
-    border-radius: 50%;
-    margin: 20px;
-    display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  margin: -15px 0 0 0;
+  padding: 0;
+  pointer-events: none;
+  width: 100%;
+}
+.lightrope li {
+  position: relative;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 12px;
+  height: 28px;
+  border-radius: 50%;
+  margin: 20px;
+  display: inline-block;
+  background: #FFF89A;
+  box-shadow: 0px 4.6666666667px 24px 3px #FFF89A;
+  -webkit-animation-name: flash-1;
+          animation-name: flash-1;
+  -webkit-animation-duration: 1.2s;
+          animation-duration: 1.2s;
+}
+.lightrope li:nth-child(2n+1) {
+  background: #00f7a5;
+  box-shadow: 0px 4.6666666667px 24px 3px rgba(0, 247, 165, 0.4);
+  -webkit-animation-name: flash-2;
+          animation-name: flash-2;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
+}
+.lightrope li:nth-child(4n+2) {
+  background: #f70094;
+  box-shadow: 0px 4.6666666667px 24px 3px #f70094;
+  -webkit-animation-name: flash-3;
+          animation-name: flash-3;
+  -webkit-animation-duration: 1.1s;
+          animation-duration: 1.1s;
+}
+.lightrope li:nth-child(odd) {
+  -webkit-animation-duration: 1.8s;
+          animation-duration: 1.8s;
+}
+.lightrope li:nth-child(3n+1) {
+  -webkit-animation-duration: 1.4s;
+          animation-duration: 1.4s;
+}
+.lightrope li:before {
+  content: "";
+  position: absolute;
+  background: #222;
+  width: 10px;
+  height: 9.3333333333px;
+  border-radius: 3px;
+  top: -4.6666666667px;
+  left: 1px;
+}
+.lightrope li:after {
+  content: "";
+  top: -14px;
+  left: 9px;
+  position: absolute;
+  width: 52px;
+  height: 18.6666666667px;
+  border-bottom: solid #222 2px;
+  border-radius: 50%;
+}
+.lightrope li:last-child:after {
+  content: none;
+}
+.lightrope li:first-child {
+  margin-left: -40px;
+}
+
+@-webkit-keyframes flash-1 {
+  0%, 100% {
     background: #FFF89A;
     box-shadow: 0px 4.6666666667px 24px 3px #FFF89A;
-    -webkit-animation-name: flash-1;
-            animation-name: flash-1;
-    -webkit-animation-duration: 1.2s;
-            animation-duration: 1.2s;
   }
-  .lightrope li:nth-child(2n+1) {
+  50% {
+    background: #926c02;
+    box-shadow: 0px 4.6666666667px 24px 3px #926c02;
+  }
+}
+
+@keyframes flash-1 {
+  0%, 100% {
+    background: #FFF89A;
+    box-shadow: 0px 4.6666666667px 24px 3px #FFF89A;
+  }
+  50% {
+    background: #926c02;
+    box-shadow: 0px 4.6666666667px 24px 3px #926c02;
+  }
+}
+@-webkit-keyframes flash-2 {
+  0%, 100% {
     background: #00f7a5;
-    box-shadow: 0px 4.6666666667px 24px 3px rgba(0, 247, 165, 0.4);
-    -webkit-animation-name: flash-2;
-            animation-name: flash-2;
-    -webkit-animation-duration: 0.4s;
-            animation-duration: 0.4s;
+    box-shadow: 0px 4.6666666667px 24px 3px #00f7a5;
   }
-  .lightrope li:nth-child(4n+2) {
+  50% {
+    background: rgba(0, 247, 165, 0.4);
+    box-shadow: 0px 4.6666666667px 24px 3px rgba(0, 247, 165, 0.4);
+  }
+}
+@keyframes flash-2 {
+  0%, 100% {
+    background: #00f7a5;
+    box-shadow: 0px 4.6666666667px 24px 3px #00f7a5;
+  }
+  50% {
+    background: rgba(0, 247, 165, 0.4);
+    box-shadow: 0px 4.6666666667px 24px 3px rgba(0, 247, 165, 0.4);
+  }
+}
+@-webkit-keyframes flash-3 {
+  0%, 100% {
     background: #f70094;
     box-shadow: 0px 4.6666666667px 24px 3px #f70094;
-    -webkit-animation-name: flash-3;
-            animation-name: flash-3;
-    -webkit-animation-duration: 1.1s;
-            animation-duration: 1.1s;
   }
-  .lightrope li:nth-child(odd) {
-    -webkit-animation-duration: 1.8s;
-            animation-duration: 1.8s;
+  50% {
+    background: rgba(247, 0, 148, 0.4);
+    box-shadow: 0px 4.6666666667px 24px 3px rgba(247, 0, 148, 0.2);
   }
-  .lightrope li:nth-child(3n+1) {
-    -webkit-animation-duration: 1.4s;
-            animation-duration: 1.4s;
+}
+@keyframes flash-3 {
+  0%, 100% {
+    background: #f70094;
+    box-shadow: 0px 4.6666666667px 24px 3px #f70094;
   }
-  .lightrope li:before {
-    content: "";
-    position: absolute;
-    background: #222;
-    width: 10px;
-    height: 9.3333333333px;
-    border-radius: 3px;
-    top: -4.6666666667px;
-    left: 1px;
+  50% {
+    background: rgba(255, 0, 255, 0.4);
+    box-shadow: 0px 4.6666666667px 24px 3px rgba(255, 0, 255, 0.4);;
   }
-  .lightrope li:after {
-    content: "";
-    top: -14px;
-    left: 9px;
-    position: absolute;
-    width: 52px;
-    height: 18.6666666667px;
-    border-bottom: solid #222 2px;
-    border-radius: 50%;
-  }
-  .lightrope li:last-child:after {
-    content: none;
-  }
-  .lightrope li:first-child {
-    margin-left: -40px;
-  }
-  
-  @-webkit-keyframes flash-1 {
-    0%, 100% {
-      background: #FFF89A;
-      box-shadow: 0px 4.6666666667px 24px 3px #FFF89A;
-    }
-    50% {
-      background: #926c02;
-      box-shadow: 0px 4.6666666667px 24px 3px #926c02;
-    }
-  }
-  
-  @keyframes flash-1 {
-    0%, 100% {
-      background: #FFF89A;
-      box-shadow: 0px 4.6666666667px 24px 3px #FFF89A;
-    }
-    50% {
-      background: #926c02;
-      box-shadow: 0px 4.6666666667px 24px 3px #926c02;
-    }
-  }
-  @-webkit-keyframes flash-2 {
-    0%, 100% {
-      background: #00f7a5;
-      box-shadow: 0px 4.6666666667px 24px 3px #00f7a5;
-    }
-    50% {
-      background: rgba(0, 247, 165, 0.4);
-      box-shadow: 0px 4.6666666667px 24px 3px rgba(0, 247, 165, 0.4);
-    }
-  }
-  @keyframes flash-2 {
-    0%, 100% {
-      background: #00f7a5;
-      box-shadow: 0px 4.6666666667px 24px 3px #00f7a5;
-    }
-    50% {
-      background: rgba(0, 247, 165, 0.4);
-      box-shadow: 0px 4.6666666667px 24px 3px rgba(0, 247, 165, 0.4);
-    }
-  }
-  @-webkit-keyframes flash-3 {
-    0%, 100% {
-      background: #f70094;
-      box-shadow: 0px 4.6666666667px 24px 3px #f70094;
-    }
-    50% {
-      background: rgba(247, 0, 148, 0.4);
-      box-shadow: 0px 4.6666666667px 24px 3px rgba(247, 0, 148, 0.2);
-    }
-  }
-  @keyframes flash-3 {
-    0%, 100% {
-      background: #f70094;
-      box-shadow: 0px 4.6666666667px 24px 3px #f70094;
-    }
-    50% {
-      background: rgba(255, 0, 255, 0.4);
-      box-shadow: 0px 4.6666666667px 24px 3px rgba(255, 0, 255, 0.4);;
-    }
-  }
+}
 
 
-
+#btn_no {
+  text-decoration: none;
+  color: #F9B208
+}
 
 
 /* ------------------------------------------- Crazylights */
@@ -617,7 +618,7 @@
   height: 600px;
   margin: -150px;
   transform-origin: right;
-  animation: colorChange 5s linear infinite;
+  animation: colorChange 9s linear infinite;
   z-index: -2;
   display: flex;
   justify-content: center;
@@ -712,7 +713,7 @@
 
 
 .glowing span:nth-child(3n + 1){
-  animation: animate 3s alternate infinite;
+  animation: animate 4s alternate infinite;
 }
 .glowing span:nth-child(3n + 2){
   animation: animate-reverse 5s alternate infinite;
