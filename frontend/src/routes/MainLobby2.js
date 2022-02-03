@@ -31,7 +31,7 @@ function MainLobby() {
         </div>
 
         <button>
-          <Link to="/Mypage">Mypage</Link>
+          <Link to="/mypage">Mypage</Link>
         </button>
         <Desk />
       </div>
