@@ -1,6 +1,8 @@
 .navbar {
   background-color: transparent;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   z-index: 5;
   font-family: "surroundAir";
 }
@@ -9,13 +11,13 @@
   display: flex;
   /* align-items: center; */
   /* flex: none; */
-  margin: 10px 10px 8px;
+  /* margin: 10px 10px 8px; */
 }
 
 .right {
   display: flex;
+  /* margin-left: auto; */
   /* flex-direction: row; */
-  margin-left: auto;
   /* flex: none; */
 }
 

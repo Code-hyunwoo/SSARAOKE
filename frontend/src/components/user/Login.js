@@ -1,5 +1,6 @@
 import styles from "./Login.module.css";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const { Kakao } = window;
 
@@ -15,10 +16,15 @@ function Login() {
     });
   };
   return (
-    <div className={styles.itembg}>
-      <h2 className={styles.main}>Welcome SSARAOKE</h2>
-      <button className={styles.btn} onClick={LoginWithKakao}>
-        Kakao Login
+    <div>
+      <div className={styles.itembg}>
+        <h2 className={styles.main}>Welcome SSARAOKE</h2>
+        <button className={styles.btn} onClick={LoginWithKakao}>
+          Kakao Login
+        </button>
+      </div>
+      <button>
+        <Link to="/mainlobby">KAKAO LOGIN</Link>
       </button>
     </div>
   );
