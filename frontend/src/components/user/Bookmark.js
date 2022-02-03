@@ -10,16 +10,17 @@ function Bookmark(props) {
                 size="xl"
                 // aria-labelledby="contained-modal-title-vcenter"
                 // centered
+                // scrollable
             >
-                <div className={Styles.createroombg}>
+                <div className={Styles.createroombg} >
                     <Modal.Header closeButton >
                         {/* <Modal.Title id="contained-modal-title-vcenter" > */}
-                        <div className={Styles.Sh1}>Bookmark</div>
+                        <div className={Styles.Sh1} >Bookmark</div>
                         {/* </Modal.Title> */}
                     </Modal.Header>
-                    <Modal.Body>
+                    <Modal.Body scrollable>
                     <div className={Styles.table}>
-                        <Table>
+                        <Table >
                             <thead className={Styles.tablehead}>
                                 <tr>
                                     <th>#</th>

@@ -1,13 +1,14 @@
 /* CreateRoom */
 .btn {
     position: absolute;
-    top: 30px;
-    left: 1850px;
-    width: 370px;
-    height: 100px;
-    border: 3px solid #FFCE43;
+    top: 5%;
+    right: 6%;
+    width: 15%;
+    height: 10%;
+    border: 3% solid #FFCE43;
     background-color: #F9B208;
-    border-radius: 20px;
+    border-radius: 20pc;
+    font-size: 200%;
 
     font-family: 'Cafe24SsurroundAir';
 }
@@ -15,90 +16,91 @@
 /* 자판기 바깥배경 */
 .machine {
     position: absolute;
-    width: 337px;
-    height: 88px;
-    left: 110px;
-    top: 44px;
+    width: 13%;
+    height: 7.5%;
+    left: 7%;
+    top: 6%;
 
+    display: flex;
     background: #FFCE43;
 }
 
 /* 자판기 내부 배경 */
 .machine2 {
     position: absolute;
-    width: 289px;
-    height: 68px;
-    left: 26px;
-    top:19px;
-    
+    width: 90%;
+    height: 80%;
+    left: 5%;
+    top: 20%;
+    display: flex;
     background: #ABD7FA;
 }
 
 /* 자판기 캔들 */
 .can {
     position: absolute;
-    width: 34px;
-    height: 51px;
-    left: 28px;
-    top: 15px;
-    
+    width: 13%;
+    height: 95%;
+    left: 5%;
+    top: 9.5%;
+    display: flex;
     background: #ED89B5;
-    border-radius: 10px;
+    border-radius: 10pc;
 }
 
 .can2 {
     position: absolute;
-    width: 33px;
-    height: 51px;
-    left: 72px;
-    top: 15px;
-
+    width: 13%;
+    height: 95%;
+    left: 20%;
+    top: 9.5%;
+    display: flex;
     background: #F4E668;
-    border-radius: 10px;
+    border-radius: 10pc;
 }
 
 .can3 {
     position: absolute;
-    width: 33px;
-    height: 51px;
-    left: 114px;
-    top: 15px;
-    
+    width: 13%;
+    height: 95%;
+    left: 35%;
+    top: 9.5%;
+    display: flex;
     background: #C445D9;
-    border-radius: 10px;
+    border-radius: 10pc;
 }
 
 .can4 {
     position: absolute;
-    width: 33px;
-    height: 51px;
-    left: 155px;
-    top: 15px;
-    
+    width: 13%;
+    height: 95%;
+    left: 50%;
+    top: 9.5%;
+    display: flex;
     background: #0381D7;
-    border-radius: 10px;
+    border-radius: 10pc;
 }
 
 .can5 {
     position: absolute;
-    width: 33px;
-    height: 51px;
-    left: 195px;
-    top: 15px;
-    
+    width: 13%;
+    height: 95%;
+    left: 65%;
+    top: 9.5%;
+    display: flex;
     background: #D6195E;
-    border-radius: 10px;
+    border-radius: 10pc;
 }
 
 .can6 {
     position: absolute;
-    width: 33px;
-    height: 51px;
-    left: 235px;
-    top: 15px;
-    
+    width: 13%;
+    height: 95%;
+    left: 80%;
+    top: 9.5%;
+    display: flex;
     background: #0E3892;
-    border-radius: 10px;
+    border-radius: 10pc;
 }
 
 
@@ -110,13 +112,13 @@
     box-sizing: border-box; */
 
     position: absolute;
-    width: 339px;
-    height: 355px;
+    width: 20%;
+    height: 50%;
 
     background: rgba(156, 196, 255, 0.4);
-    border: 5px solid #FFCE43;
+    border: 5% solid #FFCE43;
     box-sizing: border-box;
-    position: absolute;
+    display: flex;
     /* border: none; */
 }
 
@@ -124,49 +126,113 @@
 
 .video {
     position: absolute;
-    width: 260px;
-    height: 170px;
+    width: 80%;
+    height: 40%;
+    left: 10%;
+    top: 5%;
+
+    display: flex;
 }
 
 .roomtitle {
     position: absolute;
-    width: 287px;
-    height: 32px;
+    width: 90%;
+    height: 9%;
+    left: 5%;
+    top: 48%;
     background: rgba(156, 196, 255, 0.8);
-    border-radius: 5px;
+    border-radius: 5pc;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 90%;
+    /* line-height: 62px; */
+    /* display: flex; */
+    align-items: center;
+    text-align: center;
+    font-family: 'Cafe24Ssurround';
+
+    color: #000000;
 }
 
 .roomuser {
     position: absolute;
-    width: 209px;
-    height: 28px;
+    width: 60%;
+    height: 9%;
+    left: 5%;
+    top: 61%;
     
     background: rgba(156, 196, 255, 0.8);
-    border-radius: 5px;
+    border-radius: 5pc;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 90%;
+    /* line-height: 62px; */
+    /* display: flex; */
+    align-items: center;
+    text-align: center;
+    font-family: 'Cafe24Ssurround';
+
+    color: #000000;
 }
 
 .roomfull {
     position: absolute;
-    width: 69px;
-    height: 28px;
+    width: 28%;
+    height: 9%;
+    left: 67%;
+    top: 61%;
+
     background: rgba(156, 196, 255, 0.8);
-    border-radius: 5px;
+    border-radius: 5pc;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 90%;
+    /* line-height: 62px; */
+    /* display: flex; */
+    align-items: center;
+    text-align: center;
+    font-family: 'Cafe24Ssurround';
+
+    color: #000000;
+}
+
+.tag{
+    position: absolute;
+    /* width: 90%;
+    height: 9%; */
+    width: 100%;
+    height:100%;
+    /* left: 5%; */
+    left: 0%;
+    top: 73%;
+
+    text-align: center;
+    font-family: 'Oregano', cursive;
+    font-size: 1.1pc;
+    /* font-weight: bold; */
+    color: white;
+
+    /* background: rgba(156, 196, 255, 0.8); */
+    border-radius: 5pc;
 }
 
 /* join 버튼 */
 .joinbtn{
     position: absolute;
-    width: 189px;
-    height: 52px;
-    left: 80px;
-    top: 310px;
+    width: 70%;
+    height: 14%;
+    left: 15%;
+    top: 85%;
 
     background: #8AE1FD;
-    border-radius: 30px;
+    border-radius: 30pc;
     /* font-family: 'Cafe24SsurroundAir'; */
     font-weight: bold;
     font-family: 'Oregano', cursive;
-    font-size: 25px;
+    font-size: 110%;
     /* font-family: 'Cafe24SsurroundAir'; */
     /* src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff'); */
     /* font-weight: normal; */
@@ -184,44 +250,44 @@
 /* 위 왼쪽 방 */
 .doorL {
     position: absolute;
-    width: 360px;
-    height: 400px;
-    left: 100px;
-    top: 220px;
+    width: 15%;
+    height: 38%;
+    left: 6%;
+    top: 20%;
 
     background: rgba(156, 196, 255, 0.4);
-    border: 5px solid #FFCE43;
+    border: 0.3pc solid #FFCE43;
     box-sizing: border-box;
-    position: absolute;
 }
 
 /* 위 오른쪽 방 */
 .doorR {
     position: absolute;
-    /* width: 339px;
-    height: 355px; */
-    width: 360px;
+    /* width: 360px;
     height: 400px;
     left: 1850px;
-    /* top: 264px; */
-    top: 224px;
+    top: 224px; */
+    width: 15%;
+    height: 38%;
+    /* left: 79%; */
+    right: 6%;
+    top: 20%;
 
     background: rgba(156, 196, 255, 0.4);
-    border: 5px solid #FFCE43;
+    border: 0.3pc solid #FFCE43;
     box-sizing: border-box;
 }
 
 /* 아래 왼쪽 방 */
 .doorLD {
     position: absolute;
-    /* width: 339px;
-    height: 355px; */
-    width: 360px;
-    height: 400px;
-    /* left: 100px;
-    top: 620px; */
+    width: 15%;
+    height: 38%;
+    left: 6%;
+    top: 58%;
+
     background: rgba(156, 196, 255, 0.4);
-    border: 5px solid #FFCE43;
+    border: 0.3pc solid #FFCE43;
     box-sizing: border-box;
 }
 
@@ -229,62 +295,56 @@
 /* 가운데 방 왼쪽 */
 .doorML {
     position: absolute;
-    /* width: 339px;
-    height: 355px; */
-    width: 360px;
-    height: 400px;
-    /* left: 839px;
-    top: 624px; */
+    width: 15%;
+    height: 38%;
+    left: 36%;
+    top: 58%;
 
     background: rgba(156, 196, 255, 0.4);
-    border: 5px solid #FFCE43;
+    border: 0.3pc solid #FFCE43;
     box-sizing: border-box;
 }
 
 /* 가운데 방 오른쪽 */
 .doorMR {
     position: absolute;
-    /* width: 339px;
-    height: 355px; */
-    width: 360px;
-    height: 400px;
-    /* left: 1200px;
-    top: 624px; */
+    width: 15%;
+    height: 38%;
+    left: 50.8%;
+    top: 58%;
 
     background: rgba(156, 196, 255, 0.4);
-    border: 5px solid #FFCE43;
+    border: 0.3pc solid #FFCE43;
     box-sizing: border-box;
 }
 
 /* 아래 오른쪽 방 */
 .doorRD {
     position: absolute;
-    /* width: 339px;
-    height: 355px; */
-    width: 360px;
-    height: 400px;
-    /* left: 1491px; */
-    /* left: 1850px;
-    top: 624px; */
+    width: 15%;
+    height: 38%;
+    /* left: 50.8%; */
+    right: 6%;
+    top: 58%;
     
     background: rgba(156, 196, 255, 0.4);
-    border: 5px solid #FFCE43;
+    border: 0.3pc solid #FFCE43;
     box-sizing: border-box;
 }
 
 /* ---------------가운데 채팅창----------------- */
 .chat {
     position: absolute;
-    width: 720px;
+    width: 30%;
     /* height: 420px; */
-    height: 500px;
-    left: 800px;
-    top: 100px;
+    height: 40%;
+    left: 36%;
+    top: 14%;
     
     background: #FFFFFF;
-    border: 5px solid #FFCE43;
+    border: 0.3pc solid #FFCE43;
     box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 2pc;
 
     box-shadow: 
         0 0 .1rem #fff, 
@@ -306,7 +366,7 @@
     /* border: 5px solid #FFCE43; */
     border: none;
     box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 2pc;
 
 }
 

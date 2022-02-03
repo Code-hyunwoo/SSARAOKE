@@ -21,7 +21,7 @@ import Styles from "./Lobby.module.css"
 import Dstyles from "./Desk.module.css"
 import { render } from "@testing-library/react";
 import { useState } from "react";
-import { Button, Modal, Ratio } from "react-bootstrap";
+import { Button, Modal, ModalDialog, Ratio } from "react-bootstrap";
 
 function Desk() {
     const [show, setShow] = useState(false);
@@ -33,14 +33,14 @@ function Desk() {
     return (
       <>
         <button className={Styles.btn} variant="secondary" onClick={handleShow}>
-          <h2>방 생성</h2>
+          방 생성
         </button>
   
         <Modal
           show={show}
           onHide={handleClose}
           // backdrop="static"
-          keyboard={false}
+          // keyboard={false}
           // className={Dstyles.modalContent} //화면 전체 노랑
         >
           {/* 모달창만 해당하는 부분 */}
@@ -144,24 +144,24 @@ function Desk() {
                     value="close" 
                     style={{width:"20px", height:"20px" }} 
                     /> &nbsp;비공개 
-                </div>
-                <div >
                   <input 
                     type="password" 
                     name="roompw" 
                     placeholder="password" 
                     className={Dstyles.roompw}
                   />
+                {/* </div>
+                <div > */}
                 </div>
               </div>
+              <div>
+              <button className={Dstyles.btn} >만들기</button>
+              </div>
+            </Modal.Body>
+            {/* <Modal.Footer > */}
               {/* <div>
               <Button className={Dstyles.btn} >만들기</Button>
               </div> */}
-            </Modal.Body>
-            {/* <Modal.Footer > */}
-              <div>
-              <Button className={Dstyles.btn} >만들기</Button>
-              </div>
             {/* </Modal.Footer> */}
           </div>
         </Modal>

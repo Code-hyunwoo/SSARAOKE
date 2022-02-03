@@ -5,15 +5,15 @@
     position: absolute;
     /* width: 129.08px;
     height: 134.5px; */
-    width: 0px;
+    width: 0%;
     height: 0px;
-    left: 10px;
-    top: 890px;
+    left: -1%;
+    top: 85%;
 
-    border-bottom: 50px solid transparent;
-    border-top: 50px solid transparent;
-    border-left: 80px solid #FFCE43;
-    border-right: 80px solid transparent;
+    border-bottom: 2em solid transparent;
+    border-top: 2em solid transparent;
+    border-left: 3.5em solid #FFCE43;
+    border-right: 3.5em solid transparent;
 
     background: none;
     transform: rotate(180deg);
@@ -22,38 +22,38 @@
 /* 자판기 큰틀 */
 .machineOutline{
 position: absolute;
-width: 1390px;
-height: 870px;
-left: 310px;
-top: 114px;
+width: 68%;
+height: 85%;
+left: 10%;
+top: 7%;
 
 background: rgba(255, 206, 67, 0.2);
-border: 10px solid #FFFFFF;
+border: 0.5pc solid #FFFFFF;
 box-sizing: border-box;
 
 /* border: 0.2rem solid #fff;  */
-border-radius: 2rem; 
+border-radius: 1rem; 
 padding: 0.4em; 
 box-shadow: 
-    0 0 .2rem #fff, 
-    0 0 .2rem #fff, 
-    0 0 2rem #fff, 
-    0 0 0.8rem #FFFFFF, 
-    0 0 2.8rem #FFFFFF, 
-    inset 0 0 1.3rem #FFFFFF;
+    0 0 .15rem #fff, 
+    0 0 .15rem #fff, 
+    0 0 1rem #fff, 
+    0 0 0.4rem #FFFFFF, 
+    0 0 1.8rem #FFFFFF, 
+    inset 0 0 1.1rem #FFFFFF;
 /* box-shadow: 0 0 .2rem #fff, 0 0 .2rem #fff, 0 0 2rem #bc13fe, 0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe; */
 }
 
 /* 자판기 음료칸 */
 .machineInline{
     position: absolute;
-    width: 1310px;
-    height: 580px;
-    left: 30px;
-    top: 20px;
+    width: 95%;
+    height: 65%;
+    left: 2.5%;
+    top: 3%;
     
     background: rgba(171, 215, 250, 0.4);
-    border: 10px solid #FFFFFF;
+    border: 0.5pc solid #FFFFFF;
     box-sizing: border-box;
     border-radius: 30px;
     box-shadow: 
@@ -71,12 +71,15 @@ box-shadow:
 /* 음료칸 바 */
 .canBar{
     position: absolute;
-    width: 1290px;
-    height: 38px;
-    left: 0px;
+    width: 100%;
+    height: 7%;
+    left: 0%;
     /* top: 230px; */
     border-radius: 10%;
     font-weight: bold;
+    text-align: center;
+    align-items: center;
+    font-size: 130%;
     font-family: 'Oregano', cursive;
     background: #E2B73D;
 }
@@ -84,29 +87,30 @@ box-shadow:
 /* 닉네임 박스 */
 .nicnameBox{
     position: absolute;
-    width: 180px;
-    height: 60px;
-    left: 38px;
-    top: 630px;
+    width: 15%;
+    height: 10%;
+    left: 3%;
+    top: 72%;
     
     background: rgba(255, 206, 67, 0.06);
-    border: 6px solid #FFCE43;
+    border: 0.3pc solid #FFCE43;
     box-sizing: border-box; 
     font-weight: bold;
     font-family: 'Oregano', cursive;
-    font-size: 25px;
+    font-size: 180%;
+    align-items: center;
     text-align: center;
-    padding: 5px 0;
+    padding: 0.1em 0;
     color: white;
 }
 
 /* 싸라오케 박스 */
 .ssaraoke{
     position: absolute;
-    width: 180px;
-    height: 60px;
-    left: 250px;
-    top: 630px;
+    width: 15%;
+    height: 10%;
+    left: 20%;
+    top: 72%;
     
     background: rgba(255, 206, 67, 0.06);
     border: 6px solid #FFCE43;
@@ -114,19 +118,20 @@ box-shadow:
 
     font-weight: bold;
     font-family: 'Oregano', cursive;
-    font-size: 25px;
+    font-size: 150%;
+    align-items: center;
     text-align: center;
-    padding: 5px 0;
+    padding: 0.1em 0;
     color: white;
 }
 
 /* 현우님 번호 박스 */
 .phoneN{
     position: absolute;
-    width: 180px;
-    height: 60px;
-    left: 460px;
-    top: 630px;
+    width: 15%;
+    height: 10%;
+    left: 37%;
+    top: 72%;
     
     background: rgba(255, 206, 67, 0.06);
     border: 6px solid #FFCE43;
@@ -134,19 +139,19 @@ box-shadow:
 
     font-weight: bold;
     font-family: 'Oregano', cursive;
-    font-size: 23px;
+    font-size: 130%;
     text-align: center;
-    padding: 7px 0;
+    padding: 0.12em 0;
     color: white;
 }
 
 /* 이메일 박스 */
 .emailBox{
     position: absolute;
-    width: 604px;
-    height: 110px;
-    left: 38px;
-    top: 710px;
+    width: 49%;
+    height: 14%;
+    left: 3%;
+    top: 84%;
     
     background: rgba(255, 206, 67, 0.6);
     border: 5px solid #FFCE43;
@@ -164,10 +169,10 @@ box-shadow:
 /* 지폐칸 */
 .cash{
     position: absolute;
-    width: 200px;
-    height: 25px;
-    left: 730px;
-    top: 700px;
+    width: 14%;
+    height: 4%;
+    left: 56%;
+    top: 80%;
     
     border: 10px solid rgba(255, 206, 67, 0.8);
     /* border: 10px solid #FFCE43; */
@@ -176,7 +181,7 @@ box-shadow:
 .cashbar{
     position: absolute;
     /* width: 0px; */
-    height: 58px;
+    height: 4%;
     /* left: 720px;
     top: 682px; */
     
@@ -189,62 +194,62 @@ box-shadow:
 /* 동전칸 */
 .coin{
     position: absolute;
-    width: 100px;
-    height: 100px;
-    left: 1020px;
-    top: 655px;
+    width: 8%;
+    height: 14%;
+    left: 75.5%;
+    top: 75%;
     border-radius: 50%;
     background: rgba(234, 235, 236, 0.5);
 }
 
 .coinLine{
     position: absolute;
-    width: 11px;
-    height: 100px;
-    left: 1064px;
-    top: 655px;
+    width: 1%;
+    height: 13.8%;
+    left: 79%;
+    top: 75%;
     
     background: rgba(160, 174, 186, 0.6);
-    border: 1px solid #A0AEBA;
+    border: 0.01pc solid #A0AEBA;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
+    box-shadow: 0em 0.3em 0.3em rgba(0, 0, 0, 0.25);
+    border-radius: 3pc;
 }
 
 
 /* 자판기 여는 문 */
 .machineDoor{
     position: absolute;
-    width: 70px;
-    height: 181px;
-    left: 1210px;
-    top: 630px;
+    width: 5%;
+    height: 21.5%;
+    left: 90%;
+    top: 74%;
     
     background: rgba(234, 235, 236, 0.2);
-    border: 5px solid #EAEBEC;
+    border: 0.25pc solid #EAEBEC;
     box-sizing: border-box;
 }
 
 .machineDoorR{
     position: absolute;
-    width: 45px;
-    height: 45px;
-    left: 1223px;
-    top: 650px;
+    width: 3.5%;
+    height: 6%;
+    left: 90.74%;
+    top: 76%;
     
     border-radius: 50%;
     background: rgba(255, 206, 67, 0.06);
-    border: 3px solid #000000;
+    border: 0.2pc solid #000000;
     box-sizing: border-box;
 }
 
 /* 쓰레기통 */
 .trashCan{
     position: absolute;
-    width: 190px;
-    height: 190px;
-    left: 1900px;
-    top: 820px;
+    width: 25%;
+    height: 25%;
+    left: 75%;
+    top: 70%;
     /* background: #0381D7; */
     /* border: 5px solid #0381D7; */
 }
@@ -252,14 +257,14 @@ box-shadow:
 /* 쓰레기통 캔들 */
 .trash1{
     position: absolute;
-    width: 36.43px;
-    height: 68.11px;
-    left: 1925px;
-    top: 798px;
+    width: 2.5%;
+    height: 9%;
+    left: 83.2%;
+    top: 67.5%;
     /* top: 810px; */
     
     background: #F4E668;
-    border-radius: 20px;
+    border-radius: 1pc;
     transform: matrix(0.99, -0.35, 0.45, 0.99, 0, 0);
     /* transform: matrix(0.87, 0.45, -0.51, 0.88, 0, 0); */
 }    
@@ -268,30 +273,30 @@ box-shadow:
     
 .trash2{
     position: absolute;
-    width: 37px;
-    height: 68px;
-    left: 1940px;
-    top: 800px;
+    width: 2.5%;
+    height: 9%;
+    left: 84.5%;
+    top: 68%;
     
     background: #0E3892;
-    border: 1px solid #0E3892;
+    border: 0.1pc solid #0E3892;
     box-sizing: border-box;
-    border-radius: 20px;
+    border-radius: 1pc;
     
 }    
     /* Rectangle 254 */
     
 .trash3{    
     position: absolute;
-    width: 36.83px;
-    height: 68.58px;
-    left: 1941px;
-    top: 808.37px;
+    width: 2.5%;
+    height: 9%;
+    left: 84.5%;
+    top: 50%;
     
     background: #0381D7;
-    border: 1px solid #0381D7;
+    border: 0.1pc solid #0381D7;
     box-sizing: border-box;
-    border-radius: 20px;
+    border-radius: 1pc;
     transform: matrix(0.93, -0.33, 0.38, 0.94, 0, 0);
 }    
     
@@ -299,15 +304,15 @@ box-shadow:
     
 .trash4{
     position: absolute;
-    width: 37px;
-    height: 68.24px;
-    left: 1969px;
-    top: 790px;
+    width: 2.5%;
+    height: 9%;
+    left: 86%;
+    top: 66%;
     
     background: #75B7EC;
-    border: 1px solid #75B7EC;
+    border: 0.1pc solid #75B7EC;
     box-sizing: border-box;
-    border-radius: 20px;
+    border-radius: 1pc;
     transform: matrix(0.97, 0.2, -0.23, 0.98, 0, 0);
 }    
     
@@ -315,13 +320,13 @@ box-shadow:
     
 .trash5{    
     position: absolute;
-    width: 36.79px;
-    height: 69.89px;
-    left: 1990px;
-    top: 800px;
+    width: 2.5%;
+    height: 9%;
+    left: 87%;
+    top: 68.5%;
     
     background: #D6195E;
-    border-radius: 20px;
+    border-radius: 1pc;
     transform: matrix(0.75, -0.61, 0.7, 0.76, 0, 0);
 }    
     
@@ -329,10 +334,10 @@ box-shadow:
     
 .trash6{
     position: absolute;
-    width: 36.61px;
-    height: 69.04px;
-    left: 2030px;
-    top: 805px;
+    width: 2.5%;
+    height: 9%;
+    left: 89.3%;
+    top: 68.5%;
     
     background: #ED89B5;
     border-radius: 20px;
@@ -343,14 +348,14 @@ box-shadow:
     
 .trash7{    
     position: absolute;
-    width: 37px;
-    height: 68px;
-    left: 2005px;
-    top: 785px;
+    width: 2.5%;
+    height: 9%;
+    left: 88%;
+    top: 66%;
     
     background: #C445D9;
-    border: 1px solid #C445D9;
+    border: 0.1pc solid #C445D9;
     box-sizing: border-box;
-    border-radius: 20px;   
+    border-radius: 1pc;   
 } 
 
