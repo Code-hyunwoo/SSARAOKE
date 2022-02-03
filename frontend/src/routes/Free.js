@@ -15,41 +15,48 @@ import Controller from "../components/remote/Controller";
 function Free() {
   const [openChangeMode, setOpenChangeMode] = useState(false);
 
-function Free (){
-    const [openChangeMode, setOpenChangeMode] = useState(false);
-
-    return (
-        <div className={styles.room}>
-            <LightRope />
-            <Crazylights />   
-            <Musicbar />
-            <MirrorBall />
-            <Screen mode={styles.ScreenFree}/>
-            <div className={styles.DuetCamBox1}>
-                 <NormalCam mode={styles.FreeNormalCam}/>
-                 <NormalCam mode={styles.FreeNormalCam}/>
-            </div>
-            <div className={styles.DuetCamBox2}>     
-                <NormalCam mode={styles.FreeNormalCam}/>
-                <NormalCam mode={styles.FreeNormalCam}/>
-            </div>
-            <div className={styles.FreeChatBox}>
-                <RoomChat mode={styles.FreeChat}/>
-            </div>
-            <div className={styles.ButtonBox}>
-                <Button text={"마이크"}/>
-                <Button text={"캠"}/>
-                <Controller />
-                <Button text={"컨텐츠"}/>
-                <button className={styles.btn, styles.neon} 
-                onClick={()=> {
-                    setOpenChangeMode(true);
-                }}> 모드선택 </button>
-                {openChangeMode && <ChangeMode closeChangeMode={setOpenChangeMode}/>}
-                <button className={styles.btn,  styles.neon}><Link to='/lobby' id={styles.btn_no}> 나가기</Link></button>
-            </div> 
-        </div>
-    ) 
+  return (
+    <div className={styles.room}>
+      <LightRope />
+      <Crazylights />
+      <Musicbar />
+      <MirrorBall />
+      <Screen mode={styles.ScreenFree} />
+      <div className={styles.DuetCamBox1}>
+        <NormalCam mode={styles.FreeNormalCam} />
+        <NormalCam mode={styles.FreeNormalCam} />
+      </div>
+      <div className={styles.DuetCamBox2}>
+        <NormalCam mode={styles.FreeNormalCam} />
+        <NormalCam mode={styles.FreeNormalCam} />
+      </div>
+      <div className={styles.FreeChatBox}>
+        <RoomChat mode={styles.FreeChat} />
+      </div>
+      <div className={styles.ButtonBox}>
+        <Button text={"마이크"} />
+        <Button text={"캠"} />
+        <Controller />
+        <Button text={"컨텐츠"} />
+        <button
+          className={(styles.btn, styles.neon)}
+          onClick={() => {
+            setOpenChangeMode(true);
+          }}
+        >
+          {" "}
+          모드선택{" "}
+        </button>
+        {openChangeMode && <ChangeMode closeChangeMode={setOpenChangeMode} />}
+        <button className={(styles.btn, styles.neon)}>
+          <Link to="/lobby" id={styles.btn_no}>
+            {" "}
+            나가기
+          </Link>
+        </button>
+      </div>
+    </div>
+  );
 }
 
 export default Free;
