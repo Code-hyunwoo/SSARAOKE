@@ -20,7 +20,7 @@ function Mypage_Main() {
     return(
         <div>
             <LobbyBackGround />
-            <button className={Styles.backbtn}><Link to="/"></Link></button>
+            <button className={Styles.backbtn}><Link to='/lobby'>lobby</Link></button>
             {/* 자판기시작 */}
             {/* 큰틀 */}
             <div className={Styles.machineOutline}>
@@ -28,36 +28,36 @@ function Mypage_Main() {
                 <div className={Styles.machineInline}>
                     {/* 윗층 캔  onMouseOver={} 사용해보기  */}
                     <div>
-                        <button onClick={() => setBookmarkShow(true)} className={Stylescan.canPink} style={{top:'20px',left: '50px'}}></button>
-                        <button onClick={() => setBookmarkShow(true)} className={Stylescan.canY} style={{top:'20px', left: '225px'}}></button>
-                        <button onClick={() => setBookmarkShow(true)} className={Stylescan.canP} style={{top:'20px', left: '400px'}}></button>
-                        <button onClick={() => setBookmarkShow(true)} className={Stylescan.canB} style={{top:'20px', left: '575px'}}></button>
-                        <button onClick={() => setBookmarkShow(true)} className={Stylescan.canR} style={{top:'20px', left: '750px'}}></button>
-                        <button onClick={() => setBookmarkShow(true)} className={Stylescan.canN} style={{top:'20px', left: '925px'}}></button>
-                        <button onClick={() => setBookmarkShow(true)} className={Stylescan.canBB} style={{top:'20px', left: '1100px'}}></button>
+                        <button onClick={() => setBookmarkShow(true)} className={Stylescan.canPink} style={{top:'6%',left: '4%'}}></button>
+                        <button onClick={() => setBookmarkShow(true)} className={Stylescan.canY} style={{top:'6%', left: '17.5%'}}></button>
+                        <button onClick={() => setBookmarkShow(true)} className={Stylescan.canP} style={{top:'6%', left: '31%'}}></button>
+                        <button onClick={() => setBookmarkShow(true)} className={Stylescan.canB} style={{top:'6%', left: '45%'}}></button>
+                        <button onClick={() => setBookmarkShow(true)} className={Stylescan.canR} style={{top:'6%', left: '59%'}}></button>
+                        <button onClick={() => setBookmarkShow(true)} className={Stylescan.canN} style={{top:'6%', left: '72%'}}></button>
+                        <button onClick={() => setBookmarkShow(true)} className={Stylescan.canBB} style={{top:'6%', left: '86%'}}></button>
                         <Bookmark
                             show={bookmarkShow}
                             onHide={() => setBookmarkShow(false)}
                         />
                     </div>
                         {/* 막대 바 */}
-                    <div className={Styles.canBar} style={{top:'230px', textAlign: 'center', fontSize:'28px'}}> BookMark</div>
+                    <div className={Styles.canBar} style={{top:'41%'}}> BookMark</div>
                     {/* 아랫층 캔 */}
                     <div>
-                        <button onClick={() => setVideoShow(true)} className={Stylescan.canB} style={{top:'300px', left: '50px'}}></button>
-                        <button onClick={() => setVideoShow(true)} className={Stylescan.canBB} style={{top:'300px', left: '225px'}}></button>
-                        <button onClick={() => setVideoShow(true)} className={Stylescan.canR} style={{top:'300px', left: '400px'}}></button>
-                        <button onClick={() => setVideoShow(true)} className={Stylescan.canPink} style={{top:'300px', left: '575px'}}></button>
-                        <button onClick={() => setVideoShow(true)} className={Stylescan.canY} style={{top:'300px', left: '750px'}}></button>
-                        <button onClick={() => setVideoShow(true)} className={Stylescan.canP} style={{top:'300px', left: '925px'}}></button>
-                        <button onClick={() => setVideoShow(true)} className={Stylescan.canN} style={{top:'300px', left: '1100px'}}></button>
+                        <button onClick={() => setVideoShow(true)} className={Stylescan.canB} style={{top:'52.5%',left: '4%'}}></button>
+                        <button onClick={() => setVideoShow(true)} className={Stylescan.canBB} style={{top:'52.5%', left: '17.5%'}}></button>
+                        <button onClick={() => setVideoShow(true)} className={Stylescan.canR} style={{top:'52.5%', left: '31%'}}></button>
+                        <button onClick={() => setVideoShow(true)} className={Stylescan.canPink} style={{top:'52.5%', left: '45%'}}></button>
+                        <button onClick={() => setVideoShow(true)} className={Stylescan.canY} style={{top:'52.5%', left: '59%'}}></button>
+                        <button onClick={() => setVideoShow(true)} className={Stylescan.canP} style={{top:'52.5%', left: '72%'}}></button>
+                        <button onClick={() => setVideoShow(true)} className={Stylescan.canN} style={{top:'52.5%', left: '86%'}}></button>
                         <MyVideo
                             show={videoShow}
                             onHide={() => setVideoShow(false)}
                         />
                     </div>
                         {/* 막대 바 */}
-                    <div className={Styles.canBar} style={{top:'510px', textAlign: 'center', fontSize:'28px'}}>My Video</div>
+                    <div className={Styles.canBar} style={{top:'88%'}}>My Video</div>
                 </div>
                     {/* 닉네임 */}
                     <button onClick={() => setNicnameShow(true)} className={Styles.nicnameBox}> {`Nicname`} </button>
