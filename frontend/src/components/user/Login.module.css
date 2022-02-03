@@ -21,7 +21,7 @@
   margin-top: 200;
   color: #fff89a;
   font-family: "yellowtail";
-  font-size: 5rem;
+  font-size: 6rem;
   animation: flicker 2s infinite alternate;
   display: inline;
 }
@@ -48,7 +48,7 @@
 .itembg {
   height: 100vh;
   margin-top: -78px;
-  background-image: url(../../assets/login-background2.png);
+  background-image: url(../../assets/login-background6.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
