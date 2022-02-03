@@ -38,6 +38,18 @@ function M_SearchResult() {
                         <th> <input type='checkbox' style={{width:'35px'}}></input></th>
                     </tr>
                 </tbody>
+                <tbody>
+                    <tr>
+                        <th>2</th>
+                        <th>던던 단스 </th>
+                        <th>오마이보이</th>
+                        <th> <div className={Styles.likebtn}></div> </th>
+                        {/* <th> <input type='checkbox'></input> </th> */}
+                        {/*  */}
+                        <th> <input type='checkbox' style={{width:'35px'}}></input></th>
+                    </tr>
+                </tbody>
+                
                 <tfoot>
                     <tr>
                         <th></th>

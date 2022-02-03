@@ -25,7 +25,7 @@ function Crazylights (){
         <span id={styles.light2}></span>
         <span id={styles.light3}></span>
         </div>
-        <div className={styles.glowing}>
+        {/* <div className={styles.glowing}>
         <span id={styles.light1}></span>
         <span id={styles.light2}></span>
         <span id={styles.light3}></span>
@@ -34,7 +34,7 @@ function Crazylights (){
         <span id={styles.light1}></span>
         <span id={styles.light2}></span>
         <span id={styles.light3}></span>
-        </div>
+        </div> */}
         
     </div>
     )

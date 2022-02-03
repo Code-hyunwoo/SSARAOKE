@@ -1,4 +1,4 @@
-import styles from "./Room.module.css";
+import styles from "../components/roomin/Room.module.css";
 import Musicbar from "../components/roomin/Musicbar";
 import Screen from "../components/roomin/Screen";
 import NormalCam from "../components/roomin/NormalCam";
@@ -9,6 +9,8 @@ import LightRope from "../components/roomin/LightRope";
 import ChangeMode from "../components/roomin/ChangeMode";
 import { useState } from "react"
 import Crazylights from "../components/roomin/Crazylights";
+import { Link } from "react-router-dom";
+import Controller from "../components/remote/Controller";
 
 
 function Solo (){
@@ -37,7 +39,7 @@ function Solo (){
             <div className={styles.ButtonBox}>
                 <Button text={"마이크"}/>
                 <Button text={"캠"}/>
-                <Button text={"리모콘"}/>
+                <Controller />
                 <Button text={"컨텐츠"}/>
                 <button className={styles.btn, styles.neon} id={styles.unfolding}
                 onClick={()=> {
@@ -45,7 +47,7 @@ function Solo (){
                 }}> 모드선택 </button>
                 {openChangeMode && <ChangeMode closeChangeMode={setOpenChangeMode}/>}
                 
-                <Button text={"나가기"}/>
+                <button className={styles.btn,  styles.neon}><Link to='/' id={styles.btn_no}> 나가기</Link></button>
             </div> 
         </div>
     ) 

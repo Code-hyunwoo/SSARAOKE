@@ -8,7 +8,6 @@ import Bookmark from './components/user/Bookmark';
 import ChangeMode from './components/roomin/ChangeMode';
 import Controller from './components/remote/Controller';
 import MusicSearchbar from './components/remote/MusicSearchbar';
-import ChangeMode_modal from './components/roomin/ChangeMode_modal';
 import MainLobby2 from './routes/MainLobby2';
 import MypageMain from './routes/MyPage_Main';
 import Basic from './routes/Basic';
