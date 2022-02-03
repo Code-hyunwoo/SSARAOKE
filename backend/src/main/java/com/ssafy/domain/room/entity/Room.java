@@ -6,6 +6,7 @@ import com.ssafy.domain.user.entity.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @Table(name = "TB_ROOM")
 @Entity
