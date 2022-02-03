@@ -13,4 +13,5 @@ import lombok.Setter;
 public class AuthRequestDto {
     private OAuthType oAuthType;
     private String accessToken;
+    private String refreshToken;
 }
