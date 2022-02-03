@@ -16,6 +16,9 @@ public class Tag {
     @Column(name = "tag_seq")
     private Long seq;
 
+    @Column(name = "tag_category")
+    private TagCategory category;
+
     @Column
     private String tag_name;
 

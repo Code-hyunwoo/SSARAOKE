@@ -2,6 +2,7 @@ package com.ssafy.domain.room.entity;
 
 import com.ssafy.domain.common.BaseTimeEntity;
 import com.ssafy.domain.reservation.entity.Reservation;
+import com.ssafy.domain.user.entity.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -49,9 +50,6 @@ public class Room extends BaseTimeEntity{
     @Column
     private String thumbnail_url;
 
-    @OneToMany(mappedBy = "room")
-    private List<RoomUser> roomUsers = new ArrayList<RoomUser>();
-
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reservation> reservations = new ArrayList<Reservation>();
 
@@ -61,6 +59,8 @@ public class Room extends BaseTimeEntity{
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RoomBan> roomBans = new ArrayList<RoomBan>();
 
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<User> users = new ArrayList<User>();
 
     @Builder
     public Room(String title, boolean is_private, Long owner_seq, String owner_nickname, String thumbnail_url){

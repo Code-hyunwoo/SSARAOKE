@@ -17,12 +17,6 @@ public class Video extends BaseTimeEntity {
     @Column(name = "video_seq")
     private Long seq;
 
-    @Column(name = "video_title")
-    private String title;
-
-//    @Column(name = "video_length")
-//    private int length;
-
     @Column(name = "video_url")
     private String url;
 

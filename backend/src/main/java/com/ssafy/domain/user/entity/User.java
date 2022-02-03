@@ -2,12 +2,11 @@ package com.ssafy.domain.user.entity;
 
 import com.ssafy.domain.bookmark.entity.Bookmark;
 import com.ssafy.domain.common.BaseTimeEntity;
-import com.ssafy.domain.room.entity.RoomUser;
+import com.ssafy.domain.room.entity.Room;
 import com.ssafy.domain.video.entity.Video;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import reactor.core.dynamic.annotation.On;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -32,13 +31,8 @@ public class User extends BaseTimeEntity {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "nickname", unique = true)
+    @Column(name = "nickname")
     private String nickname;
-
-//    @JsonIgnore
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-//    @Column(name = "password")
-//    private String password;
 
     @Column
     private LocalDateTime date_updated;
@@ -50,17 +44,18 @@ public class User extends BaseTimeEntity {
     private List<Bookmark> bookmarks = new ArrayList<Bookmark>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<RoomUser> roomUsers = new ArrayList<RoomUser>();
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Video> videos = new ArrayList<Video>();
+
+    @ManyToOne
+    @JoinColumn(name = "room_seq")
+    private Room room;
 
 
     @Builder
-    public User(String email, String nickname, String oAuthSeq, OAuthType oAuthType, String profilePath){
+    public User(String email, String nickname, String oAuthSeq, OAuthType oAuthType){
         this.email = email;
         this.nickname = nickname;
-        this.oAuthInfo.setOauthInfo(oAuthSeq, oAuthType, profilePath);
+        this.oAuthInfo.setOauthInfo(oAuthSeq, oAuthType);
     }
 
     public void updateNicknameAndEmail(String nickname, String email){
