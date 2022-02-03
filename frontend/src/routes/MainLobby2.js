@@ -1,7 +1,7 @@
 // import { Card, CardGroup, Navbar } from 'react-bootstrap';
 // import Button from 'react-bootstrap/Button';
 import Desk from '../components/lobby/Desk';
-// import L_Chat from './L_Chat';
+import L_Chat from '../components/lobby/L_Chat';
 import Room2 from '../components/lobby/Room2';
 import Styles from "../components/lobby/Lobby.module.css"
 import { Link } from 'react-router-dom';
@@ -34,7 +34,8 @@ function MainLobby() {
             </div>
 
             <div>
-                <Room2 />
+                {/* 첫줄 */}
+                <Room2/>
                 {/* <Room2 roomnum={Styles.doorL}/>
                 <Room2 roomnum={Styles.doorR}/>
                 <Room2 className={Styles.doorDL}/>

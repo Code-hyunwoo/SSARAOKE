@@ -17,9 +17,9 @@ function MyVideo(props) {
                         <div className={Styles.Sh1}>My Video</div>
                         {/* </Modal.Title> */}
                     </Modal.Header>
-                    <Modal.Body>
+                    <Modal.Body scrollables>
                     <div className={Styles.table}>
-                        <Table>
+                        <Table scrollables>
                             <thead className={Styles.tablehead}>
                                 <tr>
                                     <th>#</th>
@@ -27,25 +27,46 @@ function MyVideo(props) {
                                     <th>제목</th>
                                 </tr>
                             </thead>
-                            {/* <tbody className={Styles.tablebody}>
+                            <tbody className={Styles.tablebody}>
                                 <tr>
                                     <th>1</th>
-                                    <th><image className={Styles.tableImg} alt="My video"  src=""/></th> */}
-                                    {/* <th><video></video></th> */}
-                                    {/* <th>던던 댄스 </th>
+                                    <th>
+                                        {/* <image className={Styles.tableImg} alt="My video"  src=""/> */}
+                                        <span>
+                                            <video id="" controls >
+                                                <source src='?'></source>
+                                            </video>
+                                        </span>
+                                    </th>
+                                    <th>YYYY.MM.DD.hh.mm </th>
                                 </tr>
                                 <tr>
                                     <th>2</th>
-                                    <th>종현</th>
-                                    <th>02:34</th>
+                                    <th>
+                                        {/* <image className={Styles.tableImg} alt="My video"  src=""/> */}
+                                        <span>
+                                            {/* <video id="" controls className={Styles.video1}> */}
+                                            <video id="" controls>
+                                                <source src='?'></source>
+                                            </video>
+                                        </span>
+                                    </th>
+                                    <th style={{textAlign:'center'}}>YYYY.MM.DD.hh.mm </th>
                                 </tr>
                                 <tr>
                                     <th>3</th>
-                                    <th>에스파</th>
-                                    <th>Next Level</th>
+                                    <th>
+                                        {/* <image className={Styles.tableImg} alt="My video"  src=""/> */}
+                                        <span>
+                                            <video id="" controls>
+                                                <source src='?'></source>
+                                            </video>
+                                        </span>
+                                    </th>
+                                    <th>YYYY.MM.DD.hh.mm </th>
                                 </tr>
-                            </tbody> */}
-                            <div>
+                            </tbody>
+                            {/* <div>
                                 <div>
                                     <span>
                                         <image >
@@ -92,8 +113,7 @@ function MyVideo(props) {
                                     <span ><p className={Styles.title5}>YYYY.MM.DD.hh.mm</p></span>
                                     <span ><p className={Styles.title6}>YYYY.MM.DD.hh.mm</p></span>
                                 </div>
-
-                            </div>
+                            </div> */}
                         </Table>
                     </div>
                     </Modal.Body>

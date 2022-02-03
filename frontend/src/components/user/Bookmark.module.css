@@ -2,16 +2,21 @@
 /* My Page*/
 
 /* 메뉴 */
+.modalContent .modal-content{
+    background-color:rgba(0, 0, 0, 0);
+}
+
 .createroombg {
     position: absolute;
-    width: 1200px;
-    height: 750px;
-    left: -180px;
-    top: 150px;
+    width: 80%;
+    height: 550px;
+    left: 1.5%;
+    top: 45px;
     
     background: #ffcd438f;
+    /* background-color: rgba(0, 0, 0, 0); */
     /* background: rgba(228, 83, 21, 0.61); */
-    border-radius: 30px;
+    border-radius: 2pc;
 }
 
 /* 본문 들어갈 부분 */
@@ -19,18 +24,18 @@
 /* 북마크 제목 */
 .Sh1 {
     position: absolute;
-    width: 269px;
-    height: 80px;
-    left: 45px;
-    top: 50px;
+    width: 20%;
+    height: 10%;
+    left: 5%;
+    top: 9%;
 
     font-weight: bold;
     font-family: 'Oregano', cursive;
     /* font-family: 'Cafe24SsurroundAir'; */
     font-style: normal;
     font-weight: normal;
-    font-size: 50px;
-    line-height: 58px;
+    font-size: 280%;
+    /* line-height: 58px; */
     display: flex;
     align-items: center;
     text-align: center;
@@ -41,10 +46,11 @@
 /* 본문 테이블 */
 .table{
     position: absolute;
-    width: 1100px;
-    height: 550px;
-    left: 45px;
-    top: 100px;
+    /* width: 60%; */
+    width: 90%;
+    height: 50%;
+    left: 4%;
+    top: 150%;
 
     /* font-weight: bold; */
     /* font-family: 'Oregano', cursive; */
@@ -62,13 +68,13 @@
 
 /* 테이블 헤더 글자 */
 .tablehead{
-    font-size: 28px;
+    font-size: 140%;
     font-family: 'Cafe24Ssurround';
     text-align: center;  
 }
 
 .tablebody{
-    font-size: 23px;
+    font-size: 130%;
     font-family: 'Cafe24SsurroundAir';
     text-align: center;  
 }

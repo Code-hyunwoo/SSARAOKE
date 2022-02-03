@@ -24,7 +24,7 @@ function App() {
       <BrowserRouter>
           <Routes>
             {/* <Route path="/" element={<MainLobby2/>}></Route> */}
-            <Route path="/" element={<MainLobby2/>}></Route>
+            <Route path="/lobby" element={<MainLobby2/>}></Route>
             <Route path="/Mypage" element={<MypageMain/>}></Route>
             <Route path="/basic" element={<Basic/>}></Route>
             <Route path="/free" element={<Free/>}></Route>
@@ -33,9 +33,9 @@ function App() {
           </Routes>
       </BrowserRouter>
 
-      <AppBar />
+      {/* <AppBar />
       <Login />
-      <Home />
+      <Home /> */}
 
     </div>
   );
