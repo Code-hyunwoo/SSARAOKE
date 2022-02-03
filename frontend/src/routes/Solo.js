@@ -47,7 +47,7 @@ function Solo (){
                 }}> 모드선택 </button>
                 {openChangeMode && <ChangeMode closeChangeMode={setOpenChangeMode}/>}
                 
-                <button className={styles.btn,  styles.neon}><Link to='/' id={styles.btn_no}> 나가기</Link></button>
+                <button className={styles.btn,  styles.neon}><Link to='/lobby' id={styles.btn_no}> 나가기</Link></button>
             </div> 
         </div>
     ) 

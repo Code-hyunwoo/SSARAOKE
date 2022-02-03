@@ -24,7 +24,7 @@ function Login() {
         </button>
       </div>
       <button>
-        <Link to="/mainlobby">KAKAO LOGIN</Link>
+        <Link to="/lobby">KAKAO LOGIN</Link>
       </button>
     </div>
   );
