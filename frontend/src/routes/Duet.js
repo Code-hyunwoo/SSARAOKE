@@ -8,31 +8,31 @@ import MirrorBall from "../components/roomin/MirrorBall";
 import SingerCam from "../components/roomin/SingerCam";
 import LightRope from "../components/roomin/LightRope";
 import ChangeMode from "../components/roomin/ChangeMode";
-import { useState } from "react"
+import { useState } from "react";
 import Crazylights from "../components/roomin/Crazylights";
 import { Link } from "react-router-dom";
 import Controller from "../components/remote/Controller";
 
-function Duet (){
-    const [openChangeMode, setOpenChangeMode] = useState(false);
+function Duet() {
+  const [openChangeMode, setOpenChangeMode] = useState(false);
 
-    return (
-        <div className={styles.room}>   
-            <LightRope />    
-            <Crazylights />    
-            <Musicbar />
-            <MirrorBall />
-            <Screen mode={styles.ScreenFree}/>
-            <SingerCam mode={styles.DuetSingerCam1} />
-            <SingerCam mode={styles.DuetSingerCam2} />
-            <div className={styles.DuetCamBox1}>
-                 <NormalCam mode={styles.DuetNormalCam}/>
-                 <NormalCam mode={styles.DuetNormalCam}/>
-            </div>
-            <div className={styles.DuetCamBox2}>     
-                 <NormalCam mode={styles.DuetNormalCam}/>
-                 <NormalCam mode={styles.DuetNormalCam}/>
-            </div>
+  return (
+    <div className={styles.room}>
+      <LightRope />
+      <Crazylights />
+      <Musicbar />
+      <MirrorBall />
+      <Screen mode={styles.ScreenFree} />
+      <SingerCam mode={styles.DuetSingerCam1} />
+      <SingerCam mode={styles.DuetSingerCam2} />
+      <div className={styles.DuetCamBox1}>
+        <NormalCam mode={styles.DuetNormalCam} />
+        <NormalCam mode={styles.DuetNormalCam} />
+      </div>
+      <div className={styles.DuetCamBox2}>
+        <NormalCam mode={styles.DuetNormalCam} />
+        <NormalCam mode={styles.DuetNormalCam} />
+      </div>
 
             <div className={styles.FreeChatBox}>
                 <RoomChat mode={styles.FreeChat}/>
@@ -53,7 +53,5 @@ function Duet (){
         </div>
     ) 
 }
-
-
 
 export default Duet;

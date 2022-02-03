@@ -7,14 +7,13 @@ import Button from "../components/roomin/Button";
 import MirrorBall from "../components/roomin/MirrorBall";
 import LightRope from "../components/roomin/LightRope";
 import ChangeMode from "../components/roomin/ChangeMode";
-import { useState } from "react"
+import { useState } from "react";
 import Crazylights from "../components/roomin/Crazylights";
 import { Link } from "react-router-dom";
 import Controller from "../components/remote/Controller";
 
-
-function Free (){
-    const [openChangeMode, setOpenChangeMode] = useState(false);
+function Free() {
+  const [openChangeMode, setOpenChangeMode] = useState(false);
 
     return (
         <div className={styles.room}>
@@ -49,7 +48,5 @@ function Free (){
         </div>
     ) 
 }
-
-
 
 export default Free;
