@@ -14,6 +14,7 @@ import com.ssafy.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -117,6 +118,4 @@ public class RoomServiceImpl implements RoomService{
         room.removeAllUser();
         roomRepository.deleteById(room_seq);
     }
-
-
 }
