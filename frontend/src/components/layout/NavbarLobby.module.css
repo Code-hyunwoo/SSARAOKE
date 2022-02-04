@@ -21,6 +21,16 @@
   /* flex: none; */
 }
 
+.roomnamesearch {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.roomtagsearch {
+  border-radius: 0.5rem;
+}
+
 .title {
   color: #fff89a;
   font-size: xx-large;

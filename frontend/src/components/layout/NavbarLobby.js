@@ -13,13 +13,31 @@ function NavbarLobby() {
           SSARAOKE
         </Link>
       </div>
-      <div>
-        <input
-          type="text"
-          placeholder="방을 검색하세요."
-          style={{ width: 300 }}
-        />
-        <button type="submit">검색</button>
+      <div className="py-1">
+        <div className={styles.roomnamesearch}>
+          <input
+            type="text"
+            placeholder="방 제목을 검색하세요."
+            style={{ width: 450 }}
+          />
+          <button type="submit">검색</button>
+        </div>
+        <div className="pt-1">
+          <button className={styles.roomtagsearch}>#발라드</button>
+          <button className={styles.roomtagsearch}>#R&B</button>
+          <button className={styles.roomtagsearch}>#힙합</button>
+          <button className={styles.roomtagsearch}>#케이팝</button>
+          <button className={styles.roomtagsearch}>#팝송</button>
+          <button className={styles.roomtagsearch}>#트로트</button>
+          <button className={styles.roomtagsearch}>#인디</button>
+          <button className={styles.roomtagsearch}>#ROCK</button>
+          <button className={styles.roomtagsearch}>#댄스</button>
+          <button className={styles.roomtagsearch}>#7080</button>
+          <button className={styles.roomtagsearch}>#1990</button>
+          <button className={styles.roomtagsearch}>#2000</button>
+          <button className={styles.roomtagsearch}>#2010</button>
+          <button className={styles.roomtagsearch}>#2020</button>
+        </div>
       </div>
       <div className={styles.right}>
         <Link to="/" className={styles.content}>
