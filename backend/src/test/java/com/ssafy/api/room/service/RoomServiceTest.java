@@ -121,16 +121,18 @@ class RoomServiceTest {
     }
 
     @Test
-    void out(){
-        User user1 = User.builder().nickname("test9830").email("test9830@ssafy.com").oAuthSeq("33411231956").oAuthType(OAuthType.KAKAO).build();
-        User user2 = User.builder().nickname("test6615").email("test6615@ssafy.com").oAuthSeq("29314295453").oAuthType(OAuthType.KAKAO).build();
-        User saved1 = userRepository.save(user1);
-        userRepository.save(user2);
-        Room room = roomRepository.findAll().get(0);
-        room.addUser(user1);
-        room.addUser(user2);
-        roomRepository.save(room);
-        int i = (int)room.getUsers().size();    //.stream().count()
+    void getLobby(){
+//        User owner = User.builder()
+//                .nickname("gooah")
+//                .email("ssafy@test.com")
+//                .profilePath("somewhere").build();
+//        User newOwner = userRepository.save(owner);
+//        Room room = Room.builder()
+//                .title("testRoom")
+//                .is_private(false)
+//                .owner_nickname(newOwner.getNickname())
+//                .owner_seq(newOwner.getSeq())
+//                .thumbnail_url("somewhere").build();
 
         roomService.out(saved1, room.getSeq());
         Room changed = roomRepository.findById(room.getSeq()).get();

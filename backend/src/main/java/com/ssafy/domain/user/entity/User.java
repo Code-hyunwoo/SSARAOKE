@@ -7,6 +7,7 @@ import com.ssafy.domain.video.entity.Video;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -19,6 +20,7 @@ import java.util.List;
 //ddd DOMAIN  DRINVEN DEVELOP
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 @Table(name = "TB_USER")
 public class User extends BaseTimeEntity {
