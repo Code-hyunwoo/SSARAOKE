@@ -34,7 +34,7 @@ function Home() {
   });
   return (
     <div>
-      <NavbarHome />
+      {/* <NavbarHome /> */}
       <Login />
       <Container fluid className="px-5">
         <hr className={styles.line} />
