@@ -20,8 +20,8 @@
   justify-content: center;
   margin-top: 200;
   color: #fff89a;
-  font-family: "yellowtail";
-  font-size: 6rem;
+  font-family: "bi";
+  font-size: 8rem;
   animation: flicker 2s infinite alternate;
   display: inline;
 }
@@ -47,7 +47,7 @@
 
 .itembg {
   height: 100vh;
-  margin-top: -78px;
+  margin-top: -98.375px;
   background-image: url(../../assets/login-background6.png);
   background-position: center;
   background-repeat: no-repeat;
