@@ -65,15 +65,27 @@ public class Room extends BaseTimeEntity{
     private List<User> users = new ArrayList<User>();
 
     @Builder
-    public Room(String title, boolean is_private, Long owner_seq, String owner_nickname, String thumbnail_url){
+    public Room(String title, boolean is_private, String password, Long owner_seq, String owner_nickname, String thumbnail_url){
         this.title = title;
         this.is_active = true;
         this.is_private = is_private;
+        this.password = password;
         this.owner_seq = owner_seq;
         this.owner_nickname = owner_nickname;
         this.thumbnail_url = thumbnail_url;
 
     }
 
+    public void addUser(User user) {
+        if(!this.users.contains(user)) {
+            this.users.add(user);
+        }
+    }
+
+    public void addRoomTag(RoomTag roomTag) {
+        if(!this.roomTags.contains(roomTag)){
+            this.roomTags.add(roomTag);
+        }
+    }
 
 }

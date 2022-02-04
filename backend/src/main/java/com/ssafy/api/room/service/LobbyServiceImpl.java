@@ -48,6 +48,7 @@ public class LobbyServiceImpl implements LobbyService{
         Room room = Room.builder()
                 .title(lobbyCreateRequest.getTitle())
                 .is_private(lobbyCreateRequest.is_private())
+                .password(lobbyCreateRequest.getPassword())
                 .owner_seq(user.getSeq())
                 .owner_nickname(user.getNickname())
                 .thumbnail_url(null)
@@ -55,13 +56,15 @@ public class LobbyServiceImpl implements LobbyService{
 
         roomRepository.save(room);
 
-        // 지금 RoomTag에만 넣어주고 있는데.. Room에도 넣어줘야하나?
         List<Long> tag_seqs = lobbyCreateRequest.getTags();
         for(int i=0; i<tag_seqs.size(); i++){
-            Tag tag = tagRepository.findById(tag_seqs.get(i)).get();
+            Tag tag = tagRepository.findById((long)tag_seqs.get(i)).get();
             RoomTag roomTag = new RoomTag();
             roomTag.setRoom(room);
             roomTag.setTag(tag);
+
+            // Room에도 넣고, RoomTag에도 넣고
+            room.addRoomTag(roomTag);
             roomTagRepository.save(roomTag);
         }
 
@@ -118,14 +121,14 @@ public class LobbyServiceImpl implements LobbyService{
     public void enterRoom(User user, LobbyEnterRequest lobbyEnterRequest) {
         Room room = roomRepository.findById(lobbyEnterRequest.getRoom_seq()).get();
 
+        // Room에 user추가, User에 room추가
+        room.addUser(user);
         user.setRoom(room);
-
-        // Room에서 users에 add해야하나?
 
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<LobbyResponse> searchRoom(String word) {
         List<Room> rooms = roomRepository.findByTitleContains(word);
 
@@ -133,12 +136,21 @@ public class LobbyServiceImpl implements LobbyService{
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<LobbyResponse> tagSearchRoom(Long tag_seq) {
-        Tag tag = tagRepository.findById(tag_seq).get();
 
-        // 될진 모르겠지만 일단 해보자
-        List<Room> rooms = roomTagRepository.findByTag(tag);
+        // 비효율적
+        List<Room> AllRooms = roomRepository.findAll();
+        List<Room> rooms = new ArrayList<>();
+        for(int i=0; i<AllRooms.size(); i++){
+            List<RoomTag> roomTags = AllRooms.get(i).getRoomTags();
+            innerF: for(int j=0; j<roomTags.size(); j++){
+                if(roomTags.get(j).getTag().getSeq()==tag_seq){
+                    rooms.add(AllRooms.get(i));
+                    break innerF;
+                }
+            }
+        }
 
         return getLobbyResponse(rooms);
     }
