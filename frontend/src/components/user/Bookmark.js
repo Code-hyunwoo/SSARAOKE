@@ -12,6 +12,7 @@ function Bookmark(props) {
                 // centered
                 // scrollable
             >
+            <div className={Styles.bigtable}>
                 <div className={Styles.createroombg} >
                     <Modal.Header closeButton >
                         {/* <Modal.Title id="contained-modal-title-vcenter" > */}
@@ -52,7 +53,8 @@ function Bookmark(props) {
                     <Button onClick={props.onHide}>Close</Button>
                 </Modal.Footer> */}
                 </div>
-            </Modal>        
+            </div>
+        </Modal>        
         </div>
     )
     
