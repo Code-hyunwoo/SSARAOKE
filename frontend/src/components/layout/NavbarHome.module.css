@@ -4,7 +4,9 @@
   justify-content: space-between;
   align-items: center;
   z-index: 5;
-  font-family: "surroundAir";
+  font-family: 'Oregano', cursive;
+  border: none;
+  padding: 1vw;
 }
 
 .left {
@@ -48,3 +50,6 @@
   font-family: "surroundAir";
   src: url(../../fonts/Cafe24SsurroundAir.ttf);
 }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Oregano&display=swap');

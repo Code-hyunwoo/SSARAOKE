@@ -14,12 +14,12 @@
 /* 방생성 모달 */
 .createroombg {
     position: absolute;
-    width: 120%;
-    height: 550px;
-    left: -10%;
+    width: 39vw;
+    height: 75vh;
+    left: -20%;
     top: 60px;
     
-    background: #ffcd43a8;
+    background: #f9b108cb;
     /* background: rgba(228, 83, 21, 0.61); */
     border-radius: 2pc;
 }
@@ -28,8 +28,8 @@
 .createtitle{
     position: absolute;
     width: 35%;
-    height: 71.99px;
-    left: 35%;
+    height: 10vh;
+    left: 15vw;
     top: 50px;
 
     /* font-family: Oregano; */
@@ -121,7 +121,7 @@
     /* font-family: Oregano; */
     font-family: 'Cafe24SsurroundAir';
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 130%;
     /* line-height: 39px; */
     display: flex;
@@ -141,7 +141,7 @@
     /* font-family: Oregano; */
     font-family: 'Cafe24SsurroundAir';
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 130%;
     line-height: 39px;
     display: flex;
@@ -162,7 +162,7 @@
     /* font-family: Oregano; */
     font-family: 'Cafe24SsurroundAir';
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 130%;
     line-height: 39px;
     display: flex;
@@ -183,7 +183,7 @@
     /* font-family: Oregano; */
     font-family: 'Cafe24SsurroundAir';
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 130%;
     line-height: 39px;
     display: flex;
@@ -204,7 +204,7 @@
     /* font-family: Oregano; */
     font-family: 'Cafe24Ssurround';
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 150%;
     line-height: 39px;
     display: flex;
@@ -213,6 +213,28 @@
     
     color: #000000;
 }
+
+.roomtag2{
+    position: absolute;
+    width: 18%;
+    height: 60px;
+    left: 6%;
+    top: 930%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24Ssurround';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 150%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+
 
 .tagB{
     position: absolute;
@@ -225,7 +247,7 @@
     /* font-family: Oregano; */
     font-family: 'Cafe24SsurroundAir';
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 130%;
     line-height: 39px;
     display: flex;
@@ -246,7 +268,28 @@
     /* font-family: Oregano; */
     font-family: 'Cafe24SsurroundAir';
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
+    font-size: 130%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.tagQ{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    /* left: 55%; */
+    left: 80%;
+    top: 840%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: bold;
     font-size: 130%;
     line-height: 39px;
     display: flex;
@@ -267,7 +310,7 @@
     /* font-family: Oregano; */
     font-family: 'Cafe24SsurroundAir';
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 130%;
     line-height: 39px;
     display: flex;
@@ -288,7 +331,7 @@
     /* font-family: Oregano; */
     font-family: 'Cafe24SsurroundAir';
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 130%;
     line-height: 39px;
     display: flex;
@@ -298,13 +341,208 @@
     color: #000000;  
 }
 
+.tagW{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    /* left: 55%; */
+    left: 80%;
+    top: 980%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 130%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;  
+}
+
+.tagZ{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    /* left: 55%; */
+    left: 25%;
+    top: 1120%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 130%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.tagX{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    /* left: 55%; */
+    left: 55%;
+    top: 1120%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 130%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+.tagC{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    /* left: 55%; */
+    left: 80%;
+    top: 1120%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 130%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+.tag7080{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    /* left: 55%; */
+    left: 25%;
+    top: 1260%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 130%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.tag1990{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    /* left: 55%; */
+    left: 55%;
+    top: 1260%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 130%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.tag2000{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    /* left: 55%; */
+    left: 80%;
+    top: 1260%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 130%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.tag2010{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    /* left: 55%; */
+    left: 25%;
+    top: 1400%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 130%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.tag2020{
+    position: absolute;
+    width: 200%;
+    height: 75%;
+    /* left: 55%; */
+    left: 55%;
+    top: 1400%;
+    
+    /* font-family: Oregano; */
+    font-family: 'Cafe24SsurroundAir';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 130%;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+
+
+
+
+
+
+
+
 /* 공개여부 */
 .roomFC{
     position: absolute;
     width: 20%;
     height: 60px;
     left: 8%;
-    top: 1090%;
+    top: 1600%;
     
     /* font-family: Oregano; */
     font-family: 'Cafe24Ssurround';
@@ -325,12 +563,12 @@
     height: 75%;
     /* left: 55%; */
     left: 29%;
-    top: 1140%;
+    top: 1650%;
     
     /* font-family: Oregano; */
     font-family: 'Cafe24SsurroundAir';
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 130%;
     line-height: 26px;
     display: flex;
@@ -346,12 +584,12 @@
     height: 75%;
     /* left: 55%; */
     left: 45%;
-    top: 1140%;
+    top: 1650%;
     
     /* font-family: Oregano; */
     font-family: 'Cafe24SsurroundAir';
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 130%;
     line-height: 26px;
     display: flex;
@@ -389,14 +627,16 @@
 /* .createbtn { */
 .btn {
     position: absolute;
-    width: 13%;
+    width: 25%;
     height: 120%;
-    left: 45%;
-    top: 1400%;
+    left: 37%;
+    top: 1830%;
     font-family: 'Cafe24SsurroundAir';
     background-color: rgba(132, 178, 248, 0.9);
     /* color: rgba(132, 178, 248, 0.9); */
     border-radius: 1pc;
+    font-size: 150%;
+    font-weight: bold;
  
 }
 
