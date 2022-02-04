@@ -54,6 +54,7 @@ box-shadow:
     left: 1.6vw;
     top: 3%;
     
+    /* background: rgba(184, 222, 253, 0.315);; */
     background: rgba(171, 215, 250, 0.4);
     border: 0.4vw solid #FFFFFF;
     box-sizing: border-box;

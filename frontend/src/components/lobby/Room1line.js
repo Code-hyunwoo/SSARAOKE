@@ -13,42 +13,37 @@ function Room1line() {
 
         <div>
             <div>
-                <div className={Styles.doorL,Styles.roomsamecss} style={{left: '6%', top: '30%'}}>
+                <div className={Styles.roomsamecss} style={{left: '5.95vw', top: '30vh'}}>
                     {/* <video id="" controls 
                         className={Styles.video}>
                         <source src='?'></source>
                     </video> */}
                     <img className={Styles.video} src={Lockpicture} alt="thumbnail" />
-                    <div className={Styles.roomtitle}> 
-                    </div>
-                    <div 
-                        className={Styles.roomuser}>
-                    </div>
-                    <div joinbtn
-                        className={Styles.roomfull}>
-                    </div>
-                    <div className={Styles.tag}> #tag </div>
-                    <button className={Styles.joinbtn} ><Link to='/basic' className={Styles.joindeco}>Join this room</Link></button>
+                    <div className={Styles.roomtitle}> 90년대생 모여라~ </div>
+                    <div className={Styles.roomuser}> 추억 소환 </div>
+                    <div joinbtn className={Styles.roomfull}> 8/8 </div>
+                    <div className={Styles.tag}> #2010 #K-POP #발라드 #팝 </div>
+                    <Link to='/basic' className={Styles.joindeco}><button className={Styles.joinbtn} >Join this room</button></Link>
                 </div>
 
                 <L_Chat />
 
-                <div className={Styles.doorR,Styles.roomsamecss} style={{right: '6%', top: '30%'}}>
+                <div className={Styles.roomsamecss} style={{right: '5.95vw', top: '30vh'}}>
                     {/* <video id="" controls 
                         className={Styles.video}>
                         <source src='?'></source>
                     </video> */}
                     <img className={Styles.video} src={duet} alt="thumbnail" />
-                    <div className={Styles.roomtitle} >
+                    <div className={Styles.roomtitle} > {`title`}
                     </div>
                     <div 
-                        className={Styles.roomuser}>
+                        className={Styles.roomuser}> {`user_nickname`}
                     </div>
                     <div 
-                        className={Styles.roomfull}>
+                        className={Styles.roomfull}> 8/8
                     </div>
                     <div className={Styles.tag}> #tag </div>
-                    <button className={Styles.joinbtn} ><Link to='/basic' className={Styles.joindeco}>Join this room</Link></button>
+                    <Link to='/basic' className={Styles.joindeco}><button className={Styles.joinbtn} >Join this room</button></Link>
                 </div>
             </div>
         </div>

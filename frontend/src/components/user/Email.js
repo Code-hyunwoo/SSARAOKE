@@ -23,7 +23,7 @@ function Email(props) {
                         E-Mail 수정 : <input  placeholder={`E-Mail`}></input>&nbsp;
                         {/* 버튼 누르면 모달 종료 어떻게??*/}
                         <button 
-                            style={{borderRadius:'30%', backgroundColor:'#ffcd438f'}} 
+                            style={{borderRadius:'30vh', backgroundColor:'#ffcd438f'}} 
                             onClick={handleClose}
                         >
                             수정

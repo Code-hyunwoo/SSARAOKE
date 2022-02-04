@@ -18,9 +18,9 @@ function Nicname(props) {
                     <Modal.Body>
                     {/* <div style={{padding:'5px', textAlign:'center'}}> */}
                     <div style={{textAlign:'center'}}>
-                        Nicname 수정 : <input style={{left:'90px'}} placeholder={`Nicname`}></input>&nbsp;
+                        Nicname 수정 : <input style={{left:'90vw'}} placeholder={`Nicname`}></input>&nbsp;
                         {/* <div> */}
-                            <button style={{top:'20px',borderRadius:'30%', backgroundColor:'#ffcd438f'}}>수정</button>
+                            <button style={{top:'20vh',borderRadius:'30vh', backgroundColor:'#ffcd438f'}}>수정</button>
                         {/* </div> */}
                     </div>
                     </Modal.Body>
