@@ -67,5 +67,14 @@ public class User extends BaseTimeEntity {
             this.email = email;
     }
 
+    public void setRoom(Room room){
+        if(this.room != null){
+            this.room.getUsers().remove(this);
+        }
+        this.room = room;
+        if(room != null && !room.getUsers().contains(this)){
+            this.room.getUsers().add(this);
+        }
+    }
 
 }
