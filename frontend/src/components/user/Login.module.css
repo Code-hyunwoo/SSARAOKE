@@ -20,8 +20,8 @@
   justify-content: center;
   margin-top: 200;
   color: #fff89a;
-  font-family: "yellowtail";
-  font-size: 6rem;
+  font-family: "bi";
+  font-size: 7rem;
   animation: flicker 2s infinite alternate;
   display: inline;
 }

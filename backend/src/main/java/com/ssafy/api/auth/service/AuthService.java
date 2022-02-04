@@ -1,12 +1,10 @@
 package com.ssafy.api.auth.service;
 
-import com.ssafy.api.auth.dto.request.AuthCreationRequestDto;
 import com.ssafy.api.auth.dto.request.AuthRequestDto;
 import com.ssafy.api.auth.dto.response.OAuthDto;
 import com.ssafy.domain.user.entity.User;
 
 public interface AuthService {
-    public OAuthDto authenticate(AuthRequestDto requestDto);
-    public OAuthDto signUp(AuthCreationRequestDto requestDto);
+    public OAuthDto signUp(AuthRequestDto requestDto);
     public String refreshToken(User user);
 }
