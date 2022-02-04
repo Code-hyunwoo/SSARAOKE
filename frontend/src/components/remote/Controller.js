@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Modal, ModalBody } from "react-bootstrap";
+import { Modal, ModalBody } from "react-bootstrap";
 import ModalHeader from "react-bootstrap/esm/ModalHeader";
 import Book from "./Book";
 import Effect from "./Effect";
@@ -21,13 +21,14 @@ function Controller() {
                 }}> 리모콘 </button>
 
 
-
+            
             <Modal 
               show={show} 
               onHide={() => setShow(false)} 
               size="xl"
               dialogClassName="modal-90w"
               >
+                <div className={styles2.modalposition}>  
                 <div  className={Styles.remotebg} > 
                     <ModalHeader closeButton >
                         <Modal.Title>
@@ -65,7 +66,9 @@ function Controller() {
                         </div>
                     </ModalBody>
                 </div>
+                </div>
             </Modal>
+              
         </div>
     )
 }

@@ -5,15 +5,15 @@
     position: absolute;
     /* width: 129.08px;
     height: 134.5px; */
-    width: 0%;
-    height: 0px;
-    left: -1%;
-    top: 85%;
+    width: 0vw;
+    height: 0vh;
+    left: -1vw;
+    top: 85vh;
 
-    border-bottom: 2em solid transparent;
-    border-top: 2em solid transparent;
-    border-left: 3.5em solid #FFCE43;
-    border-right: 3.5em solid transparent;
+    border-bottom: 2vw solid transparent;
+    border-top: 2vw solid transparent;
+    border-left: 3.5vw solid #FFCE43;
+    border-right: 3.5vw solid transparent;
 
     background: none;
     transform: rotate(180deg);
@@ -22,47 +22,50 @@
 /* 자판기 큰틀 */
 .machineOutline{
 position: absolute;
-width: 68%;
-height: 85%;
-left: 10%;
-top: 7%;
+width: 68vw;
+height: 85vh;
+/* width: 65rem;
+height: 3rem; */
+left: 10vw;
+top: 7vh;
 
 background: rgba(255, 206, 67, 0.2);
-border: 0.5pc solid #FFFFFF;
+border: 0.4vw solid #FFFFFF;
 box-sizing: border-box;
 
 /* border: 0.2rem solid #fff;  */
-border-radius: 1rem; 
-padding: 0.4em; 
+border-radius: 1vw; 
+padding: 0.4vw; 
 box-shadow: 
-    0 0 .15rem #fff, 
-    0 0 .15rem #fff, 
-    0 0 1rem #fff, 
-    0 0 0.4rem #FFFFFF, 
-    0 0 1.8rem #FFFFFF, 
-    inset 0 0 1.1rem #FFFFFF;
+    0 0 .15vw #fff, 
+    0 0 .15vw #fff, 
+    0 0 1vw #fff, 
+    0 0 0.4vw #FFFFFF, 
+    0 0 1.8vw #FFFFFF, 
+    inset 0 0 1.1vw #FFFFFF;
 /* box-shadow: 0 0 .2rem #fff, 0 0 .2rem #fff, 0 0 2rem #bc13fe, 0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe; */
 }
 
 /* 자판기 음료칸 */
 .machineInline{
     position: absolute;
-    width: 95%;
-    height: 65%;
-    left: 2.5%;
+    width: 64vw;
+    height: 55vh;
+    left: 1.6vw;
     top: 3%;
     
+    /* background: rgba(184, 222, 253, 0.315);; */
     background: rgba(171, 215, 250, 0.4);
-    border: 0.5pc solid #FFFFFF;
+    border: 0.4vw solid #FFFFFF;
     box-sizing: border-box;
-    border-radius: 30px;
+    border-radius: 2vw;
     box-shadow: 
-        0 0 .1rem #fff, 
-        0 0 .1rem #fff, 
-        0 0 .1rem #fff, 
-        0 0 0.4rem #FFFFFF, 
-        0 0 1.4rem #FFFFFF, inset 
-        0 0 0.5rem #FFFFFF;    
+        0 0 .1vw #fff, 
+        0 0 .1vw #fff, 
+        0 0 .1vw #fff, 
+        0 0 0.3vw #FFFFFF, 
+        0 0 1.3vw #FFFFFF, inset 
+        0 0 0.4vw #FFFFFF;    
 }
 
 /* 음료캔_하나만 만들어서 증식하자 */
@@ -71,15 +74,15 @@ box-shadow:
 /* 음료칸 바 */
 .canBar{
     position: absolute;
-    width: 100%;
-    height: 7%;
-    left: 0%;
+    width: 63.25vw;
+    height: 3.5vh;
+    left: 0vw;
     /* top: 230px; */
-    border-radius: 10%;
+    border-radius: 0.5vw;
     font-weight: bold;
     text-align: center;
     align-items: center;
-    font-size: 130%;
+    font-size: 1.4vw;
     font-family: 'Oregano', cursive;
     background: #E2B73D;
 }
@@ -87,92 +90,92 @@ box-shadow:
 /* 닉네임 박스 */
 .nicnameBox{
     position: absolute;
-    width: 15%;
-    height: 10%;
-    left: 3%;
-    top: 72%;
+    width: 10vw;
+    height: 8.4vh;
+    left: 2vw;
+    top: 60vh;
     
     background: rgba(255, 206, 67, 0.06);
-    border: 0.3pc solid #FFCE43;
+    border: 0.3vw solid #FFCE43;
     box-sizing: border-box; 
     font-weight: bold;
     font-family: 'Oregano', cursive;
-    font-size: 180%;
+    font-size: 2vw;
     align-items: center;
     text-align: center;
-    padding: 0.1em 0;
+    padding: 0.1vh 0;
     color: white;
 }
 
 /* 싸라오케 박스 */
 .ssaraoke{
     position: absolute;
-    width: 15%;
-    height: 10%;
-    left: 20%;
-    top: 72%;
+    width: 10vw;
+    height: 8.4vh;
+    left: 13.4vw;
+    top: 60vh;
     
     background: rgba(255, 206, 67, 0.06);
-    border: 6px solid #FFCE43;
+    border: 0.3vw solid #FFCE43;
     box-sizing: border-box; 
 
     font-weight: bold;
     font-family: 'Oregano', cursive;
-    font-size: 150%;
+    font-size: 1.5vw;
     align-items: center;
     text-align: center;
-    padding: 0.1em 0;
+    padding: 1vh 0;
     color: white;
 }
 
 /* 현우님 번호 박스 */
 .phoneN{
     position: absolute;
-    width: 15%;
-    height: 10%;
-    left: 37%;
-    top: 72%;
+    width: 10vw;
+    height: 8.4vh;
+    left: 25vw;
+    top: 60vh;
     
     background: rgba(255, 206, 67, 0.06);
-    border: 6px solid #FFCE43;
+    border: 0.3vw solid #FFCE43;
     box-sizing: border-box; 
 
     font-weight: bold;
     font-family: 'Oregano', cursive;
-    font-size: 130%;
+    font-size: 1.5vw;
     text-align: center;
-    padding: 0.12em 0;
+    padding: 1vh 0;
     color: white;
 }
 
 /* 이메일 박스 */
 .emailBox{
     position: absolute;
-    width: 49%;
-    height: 14%;
-    left: 3%;
-    top: 84%;
+    width: 33vw;
+    height: 11vh;
+    left: 2vw;
+    top: 70vh;
     
     background: rgba(255, 206, 67, 0.6);
-    border: 5px solid #FFCE43;
+    border: 0.3vw solid #FFCE43;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* box-shadow: 0vw 4vw 4vw rgba(0, 0, 0, 0.25); */
 
     font-weight: bold;
     font-family: 'Oregano', cursive;
-    font-size: 30px;
+    font-size: 2.2vw;
     text-align: center;
-    padding: 24px 0;
+    padding: 1vh 0;
     color: white;
 }
 
 /* 지폐칸 */
 .cash{
     position: absolute;
-    width: 14%;
-    height: 4%;
-    left: 56%;
-    top: 80%;
+    width: 11vw;
+    height: 3vh;
+    left: 37.5vw;
+    top: 65vh;
     
     border: 10px solid rgba(255, 206, 67, 0.8);
     /* border: 10px solid #FFCE43; */
@@ -181,7 +184,7 @@ box-shadow:
 .cashbar{
     position: absolute;
     /* width: 0px; */
-    height: 4%;
+    height: 4vh;
     /* left: 720px;
     top: 682px; */
     
@@ -194,62 +197,62 @@ box-shadow:
 /* 동전칸 */
 .coin{
     position: absolute;
-    width: 8%;
-    height: 14%;
-    left: 75.5%;
-    top: 75%;
-    border-radius: 50%;
+    width: 5.5vw;
+    height: 11.8vh;
+    left: 50.7vw;
+    top: 62.3vh;
+    border-radius: 50vh;
     background: rgba(234, 235, 236, 0.5);
 }
 
 .coinLine{
     position: absolute;
-    width: 1%;
-    height: 13.8%;
-    left: 79%;
-    top: 75%;
+    width: 0.8vw;
+    height: 11.6vh;
+    left: 53vw;
+    top: 62.4vh;
     
     background: rgba(160, 174, 186, 0.6);
-    border: 0.01pc solid #A0AEBA;
+    border: 0.01vw solid #A0AEBA;
     box-sizing: border-box;
-    box-shadow: 0em 0.3em 0.3em rgba(0, 0, 0, 0.25);
-    border-radius: 3pc;
+    box-shadow: 0vw 0.3vw 0.3vw rgba(0, 0, 0, 0.25);
+    border-radius: 3vh;
 }
 
 
 /* 자판기 여는 문 */
 .machineDoor{
     position: absolute;
-    width: 5%;
-    height: 21.5%;
-    left: 90%;
-    top: 74%;
+    width: 3.3vw;
+    height: 18vh;
+    left: 60.5vw;
+    top: 62vh;
     
     background: rgba(234, 235, 236, 0.2);
-    border: 0.25pc solid #EAEBEC;
+    border: 0.2vw solid #EAEBEC;
     box-sizing: border-box;
 }
 
 .machineDoorR{
     position: absolute;
-    width: 3.5%;
-    height: 6%;
-    left: 90.74%;
-    top: 76%;
+    width: 2.5vw;
+    height: 5vh;
+    left: 60.9vw;
+    top: 64vh;
     
-    border-radius: 50%;
+    border-radius: 49vh;
     background: rgba(255, 206, 67, 0.06);
-    border: 0.2pc solid #000000;
+    border: 0.2vw solid #000000;
     box-sizing: border-box;
 }
 
 /* 쓰레기통 */
 .trashCan{
     position: absolute;
-    width: 25%;
-    height: 25%;
-    left: 75%;
-    top: 70%;
+    width: 18vw;
+    height: 18vh;
+    left: 80vw;
+    top: 75vh;
     /* background: #0381D7; */
     /* border: 5px solid #0381D7; */
 }
@@ -257,14 +260,14 @@ box-shadow:
 /* 쓰레기통 캔들 */
 .trash1{
     position: absolute;
-    width: 2.5%;
-    height: 9%;
-    left: 83.2%;
-    top: 67.5%;
+    width: 2vw;
+    height: 7vh;
+    left: 86vw;
+    top: 74.5vh;
     /* top: 810px; */
     
     background: #F4E668;
-    border-radius: 1pc;
+    border-radius: 0.8vw;
     transform: matrix(0.99, -0.35, 0.45, 0.99, 0, 0);
     /* transform: matrix(0.87, 0.45, -0.51, 0.88, 0, 0); */
 }    
@@ -273,30 +276,30 @@ box-shadow:
     
 .trash2{
     position: absolute;
-    width: 2.5%;
-    height: 9%;
-    left: 84.5%;
-    top: 68%;
+    width: 2vw;
+    height: 7vh;
+    left: 87vw;
+    top: 73vh;
     
     background: #0E3892;
-    border: 0.1pc solid #0E3892;
+    border: 0.1vw solid #0E3892;
     box-sizing: border-box;
-    border-radius: 1pc;
+    border-radius: 0.8vw;
     
 }    
     /* Rectangle 254 */
     
 .trash3{    
     position: absolute;
-    width: 2.5%;
-    height: 9%;
-    left: 84.5%;
-    top: 50%;
+    width: 2vw;
+    height: 7vh;
+    left: 88vw;
+    top: 74vh;
     
     background: #0381D7;
-    border: 0.1pc solid #0381D7;
+    border: 0.1vw solid #0381D7;
     box-sizing: border-box;
-    border-radius: 1pc;
+    border-radius: 0.8vw;
     transform: matrix(0.93, -0.33, 0.38, 0.94, 0, 0);
 }    
     
@@ -304,15 +307,15 @@ box-shadow:
     
 .trash4{
     position: absolute;
-    width: 2.5%;
-    height: 9%;
-    left: 86%;
-    top: 66%;
+    width: 2vw;
+    height: 7vh;
+    left: 88vw;
+    top: 73.5vh;
     
     background: #75B7EC;
-    border: 0.1pc solid #75B7EC;
+    border: 0.1vw solid #75B7EC;
     box-sizing: border-box;
-    border-radius: 1pc;
+    border-radius: 0.8vw;
     transform: matrix(0.97, 0.2, -0.23, 0.98, 0, 0);
 }    
     
@@ -320,13 +323,13 @@ box-shadow:
     
 .trash5{    
     position: absolute;
-    width: 2.5%;
-    height: 9%;
-    left: 87%;
-    top: 68.5%;
+    width: 2vw;
+    height: 7vh;
+    left: 89vw;
+    top: 73.9vh;
     
     background: #D6195E;
-    border-radius: 1pc;
+    border-radius: 0.8vw;
     transform: matrix(0.75, -0.61, 0.7, 0.76, 0, 0);
 }    
     
@@ -334,13 +337,13 @@ box-shadow:
     
 .trash6{
     position: absolute;
-    width: 2.5%;
-    height: 9%;
-    left: 89.3%;
-    top: 68.5%;
+    width: 2vw;
+    height: 7vh;
+    left: 90vw;
+    top: 74vh;
     
     background: #ED89B5;
-    border-radius: 20px;
+    border-radius: 0.8vw;
     transform: matrix(0.87, 0.45, -0.51, 0.88, 0, 0);
 }    
     
@@ -348,14 +351,14 @@ box-shadow:
     
 .trash7{    
     position: absolute;
-    width: 2.5%;
-    height: 9%;
-    left: 88%;
-    top: 66%;
+    width: 2vw;
+    height: 7vh;
+    left: 89.5vw;
+    top: 72.5vh;
     
     background: #C445D9;
-    border: 0.1pc solid #C445D9;
+    border: 0.1vw solid #C445D9;
     box-sizing: border-box;
-    border-radius: 1pc;   
+    border-radius: 0.8vw;   
 } 
 

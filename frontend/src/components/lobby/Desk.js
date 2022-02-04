@@ -19,22 +19,56 @@
 
 import Styles from "./Lobby.module.css"
 import Dstyles from "./Desk.module.css"
-import { render } from "@testing-library/react";
 import { useState } from "react";
-import { Button, Modal, ModalDialog, Ratio } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 function Desk() {
     const [show, setShow] = useState(false);
   
-    const handleClose = () => setShow(false);
+    const handleClose = () => {setShow(false);
+          setcheckedTags(new Set());
+    }
     const handleShow = () => setShow(true);
 
+    const [checkedTags, setcheckedTags] = useState(new Set());
+    const [bChecked, setChecked] = useState(false);
+
+    const checkedTagsHandler = (value, isChecked) => {
+      if (isChecked) {
+        checkedTags.add(value);
+        setcheckedTags(checkedTags);
+        // console.log(checkedTags);
+      } else if (!isChecked && checkedTags.has(value)) {
+        checkedTags.delete(value);
+        setcheckedTags(checkedTags);
+      }
+    }
+    
+    const checkHandler = ({target}) => {
+      // console.log(target)
+      setChecked(target.bChecked);
+      // console.log(target.bChecked)
+      checkedTagsHandler(target.value, target.checked);
+      if (checkedTags.size === 5){
+        alert(`태그는 최대 4개까지 선택할 수 있습니다.`)
+        checkedTags.delete(target.value);
+        setcheckedTags(checkedTags);
+        console.log(checkedTags);
+        target.checked = false;
+      }
+    };
+
+    
+  
   
     return (
       <>
         <button className={Styles.btn} variant="secondary" onClick={handleShow}>
-          방 생성
+          Create Room
         </button>
+        <div className={Styles.btnimg}>
+          <img src={'https://cdn-icons-png.flaticon.com/512/1700/1700765.png'} className={Styles.btnimg2}/>
+        </div>
   
         <Modal
           show={show}
@@ -44,8 +78,9 @@ function Desk() {
           // className={Dstyles.modalContent} //화면 전체 노랑
         >
           {/* 모달창만 해당하는 부분 */}
+          <div className={Dstyles.modposi}>
           <div className={Dstyles.createroombg}>
-            <Modal.Header closeButton >
+            <Modal.Header closeButton>
               <div className={Dstyles.createtitle}>노래방 생성</div>
             </Modal.Header>
             <Modal.Body >
@@ -93,11 +128,16 @@ function Desk() {
 
               <div>
                 <div className={Dstyles.roomtag}>태그 : </div>
+                <div className={Dstyles.roomtag2}>(최대 4개) </div>
                 <div className={Dstyles.tagB}>
                   <input 
                   type="checkbox" 
                   name="song" 
-                  value="ballade"
+                  value="ballad"
+                  checked={bChecked}
+                  onChange={(e) => {
+                    checkHandler(e);
+                  }}
                   style={{width:"20px", height:"20px" }} 
                   /> &nbsp; #발라드
                 </div>
@@ -106,25 +146,159 @@ function Desk() {
                     type="checkbox" 
                     name="song" 
                     value="hiphop" 
+                    checked={bChecked}
+                  onChange={(e) => {
+                    checkHandler(e);
+                  }}
                     style={{width:"20px", height:"20px" }} 
-                    /> &nbsp;#힙합
+                    /> &nbsp; #힙합
+                </div>
+                <div className={Dstyles.tagQ}>
+                  <input 
+                    type="checkbox" 
+                    name="song" 
+                    value="rock" 
+                    checked={bChecked}
+                    onChange={(e) => {
+                      checkHandler(e);
+                    }}
+                    style={{width:"20px", height:"20px" }} 
+                    /> &nbsp; #ROCK
                 </div>
                 <div className={Dstyles.tagT}>
                   <input 
                     type="checkbox" 
                     name="song" 
                     value="trot" 
+                    checked={bChecked}
+                    onChange={(e) => {
+                      checkHandler(e);
+                    }}
                     style={{width:"20px", height:"20px" }} 
-                    /> &nbsp;#트로트 
+                    /> &nbsp; #트로트 
                 </div>
                 <div className={Dstyles.tagP}>
                   <input 
                     type="checkbox" 
                     name="song" 
-                    value="popsong" 
+                    value="pop" 
+                    checked={bChecked}
+                    onChange={(e) => {
+                      checkHandler(e);
+                    }}
                     style={{width:"20px", height:"20px" }} 
-                    /> &nbsp;#팝송
+                    /> &nbsp; #팝
                 </div>
+                
+                <div className={Dstyles.tagW}>
+                  <input 
+                    type="checkbox" 
+                    name="song" 
+                    value="k-pop" 
+                    checked={bChecked}
+                    onChange={(e) => {
+                      checkHandler(e);
+                    }}
+                    style={{width:"20px", height:"20px" }} 
+                    /> &nbsp; #K-POP
+                </div>
+                <div className={Dstyles.tagZ}>
+                  <input 
+                    type="checkbox" 
+                    name="song" 
+                    value="r&b" 
+                    checked={bChecked}
+                    onChange={(e) => {
+                      checkHandler(e);
+                    }}
+                    style={{width:"20px", height:"20px" }} 
+                    /> &nbsp; #R&B 
+                </div>
+                <div className={Dstyles.tagX}>
+                  <input 
+                    type="checkbox" 
+                    name="song" 
+                    value="dance" 
+                    checked={bChecked}
+                    onChange={(e) => {
+                      checkHandler(e);
+                    }}
+                    style={{width:"20px", height:"20px" }} 
+                    /> &nbsp; #댄스
+                </div>
+                <div className={Dstyles.tagC}>
+                  <input 
+                    type="checkbox" 
+                    name="song" 
+                    value="indie" 
+                    checked={bChecked}
+                    onChange={(e) => {
+                      checkHandler(e);
+                    }}
+                    style={{width:"20px", height:"20px" }} 
+                    /> &nbsp; #인디
+                </div>
+                <div className={Dstyles.tag7080}>
+                  <input 
+                    type="checkbox" 
+                    name="song" 
+                    value="7080" 
+                    checked={bChecked}
+                    onChange={(e) => {
+                      checkHandler(e);
+                    }}
+                    style={{width:"20px", height:"20px" }} 
+                    /> &nbsp; #7080
+                </div>
+                <div className={Dstyles.tag1990}>
+                  <input 
+                    type="checkbox" 
+                    name="song" 
+                    value="1990" 
+                    checked={bChecked}
+                    onChange={(e) => {
+                      checkHandler(e);
+                    }}
+                    style={{width:"20px", height:"20px" }} 
+                    /> &nbsp; #1990
+                </div>
+                <div className={Dstyles.tag2000}>
+                  <input 
+                    type="checkbox" 
+                    name="song" 
+                    value="2000" 
+                    checked={bChecked}
+                    onChange={(e) => {
+                      checkHandler(e);
+                    }}
+                    style={{width:"20px", height:"20px" }} 
+                    /> &nbsp; #2000
+                </div>
+                <div className={Dstyles.tag2010}>
+                  <input 
+                    type="checkbox" 
+                    name="song" 
+                    value="2010" 
+                    checked={bChecked}
+                    onChange={(e) => {
+                      checkHandler(e);
+                    }}
+                    style={{width:"20px", height:"20px" }} 
+                    /> &nbsp; #2010
+                </div>
+                <div className={Dstyles.tag2020}>
+                  <input 
+                    type="checkbox" 
+                    name="song" 
+                    value="2020" 
+                    checked={bChecked}
+                    onChange={(e) => {
+                      checkHandler(e);
+                    }}
+                    style={{width:"20px", height:"20px" }} 
+                    /> &nbsp; #2020
+                </div>
+
               </div>
               
               <div>
@@ -163,6 +337,7 @@ function Desk() {
               <Button className={Dstyles.btn} >만들기</Button>
               </div> */}
             {/* </Modal.Footer> */}
+          </div>
           </div>
         </Modal>
       </>
