@@ -3,7 +3,7 @@ import NavbarLobby from "../components/layout/NavbarLobby";
 import Room2 from "../components/lobby/Room2";
 import Styles from "../components/lobby/Lobby.module.css";
 import { Link } from "react-router-dom";
-import LobbyBackGround from "../components/lobby/LobbyBackGround";
+import LobbyBackGround from "../components/lobby/background/LobbyBackGround";
 
 function MainLobby() {
   return (
