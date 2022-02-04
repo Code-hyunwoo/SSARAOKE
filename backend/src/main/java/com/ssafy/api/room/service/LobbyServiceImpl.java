@@ -123,7 +123,7 @@ public class LobbyServiceImpl implements LobbyService{
 
         // Room에 user추가, User에 room추가
         room.addUser(user);
-        user.setRoom(room);
+//        user.setRoom(room);
 
     }
 
