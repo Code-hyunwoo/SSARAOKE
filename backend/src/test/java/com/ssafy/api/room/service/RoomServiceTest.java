@@ -24,17 +24,17 @@ class RoomServiceTest {
     @Transactional
     @Test
     void getLobby(){
-        User owner = User.builder()
-                .nickname("gooah")
-                .email("ssafy@test.com")
-                .profilePath("somewhere").build();
-        User newOwner = userRepository.save(owner);
-        Room room = Room.builder()
-                .title("testRoom")
-                .is_private(false)
-                .owner_nickname(newOwner.getNickname())
-                .owner_seq(newOwner.getSeq())
-                .thumbnail_url("somewhere").build();
+//        User owner = User.builder()
+//                .nickname("gooah")
+//                .email("ssafy@test.com")
+//                .profilePath("somewhere").build();
+//        User newOwner = userRepository.save(owner);
+//        Room room = Room.builder()
+//                .title("testRoom")
+//                .is_private(false)
+//                .owner_nickname(newOwner.getNickname())
+//                .owner_seq(newOwner.getSeq())
+//                .thumbnail_url("somewhere").build();
 
     }
 
