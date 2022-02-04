@@ -19,9 +19,8 @@
 
 import Styles from "./Lobby.module.css"
 import Dstyles from "./Desk.module.css"
-import { render } from "@testing-library/react";
 import { useState } from "react";
-import { Button, Modal, ModalDialog, Ratio } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 function Desk() {
     const [show, setShow] = useState(false);
