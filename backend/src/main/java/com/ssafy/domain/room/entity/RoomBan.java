@@ -1,11 +1,14 @@
 package com.ssafy.domain.room.entity;
 
 import com.ssafy.domain.user.entity.User;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Getter
+@NoArgsConstructor
 @Table(name = "TB_ROOM_BAN")
 @Entity
 public class RoomBan {
@@ -22,4 +25,9 @@ public class RoomBan {
     @JoinColumn(name = "user_seq")
     User user;
 
+    @Builder
+    public RoomBan(Room room, User user){
+        this.room = room;
+        this.user = user;
+    }
 }
