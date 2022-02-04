@@ -78,6 +78,7 @@ function Desk() {
           // className={Dstyles.modalContent} //화면 전체 노랑
         >
           {/* 모달창만 해당하는 부분 */}
+          <div className={Dstyles.modposi}>
           <div className={Dstyles.createroombg}>
             <Modal.Header closeButton>
               <div className={Dstyles.createtitle}>노래방 생성</div>
@@ -336,6 +337,7 @@ function Desk() {
               <Button className={Dstyles.btn} >만들기</Button>
               </div> */}
             {/* </Modal.Footer> */}
+          </div>
           </div>
         </Modal>
       </>

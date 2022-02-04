@@ -56,10 +56,10 @@
 .Musicbar {
     position: fixed;
     display: inline-block;
-    font-size: 1.5rem;
+    font-size: 1.3vw;
     text-align: center;
-    width: 40%;
-    height: 130%;
+    width: 10vw;
+    height: 4vh;
     border-radius: 10px;
     font-family: 'ROKAFSansBold';
     color:#FFF89A;
@@ -75,10 +75,10 @@
 #Musicbar {
     position: fixed;
     display: inline-block;
-    font-size: 1.5rem;
+    font-size: 1.3vw;
     text-align: center;
-    width: 40%;
-    height: 5%;
+    width: 40vw;
+    height: 4vh;
     border-radius: 10px;
     margin-top: 70px;
     margin-left: 50px;
@@ -93,8 +93,8 @@
 
 
 #ScreenBasic {
-  width: 55% !important;
-  height: 60% !important;
+  width: 55vw !important;
+  height: 60vh !important;
   border-radius: 10px;
   margin-top: 11%;
   margin-left: 4%;
@@ -102,8 +102,8 @@
 }
 
 #ScreenFree {
-  width: 42% !important;
-  height: 42% !important;
+  width: 42vw !important;
+  height: 42vh !important;
   border-radius: 10px;
   position: absolute;
   top: 24%;
@@ -111,8 +111,8 @@
 }
 
 #ScreenSolo {
-  width: 35% !important;
-  height: 35% !important;
+  width: 35vw !important;
+  height: 35vh !important;
   border-radius: 10px;
   position: absolute;
   top: 22%;
@@ -124,29 +124,29 @@
 
 
 #BasicNormalCam {
-  width: 45%;
-  height: 45%;
+  width: 10vw;
+  height: 20vh;
   margin: 10px;
   border-radius: 10px;
 }
 
 #FreeNormalCam {
-  width: 40%;
-  height: 50%;
+  width: 10vw;
+  height: 15vh;
   margin: 10px;
   border-radius: 10px;
 }
 
 #SoloNormalCam {
-  width: 14%;
-  height: 55%;
+  width: 13vw;
+  height: 20vh;
   margin: 20px;
   border-radius: 10px;
 }
 
 #DuetNormalCam {
-  width: 40%;
-  height: 50%;
+  width: 10vw;
+  height: 15vh;
   margin: 10px;
   border-radius: 10px;
 }
@@ -157,33 +157,33 @@
 
 #SoloSingerCam {
   position: absolute;
-  width: 27%;
-  height: 35%;
-  margin: 10px;
+  width: 27vw;
+  height: 35vh;
+  margin: 8px;
   border-radius: 10px;
-  top: 22%;
-  left: 39%;
+  top: 22vh;
+  left: 39vw;
 }
 
 
 #DuetSingerCam1 {
   position: absolute;
-  width: 20%;
-  height: 35%;
+  width: 20vw;
+  height: 35vh;
   margin: 10px;
   border-radius: 50px;
-  top: 25%;
-  left: 4%;
+  top: 25vh;
+  left: 4vw;
 }
 
 #DuetSingerCam2 {
   position: absolute;
-  width: 20%;
-  height: 35%;
+  width: 20vw;
+  height: 35vh;
   margin: 10px;
   border-radius: 50px;
-  top: 25%;
-  right: 4%;
+  top: 25vh;
+  right: 4vw;
 }
 
 
@@ -193,10 +193,10 @@
 
 .BasicCamBox {
   position: absolute;
-  width: 35%;
-  height: 47%;
-  top: 12%;
-  left: 63%;
+  width: 35vw;
+  height: 47vh;
+  top: 12vh;
+  left: 63vw;
   display: inline-block;
   border-radius: 10px;
 }
@@ -206,9 +206,9 @@
   display: flex;
   text-align: center;
   justify-content: center;
-  width: 100%;
-  height: 35%;
-  top: 63%;
+  width: 100vw;
+  height: 35vh;
+  top: 63vh;
   display: inline-block;
   border-radius: 10px;
 }
@@ -217,20 +217,20 @@
 
 .DuetCamBox1 {
   position: absolute;
-  width: 25%;
-  height: 30%;
-  top: 68%;
-  left: 3.5%;
+  width: 25vw;
+  height: 30vh;
+  top: 68vh;
+  left: 3.5vw;
   display: inline-block;
   border-radius: 10px;
 }
 
 .DuetCamBox2 {
   position: absolute;
-  width: 25%;
-  height: 30%;
-  top: 68%;
-  right: 0.5%;
+  width: 25vw;
+  height: 30vh;
+  top: 68vh;
+  right: 0.5vw;
   display: inline-block;
   border-radius: 10px;
 }
@@ -243,10 +243,10 @@
 .BasicChatBox {
   background-color: transparent;
   position: absolute;
-  width: 33%;
-  height: 21%;
-  top: 62%;
-  right: 3.5%;
+  width: 33vw;
+  height: 21vh;
+  top: 62vh;
+  right: 3.5vw;
   display: inline-block;
   border-radius: 10px;
 }
@@ -254,10 +254,10 @@
 .FreeChatBox {
   background-color: transparent;
   position: absolute;
-  width: 42%;
-  height: 17%;
-  top: 68%;
-  left: 29.5%;
+  width: 42vw;
+  height: 17vh;
+  top: 68vh;
+  left: 29.5vw;
   display: inline-block;
   border-radius: 10px;
 }
@@ -265,10 +265,10 @@
 .SoloChatBox {
   background-color: transparent;
   position: absolute;
-  width: 28%;
-  height: 34%;
-  top: 22%;
-  right: 3.6%;
+  width: 28vw;
+  height: 34vh;
+  top: 22vh;
+  right: 3.6vw;
   display: inline-block;
   border-radius: 10px;
 }
@@ -280,7 +280,7 @@
 #BasicChat {
   background-color: rgb(49, 53, 52);
   color: white;
-  font-size: 1.5rem;
+  font-size: 1vw;
   width: 100%;
   height: 100%;
   display: inline-block;
@@ -293,7 +293,7 @@
 #FreeChat {
   background-color: rgb(49, 53, 52);
   color: white;
-  font-size: 2rem;
+  font-size: 1vw;
   width: 100%;
   height: 100%;
   display: inline-block;
@@ -306,7 +306,7 @@
 #SoloChat {
   background-color: rgb(49, 53, 52);
   color: white;
-  font-size: 2rem;
+  font-size: 1vw;
   width: 100%;
   height: 100%;
   display: inline-block;
@@ -410,8 +410,8 @@
   /* align-items: center; */
   min-height: 100vh;
   transform-style: preserve-3d;
-  top: 8%;
-  left: 50%;
+  top: 8vh;
+  left: 50vw;
 }
 
 .disco {
@@ -678,8 +678,8 @@
   position: absolute;
   top: 50%;
   left: -8px;
-  width: 40px;
-  height: 40px;
+  width: 2vw;
+  height: 2vw;
   background: #ffffff;
   border-radius: 50%;
 }
@@ -738,4 +738,12 @@
   100%{
       transform: rotate(0deg);
   }
+}
+
+
+
+.modalposition {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
 }

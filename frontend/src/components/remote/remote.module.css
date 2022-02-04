@@ -9,8 +9,8 @@
     opacity: 0.9;
     background: #F9B208;
     border-radius: 30px;
-    left: 6vw;
-    margin-top: 5vh;
+    /* left: 11.5vw; */
+    margin-top: 3vh;
     box-shadow: rgba(255, 255, 255, 0.35) 0px 10px 25px;
     
 
@@ -54,7 +54,7 @@
 
     background: #C4C4C4;
     border-radius: 30px;
-    font-size: 1.6em;
+    font-size: 1.5vw;
     /* font-family: 'Cafe24SsurroundAir'; */
     font-family: 'Cafe24Ssurround';
     /* font-family: 'ROKAFSansBold'; */
@@ -70,7 +70,7 @@
     /* font-family: 'Cafe24SsurroundAir'; */
     /* font-family: 'Cafe24Ssurround'; */
     font-family: 'ROKAFSansBold';
-    font-size: 1.3rem;
+    font-size: 1.3vw;
 
 }
 
@@ -85,7 +85,7 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 30px;
-    font-size: 1.2rem;
+    font-size: 1.1vw;
 }
 
 /* 좋아요 체크버튼 */
@@ -144,7 +144,7 @@
     height: 6.5vh;
     
     background: #FFCE43;
-    font-size: 20px;
+    font-size: 1.2vw;
     border-radius: 30px;
     font-family: 'ROKAFSansBold';
 }
@@ -201,36 +201,36 @@
 /* 에코 설정 */
 .echo{
     position: absolute;
-    width: 15%;
-    height: 35%;
-    left: 19%;
-    top: 13%;
+    width: 6.5vw;
+    height: 3.4vh;
+    left: 7.8vw;
+    top: 1.2vh;
 
     background: #FFCE43;
     border-radius: 30px;
-    font-size: 0.8rem;
+    font-size: 0.7vw;
     font-family: 'ROKAFSansBold';
 }
 
 /* 음성변조 */
 .change{
     position: absolute;
-    width: 15%;
-    height: 35%;
-    left: 19%;
-    top: 55%;
+    width: 6.5vw;
+    height: 3.4vh;
+    left: 7.8vw;
+    top: 5.2vh;
 
     background: #FFCE43;
     border-radius: 30px;
-    font-size: 0.8rem;
+    font-size: 0.7vw;
     font-family: 'ROKAFSansBold';
 }
 
 /* 조명  */
 .light{
     position: absolute;
-    width: 12%;
-    height: 35%;
+    width: 5.2vw;
+    height: 3.4vh;
     /* left: 50%; */
     /* top: 677.44px; */
 
@@ -242,10 +242,10 @@
 
 .lightup{
     position: absolute;
-    /* width: 0%; */
+    /* width: 1vw; */
     /* height: 50%; */
-    left: 60%;
-    top: -23%;
+    left: 2.8vw;
+    top: -0.9vh;
     
     border-bottom: 10px solid transparent;
     border-top: 10px solid transparent;
@@ -261,8 +261,8 @@
     position: absolute;
     /* width: 20px; */
     /* height: 20px; */
-    left: 60%;
-    top: 50%;
+    left: 2.8vw;
+    top: 1.7vh;
     
     border-bottom: 10px solid transparent;
     border-top: 10px solid transparent;
@@ -278,8 +278,8 @@
 /* 필터, 배경 */
 .fgbtn{
     position: absolute;
-    width: 12%;
-    height: 35%;
+    width: 5.2vw;
+    height: 3.4vh;
     /* left: 918.56px;
     top: 677.44px; */
 
@@ -292,8 +292,8 @@
 /* 박수,북,폭죽,좋아요 버튼*/
 .effectbtn{
     position: absolute;
-    width: 8%;
-    height: 60%;
+    width: 3vw;
+    height: 3vw;
     /* left: 1024px;
     top: 10px; */
     border-radius: 50%;
@@ -306,7 +306,7 @@
     height: 11.5vh;
     left: 2.5vw;
     top: 13vh;
-    font-size: 1.2rem;
+    font-size: 1vw;
     border-radius: 50%;
     background: #E4D76A;
     /* border: 2px solid #000000; */
@@ -324,7 +324,7 @@
     border: 3px solid #ff0000;
     box-sizing: border-box;
     border-radius: 60px;
-    font-size: 1.3rem;
+    font-size: 1vw;
     color: white;
 }
 
@@ -340,7 +340,7 @@
     border: 3px solid #002fff;
     box-sizing: border-box;
     border-radius: 60px;
-    font-size: 1.3rem;
+    font-size: 1vw;
     color: white;
 }
 
@@ -356,7 +356,7 @@
     border: 3px solid #002fff;
     box-sizing: border-box;
     border-radius: 60px;
-    font-size: 1.2rem;
+    font-size: 1vw;
     color: white;
 }
 
@@ -373,7 +373,7 @@
     box-sizing: border-box;
     border-radius: 60px;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1vw;
 }
 
 
@@ -387,7 +387,7 @@
     
     background: rgba(243, 230, 109, 0.91);
     border-radius: 60px;
-    font-size: 1.4rem;
+    font-size: 1.1vw;
 }
 
 /* 예약 삭제 */
@@ -412,7 +412,7 @@
     
     border-radius: 50%;
     background: #E4D76A;
-    font-size: 1.4rem;
+    font-size: 1.1vw;
 }
 
 

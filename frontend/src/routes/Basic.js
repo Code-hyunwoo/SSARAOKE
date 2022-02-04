@@ -27,6 +27,8 @@ function Basic (){
                  <NormalCam mode={styles.BasicNormalCam}/>
                  <NormalCam mode={styles.BasicNormalCam}/>
                  <NormalCam mode={styles.BasicNormalCam}/>  
+                 <NormalCam mode={styles.BasicNormalCam}/>  
+                 <NormalCam mode={styles.BasicNormalCam}/>  
             </div>
             <div className={styles.BasicChatBox}>
                 <RoomChat mode={styles.BasicChat} />
