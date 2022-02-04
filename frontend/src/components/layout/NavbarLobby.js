@@ -1,6 +1,7 @@
 import styles from "./NavbarLobby.module.css";
 import logo from "../../assets/SSARAOKE-LOGO4.png";
 import { Link } from "react-router-dom";
+import SearchIcon from "./SearchIcon.js";
 
 function NavbarLobby() {
   return (
@@ -20,13 +21,15 @@ function NavbarLobby() {
             placeholder="방 제목을 검색하세요."
             style={{ width: 450 }}
           />
-          <button type="submit">검색</button>
+          <button type="submit">
+            <SearchIcon />
+          </button>
         </div>
-        <div className="pt-1">
+        <div className="pt-2">
           <button className={styles.roomtagsearch}>#발라드</button>
           <button className={styles.roomtagsearch}>#R&B</button>
           <button className={styles.roomtagsearch}>#힙합</button>
-          <button className={styles.roomtagsearch}>#케이팝</button>
+          <button className={styles.roomtagsearch}>#K-POP</button>
           <button className={styles.roomtagsearch}>#팝송</button>
           <button className={styles.roomtagsearch}>#트로트</button>
           <button className={styles.roomtagsearch}>#인디</button>

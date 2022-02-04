@@ -14,7 +14,7 @@
   /* align-items: center; */
   /* flex: none; */
   /* margin: 10px 10px 8px; */
-  font-family: 'Oregano', cursive;
+  font-family: "Oregano", cursive;
 }
 
 .right {
@@ -22,7 +22,7 @@
   /* margin-left: auto; */
   /* flex-direction: row; */
   /* flex: none; */
-  font-family: 'Oregano', cursive;
+  font-family: "Oregano", cursive;
 }
 
 .roomnamesearch {
@@ -32,7 +32,14 @@
 }
 
 .roomtagsearch {
-  border-radius: 0.5rem;
+  border-radius: 0.7rem;
+  margin-left: 3px;
+  margin-right: 3px;
+  background-color: transparent;
+  color: #fff89a;
+  border: none;
+  /* border-color: #fff89a; */
+  font-weight: bold;
 }
 
 .title {
@@ -51,7 +58,7 @@
   text-decoration: none;
   color: #fff89a;
   font-size: 2rem;
-  margin: auto 10px;  
+  margin: auto 10px;
 }
 
 .content:hover {
@@ -63,8 +70,7 @@
   src: url(../../fonts/Cafe24SsurroundAir.ttf);
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=Oregano&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oregano&display=swap");
 @font-face {
   font-family: "yellowtail";
   src: url(../../fonts/Yellowtail-Regular.ttf);
