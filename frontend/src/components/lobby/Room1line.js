@@ -13,7 +13,7 @@ function Room1line() {
 
         <div>
             <div>
-                <div className={Styles.doorL} style={{left: '6%', top: '30%'}}>
+                <div className={Styles.doorL,Styles.roomsamecss} style={{left: '6%', top: '30%'}}>
                     {/* <video id="" controls 
                         className={Styles.video}>
                         <source src='?'></source>
@@ -33,7 +33,7 @@ function Room1line() {
 
                 <L_Chat />
 
-                <div className={Styles.doorR} style={{right: '6%', top: '30%'}}>
+                <div className={Styles.doorR,Styles.roomsamecss} style={{right: '6%', top: '30%'}}>
                     {/* <video id="" controls 
                         className={Styles.video}>
                         <source src='?'></source>

@@ -15,7 +15,7 @@ function Roomline2() {
             {/* 두번째 줄은 top:'68%', 세번째 줄은 top:'106%', 
                 네번째 줄은 top:'144%', 세번째 줄은 top:'182%'*/}
             <div>
-                <div className={Styles.doorLD} style={{left: '6%', top: '68%'}}>
+                <div className={Styles.doorLD,Styles.roomsamecss} style={{left: '6%', top: '68%'}}>
                     {/* <video id="" controls 
                         className={Styles.video} >
                         <source src='?'></source>
@@ -34,7 +34,7 @@ function Roomline2() {
                     <button className={Styles.joinbtn} ><Link to='/basic' className={Styles.joindeco}>Join this room</Link></button>
                 </div>
 
-                <div className={Styles.doorML} style={{left: '36%', top: '68%'}}>
+                <div className={Styles.doorML,Styles.roomsamecss} style={{left: '36%', top: '68%'}}>
                     {/* <video id="" controls 
                         className={Styles.video}>
                         <source src='?'></source>
@@ -53,7 +53,7 @@ function Roomline2() {
                     <button className={Styles.joinbtn} ><Link to='/basic' className={Styles.joindeco}>Join this room</Link></button>
                 </div>
 
-                <div className={Styles.doorMR} style={{left: '50.8%', top: '68%'}}>
+                <div className={Styles.doorMR,Styles.roomsamecss} style={{left: '50.8%', top: '68%'}}>
                     {/* <video id="" controls 
                         className={Styles.video} >
                         <source src='?'></source>
@@ -72,7 +72,7 @@ function Roomline2() {
                     <button className={Styles.joinbtn} ><Link to='/basic' className={Styles.joindeco}>Join this room</Link></button>
                 </div>
                 
-                <div className={Styles.doorRD} style={{right: '6%', top: '68%'}}>
+                <div className={Styles.doorRD,Styles.roomsamecss} style={{right: '6%', top: '68%'}}>
                     {/* <video id="" controls 
                         className={Styles.video} >
                         <source src='?'></source>
