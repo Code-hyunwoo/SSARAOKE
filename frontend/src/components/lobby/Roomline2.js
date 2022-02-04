@@ -15,7 +15,7 @@ function Roomline2() {
             {/* 두번째 줄은 top:'68%', 세번째 줄은 top:'106%', 
                 네번째 줄은 top:'144%', 세번째 줄은 top:'182%'*/}
             <div>
-                <div className={Styles.doorLD} style={{left: '6%', top: '68%'}}>
+                <div className={Styles.roomsamecss} style={{left: '5.95vw', top: '68vh'}}>
                     {/* <video id="" controls 
                         className={Styles.video} >
                         <source src='?'></source>
@@ -31,10 +31,10 @@ function Roomline2() {
                         className={Styles.roomfull} >
                     </div>
                     <div className={Styles.tag}> #tag </div>
-                    <button className={Styles.joinbtn} ><Link to='/basic' className={Styles.joindeco}>Join this room</Link></button>
+                    <Link to='/basic' className={Styles.joindeco}><button className={Styles.joinbtn} >Join this room</button></Link>
                 </div>
 
-                <div className={Styles.doorML} style={{left: '36%', top: '68%'}}>
+                <div className={Styles.roomsamecss} style={{left: '35.25vw', top: '68vh'}}>
                     {/* <video id="" controls 
                         className={Styles.video}>
                         <source src='?'></source>
@@ -50,10 +50,10 @@ function Roomline2() {
                         className={Styles.roomfull}>
                     </div>
                     <div className={Styles.tag}> #tag </div>
-                    <button className={Styles.joinbtn} ><Link to='/basic' className={Styles.joindeco}>Join this room</Link></button>
+                    <Link to='/basic' className={Styles.joindeco}><button className={Styles.joinbtn} >Join this room</button></Link>
                 </div>
 
-                <div className={Styles.doorMR} style={{left: '50.8%', top: '68%'}}>
+                <div className={Styles.roomsamecss} style={{left: '50.25vw', top: '68vh'}}>
                     {/* <video id="" controls 
                         className={Styles.video} >
                         <source src='?'></source>
@@ -69,10 +69,10 @@ function Roomline2() {
                         className={Styles.roomfull} >
                     </div>
                     <div className={Styles.tag}> #tag </div>
-                    <button className={Styles.joinbtn} ><Link to='/basic' className={Styles.joindeco}>Join this room</Link></button>
+                    <Link to='/basic' className={Styles.joindeco}><button className={Styles.joinbtn} >Join this room</button></Link>
                 </div>
                 
-                <div className={Styles.doorRD} style={{right: '6%', top: '68%'}}>
+                <div className={Styles.roomsamecss} style={{right: '5.95vw', top: '68vh'}}>
                     {/* <video id="" controls 
                         className={Styles.video} >
                         <source src='?'></source>
@@ -88,7 +88,7 @@ function Roomline2() {
                         className={Styles.roomfull} >
                     </div>
                     <div className={Styles.tag}> #tag </div>
-                    <button className={Styles.joinbtn} ><Link to='/basic' className={Styles.joindeco}>Join this room</Link></button>
+                    <Link to='/basic' className={Styles.joindeco}><button className={Styles.joinbtn} >Join this room</button></Link>
                 </div>
             </div>
         </div>

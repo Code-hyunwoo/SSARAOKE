@@ -45,7 +45,7 @@ function Mypage_Main() {
                         />
                     </div>
                         {/* 막대 바 */}
-                    <div className={Styles.canBar} style={{top:'41%'}}> BookMark</div>
+                    <div className={Styles.canBar} style={{top:'22vh'}}> BookMark</div>
                     {/* 아랫층 캔 */}
                     <div>
                         <button onClick={() => setVideoShow(true)} className={Stylescan.canB} style={{top:'52.5%',left: '4%'}}></button>
@@ -61,7 +61,7 @@ function Mypage_Main() {
                         />
                     </div>
                         {/* 막대 바 */}
-                    <div className={Styles.canBar} style={{top:'88%'}}>My Video</div>
+                    <div className={Styles.canBar} style={{top:'47vh'}}>My Video</div>
                 </div>
                     {/* 닉네임 */}
                     <button onClick={() => setNicnameShow(true)} className={Styles.nicnameBox}> {`Nicname`} </button>
@@ -103,9 +103,13 @@ function Mypage_Main() {
                 <div className={Styles.trash5}></div>
                 <div className={Styles.trash6}></div>
                 <div className={Styles.trashCan}></div>
-            <div> <BsTrash2Fill className={Styles.trashCan} color="#0381D7"/></div>
-            {/* <div> <BsTrash className={Styles.trashCan} color="#0381D7"/></div> */}
-            <div> <BsTrash2 className={Styles.trashCan} color="#0381D7"/></div>
+            
+            <Link to='/'>
+            <div> <BsTrash2Fill className={Styles.trashCan} color="#0381D7"/>
+            {/* </div> */}
+            {/* <div> */}
+                 <BsTrash2 className={Styles.trashCan} color="#0381D7"/></div>
+            </Link>
             </button>
 
         </div>

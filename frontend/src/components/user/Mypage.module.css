@@ -1,14 +1,14 @@
 /* NicName */
 .NicnameModal{
     position: absolute;
-    width: 90%;
-    height: 100px;
-    left: -45vh;
-    top: 49vh;
+    width: 21.5vw;
+    height: 13vh;
+    left: -59.5vh;
+    top: 54vh;
     
     background: #ffcd438f;
     /* background: rgba(228, 83, 21, 0.61); */
-    border-radius: 1pc;
+    border-radius: 1vw;
     font-family: 'Cafe24SsurroundAir';
 }
 
@@ -27,9 +27,9 @@
 
 .EmailModal{
     position: absolute;
-    width: 169.1%;
-    height: 83px;
-    left: -59vh;
+    width: 33vw;
+    height: 11vh;
+    left: -59.5vh;
     top: 73.7vh;
     
     background: rgba(255, 206, 67, 0.6);
@@ -40,9 +40,9 @@
     font-weight: bold;
     /* font-family: 'Oregano', cursive; */
     font-family: 'Cafe24SsurroundAir';
-    font-size: 120%;
+    font-size: 1.2vw;
     text-align: center;
-    padding: 1% 0;
+    padding: 0.5vh 0;
     color: white;
 }
 

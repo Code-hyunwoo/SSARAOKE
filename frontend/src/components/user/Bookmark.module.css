@@ -8,15 +8,17 @@
 
 .createroombg {
     position: absolute;
-    width: 80%;
-    height: 550px;
-    left: 1.5%;
-    top: 45px;
+    width: 60vw;
+    height: 77vh;
+    /* width: 58rem; */
+    /* height: 34rem; */
+    left: 0.9vw;
+    top: 9vh;
     
     background: #ffcd438f;
     /* background-color: rgba(0, 0, 0, 0); */
     /* background: rgba(228, 83, 21, 0.61); */
-    border-radius: 2pc;
+    border-radius: 2vw;
 }
 
 /* 본문 들어갈 부분 */
@@ -24,17 +26,19 @@
 /* 북마크 제목 */
 .Sh1 {
     position: absolute;
-    width: 20%;
-    height: 10%;
-    left: 5%;
-    top: 9%;
+    width: 20vw;
+    height: 10vh;
+    /* width: 60rem; */
+    /* height: 5rem; */
+    left: 3vw;
+    top: 6vh;
 
     font-weight: bold;
     font-family: 'Oregano', cursive;
     /* font-family: 'Cafe24SsurroundAir'; */
     font-style: normal;
     font-weight: normal;
-    font-size: 280%;
+    font-size: 2.5vw;
     /* line-height: 58px; */
     display: flex;
     align-items: center;
@@ -47,10 +51,13 @@
 .table{
     position: absolute;
     /* width: 60%; */
-    width: 90%;
-    height: 50%;
-    left: 4%;
-    top: 150%;
+    width: 55vw;
+    height: 55vh;
+    /* left: 4%;
+    top: 150%; */
+    left: 2.7vw;
+    top: 10vh;
+    overflow-y: scroll;
 
     /* font-weight: bold; */
     /* font-family: 'Oregano', cursive; */
@@ -68,13 +75,13 @@
 
 /* 테이블 헤더 글자 */
 .tablehead{
-    font-size: 140%;
+    font-size: 1.3vw;
     font-family: 'Cafe24Ssurround';
     text-align: center;  
 }
 
 .tablebody{
-    font-size: 130%;
+    font-size: 1.05vw;
     font-family: 'Cafe24SsurroundAir';
     text-align: center;  
 }
