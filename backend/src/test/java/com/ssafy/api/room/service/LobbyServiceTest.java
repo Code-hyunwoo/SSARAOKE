@@ -62,6 +62,7 @@ class LobbyServiceTest {
         assertEquals(testRoom.getTitle(), "룸생성테스트");
     }
 
+    @Test
     void createRoom() {
         User owner = userRepository.findAll().get(0);
         List<Long> tags = new ArrayList<>();
