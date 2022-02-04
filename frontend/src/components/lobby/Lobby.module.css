@@ -248,12 +248,16 @@
     font-weight: bold;
     font-family: 'Oregano', cursive;
     font-size: 110%;
+    text-decoration: none;
     /* font-family: 'Cafe24SsurroundAir'; */
     /* src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff'); */
     /* font-weight: normal; */
     /* font-style: normal; */
 }
 
+.joindeco{
+    text-decoration: none;
+}
 
 /* 빈칸 방 */
 .block {
@@ -261,6 +265,13 @@
     background-color: black;
 }
 
+/* 방들 줄별 top 설정 */
+/* .lineone{
+    top: 58%;
+}
+.linetwo{
+    top: 96%;
+} */
 
 /* 위 왼쪽 방 */
 .doorL {
@@ -298,8 +309,8 @@
     position: absolute;
     width: 15%;
     height: 38%;
-    left: 6%;
-    top: 58%;
+    /* left: 6%;
+    top: 58%; */
 
     background: rgba(156, 196, 255, 0.4);
     border: 0.3pc solid #FFCE43;
@@ -312,8 +323,8 @@
     position: absolute;
     width: 15%;
     height: 38%;
-    left: 36%;
-    top: 58%;
+    /* left: 36%;
+    top: 58%; */
 
     background: rgba(156, 196, 255, 0.4);
     border: 0.3pc solid #FFCE43;
@@ -325,8 +336,8 @@
     position: absolute;
     width: 15%;
     height: 38%;
-    left: 50.8%;
-    top: 58%;
+    /* left: 50.8%;
+    top: 58%; */
 
     background: rgba(156, 196, 255, 0.4);
     border: 0.3pc solid #FFCE43;
@@ -339,8 +350,8 @@
     width: 15%;
     height: 38%;
     /* left: 50.8%; */
-    right: 6%;
-    top: 58%;
+    /* right: 6%;
+    top: 58%; */
     
     background: rgba(156, 196, 255, 0.4);
     border: 0.3pc solid #FFCE43;
@@ -354,7 +365,7 @@
     /* height: 420px; */
     height: 40%;
     left: 36%;
-    top: 14%;
+    top: 24%;
     
     background: #FFFFFF;
     border: 0.3pc solid #FFCE43;

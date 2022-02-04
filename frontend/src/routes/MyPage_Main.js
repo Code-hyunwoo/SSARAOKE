@@ -8,8 +8,10 @@ import { Link } from "react-router-dom";
 import Bookmark from "../components/user/Bookmark";
 import Nicname from "../components/user/Nicname";
 import Email from "../components/user/Email";
-import MyPageBG from "../components/user/MyPageBG";
-import LobbyBackGround from "../components/lobby/LobbyBackGround";
+// import MyPageBG from "../components/user/MyPageBG";
+import LobbyBackGround from "../components/lobby/background/LobbyBackGround";
+import SpaceBackground from "../components/lobby/background/Space_Background";
+import Forest from "../components/lobby/background/Forest";
 
 function Mypage_Main() {
     const [bookmarkShow, setBookmarkShow] = React.useState(false);
@@ -19,8 +21,10 @@ function Mypage_Main() {
 
     return(
         <div>
-            <LobbyBackGround />
-            <button className={Styles.backbtn}><Link to='/lobby'>lobby</Link></button>
+            <Forest />
+            {/* <SpaceBackground /> */}
+            {/* <LobbyBackGround /> */}
+            <Link to='/lobby'><button className={Styles.backbtn}></button></Link>
             {/* 자판기시작 */}
             {/* 큰틀 */}
             <div className={Styles.machineOutline}>
