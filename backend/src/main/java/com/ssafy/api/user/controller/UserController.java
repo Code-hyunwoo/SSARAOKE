@@ -31,14 +31,14 @@ public class UserController {
     }
 
     @PatchMapping("/email")
-    public ResponseEntity<? extends BaseResponseBody> updateUserEmail(@Auth User user, @RequestBody String newEmail){
-        String response = userService.updateEmail(user, newEmail);
-        return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
+    public ResponseEntity<UserUpdateResponse> updateUserEmail(@Auth User user, @RequestBody String newEmail){
+        UserUpdateResponse response = userService.updateEmail(user, newEmail);
+        return ResponseEntity.ok().body(response);
     }
 
     @PatchMapping("/nickname")
-    public ResponseEntity<String> updateUserNickname(@Auth User user, @RequestBody String newNickname){
-        String response = userService.updateNickname(user, newNickname);
+    public ResponseEntity<UserUpdateResponse> updateUserNickname(@Auth User user, @RequestBody String newNickname){
+        UserUpdateResponse response = userService.updateNickname(user, newNickname);
         return ResponseEntity.ok().body(response);
     }
 

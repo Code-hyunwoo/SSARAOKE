@@ -32,22 +32,22 @@ public class UserServiceImpl implements UserService{
 
     @Transactional
     @Override
-    public String updateNickname(User user, String newNickname) {
+    public UserUpdateResponse updateNickname(User user, String newNickname) {
         if(userRepository.existsByNickname(newNickname)){
             throw new CustomException(ErrorCode.DUPLICATE_NICKNAME);
         }
         user.updateNickname(newNickname);
-        return user.getNickname();
+        return new UserUpdateResponse(user.getNickname());
     }
 
     @Transactional
     @Override
-    public String updateEmail(User user, String newEmail) {
+    public UserUpdateResponse updateEmail(User user, String newEmail) {
         if(userRepository.existsByEmail(newEmail)){
             throw new CustomException(ErrorCode.DUPLICATE_EMAIL);
         }
         user.updateEmail(newEmail);
-        return user.getNickname();
+        return new UserUpdateResponse(user.getNickname());
     }
 
     @Transactional

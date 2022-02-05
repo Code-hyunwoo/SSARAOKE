@@ -10,8 +10,8 @@ import java.util.List;
 
 public interface UserService {
     UserResponse getMyPage(User user);
-    String updateNickname(User user, String newNickname);
-    String updateEmail(User user, String newEmail);
+    UserUpdateResponse updateNickname(User user, String newNickname);
+    UserUpdateResponse updateEmail(User user, String newEmail);
     boolean quit(Long seq);
     List<UserVideoResponse> getVideos(User user);
 
