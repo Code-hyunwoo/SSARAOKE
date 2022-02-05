@@ -169,12 +169,10 @@ class RoomServiceTest {
         User user = room.getUsers().get(0);
         User bannedUser = roomBanRepository.findAll().get(0).getUser();
         roomService.deleteRoom(room.getSeq());
-        
+
         //user에서 room 삭제됐는지 확인해야 함
         assertEquals(null, user.getRoom());
         //roomban 삭제됐는지 확인해야 함 어케함
         //room 삭제됐는지 확인해야 함 어케함
     }
-//    public void deleteRoom(Long room_seq);
-
 }
