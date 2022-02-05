@@ -45,7 +45,7 @@ public class UserController {
 
     @GetMapping("/quit")
     public ResponseEntity<? extends BaseResponseBody> quit(@Auth User user){
-        boolean is_quit = userService.quit(user.getSeq());
+        userService.quit(user.getSeq());
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
 

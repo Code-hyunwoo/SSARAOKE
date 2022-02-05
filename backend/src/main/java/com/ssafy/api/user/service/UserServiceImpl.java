@@ -52,12 +52,11 @@ public class UserServiceImpl implements UserService{
 
     @Transactional
     @Override
-    public boolean quit(Long seq) {
+    public void quit(Long seq) {
         if(!userRepository.existsById(seq)){
             throw new CustomException(ErrorCode.USER_NOT_FOUND);
         }
         userRepository.deleteById(seq);
-        return true;
     }
 
     @Transactional(readOnly = true)
