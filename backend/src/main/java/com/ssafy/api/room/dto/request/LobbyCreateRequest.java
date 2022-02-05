@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class LobbyCreateRequest {
     private String title;
-    private List<Long> tags;
+    private List<String> tags;
     private boolean is_private;
     private String password;
 }

@@ -65,9 +65,9 @@ class LobbyServiceTest {
     @Test
     void createRoom() {
         User owner = userRepository.findAll().get(0);
-        List<Long> tags = new ArrayList<>();
-        tags.add(30L);
-        tags.add(25L);
+        List<String> tags = new ArrayList<>();
+        tags.add("R&B");
+        tags.add("힙합");
 
         LobbyCreateRequest lobbyCreateRequest = new LobbyCreateRequest("룸생성테스트", tags, true, "1234");
 

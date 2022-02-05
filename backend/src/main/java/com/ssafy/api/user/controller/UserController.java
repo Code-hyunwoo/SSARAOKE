@@ -31,9 +31,9 @@ public class UserController {
     }
 
     @PatchMapping("/email")
-    public ResponseEntity<String> updateUserEmail(@Auth User user, @RequestBody String newEmail){
+    public ResponseEntity<? extends BaseResponseBody> updateUserEmail(@Auth User user, @RequestBody String newEmail){
         String response = userService.updateEmail(user, newEmail);
-        return ResponseEntity.ok().body(response);
+        return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
 
     @PatchMapping("/nickname")
@@ -44,9 +44,9 @@ public class UserController {
 
 
     @GetMapping("/quit")
-    public ResponseEntity<String> quit(@Auth User user){
+    public ResponseEntity<? extends BaseResponseBody> quit(@Auth User user){
         boolean is_quit = userService.quit(user.getSeq());
-        return ResponseEntity.ok().body("Success");
+        return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
 
     @GetMapping("/video")
