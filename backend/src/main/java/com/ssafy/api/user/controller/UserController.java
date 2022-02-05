@@ -31,10 +31,17 @@ public class UserController {
     }
 
     @PatchMapping("")
-    public ResponseEntity<UserUpdateResponse> updateUserInfo(@Auth User user, @RequestBody UserUpdateRequest request){
-        UserUpdateResponse response = userService.updateUserNickname(user, request);
+    public ResponseEntity<String> updateUserEmail(@Auth User user, @RequestBody String newEmail){
+        String response = userService.updateEmail(user, newEmail);
         return ResponseEntity.ok().body(response);
     }
+
+    @PatchMapping("")
+    public ResponseEntity<String> updateUserNickname(@Auth User user, @RequestBody String newNickname){
+        String response = userService.updateNickname(user, newNickname);
+        return ResponseEntity.ok().body(response);
+    }
+
 
     @GetMapping("/quit")
     public ResponseEntity<String> quit(@Auth User user){
