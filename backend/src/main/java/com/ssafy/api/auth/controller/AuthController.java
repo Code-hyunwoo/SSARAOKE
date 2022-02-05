@@ -2,7 +2,6 @@ package com.ssafy.api.auth.controller;
 
 import com.ssafy.api.auth.dto.request.AuthRequestDto;
 import com.ssafy.api.auth.dto.response.OAuthDto;
-import com.ssafy.api.auth.resolver.Auth;
 import com.ssafy.api.auth.service.AuthService;
 import com.ssafy.common.model.response.BaseResponseBody;
 import com.ssafy.common.util.JwtTokenProvider;

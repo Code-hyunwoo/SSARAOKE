@@ -30,13 +30,13 @@ public class UserController {
         return ResponseEntity.ok().body(response);
     }
 
-    @PatchMapping("")
+    @PatchMapping("/email")
     public ResponseEntity<String> updateUserEmail(@Auth User user, @RequestBody String newEmail){
         String response = userService.updateEmail(user, newEmail);
         return ResponseEntity.ok().body(response);
     }
 
-    @PatchMapping("")
+    @PatchMapping("/nickname")
     public ResponseEntity<String> updateUserNickname(@Auth User user, @RequestBody String newNickname){
         String response = userService.updateNickname(user, newNickname);
         return ResponseEntity.ok().body(response);
