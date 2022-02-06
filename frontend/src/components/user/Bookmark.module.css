@@ -48,6 +48,15 @@
 }
 
 /* 본문 테이블 */
+.bigtable{
+    display: flex;
+    /* 가로 정렬 */
+    justify-content: center;
+     /*세로  */
+     align-items: center;
+     /* -> 가로세로 정중앙 */
+}
+
 .table{
     position: absolute;
     /* width: 60%; */

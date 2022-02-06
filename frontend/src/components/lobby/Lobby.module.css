@@ -6,7 +6,7 @@
     width: 15vw;
     border: none;
     background-color: transparent;
-    font-size: 300%;
+    font-size: 2.8vw;
     font-weight: bold;
     font-family: 'Oregano', cursive;
     color: white;
@@ -15,7 +15,7 @@
 .btnimg {
     position: absolute;
     top: 20vh;
-    right: 4.8vw;
+    right: 4.2vw;
     width: 5vw;
 }
 
