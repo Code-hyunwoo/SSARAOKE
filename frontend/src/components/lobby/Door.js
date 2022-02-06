@@ -1,7 +1,12 @@
 import Styles from "./Door.module.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import closedImg from "./img/closed2.PNG";
 
-function Door({ thumbnail, title, hostname, usercnt = 0 }) {
+function Door({ thumbnail = closedImg, title, hostname, usercnt = 0, tags }) {
+  // 방 생성되면 created값 true로 변경
+  const [created, setCreated] = useState(false);
+
   return (
     <div className={Styles.roomsamecss}>
       <img className={Styles.video} src={thumbnail} alt="thumbnail" />
@@ -13,10 +18,23 @@ function Door({ thumbnail, title, hostname, usercnt = 0 }) {
         <div className={Styles.roomfull}>{usercnt}/8</div>
       </div>
 
-      <div className={Styles.tag}> #2010 #K-POP #발라드 #ROCK </div>
-
+      <div className={Styles.tag}>
+        {tags &&
+          tags.map((tag) => {
+            return ` #${tag}`;
+          })}
+      </div>
       <Link to="/basic" className={Styles.joinlink}>
-        <button className={Styles.joinbtn}>Join this room</button>
+        <button
+          className={Styles.joinbtn}
+          disabled={created === false}
+          style={{
+            backgroundColor: created ? "#e9d4fa" : "gray",
+            color: created ? "#350061da" : "black",
+          }}
+        >
+          Join this room
+        </button>
       </Link>
     </div>
   );

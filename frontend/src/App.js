@@ -1,12 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./routes/Home";
-import MainLobby2 from "./routes/MainLobby2";
+import MainLobbyGrid from "./routes/MainLobbyGrid";
 import MypageMain from "./routes/MyPage_Main";
 import Basic from "./routes/Basic";
 import Free from "./routes/Free";
 import Solo from "./routes/Solo";
 import Duet from "./routes/Duet";
-import MainLobbyGrid from "./routes/MainLobbyGrid";
 
 function App() {
   return (

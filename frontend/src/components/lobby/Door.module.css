@@ -105,7 +105,7 @@
 .joinbtn {
   width: 11vw;
   height: 5vh;
-  background: #e9d4fa;
+  /* background-color: #e9d4fa; */
   border-radius: 5vh;
   font-weight: bold;
   font-family: "Oregano";
@@ -113,7 +113,7 @@
   text-align: center;
   text-decoration: none;
   padding: 0.05vw;
-  color: #350061da;
+  /* color: #350061da; */
   border: none;
 }
 
