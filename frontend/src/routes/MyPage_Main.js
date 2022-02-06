@@ -9,7 +9,8 @@ import Nicname from "../components/user/Nicname";
 import Email from "../components/user/Email";
 // import SpaceBackground from "../components/lobby/background/Space_Background";
 import Forest from "../components/lobby/background/Forest";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
+import RoomPw from "../components/lobby/RoomPw";
 
 function Mypage_Main() {
     // 모달용
@@ -23,9 +24,11 @@ function Mypage_Main() {
 
     return(
         <div>
+            
             <Forest />
             {/* <SpaceBackground /> */}
             {/* <LobbyBackGround /> */}
+
             <Link to='/lobby'><button className={Styles.backbtn}></button></Link>
             {/* 자판기시작 */}
             {/* 큰틀 */}
@@ -36,7 +39,7 @@ function Mypage_Main() {
                     {/* 윗층 캔 */}
                     {/* 모달, 마우스오버.아웃 */}
                     <div 
-                        onClick={() => setBookmarkShow(true)} 
+                        onClick={() => setBookmarkShow(true)}
                         onMouseOver={() => setBookMShow(true)} 
                         onMouseOut={() => setBookMShow(false)}
                     >
@@ -147,6 +150,7 @@ function Mypage_Main() {
                     <div className={Styles.machineDoor}></div>
                     <div className={Styles.machineDoorR}></div>
             </div>
+
             {/* 쓰레기통 */}
             <button style={{backgroundColor:'black', borderColor:'black'}}>
                 <div className={Styles.trash1}></div>
