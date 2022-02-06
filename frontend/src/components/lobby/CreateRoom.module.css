@@ -32,7 +32,7 @@
   top: 225px; */
   /* font-family: 'Cafe24SsurroundAir'; */
   /* background: rgba(255, 206, 67, 0.9); */
-  background-color: rgba(0, 0, 0, 0);
+  /* background-color: rgba(0, 0, 0, 0); */
   /* border-radius: 15px; */
 }
 
@@ -41,17 +41,23 @@
   position: absolute;
   width: 39vw;
   height: 75vh;
-  left: -5vw;
+  /* left: -3.7vw; */
   top: 10vh;
+
   background: #f9b108cb;
   /* background: rgba(228, 83, 21, 0.61); */
   border-radius: 2pc;
 }
 
+.modposi {
+  display: flex;
+  justify-content: center;
+}
+
 /* 노래방생성 */
 .createtitle {
   position: absolute;
-  width: 35%;
+  /* width: 35%; */
   height: 10vh;
   left: 15vw;
   top: 5vh;
@@ -59,7 +65,7 @@
   /* font-family: Oregano; */
   font-style: normal;
   font-weight: normal;
-  font-size: 250%;
+  font-size: 2vw;
   /* font-size: 40px; */
   /* line-height: 62px; */
   display: flex;
@@ -67,6 +73,7 @@
   text-align: center;
   /* font-family: 'ROKAFSansBold'; */
   font-family: "Cafe24Ssurround";
+
   color: #000000;
 }
 
@@ -82,7 +89,7 @@
   font-family: "Cafe24Ssurround";
   font-style: normal;
   font-weight: normal;
-  font-size: 150%;
+  font-size: 1.3vw;
   /* line-height: 39px; */
   display: flex;
   align-items: center;
@@ -104,7 +111,7 @@
   background-color: #fff89a;
   font-style: normal;
   font-weight: normal;
-  font-size: 110%;
+  font-size: 1vw;
   /* line-height: 39px; */
   display: flex;
   align-items: center;
@@ -124,7 +131,7 @@
   font-family: "Cafe24Ssurround";
   font-style: normal;
   font-weight: normal;
-  font-size: 150%;
+  font-size: 1.3vw;
   /* line-height: 39px; */
   display: flex;
   align-items: center;
@@ -144,7 +151,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1.1vw;
   /* line-height: 39px; */
   display: flex;
   align-items: center;
@@ -164,7 +171,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1.1vw;
   line-height: 39px;
   display: flex;
   align-items: center;
@@ -185,7 +192,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1.1vw;
   line-height: 39px;
   display: flex;
   align-items: center;
@@ -206,7 +213,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1.1vw;
   line-height: 39px;
   display: flex;
   align-items: center;
@@ -227,7 +234,7 @@
   font-family: "Cafe24Ssurround";
   font-style: normal;
   font-weight: bold;
-  font-size: 150%;
+  font-size: 1.3vw;
   /* line-height: 39px; */
   display: flex;
   align-items: center;
@@ -247,7 +254,7 @@
   font-family: "Cafe24Ssurround";
   font-style: normal;
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.2vw;
   /* line-height: 39px; */
   display: flex;
   align-items: center;
@@ -268,7 +275,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1vw;
   /* line-height: 39px; */
   display: flex;
   align-items: center;
@@ -289,7 +296,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1vw;
   line-height: 39px;
   display: flex;
   align-items: center;
@@ -310,7 +317,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1vw;
   line-height: 39px;
   display: flex;
   align-items: center;
@@ -331,7 +338,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1vw;
   line-height: 39px;
   display: flex;
   align-items: center;
@@ -352,7 +359,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1vw;
   line-height: 39px;
   display: flex;
   align-items: center;
@@ -373,7 +380,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1vw;
   line-height: 39px;
   display: flex;
   align-items: center;
@@ -394,7 +401,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1vw;
   line-height: 39px;
   display: flex;
   align-items: center;
@@ -415,7 +422,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1vw;
   line-height: 39px;
   display: flex;
   align-items: center;
@@ -435,7 +442,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1vw;
   line-height: 39px;
   display: flex;
   align-items: center;
@@ -455,7 +462,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1vw;
   line-height: 39px;
   display: flex;
   align-items: center;
@@ -476,7 +483,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1vw;
   line-height: 39px;
   display: flex;
   align-items: center;
@@ -497,7 +504,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1vw;
   line-height: 39px;
   display: flex;
   align-items: center;
@@ -518,7 +525,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1vw;
   line-height: 39px;
   display: flex;
   align-items: center;
@@ -539,7 +546,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1vw;
   line-height: 39px;
   display: flex;
   align-items: center;
@@ -560,8 +567,7 @@
   font-family: "Cafe24Ssurround";
   font-style: normal;
   font-weight: normal;
-  font-size: 25px;
-  line-height: 39px;
+  font-size: 1.3vw;
   display: flex;
   align-items: center;
   text-align: center;
@@ -581,7 +587,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 1.2vw;
   /* line-height: 26px; */
   display: flex;
   align-items: center;
@@ -602,8 +608,7 @@
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
-  font-size: 130%;
-  line-height: 26px;
+  font-size: 1.2vw;
   display: flex;
   align-items: center;
   text-align: center;
@@ -613,9 +618,9 @@
 
 .roompw {
   position: absolute;
-  width: 60%;
-  height: 100%;
-  left: 5vw;
+  width: 10vw;
+  /* height: 100%; */
+  left: 5.5vw;
 
   border-radius: 1pc;
   border-color: #ffcd43a8;
@@ -626,8 +631,7 @@
   font-family: Oregano;
   font-style: normal;
   font-weight: normal;
-  font-size: 100%;
-  line-height: 26px;
+  font-size: 1.1vw;
   display: flex;
   align-items: center;
   text-align: center;
@@ -646,7 +650,7 @@
   background-color: rgba(132, 178, 248, 0.9);
   /* color: rgba(132, 178, 248, 0.9); */
   border-radius: 1pc;
-  font-size: 150%;
+  font-size: 1.2vw;
   font-weight: bold;
 }
 
