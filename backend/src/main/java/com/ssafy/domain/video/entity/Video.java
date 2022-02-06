@@ -4,10 +4,12 @@ import com.ssafy.domain.common.BaseTimeEntity;
 import com.ssafy.domain.user.entity.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @Table(name = "TB_VIDEO")
 @Entity
