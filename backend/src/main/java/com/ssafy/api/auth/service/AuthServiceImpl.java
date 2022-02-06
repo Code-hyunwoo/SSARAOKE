@@ -52,7 +52,7 @@ public class AuthServiceImpl implements AuthService {
             User savedUser = userRepository.save(newUser);
 
             String token = "Bearer " + JwtTokenProvider.getToken(savedUser.getSeq());
-            return new OAuthDto(savedUser.getSeq(), token, requestDto.getOAuthType(), existUser.get().getNickname(), true);
+            return new OAuthDto(savedUser.getSeq(), token, requestDto.getOAuthType(), savedUser.getNickname(), true);
         }
     }
 

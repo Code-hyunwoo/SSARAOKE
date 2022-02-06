@@ -30,16 +30,23 @@ public class UserController {
         return ResponseEntity.ok().body(response);
     }
 
-    @PatchMapping("")
-    public ResponseEntity<UserUpdateResponse> updateUserInfo(@Auth User user, @RequestBody UserUpdateRequest request){
-        UserUpdateResponse response = userService.updateUserNickname(user, request);
+    @PatchMapping("/email")
+    public ResponseEntity<UserUpdateResponse> updateUserEmail(@Auth User user, @RequestBody String newEmail){
+        UserUpdateResponse response = userService.updateEmail(user, newEmail);
         return ResponseEntity.ok().body(response);
     }
 
+    @PatchMapping("/nickname")
+    public ResponseEntity<UserUpdateResponse> updateUserNickname(@Auth User user, @RequestBody String newNickname){
+        UserUpdateResponse response = userService.updateNickname(user, newNickname);
+        return ResponseEntity.ok().body(response);
+    }
+
+
     @GetMapping("/quit")
-    public ResponseEntity<String> quit(@Auth User user){
-        boolean is_quit = userService.quit(user.getSeq());
-        return ResponseEntity.ok().body("Success");
+    public ResponseEntity<? extends BaseResponseBody> quit(@Auth User user){
+        userService.quit(user.getSeq());
+        return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
 
     @GetMapping("/video")

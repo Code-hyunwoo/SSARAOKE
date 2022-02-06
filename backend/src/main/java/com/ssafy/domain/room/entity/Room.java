@@ -116,4 +116,11 @@ public class Room extends BaseTimeEntity{
                 .orElseThrow(()->new CustomException(ErrorCode.USER_NOT_FOUND));
     }
 
+    public void addRoomTag(RoomTag roomTag) {
+        if(!this.roomTags.contains(roomTag)){
+            this.roomTags.add(roomTag);
+        }
+    }
+
+
 }

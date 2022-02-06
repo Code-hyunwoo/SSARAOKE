@@ -3,6 +3,8 @@ package com.ssafy.api.room.service;
 import com.ssafy.api.room.dto.request.LobbyCreateRequest;
 import com.ssafy.api.room.dto.request.LobbyEnterRequest;
 import com.ssafy.api.room.dto.response.LobbyResponse;
+import com.ssafy.common.exception.CustomException;
+import com.ssafy.common.exception.ErrorCode;
 import com.ssafy.domain.room.entity.Room;
 import com.ssafy.domain.room.entity.RoomBan;
 import com.ssafy.domain.room.entity.RoomTag;
@@ -56,18 +58,20 @@ public class LobbyServiceImpl implements LobbyService{
 
         roomRepository.save(room);
 
-        List<Long> tag_seqs = lobbyCreateRequest.getTags();
-        for(int i=0; i<tag_seqs.size(); i++){
-            Tag tag = tagRepository.findById((long)tag_seqs.get(i)).get();
-            RoomTag roomTag = new RoomTag();
-            roomTag.setRoom(room);
-            roomTag.setTag(tag);
-
+        List<String> tag_seqs = lobbyCreateRequest.getTags();
+        for(String tag_name:tag_seqs) {
+            Tag tag = tagRepository.findTagByTag_name(tag_name);
+            if(tag == null){
+                throw new CustomException(ErrorCode.TAG_NOT_FOUND);
+            }
+            RoomTag roomTag = RoomTag.builder()
+                    .room(room)
+                    .tag(tag)
+                    .build();
             // Room에도 넣고, RoomTag에도 넣고
             room.addRoomTag(roomTag);
             roomTagRepository.save(roomTag);
         }
-
         return room;
     }
 
@@ -123,7 +127,7 @@ public class LobbyServiceImpl implements LobbyService{
 
         // Room에 user추가, User에 room추가
         room.addUser(user);
-        user.setRoom(room);
+//        user.setRoom(room);
 
     }
 

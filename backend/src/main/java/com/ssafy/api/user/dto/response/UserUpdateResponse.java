@@ -8,7 +8,5 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserUpdateResponse {
-    private String nickname;
-    private String email;
-
+    private String changed;
 }
