@@ -1,0 +1,12 @@
+.gridcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
+.griditem {
+  display: flex;
+  flex-direction: row;
+}

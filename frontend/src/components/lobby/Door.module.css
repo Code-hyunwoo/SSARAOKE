@@ -1,0 +1,171 @@
+/* 방들 공통 내용 */
+.roomsamecss {
+  position: relative;
+  width: 15vw;
+  height: 38vh;
+  border: 0.3vw solid #ffce43;
+  box-sizing: border-box;
+  border-radius: 3vh;
+  box-shadow: 0 0 0.1rem #fff, 0 0 0.1rem #fff, 0 0 0.1rem #fff,
+    0 0 0.4rem #ffffff, 0 0 1.5rem #ffce43, inset 0 0 0.8rem #ffce43;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5vw;
+}
+
+/* 방 내부 */
+.video {
+  position: absolute;
+  width: 12.8vw;
+  height: 14vh;
+  top: 0.75vw;
+}
+
+/* 방제 */
+.roomtitle {
+  position: absolute;
+  width: 12.8vw;
+  height: 3.5vh;
+  top: 17vh;
+  background: #ba78f0a2;
+  border-radius: 5vh;
+  font-size: 1vw;
+  text-align: center;
+  font-family: "Cafe24SsurroundAir";
+  font-weight: bold;
+  padding: 0.15vw;
+  color: #ffffff;
+}
+
+.roomgroup {
+  position: absolute;
+  top: 21.5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* 방장 */
+.roomuser {
+  display: inline-block;
+  width: 8.5vw;
+  height: 3.5vh;
+  background: #ba78f0a2;
+  border-radius: 5vh;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.8vw;
+  text-align: center;
+  font-family: "Cafe24SsurroundAir";
+  font-weight: bold;
+  padding: 0.3vw;
+  color: #ffffff;
+  margin-right: 0.15vw;
+}
+
+/* 방인원수 */
+.roomfull {
+  display: inline-block;
+  width: 4vw;
+  height: 3.5vh;
+  background: #ba78f0a2;
+  border-radius: 5vh;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.8vw;
+  text-align: center;
+  font-family: "Cafe24SsurroundAir";
+  font-weight: bold;
+  padding: 0.3vw;
+  color: #ffffff;
+  margin-left: 0.15vw;
+}
+
+.tag {
+  position: absolute;
+  width: 14vw;
+  height: 3.5vh;
+  top: 26vh;
+  text-align: center;
+  font-family: "Cafe24Ssurround";
+  font-size: 0.8vw;
+  font-weight: bold;
+  color: white;
+  padding: 0.04vw;
+  border-radius: 5vh;
+}
+
+.joinlink {
+  position: absolute;
+  bottom: 2vh;
+}
+
+/* join 버튼 */
+.joinbtn {
+  width: 11vw;
+  height: 5vh;
+  /* background-color: #e9d4fa; */
+  border-radius: 5vh;
+  font-weight: bold;
+  font-family: "Oregano";
+  font-size: 1.5vw;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.05vw;
+  /* color: #350061da; */
+  border: none;
+}
+
+/* 빈칸 방 */
+.block {
+  border: none;
+  background-color: black;
+}
+
+/* ---------------가운데 채팅창----------------- */
+.chat {
+  position: absolute;
+  width: 29vw;
+  /* height: 420px; */
+  height: 40vh;
+  left: 35.6vw;
+  top: 24vh;
+
+  background: #ffffff;
+  border: 0.3vw solid #ffce43;
+  box-sizing: border-box;
+  border-radius: 3vh;
+
+  box-shadow: 0 0 0.1rem #fff, 0 0 0.1rem #fff, 0 0 0.1rem #fff,
+    0 0 0.4rem #ffffff, 0 0 2rem #ffce43, inset 0 0 0.8rem #ffce43;
+}
+
+.chatcolor {
+  /* position: absolute;
+  width: 678px;
+  height: 420px;
+  left: 586px;
+  top: 163px; */
+
+  background: #ffffff;
+  /* border: 5px solid #FFCE43; */
+  border: none;
+  box-sizing: border-box;
+  border-radius: 2vh;
+}
+
+@font-face {
+  font-family: "Oregano";
+  src: url("../../fonts/Oregano-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Cafe24Ssurround";
+  src: url(../../fonts/Cafe24Ssurround.ttf);
+}
+
+@font-face {
+  font-family: "Cafe24SsurroundAir";
+  src: url(../../fonts/Cafe24SsurroundAir.ttf);
+}

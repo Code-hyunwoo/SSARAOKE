@@ -21,7 +21,14 @@ function NavbarLobby() {
             placeholder="방 제목을 검색하세요."
             style={{ width: 450 }}
           />
-          <button type="submit">
+          <button
+            type="submit"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <SearchIcon />
           </button>
         </div>
@@ -30,7 +37,7 @@ function NavbarLobby() {
           <button className={styles.roomtagsearch}>#R&B</button>
           <button className={styles.roomtagsearch}>#힙합</button>
           <button className={styles.roomtagsearch}>#K-POP</button>
-          <button className={styles.roomtagsearch}>#팝송</button>
+          <button className={styles.roomtagsearch}>#팝</button>
           <button className={styles.roomtagsearch}>#트로트</button>
           <button className={styles.roomtagsearch}>#인디</button>
           <button className={styles.roomtagsearch}>#ROCK</button>

@@ -7,7 +7,6 @@ import img5 from "../assets/login-background5.png";
 import styles from "./Home.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import NavbarHome from "../components/layout/NavbarHome";
 import Login from "../components/user/Login";
 import TeamProfile from "../components/roomin/TeamProfile";
 
@@ -34,7 +33,6 @@ function Home() {
   });
   return (
     <div>
-      {/* <NavbarHome /> */}
       <Login />
       <Container fluid className="px-5">
         <hr className={styles.line} />
