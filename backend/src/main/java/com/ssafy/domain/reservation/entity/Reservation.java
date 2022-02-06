@@ -3,10 +3,12 @@ package com.ssafy.domain.reservation.entity;
 import com.ssafy.domain.room.entity.Room;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @Table(name = "TB_RESERVATION")
 @Entity
@@ -29,4 +31,10 @@ public class Reservation {
     @Column
     private String artist;
 
+    public void Add(Room room, int song_no, String title, String artist){
+        this.room = room;
+        this.song_no = song_no;
+        this.title = title;
+        this.artist = artist;
+    }
 }
