@@ -29,5 +29,10 @@ public class Bookmark {
     @Column
     private String artist;
 
+    public void Add(int song_no, String title, String artist){
+        this.song_no = song_no;
+        this.title = title;
+        this.artist = artist;
+    }
 
 }
