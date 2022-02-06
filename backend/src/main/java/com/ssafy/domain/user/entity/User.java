@@ -7,6 +7,7 @@ import com.ssafy.domain.video.entity.Video;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -19,6 +20,7 @@ import java.util.List;
 //ddd DOMAIN  DRINVEN DEVELOP
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 @Table(name = "TB_USER")
 public class User extends BaseTimeEntity {
@@ -58,12 +60,26 @@ public class User extends BaseTimeEntity {
         this.oAuthInfo.setOauthInfo(oAuthSeq, oAuthType);
     }
 
-    public void updateNicknameAndEmail(String nickname, String email){
-        if(nickname != null)
-            this.nickname = nickname;
-        if(email != null)
-            this.email = email;
+    public void setRoom(Room room){
+        if(this.room != null){
+            this.room.getUsers().remove(this);
+        }
+        this.room = room;
+        if(room != null && !room.getUsers().contains(this)){
+            this.room.getUsers().add(this);
+        }
     }
 
+    public void updateNickname(String nickname){
+        if(nickname != null){
+            this.nickname = nickname;
+        }
+    }
+
+    public void updateEmail(String email){
+        if(email != null){
+            this.email = email;
+        }
+    }
 
 }
