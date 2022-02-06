@@ -1,0 +1,8 @@
+.gridcontainer {
+  display: grid;
+  /* justify-content: space-between; */
+}
+
+.griditem {
+  justify-content: space-between;
+}

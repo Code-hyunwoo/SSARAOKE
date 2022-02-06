@@ -1,21 +1,14 @@
 import Desk from "../components/lobby/Desk";
 import NavbarLobby from "../components/layout/NavbarLobby";
 import Room2 from "../components/lobby/Room2";
-import Styles from "../components/lobby/Lobby.module.css";
-import { Link } from "react-router-dom";
 import LobbyBackGround from "../components/lobby/background/LobbyBackGround";
 
 function MainLobby() {
   return (
-    // <Navbar />
     <div>
       <NavbarLobby />
       <LobbyBackGround />
 
-      <script
-        src="https://unpkg.com/react/umd/react.production.min.js"
-        crossorigin
-      ></script>
       <div>
         {/* <img alt="자판기" style={{paddingRight: "450px"}} src='https://www.figma.com/file/cyLMPjvATwJR1Vi4GYL53o/6%ED%8C%80-SSARAOKE_-%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84?node-id=117%3A146'/> */}
         {/*  style={{ marginleft: '95%'}} 하면 우측으로 이동 -> 추후 css 먹이기 */}

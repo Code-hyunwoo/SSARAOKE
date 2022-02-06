@@ -6,6 +6,7 @@ import Basic from "./routes/Basic";
 import Free from "./routes/Free";
 import Solo from "./routes/Solo";
 import Duet from "./routes/Duet";
+import MainLobbyGrid from "./routes/MainLobbyGrid";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/lobby" element={<MainLobby2 />}></Route>
+          <Route path="/lobby" element={<MainLobbyGrid />}></Route>
           <Route path="/mypage" element={<MypageMain />}></Route>
           <Route path="/basic" element={<Basic />}></Route>
           <Route path="/free" element={<Free />}></Route>
