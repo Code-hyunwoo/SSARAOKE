@@ -1,6 +1,8 @@
 .btngroup {
   display: flex;
   justify-content: flex-end;
+  padding-right: 2vw;
+  padding-top: 5vh;
 }
 
 /* CreateRoom */
@@ -14,13 +16,11 @@
   font-family: "Oregano", cursive;
   color: white;
   padding: 0;
-  vertical-align: middle;
   margin-right: -1vw;
 }
 
 .btnimg {
-  /* position: absolute; */
-  width: 5vw;
+  width: 4vw;
 }
 
 /* .modal-content 모달 외의 부분까지 다 적용 */
@@ -43,7 +43,6 @@
   height: 75vh;
   left: -5vw;
   top: 10vh;
-
   background: #f9b108cb;
   /* background: rgba(228, 83, 21, 0.61); */
   border-radius: 2pc;
@@ -68,7 +67,6 @@
   text-align: center;
   /* font-family: 'ROKAFSansBold'; */
   font-family: "Cafe24Ssurround";
-
   color: #000000;
 }
 
