@@ -1,6 +1,7 @@
 package com.ssafy.api.user.service;
 
 import com.ssafy.api.user.dto.request.UserUpdateRequest;
+import com.ssafy.api.user.dto.response.UserBookmarkResponse;
 import com.ssafy.api.user.dto.response.UserResponse;
 import com.ssafy.api.user.dto.response.UserUpdateResponse;
 import com.ssafy.api.user.dto.response.UserVideoResponse;
@@ -19,7 +20,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
@@ -27,13 +28,13 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserResponse getMyPage(User user) {
         List<Bookmark> list = user.getBookmarks();
-        return new UserResponse(user.getNickname(), user.getEmail(), list);
+        return new UserResponse(user.getNickname(), user.getEmail(), UserBookmarkResponse.of(list));
     }
 
     @Transactional
     @Override
     public UserUpdateResponse updateNickname(User user, String newNickname) {
-        if(userRepository.existsByNickname(newNickname)){
+        if (userRepository.existsByNickname(newNickname)) {
             throw new CustomException(ErrorCode.DUPLICATE_NICKNAME);
         }
         user.updateNickname(newNickname);
@@ -43,7 +44,7 @@ public class UserServiceImpl implements UserService{
     @Transactional
     @Override
     public UserUpdateResponse updateEmail(User user, String newEmail) {
-        if(userRepository.existsByEmail(newEmail)){
+        if (userRepository.existsByEmail(newEmail)) {
             throw new CustomException(ErrorCode.DUPLICATE_EMAIL);
         }
         user.updateEmail(newEmail);
@@ -53,7 +54,7 @@ public class UserServiceImpl implements UserService{
     @Transactional
     @Override
     public void quit(Long seq) {
-        if(!userRepository.existsById(seq)){
+        if (!userRepository.existsById(seq)) {
             throw new CustomException(ErrorCode.USER_NOT_FOUND);
         }
         userRepository.deleteById(seq);

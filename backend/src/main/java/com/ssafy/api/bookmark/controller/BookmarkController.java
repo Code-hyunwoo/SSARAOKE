@@ -29,13 +29,13 @@ public class BookmarkController {
 
     @PostMapping("/add")
     ResponseEntity<? extends BaseResponseBody> add(@Auth User user, @RequestBody BookmarkAddRequest bookmarkAddRequest) {
-        bookmarkService.add(bookmarkAddRequest);
+        bookmarkService.add(user, bookmarkAddRequest);
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
 
     @DeleteMapping("/delete/{song_no}")
     ResponseEntity<? extends BaseResponseBody> delete(@Auth User user, @PathVariable("song_no") int song_no) {
-        bookmarkService.delete(song_no);
+        bookmarkService.delete(user, song_no);
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
 }

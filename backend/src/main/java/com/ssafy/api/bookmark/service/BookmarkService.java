@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface BookmarkService {
     List<BookmarkResponse> list(User user);
-    void add(BookmarkAddRequest bookmark);
-    void delete(int song_no);
+    void add(User user, BookmarkAddRequest bookmark);
+    void delete(User user, int song_no);
 }

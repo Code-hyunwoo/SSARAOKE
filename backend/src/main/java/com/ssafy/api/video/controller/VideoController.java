@@ -24,7 +24,7 @@ public class VideoController {
 
     @PostMapping("/recvideo")
     ResponseEntity<? extends BaseResponseBody> recvideo(@Auth User user, @RequestBody VideoRecVideoRequest videoRecVideoRequest) {
-        videoService.recvideo(videoRecVideoRequest);
-        return ResponseEntity.ok().body(BaseResponseBody.of(200,"Sussess"));
+        videoService.recvideo(user, videoRecVideoRequest);
+        return ResponseEntity.ok().body(BaseResponseBody.of(200,"Success"));
     }
 }

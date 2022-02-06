@@ -2,6 +2,8 @@ package com.ssafy.api.bookmark.service;
 
 import com.ssafy.api.bookmark.dto.request.BookmarkAddRequest;
 import com.ssafy.api.bookmark.dto.response.BookmarkResponse;
+import com.ssafy.common.exception.CustomException;
+import com.ssafy.common.exception.ErrorCode;
 import com.ssafy.domain.bookmark.entity.Bookmark;
 import com.ssafy.domain.bookmark.repository.BookmarkRepository;
 import com.ssafy.domain.user.entity.User;
@@ -13,32 +15,36 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-public class BookmarkServiceImpl implements BookmarkService{
+public class BookmarkServiceImpl implements BookmarkService {
 
     private final BookmarkRepository bookmarkRepository;
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public List<BookmarkResponse> list(User user) {
-        Bookmark bookmark = bookmarkRepository.findById(user.getSeq()).get();
-//        List<Bookmark> list = (List<Bookmark>) bookmark.getUser();
-        List<Bookmark> list = bookmark.getUser().getBookmarks();
-
+        List<Bookmark> list = user.getBookmarks();
         return BookmarkResponse.of(list);
     }
 
     @Transactional
     @Override
-    public void add(BookmarkAddRequest bookmarks) {
-    Bookmark bookmark = new Bookmark();
-    bookmark.Add(bookmarks.getSong_no(),bookmarks.getTitle(),bookmarks.getArtist());
-    bookmarkRepository.save(bookmark);
+    public void add(User user, BookmarkAddRequest bookmarks) {
+        if(!user.isBookmarkNotExist(bookmarks.getSong_no())){
+            throw new CustomException(ErrorCode.EXIST_SONG_NO);
+        }
+        Bookmark bookmark = Bookmark.builder()
+                .artist(bookmarks.getArtist())
+                .song_no(bookmarks.getSong_no())
+                .title(bookmarks.getTitle())
+                .build();
+        bookmarkRepository.save(bookmark);
     }
 
     @Transactional
     @Override
-    public void delete(int song_no){
-    bookmarkRepository.deleteById((long) song_no);
+    public void delete(User user, int song_no) {
+        Long bookmark_seq = user.deleteBookmarkBySongNo(song_no);
+        bookmarkRepository.deleteById(bookmark_seq);
     }
 
 }

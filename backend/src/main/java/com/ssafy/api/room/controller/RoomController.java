@@ -29,43 +29,43 @@ public class RoomController {
     private final RoomService roomService;
 
     @PostMapping("/thumbnail")
-    ResponseEntity<? extends BaseResponseBody> getRoomThumbnail(@RequestBody RoomThumbnailRequest request){
+    ResponseEntity<? extends BaseResponseBody> getRoomThumbnail(@RequestBody RoomThumbnailRequest request) {
         roomService.saveThumbnail(request);
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
 
     @PostMapping("/assign")
-    ResponseEntity<? extends BaseResponseBody> assignOwner(@Auth User user, @RequestBody RoomUserRequest request){
+    ResponseEntity<? extends BaseResponseBody> assignOwner(@Auth User user, @RequestBody RoomUserRequest request) {
         roomService.assignOwner(user, request);
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
 
     @GetMapping("/users/{room_seq}")
-    ResponseEntity<List<RoomUserResponse>> getUserList(@PathVariable("room_seq") Long room_seq){
+    ResponseEntity<List<RoomUserResponse>> getUserList(@PathVariable("room_seq") Long room_seq) {
         List<RoomUserResponse> response = roomService.getUserList(room_seq);
         return ResponseEntity.ok().body(response);
     }
 
     @PostMapping("/ban")
-    ResponseEntity<? extends BaseResponseBody> ban(@Auth User user, @RequestBody RoomUserRequest request){
+    ResponseEntity<? extends BaseResponseBody> ban(@Auth User user, @RequestBody RoomUserRequest request) {
         roomService.ban(user, request);
-        return ResponseEntity.ok().body(BaseResponseBody.of(200 ,"Success"));
+        return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
 
     @PostMapping("out/{room_seq}")
-    ResponseEntity<? extends BaseResponseBody> out(@Auth User user, @PathParam("room_seq") Long room_seq){
+    ResponseEntity<? extends BaseResponseBody> out(@Auth User user, @PathParam("room_seq") Long room_seq) {
         roomService.out(user, room_seq);
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
 
     @GetMapping("/disappear/{room_seq}")
-    ResponseEntity<RoomUserResponse> dissapear(@PathParam("room_seq") Long room_seq){
+    ResponseEntity<RoomUserResponse> dissapear(@PathParam("room_seq") Long room_seq) {
         RoomUserResponse response = roomService.disappear(room_seq);
         return ResponseEntity.ok().body(response);
     }
 
     @DeleteMapping("/{room_seq}")
-    ResponseEntity<? extends BaseResponseBody> delete(@PathParam("room_seq") Long room_seq){
+    ResponseEntity<? extends BaseResponseBody> delete(@PathParam("room_seq") Long room_seq) {
         roomService.deleteRoom(room_seq);
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }

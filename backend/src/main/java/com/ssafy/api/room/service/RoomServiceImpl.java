@@ -20,7 +20,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-public class RoomServiceImpl implements RoomService{
+public class RoomServiceImpl implements RoomService {
 
     private final RoomRepository roomRepository;
     private final UserRepository userRepository;
@@ -31,20 +31,16 @@ public class RoomServiceImpl implements RoomService{
     @Override
     public void saveThumbnail(RoomThumbnailRequest request) {
         Room room = roomRepository.findById(request.getRoom_seq())
-                .orElseThrow(()->new CustomException(ErrorCode.ROOM_NOT_FOUND));
+                .orElseThrow(() -> new CustomException(ErrorCode.ROOM_NOT_FOUND));
         room.setThumbnailUrl(request.getThumbnail_url());
     }
 
     @Transactional
     @Override
     public void assignOwner(User owner, RoomUserRequest request) {
-        Room room = roomRepository.findById(request.getRoom_seq())
-                .orElseThrow(()->new CustomException(ErrorCode.ROOM_NOT_FOUND));
-        if(room.getOwner_seq() != owner.getSeq()){
-            throw new CustomException(ErrorCode.INVALID_OWNER);
-        }
+        Room room = checkOwner(owner, request);
         User newOwner = userRepository.findById(request.getUser_seq())
-                .orElseThrow(()->new CustomException(ErrorCode.USER_NOT_FOUND));
+                .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND));
         room.setOwner(newOwner.getSeq(), newOwner.getNickname());
     }
 
@@ -52,41 +48,39 @@ public class RoomServiceImpl implements RoomService{
     @Override
     public List<RoomUserResponse> getUserList(Long room_seq) {
         Room room = roomRepository.findById(room_seq)
-                .orElseThrow(()->new CustomException(ErrorCode.ROOM_NOT_FOUND));
+                .orElseThrow(() -> new CustomException(ErrorCode.ROOM_NOT_FOUND));
         return RoomUserResponse.of(room.getUsers());
     }
 
     @Transactional
     @Override
     public void ban(User owner, RoomUserRequest request) {
-        //방에서 지우기
-        Room room = roomRepository.findById(request.getRoom_seq())
-                .orElseThrow(()->new CustomException(ErrorCode.ROOM_NOT_FOUND));
-        if(room.getOwner_seq() != owner.getSeq()){
-            throw new CustomException(ErrorCode.INVALID_OWNER);
-        }
-        room.removeUser(request.getUser_seq());
-
-        //RoomBan에 추가
+        Room room = checkOwner(owner, request);
         User banned = userRepository.findById(request.getUser_seq())
-                .orElseThrow(()->new CustomException(ErrorCode.USER_NOT_FOUND));
+                .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND));
+        room.removeUser(request.getUser_seq());
         RoomBan roomBan = RoomBan.builder()
                 .room(room)
                 .user(banned)
                 .build();
         roomBanRepository.save(roomBan);
-        //signalling server에서 연결을 끊어야 하는데 이거 클라단에서 함 더 해줘야 할 듯
+    }
+
+    @Transactional(readOnly = true)
+    public Room checkOwner(User owner, RoomUserRequest request) {
+        Room room = roomRepository.findById(request.getRoom_seq())
+                .orElseThrow(() -> new CustomException(ErrorCode.ROOM_NOT_FOUND));
+        if (room.getOwner_seq() != owner.getSeq()) {
+            throw new CustomException(ErrorCode.INVALID_OWNER);
+        }
+        return room;
     }
 
     @Transactional
     @Override
     public void out(User user, Long room_seq) {
         Room room = roomRepository.findById(room_seq)
-                .orElseThrow(()->new CustomException(ErrorCode.ROOM_NOT_FOUND));
-        List<User> list = room.getUsers();
-        if(!list.contains(user)){
-            throw new CustomException(ErrorCode.USER_NOT_FOUND);
-        }
+                .orElseThrow(() -> new CustomException(ErrorCode.ROOM_NOT_FOUND));
         room.removeUser(user.getSeq());
     }
 
@@ -95,14 +89,12 @@ public class RoomServiceImpl implements RoomService{
     public RoomUserResponse disappear(Long room_seq) {
         //방에서 방장 지우기
         Room room = roomRepository.findById(room_seq)
-                .orElseThrow(()-> new CustomException(ErrorCode.ROOM_NOT_FOUND));
+                .orElseThrow(() -> new CustomException(ErrorCode.ROOM_NOT_FOUND));
         User deleted = userRepository.findById(room.getOwner_seq())
-                        .orElseThrow(()->new CustomException(ErrorCode.USER_NOT_FOUND));
+                .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND));
         room.removeUser(deleted.getSeq());
-        //새로운 방장 정하기
-        List<User> users = room.getUsers();
-        int i = (int)Math.random()*users.size();
-        User newOwner = users.get(i);
+        //새로운 방장 정하기;
+        User newOwner = room.getNewOwner();
         room.setOwner(newOwner.getSeq(), newOwner.getNickname());
         return new RoomUserResponse(newOwner.getSeq(), newOwner.getNickname());
     }
@@ -114,7 +106,7 @@ public class RoomServiceImpl implements RoomService{
         roomBanRepository.deleteAllByRoom_Seq(room_seq);
         //방 삭제
         Room room = roomRepository.findById(room_seq)
-                .orElseThrow(()->new CustomException(ErrorCode.ROOM_NOT_FOUND));
+                .orElseThrow(() -> new CustomException(ErrorCode.ROOM_NOT_FOUND));
         room.removeAllUser();
         roomRepository.deleteById(room_seq);
     }

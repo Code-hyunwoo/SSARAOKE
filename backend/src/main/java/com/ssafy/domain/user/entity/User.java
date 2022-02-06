@@ -1,5 +1,7 @@
 package com.ssafy.domain.user.entity;
 
+import com.ssafy.common.exception.CustomException;
+import com.ssafy.common.exception.ErrorCode;
 import com.ssafy.domain.bookmark.entity.Bookmark;
 import com.ssafy.domain.common.BaseTimeEntity;
 import com.ssafy.domain.room.entity.Room;
@@ -81,5 +83,33 @@ public class User extends BaseTimeEntity {
             this.email = email;
         }
     }
+
+    public void addVideo(Video video){
+        if(!this.videos.contains(video)){
+            this.videos.add(video);
+        }
+        video.setUser(this);
+    }
+
+    public boolean isBookmarkNotExist(int song_no){
+        return this.bookmarks.stream()
+                .noneMatch(bookmark -> bookmark.getSong_no() == song_no);
+    }
+
+    public Long deleteBookmarkBySongNo(int song_no){
+        Bookmark bookmark = findBookmarkBySongNo(song_no);
+        this.bookmarks.remove(bookmark);
+        return bookmark.getSeq();
+    }
+
+    public Bookmark findBookmarkBySongNo(int song_no){
+        return this.bookmarks.stream()
+                .filter(bookmark -> bookmark.getSong_no() == song_no)
+                .findFirst()
+                .orElseThrow(()->new CustomException(ErrorCode.BOOKMARK_NOT_FOUND));
+    }
+
+
+
 
 }

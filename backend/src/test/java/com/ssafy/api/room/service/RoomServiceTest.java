@@ -96,7 +96,6 @@ class RoomServiceTest {
         userRepository.save(user1);
         userRepository.save(user2);
         Room room = roomRepository.findAll().get(0);
-        log.debug("room_seq: " + room.getSeq());
         room.addUser(user1);
         room.addUser(user2);
         roomRepository.save(room);

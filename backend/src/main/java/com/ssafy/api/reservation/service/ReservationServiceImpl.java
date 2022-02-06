@@ -26,16 +26,16 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public List<ReservationResponse> add(ReservationAddRequest reservationAddRequest) {
         //db에 리퀘스트로 받은 데이터를 넣어준다.
-        Room room = roomRepository.findById(reservationAddRequest.getRoom_seq()).get();
-        Reservation reservation = new Reservation();
-        reservation.Add((room),reservationAddRequest.getSong_no(),reservationAddRequest.getTitle(),reservationAddRequest.getArtist());
+        Room room = roomRepository.findById(reservationAddRequest.getRoom_seq())
+                .orElseThrow(()->new CustomException(ErrorCode.ROOM_NOT_FOUND));
+        Reservation reservation = Reservation.builder()
+                .room(room)
+                .song_no(reservationAddRequest.getSong_no())
+                .title(reservationAddRequest.getTitle())
+                .artist(reservationAddRequest.getArtist())
+                .build();
         reservationRepository.save(reservation);
-
-        Reservation reservations = reservationRepository.findById(reservationAddRequest.getRoom_seq())
-                .orElseThrow(()->new CustomException(ErrorCode.RESERVATION_NOT_FOUND));
-        List<Reservation> list = reservations.getRoom().getReservations();
-
-        return ReservationResponse.of(list);
+        return getReservationList(room.getSeq());
     }
 
     @Transactional
@@ -43,18 +43,15 @@ public class ReservationServiceImpl implements ReservationService {
     public List<ReservationResponse> delete(ReservationDeleteRequest reservationDeleteRequest) {
         //db에 리퀘스트로 받은 데이터를 삭제한다.
         reservationRepository.deleteById(reservationDeleteRequest.getReservation_seq());
-        Room room = roomRepository.findById(reservationDeleteRequest.getRoom_seq()).get();
-        List<Reservation> list = room.getReservations();
-
-        return ReservationResponse.of(list);
+        return getReservationList(reservationDeleteRequest.getRoom_seq());
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public List<ReservationResponse> getReservationList(Long room_seq) {
-        Room room = roomRepository.findById(room_seq).get();
+        Room room = roomRepository.findById(room_seq)
+                .orElseThrow(()->new CustomException(ErrorCode.ROOM_NOT_FOUND));
         List<Reservation> list = room.getReservations();
-
         return ReservationResponse.of(list);
     }
 

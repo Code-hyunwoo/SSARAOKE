@@ -1,6 +1,7 @@
 package com.ssafy.domain.bookmark.entity;
 
 import com.ssafy.domain.user.entity.User;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -29,7 +30,8 @@ public class Bookmark {
     @Column
     private String artist;
 
-    public void Add(int song_no, String title, String artist){
+    @Builder
+    public Bookmark(int song_no, String title, String artist){
         this.song_no = song_no;
         this.title = title;
         this.artist = artist;

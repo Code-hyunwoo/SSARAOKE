@@ -14,10 +14,10 @@ public interface LobbyService {
     long getRoomCount();
     Room createRoom(User user, LobbyCreateRequest lobbyCreateRequest);
     boolean existRoom(Long room_seq);
-    boolean checkBanUser(User user, LobbyEnterRequest lobbyEnterRequest);
+    boolean checkBanUser(User user, Long room_seq);
     long getRoomUserCount(LobbyEnterRequest lobbyEnterRequest);
     boolean checkPassword(LobbyEnterRequest lobbyEnterRequest);
     void enterRoom(User user, LobbyEnterRequest lobbyEnterRequest);
     List<LobbyResponse> searchRoom(String word);
-    List<LobbyResponse> tagSearchRoom(Long tag_seq);
+    List<LobbyResponse> tagSearchRoom(String tag_name);
 }

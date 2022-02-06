@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-@Setter
 @NoArgsConstructor
 @Table(name = "TB_ROOM")
 @Entity
@@ -29,15 +28,6 @@ public class Room extends BaseTimeEntity{
 
     @Column(name = "room_title")
     private String title;
-
-    @Column
-    private LocalDateTime date_closed;
-
-    @Column
-    private LocalDateTime date_expired;
-
-    @Column
-    private boolean is_active;
 
     @Column
     private boolean is_private;
@@ -69,7 +59,6 @@ public class Room extends BaseTimeEntity{
     @Builder
     public Room(String title, boolean is_private, String password, Long owner_seq, String owner_nickname, String thumbnail_url){
         this.title = title;
-        this.is_active = true;
         this.is_private = is_private;
         this.password = password;
         this.owner_seq = owner_seq;
@@ -122,5 +111,9 @@ public class Room extends BaseTimeEntity{
         }
     }
 
+    public User getNewOwner(){
+        int i = (int)Math.random()*this.users.size();
+        return this.users.get(i);
+    }
 
 }

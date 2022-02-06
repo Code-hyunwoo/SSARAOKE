@@ -4,6 +4,8 @@ import com.ssafy.api.room.dto.request.LobbyCreateRequest;
 import com.ssafy.api.room.dto.request.LobbyEnterRequest;
 import com.ssafy.api.room.dto.response.LobbyResponse;
 import com.ssafy.domain.room.entity.Room;
+import com.ssafy.domain.room.entity.RoomBan;
+import com.ssafy.domain.room.repository.RoomBanRepository;
 import com.ssafy.domain.room.repository.RoomRepository;
 import com.ssafy.domain.room.repository.RoomTagRepository;
 import com.ssafy.domain.tag.repository.TagRepository;
@@ -38,6 +40,8 @@ class LobbyServiceTest {
     TagRepository tagRepository;
     @Autowired
     RoomTagRepository roomTagRepository;
+    @Autowired
+    RoomBanRepository roomBanRepository;
 
     @BeforeEach
     void initialize() {
@@ -110,8 +114,29 @@ class LobbyServiceTest {
     void tagSearchRoom() {
         createRoom();
 
-        List<LobbyResponse> list = lobbyService.tagSearchRoom(30L);
+        List<LobbyResponse> list = lobbyService.tagSearchRoom("힙합");
 
         assertEquals(list.get(0).getTitle(), "룸생성테스트");
+    }
+
+    @Test
+    void checkBanUser(){
+        createRoom();
+        User evil = User.builder()
+                .email("evil@ssafy.com")
+                .oAuthSeq("325463564532")
+                .nickname("test324564")
+                .oAuthType(OAuthType.KAKAO)
+                .build();
+        User newEvil = userRepository.save(evil);
+        Room room = roomRepository.findAll().get(0);
+        RoomBan roomBan = RoomBan.builder()
+                .room(room)
+                .user(newEvil)
+                .build();
+        roomBanRepository.save(roomBan);
+        boolean result = lobbyService.checkBanUser(evil, room.getSeq());
+        assertEquals(true, result);
+
     }
 }

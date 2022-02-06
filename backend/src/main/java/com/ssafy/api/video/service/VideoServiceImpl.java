@@ -1,6 +1,7 @@
 package com.ssafy.api.video.service;
 
 import com.ssafy.api.video.dto.request.VideoRecVideoRequest;
+import com.ssafy.domain.user.entity.User;
 import com.ssafy.domain.video.entity.Video;
 import com.ssafy.domain.video.repository.VideoRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,9 +16,12 @@ public class VideoServiceImpl implements VideoService {
 
     @Transactional
     @Override
-    public void recvideo(VideoRecVideoRequest videoRecVideoRequest) {
-        Video video = new Video();
-        video.setUrl(videoRecVideoRequest.getUrl());
+    public void recvideo(User user, VideoRecVideoRequest videoRecVideoRequest) {
+        Video video = Video.builder()
+                        .url(videoRecVideoRequest.getUrl())
+                        .user(user)
+                        .build();
         videoRepository.save(video);
+        user.addVideo(video);
     }
 }
