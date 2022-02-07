@@ -8,9 +8,11 @@ const { Kakao } = window;
 
 function Login() {
   const navigate = useNavigate();
+
   const LoginWithKakao = () => {
     Kakao.Auth.login({
       success: (response) => {
+        console.log(response);
         axios
           .post("http://i6a306.p.ssafy.io:8080/api/v1/auth/kakao", {
             accessToken: response.access_token,
