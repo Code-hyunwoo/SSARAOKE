@@ -21,6 +21,7 @@
 
 .btnimg {
   width: 4vw;
+  margin-left: -1vw;
 }
 
 /* .modal-content 모달 외의 부분까지 다 적용 */
