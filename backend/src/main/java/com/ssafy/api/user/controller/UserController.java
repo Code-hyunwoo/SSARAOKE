@@ -1,9 +1,8 @@
 package com.ssafy.api.user.controller;
 
 import com.ssafy.api.auth.resolver.Auth;
-import com.ssafy.api.user.dto.request.UserUpdateRequest;
 import com.ssafy.api.user.dto.response.UserResponse;
-import com.ssafy.api.user.dto.response.UserUpdateResponse;
+import com.ssafy.api.user.dto.UserUpdateDto;
 import com.ssafy.api.user.dto.response.UserVideoResponse;
 import com.ssafy.api.user.service.UserService;
 import com.ssafy.common.model.response.BaseResponseBody;
@@ -13,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Slf4j
@@ -31,14 +29,14 @@ public class UserController {
     }
 
     @PatchMapping("/email")
-    public ResponseEntity<UserUpdateResponse> updateUserEmail(@Auth User user, @RequestBody String newEmail){
-        UserUpdateResponse response = userService.updateEmail(user, newEmail);
+    public ResponseEntity<UserUpdateDto> updateUserEmail(@Auth User user, @RequestBody UserUpdateDto newEmail){
+        UserUpdateDto response = userService.updateEmail(user, newEmail.getChanged());
         return ResponseEntity.ok().body(response);
     }
 
     @PatchMapping("/nickname")
-    public ResponseEntity<UserUpdateResponse> updateUserNickname(@Auth User user, @RequestBody String newNickname){
-        UserUpdateResponse response = userService.updateNickname(user, newNickname);
+    public ResponseEntity<UserUpdateDto> updateUserNickname(@Auth User user, @RequestBody UserUpdateDto newNickname){
+        UserUpdateDto response = userService.updateNickname(user, newNickname.getChanged());
         return ResponseEntity.ok().body(response);
     }
 

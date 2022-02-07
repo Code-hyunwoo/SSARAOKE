@@ -1,9 +1,8 @@
 package com.ssafy.api.user.service;
 
-import com.ssafy.api.user.dto.request.UserUpdateRequest;
 import com.ssafy.api.user.dto.response.UserBookmarkResponse;
 import com.ssafy.api.user.dto.response.UserResponse;
-import com.ssafy.api.user.dto.response.UserUpdateResponse;
+import com.ssafy.api.user.dto.UserUpdateDto;
 import com.ssafy.api.user.dto.response.UserVideoResponse;
 import com.ssafy.common.exception.CustomException;
 import com.ssafy.common.exception.ErrorCode;
@@ -15,7 +14,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -33,22 +31,22 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public UserUpdateResponse updateNickname(User user, String newNickname) {
+    public UserUpdateDto updateNickname(User user, String newNickname) {
         if (userRepository.existsByNickname(newNickname)) {
             throw new CustomException(ErrorCode.DUPLICATE_NICKNAME);
         }
         user.updateNickname(newNickname);
-        return new UserUpdateResponse(user.getNickname());
+        return new UserUpdateDto(user.getNickname());
     }
 
     @Transactional
     @Override
-    public UserUpdateResponse updateEmail(User user, String newEmail) {
+    public UserUpdateDto updateEmail(User user, String newEmail) {
         if (userRepository.existsByEmail(newEmail)) {
             throw new CustomException(ErrorCode.DUPLICATE_EMAIL);
         }
         user.updateEmail(newEmail);
-        return new UserUpdateResponse(user.getNickname());
+        return new UserUpdateDto(user.getNickname());
     }
 
     @Transactional
