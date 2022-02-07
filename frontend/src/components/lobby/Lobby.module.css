@@ -429,17 +429,17 @@
 /* ---------------가운데 채팅창----------------- */
 .chat {
     position: absolute;
-    width: 29vw;
+    width: 30vw;
     /* height: 420px; */
     height: 40vh;
-    left: 35.6vw;
+    left: 34.6vw;
     top: 24vh;
     
     background: #FFFFFF;
     border: 0.3vw solid #FFCE43;
     box-sizing: border-box;
     border-radius: 3vh;
-
+    font-family: "surroundAir";
     box-shadow: 
         0 0 .1rem #fff, 
         0 0 .1rem #fff, 
