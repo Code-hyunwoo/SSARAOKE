@@ -24,14 +24,14 @@ function Login({ DispatchaddInfo, state }) {
           .then((res) => {
             localStorage.setItem("token", res.data.token);
             console.log(res);
-            if (state === undefined) {
-              DispatchaddInfo({
+            DispatchaddInfo({
                 seq: res.data.seq,
                 nickname: res.data.nickname,
                 token: res.data.token,
               });
-            }
+            
             alert("로그인 성공! SSARAOKE에 오신 것을 환영합니다!");
+            console.log(state)
             navigate("/lobby");
           });
       },

@@ -2,15 +2,15 @@ import React, { useCallback, useEffect, useState } from "react";
 import "./Lobbychat.css";
 import io from "socket.io-client";
 import ReactScrollableFeed from "react-scrollable-feed"
-  
+import { connect } from "react-redux";  
 
 const socket = io.connect("http://localhost:80");
 socket.emit("init", "연결되었습니다.");
 
-function Lobbychat() {
+function Lobbychat({Nickname}) {
   
   const [chatArr, setChatArr] = useState([]);
-  const [chat, setChat] = useState({ name: "", message: "" });
+  const [chat, setChat] = useState({ name: {Nickname}.Nickname, message: "" });
   
   useEffect(() => {
     return () => {
@@ -34,19 +34,21 @@ function Lobbychat() {
     },
     [chat]
   );
-  const changeName = useCallback(
-    (e) => {
-      setChat({ name: e.target.value, message: chat.message });
-    },
-    [chat]
-  );
+  // const changeName = useCallback(
+  //   (e) => {
+  //     setChat({ name: e.target.value, message: chat.message });
+  //     // console.log({Nickname}.Nickname)
+  //   },
+  //   [chat]
+  // );
 
   const onKeyPress=(e)=> {
     if(e.key ==='Enter'){
       buttonHandler();
       e.target.value = ''
     }
-  }
+  };
+  
 
   return (
     <div className="ChatScreen">
@@ -62,7 +64,8 @@ function Lobbychat() {
           </ReactScrollableFeed>
         </div>
         <div className="InputBox">
-          <input placeholder="이름" className="Nick" onChange={changeName}></input>
+          {/* <input placeholder={Nickname} className="Nick" onChange={changeName}></input> */}
+          <div className="Nick">{Nickname}</div>
           <input placeholder="메세지" className="Contents" onChange={changeMessage} onKeyPress={onKeyPress} required maxLength='48'></input>
           <button className="chatbtn" onClick={buttonHandler}>등록</button>
         </div>
@@ -71,4 +74,9 @@ function Lobbychat() {
   );
 }
 
-export default Lobbychat;
+function mapStateToProps(state) {
+  const Nickname = state[0].nickname 
+  return { Nickname };
+}
+
+export default connect(mapStateToProps, null)(Lobbychat);
