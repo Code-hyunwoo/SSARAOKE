@@ -1,16 +1,17 @@
 import styles from "./Room.module.css";
 
 
-function NormalCam ({mode}){
-        
-    return (
-        <span>
-            <video id={mode} controls>
-                <source src='?'></source>
-            </video>
-        </span>
-    )
 
+function NormalCam ({mode, sendMessage}){
+    return (
+        <div id={mode}>
+            <div id="participants">
+                {/* <video id={mode} controls>
+                    <source src='?'></source>
+                </video> */}
+            </div>
+        </div>
+    )
 }
 
 

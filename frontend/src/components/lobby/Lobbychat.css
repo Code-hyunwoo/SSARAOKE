@@ -72,15 +72,23 @@
   }
   
   .Nick{
-    width: 15%;
+    display: flex;
+    width: 20%;
     height: 70%;
     font-weight: bold;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    color: white;
+    border: 0.2vw solid #f9b208;
   }
   
   .Contents{
     width: 70%;
     height: 70%;
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 0.1vw solid #ffffff;
   
   }
 
@@ -89,6 +97,7 @@
   }
 
   .chatbtn {
-    width: 4vw;
+    width: 3vw;
     height: 4vh;
+    font-weight: bold;
   }

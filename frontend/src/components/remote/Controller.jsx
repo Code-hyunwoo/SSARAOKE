@@ -10,18 +10,38 @@ import Styles from "./remote.module.css";
 import styles2 from "../roomin/Room.module.css"
 
 
-function Controller() {
+function Controller({book, sendYTUrl}) {
     const [show, setShow] = useState(false);
+    const [booklist, setbookList] =useState(book);
+    const startbookList = () => {
+        var YTUrl = booklist[0]; 
+        var message = {
+             id: 'sendYTUrl',
+            // room: room,
+             // url: YTUrl,
+        }
+        console.log(YTUrl)
+        booklist.shift();
+        setbookList(booklist);
+        sendYTUrl(booklist);
+        alert(`새로운 곡 시작!`)
+        console.log(booklist)
+        // console.log(`[sendYTUrl]유튜브 요청 보냄, url: ${YTUrl} at room ${room}`);
+        // sendMessage(message);
+        }
+        
+    
+
+
+
     return (
+        
         <div>
-            
             <button className={styles2.btn, styles2.neon} 
                 onClick={()=> {
                     setShow(true)
                 }}> 리모콘 </button>
-
-
-            
+           
             <Modal 
               show={show} 
               onHide={() => setShow(false)} 
@@ -56,7 +76,7 @@ function Controller() {
                                 <div>
                                     {/* 북마크 목록 */}
                                     <button className={Styles.bookmarklist}>BookMark</button>
-                                    <button className={Styles.songstart}>시작</button>
+                                    <button className={Styles.songstart} onClick={startbookList}>시작</button>
                                     <button className={Styles.songdelete}>취소</button>
                                     {/* 녹화 시작/중지 */}
                                     <Record />
