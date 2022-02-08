@@ -69,14 +69,16 @@ function NormalCam ({mode, sendMessage}){
     }
 
     return (
-        <div id="participants">
-            {/* <video id={mode} controls>
-                <source src='?'></source>
-            </video> */}
+        <div id={mode}>
+            <div id="participants">
+                {/* <video id={mode} controls>
+                    <source src='?'></source>
+                </video> */}
+            </div>
         </div>
-    )
+        )
 
 }
 
 
-export default NormalCam
+export { NormalCam as default, Participant};
