@@ -12,7 +12,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Basic />}></Route>
+          <Route path="/" element={<Home />}></Route>
           <Route path="/lobby" element={<MainLobbyGrid />}></Route>
           <Route path="/mypage" element={<MypageMain />}></Route>
           <Route path="/basic" element={<Basic />}></Route>
