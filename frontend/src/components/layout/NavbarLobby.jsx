@@ -1,9 +1,30 @@
 import styles from "./NavbarLobby.module.css";
 import logo from "../../assets/SSARAOKE-LOGO4.png";
-import { Link } from "react-router-dom";
-import SearchIcon from "./SearchIcon.js";
+import { Link, useNavigate } from "react-router-dom";
+import SearchIcon from "./SearchIcon";
+import { connect } from "react-redux";
+import { actionCreators } from "../../store";
 
-function NavbarLobby() {
+const { Kakao } = window;
+
+function NavbarLobby({ state, seq, DispatchdeleteInfo }) {
+  const navigate = useNavigate();
+  const Logout = () => {
+    if (Kakao.Auth.getAccessToken()) {
+      console.log(
+        "카카오 인증 엑세스 토큰 존재",
+        window.Kakao.Auth.getAccessToken()
+      );
+      alert("로그아웃 완료! 이용해 주셔서 감사합니다!");
+      Kakao.Auth.logout(() => {
+        console.log("카카오 로그아웃 완료", window.Kakao.Auth.getAccessToken());
+        // DispatchdeleteInfo(seq);
+        console.log(state);
+      });
+      navigate("/");
+    }
+  };
+  console.log("방금 로그인한 사용자의 seq : ", seq);
   return (
     <div className={styles.navbar}>
       <div className={styles.left}>
@@ -50,9 +71,9 @@ function NavbarLobby() {
         </div>
       </div>
       <div className={styles.right}>
-        <Link to="/" className={styles.content}>
+        <div className={styles.content} onClick={Logout}>
           Logout
-        </Link>
+        </div>
         <Link to="/mypage" className={styles.content}>
           MyPage
         </Link>
@@ -61,4 +82,16 @@ function NavbarLobby() {
   );
 }
 
-export default NavbarLobby;
+// 내 seq 어떻게 찾아옴? 일단 최근에 로그인한 seq 가져오자
+function mapStateToProps(state) {
+  return { seq: state[0].seq, state };
+}
+
+function mapDispatchToProps(dispatch, ownProps) {
+  console.log("ownProps입니다:", ownProps);
+  return {
+    DispatchdeleteInfo: (seq) => dispatch(actionCreators.deleteInfo(seq)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavbarLobby);
