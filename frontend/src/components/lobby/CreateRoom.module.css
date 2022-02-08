@@ -21,20 +21,7 @@
 
 .btnimg {
   width: 4vw;
-  margin-left: -1vw;
-}
-
-/* .modal-content 모달 외의 부분까지 다 적용 */
-.modalContent {
-  /* position: absolute;
-  width: 597px;
-  height: 678px;
-  left: 623px;
-  top: 225px; */
-  /* font-family: 'Cafe24SsurroundAir'; */
-  /* background: rgba(255, 206, 67, 0.9); */
-  /* background-color: rgba(0, 0, 0, 0); */
-  /* border-radius: 15px; */
+  /* margin-left: -1vw; */
 }
 
 /* 방생성 모달 */
