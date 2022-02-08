@@ -3,10 +3,12 @@ import NavbarHome from "../layout/NavbarHome";
 import styles from "./Login.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
+import { actionCreators } from "../../store";
 
 const { Kakao } = window;
 
-function Login() {
+function Login({ DispatchaddInfo, state }) {
   const navigate = useNavigate();
 
   const LoginWithKakao = () => {
@@ -22,12 +24,21 @@ function Login() {
           .then((res) => {
             localStorage.setItem("token", res.data.token);
             console.log(res);
-            alert("로그인 되었습니다.");
+            if (state === undefined) {
+              DispatchaddInfo({
+                seq: res.data.seq,
+                nickname: res.data.nickname,
+                token: res.data.token,
+              });
+            }
+            alert("로그인 성공! SSARAOKE에 오신 것을 환영합니다!");
             navigate("/lobby");
           });
       },
       fail: (error) => {
-        alert(JSON.stringify(error));
+        alert("로그인에 실패했습니다.");
+        navigate("/");
+        // alert(JSON.stringify(error));
       },
     });
   };
@@ -44,4 +55,14 @@ function Login() {
   );
 }
 
-export default Login;
+function mapStateToProps(state) {
+  return { state };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    DispatchaddInfo: (infoObj) => dispatch(actionCreators.addInfo(infoObj)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
