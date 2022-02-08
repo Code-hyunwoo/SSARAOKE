@@ -11,7 +11,7 @@
   width: 15vw;
   border: none;
   background-color: transparent;
-  font-size: 300%;
+  font-size: 2.5vw;
   font-weight: bold;
   font-family: "Oregano", cursive;
   color: white;
@@ -21,7 +21,7 @@
 
 .btnimg {
   width: 4vw;
-  /* margin-left: -1vw; */
+  margin-left: -1vw;
 }
 
 /* 방생성 모달 */

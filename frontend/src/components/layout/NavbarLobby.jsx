@@ -84,7 +84,7 @@ function NavbarLobby({ state, seq, DispatchdeleteInfo }) {
 
 // 내 seq 어떻게 찾아옴? 일단 최근에 로그인한 seq 가져오자
 function mapStateToProps(state) {
-  return { seq: state[0].seq, state };
+  return { state };
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
