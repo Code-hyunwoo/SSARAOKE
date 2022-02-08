@@ -82,19 +82,33 @@ function Desk() {
   //*****************이거 필로 보기 */
   const [ opened, setOpended] = useState(false);
 
-  const roomopenHandler = ({target}) => {
-      setOpended(target.opened);
-      console.log(opened);
-  }
+  // const roomopenHandler = ({target}) => {
+  //     setOpended(target.opened);
+  //     console.log(opened);
+  // }
 
+  let value = true;
+  const roomopenHandler = (e) => {
+   if(typeof e.target.value === 'string'){
+     (e.target.value === 'false' ? value = false : value = true);
+   }
+   console.log(value);
+}
 //   const roomopenHandler = (e) => {
 //     setOpended(e.target.value);
 //     console.log(selected);
 // }
 
-  //비밀번호
+  //비밀번호 -> 비공개방으로 설정하면 비밀번호를 필로 넣도록 설정
   const [roompw, setRoompw] = useState("");
   const getRoompw = (e) => {
+    // if(value === true) {  //방 공개여부가 비공개일때
+    //   //비밀번호가 비었다면
+    //   if( roompw === ''){
+    //     alert(`비밀번호를 입력해 주세요`);
+    //   }
+    //   else( roompw =! '')
+    // }
     setRoompw(e.target.value);
     console.log(roompw);
   }
@@ -103,32 +117,34 @@ function Desk() {
   const navigate = useNavigate(); //생성된 방으로 보내기 위해
 
 //헤더에 토큰을 넣어서 보내는 역할
-    // useEffect(() => {
-    // const onCreateRoom(() => {
-    const onCreateRoom= () => {
-      // const res = axios
-      axios
-      .post('http://i6a306.p.ssafy.io:8080/api/v1/lobby', { 
-        //post로 보낼 데이터
-        title: roomTitle,
-        tags: arrcheckedTags,
-        // mode: selected,
-        // is_private: opened,
-        // Private: opened,
-        isPrivate: opened,
-        password : roompw
+    const onCreateRoom= (e) => {
+      if(value === true && roompw === ''){
+        e.preventDefault();
+        alert(`비밀번호를 입력해 주세요`);
       }
-      , {headers : { 
-        "Content-Type": 'application/json',
-        // "Authorization" : token,  // -> 승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
-        // "Authorization" : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0IiwiaXNzIjoic3NhcmFva2UiLCJleHAiOjE2NDU0NTEwODEsImlhdCI6MTY0NDE1NTA4MX0.N9j_0TcCsgKetRCh26r-p93hajHoSPV7OLk6jsXswNKgAMSGbI-kl3Vh9YRtKoq14CnEN20pFVaC99HbAzQFDw',  // -> (구이님 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
-        "Authorization" : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI3IiwiaXNzIjoic3NhcmFva2UiLCJleHAiOjE2NDU2MDAyMDIsImlhdCI6MTY0NDMwNDIwMn0.bAx6gwfL1Ej3u-J-Bb8Tmqf5_Eiw1UsHajGHHKPb41sxtns0Ri55jKkWvzMm9D2UJfB2dYkZGtmc0EOaEGYqWA',  // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
-      }})
-      .then((res) => {
-        console.log(res);
-        navigate(`/${selected}`);
-      })
-        
+      else if(value === false || (value === true && roompw !== '')){
+      // const res = axios
+        axios
+        .post('http://i6a306.p.ssafy.io:8080/api/v1/lobby', { 
+          //post로 보낼 데이터
+          title: roomTitle,
+          tags: arrcheckedTags,
+          // mode: selected,
+          // is_private: opened,
+          // Private: opened,
+          isPrivate: value,
+          password : roompw
+        }
+        , {headers : { 
+          "Content-Type": 'application/json',
+          // "Authorization" : token,  // -> 승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
+          "Authorization" : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI3IiwiaXNzIjoic3NhcmFva2UiLCJleHAiOjE2NDU2MDAyMDIsImlhdCI6MTY0NDMwNDIwMn0.bAx6gwfL1Ej3u-J-Bb8Tmqf5_Eiw1UsHajGHHKPb41sxtns0Ri55jKkWvzMm9D2UJfB2dYkZGtmc0EOaEGYqWA',  // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
+        }})
+        .then((res) => {
+          console.log(res);
+          navigate(`/${selected}`);
+        })
+      }
       // navigate(`/${selected}`)
     };
         
@@ -416,11 +432,12 @@ function Desk() {
                   <input
                     type="radio"
                     name="public"
-                    value="open"
+                    value="false"
+                    // value="open"
                     // checked={opened == 'open'}
-                    checked={opened}
-                    onChange={(e) => {roomopenHandler(e)}}
-                    // onChange={roomopenHandler}
+                    // checked={opened}
+                    // onChange={(e) => {roomopenHandler(e)}}
+                    onChange={roomopenHandler}
                     style={{ width: "20px", height: "20px" }}
                   />{" "}
                   &nbsp;공개
@@ -429,11 +446,12 @@ function Desk() {
                   <input
                     type="radio"
                     name="public"
-                    value="close"
+                    value="true"
+                    // value="close"
                     // checked={opened == 'close'}
-                    checked={opened}
-                    onChange={(e) => {roomopenHandler(e)}}
-                    // onChange={roomopenHandler}
+                    // checked={opened}
+                    // onChange={(e) => {roomopenHandler(e)}}
+                    onChange={roomopenHandler}
                     style={{ width: "20px", height: "20px" }}
                   />{" "}
                   &nbsp;비공개

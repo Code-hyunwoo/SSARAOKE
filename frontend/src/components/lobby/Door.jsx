@@ -25,12 +25,17 @@ function Door({ thumbnail = closedImg, title, hostname, usercnt = 0, tags }) {
 
   return (
     <div className={Styles.roomsamecss}>
+      {/* <img className={Styles.video} src={roomdata.thumbnail} alt="thumbnail" /> */}
+      {/* <img className={Styles.video} src={roomdata[6]} alt="thumbnail" /> */}
       <img className={Styles.video} src={thumbnail} alt="thumbnail" />
 
+      {/* <div className={Styles.roomtitle}>{roomdata[7]}</div> */}
       <div className={Styles.roomtitle}>{title}</div>
 
       <div className={Styles.roomgroup}>
+        {/* <div className={Styles.roomuser}>{roomdata[2]}</div> */}
         <div className={Styles.roomuser}>{hostname}</div>
+        {/* <div className={Styles.roomfull}>{roomdata[0]}/8</div> */}
         <div className={Styles.roomfull}>{usercnt}/8</div>
       </div>
 

@@ -10,21 +10,24 @@ function DoorList() {
   //여기로 값을 가져오면, 각 Door로 값이 자동으로 갈까?
   
   //백에서 값 받아오기
+  const [roomdata, setRoomdata] = useState([]);
+  
   const Roomdata = async () => {
-    const [roomdata, setRoomdata] = useState([]);
-
-    useEffect(() => { 
+    // useEffect(() => { 
       axios
         .get('http://i6a306.p.ssafy.io:8080/api/v1/lobby')
         .then((response) => {
-          console.log(response);
+          console.log(response.data);
           setRoomdata(response.data);
+          console.log("룸데이타:", roomdata);
+          console.log("룸데이타1:", roomdata[0]);
         })
         .catch( e => {
           console.error(e);
         });
-    }, []);
-  }
+    };
+    // , []);
+  // }
 
 //태그 값
   const tags = []; //arrcheckedTags
@@ -58,7 +61,7 @@ function DoorList() {
     {/* <button onClick={Roomdata}>button</button> */}
       <CreateRoom />
       <div className={styles.gridcontainer}>
-        <Door tags={tags} roomdata={Roomdata}/>
+        <Door tags={tags} roomdata={roomdata[0]}/>
         <Door />
       </div>
       <div className={styles.gridcontainer}>
