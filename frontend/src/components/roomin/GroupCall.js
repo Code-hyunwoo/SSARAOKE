@@ -181,7 +181,7 @@ function sendYTUrl(){
         id: 'sendYTUrl',
         room: room,
         url: YTUrl,
-    }
+    }//url
     console.log(`[sendYTUrl]유튜브 요청 보냄, url: ${YTUrl} at room ${room}`);
     sendMessage(message);
 }
