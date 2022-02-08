@@ -55,7 +55,7 @@ function DoorList() {
 
   return (
     <>
-    <button onClick={Roomdata}>button</button>
+    {/* <button onClick={Roomdata}>button</button> */}
       <CreateRoom />
       <div className={styles.gridcontainer}>
         <Door tags={tags} roomdata={Roomdata}/>

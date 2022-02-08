@@ -49,7 +49,7 @@ function Forest() {
                 {/* <!-- end div.ufoInner --> */}
               
                 <div className={Styles.foreground}>
-                <ul className={Styles.trees3}>
+                {/* <ul className={Styles.trees3}>
                     <li></li>
                     <li></li>
                     <li></li>
@@ -66,8 +66,9 @@ function Forest() {
                     <li></li>
                     <li></li>
                     <li></li>
-                </ul>
+                </ul> */}
                 {/* <!-- end ul.trees3 --> */}
+                
                 {/* <ul className={Styles.trees2}>
                     <li></li>
                     <li></li>
@@ -87,7 +88,8 @@ function Forest() {
                     <li></li>
                 </ul> */}
                 {/* <!-- end ul.trees2 --> */}
-                <ul className={Styles.trees1}>
+
+                {/* <ul className={Styles.trees1}>
                     <li></li>
                     <li></li>
                     <li></li>
@@ -104,7 +106,7 @@ function Forest() {
                     <li></li>
                     <li></li>
                     <li></li>
-                </ul>
+                </ul> */}
                 {/* <!-- end ul.trees1 -->   */}
                 </div>
                 {/* <!-- end div.foreground --> */}

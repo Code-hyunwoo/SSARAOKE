@@ -171,6 +171,7 @@
   .thrust{
     width: 100%;
     padding-left: 100px;
+    /* padding-right: 100px; */
     position: relative;
     top: -40px;
     z-index: 1;
