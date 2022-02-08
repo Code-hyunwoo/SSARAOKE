@@ -1,8 +1,10 @@
 /* 분홍 */
 .canPink{
     position: absolute;
-    width: 9%;
-    height: 35%;
+    /* width: 9%;
+    height: 35%; */
+    width: 5.7vw;
+    height: 18vh;
     /* left: 50px; */
     /* top: 20px; */
     
@@ -23,8 +25,10 @@
 /* 노랑 */
 .canY{
     position: absolute;
-    width: 9%;
-    height: 35%;
+    /* width: 9%;
+    height: 35%; */
+    width: 5.7vw;
+    height: 18vh;
     /* left: 225px; */
     /* top: 20px; */
     
@@ -45,8 +49,10 @@
 /* 보라 */
 .canP{
     position: absolute;
-    width: 9%;
-    height: 35%;
+    /* width: 9%;
+    height: 35%; */
+    width: 5.7vw;
+    height: 18vh;
     /* left: 400px; */
     /* top: 20px; */
     
@@ -69,8 +75,10 @@
 /* 파랑 */
 .canB{
     position: absolute;
-    width: 9%;
-    height: 35%;
+    /* width: 9%;
+    height: 35%; */
+    width: 5.7vw;
+    height: 18vh;
     /* left: 575px; */
     /* top: 20px; */
     
@@ -92,8 +100,10 @@
 /* 빨강 */
 .canR{
     position: absolute;
-    width: 9%;
-    height: 35%;
+    /* width: 9%;
+    height: 35%; */
+    width: 5.7vw;
+    height: 18vh;
     /* left: 750px; */
     /* top: 20px; */
     
@@ -114,8 +124,10 @@
 /* 남색 */
 .canN{
     position: absolute;
-    width: 9%;
-    height: 35%;
+    /* width: 9%;
+    height: 35%; */
+    width: 5.7vw;
+    height: 18vh;
     /* left: 925px; */
     /* top: 20px; */
     
@@ -136,8 +148,10 @@
 /* 연파랑 */
 .canBB{
     position: absolute;
-    width: 9%;
-    height: 35%;
+    /* width: 9%;
+    height: 35%; */
+    width: 5.7vw;
+    height: 18vh;
     /* left: 1100px; */
     /* top: 20px; */
     

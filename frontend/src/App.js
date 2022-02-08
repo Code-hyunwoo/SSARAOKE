@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./routes/Home";
-import MainLobby2 from "./routes/MainLobby2";
+import MainLobbyGrid from "./routes/MainLobbyGrid";
 import MypageMain from "./routes/MyPage_Main";
 import Basic from "./routes/Basic";
 import Free from "./routes/Free";
@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/lobby" element={<MainLobby2 />}></Route>
+          <Route path="/lobby" element={<MainLobbyGrid />}></Route>
           <Route path="/mypage" element={<MypageMain />}></Route>
           <Route path="/basic" element={<Basic />}></Route>
           <Route path="/free" element={<Free />}></Route>
