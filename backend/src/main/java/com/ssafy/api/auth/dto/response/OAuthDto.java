@@ -15,6 +15,6 @@ public class OAuthDto {
     private String token;
     private OAuthType oAuthType;
     private String nickname;
-    boolean is_new;
+    boolean isNew;
 
 }

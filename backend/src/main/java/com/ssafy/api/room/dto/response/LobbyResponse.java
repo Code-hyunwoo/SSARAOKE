@@ -2,7 +2,6 @@ package com.ssafy.api.room.dto.response;
 
 import com.ssafy.domain.room.entity.Room;
 import com.ssafy.domain.tag.entity.Tag;
-import com.ssafy.domain.tag.repository.TagRepository;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +20,7 @@ public class LobbyResponse {
     private int current;
     private List<Tag> tagList;
     public String owner_nickname;
-    public boolean is_private;
+    public boolean isPrivate;
     public String thumbnail_url;
 
     public static List<LobbyResponse> of(List<Room> rooms) {
