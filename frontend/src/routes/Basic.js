@@ -12,6 +12,7 @@ import Crazylights from "../components/roomin/Crazylights";
 import { Link } from "react-router-dom";
 import Controller from "../components/remote/Controller";
 import kurentoUtils from 'kurento-utils'
+import Participant from "../components/roomin/Participants";
 
 function Basic (){
     const [openChangeMode, setOpenChangeMode] = useState(false);
@@ -19,201 +20,222 @@ function Basic (){
     const [bookList, setbookList] =  useState(practice);
     const [nowPlaymusic,setnowPlaymusic] = useState('');
     const [participants,setParticipants] = useState({});    //서버에서 보내 줄 현재 참여자 내역
-    const name = "현우"; //redux에 저장된 user nickname
-    const room = "1?"; //redux에 저장된 room_seq
+    const name = "구아"; //redux에 저장된 user nickname
+    const room = "1"; //redux에 저장된 room_seq
 
     //갈아치워야 할 기존 영역
 
     var ws = new WebSocket('wss://i6a306.p.ssafy.io:8443/groupcall');
-ws.onopen = () => {
-    console.log('WebSocket Client Connected');
-};
+    ws.onopen = () => {
+        console.log('WebSocket Client Connected');
+    };
 
-window.onbeforeunload = function() {
-    ws.close();
-};
+    window.onbeforeunload = function() {
+        ws.close();
+    };
 
-ws.onmessage = function(message) {
-    var parsedMessage = JSON.parse(message.data);
-    console.info('Received message: ' + message.data);
+    ws.onmessage = function(message) {
+        var parsedMessage = JSON.parse(message.data);
+        console.info('Received message: ' + message.data);
 
-    switch (parsedMessage.id) {
-        case 'existingParticipants':
-            onExistingParticipants(parsedMessage);
-            break;
-        case 'newParticipantArrived':
-            onNewParticipant(parsedMessage);
-            break;
-        case 'participantLeft':
-            onParticipantLeft(parsedMessage);
-            break;
-            case 'receiveChat': //채팅을 받았습니다!
-            onReceiveChat(parsedMessage);
-            break;
-        case 'receiveYTUrl': //야 이거 당장 틀어야 함
-            onReceiveYTUrl(parsedMessage);
-            break;
-        case 'receiveVideoAnswer':
-            receiveVideoResponse(parsedMessage);
-            break;
-        case 'iceCandidate':
-            participants[parsedMessage.name].rtcPeer.addIceCandidate(parsedMessage.candidate, function (error) {
-                if (error) {
-                    console.error("Error adding candidate: " + error);
-                    return;
-                }
-            });
-            break;
-        default:
-            console.error('Unrecognized message', parsedMessage);
+        switch (parsedMessage.id) {
+            case 'existingParticipants':
+                onExistingParticipants(parsedMessage);
+                break;
+            case 'newParticipantArrived':
+                onNewParticipant(parsedMessage);
+                break;
+            case 'participantLeft':
+                onParticipantLeft(parsedMessage);
+                break;
+                case 'receiveChat': //채팅을 받았습니다!
+                onReceiveChat(parsedMessage);
+                break;
+            case 'receiveYTUrl': //야 이거 당장 틀어야 함
+                onReceiveYTUrl(parsedMessage);
+                break;
+            case 'receiveVideoAnswer':
+                receiveVideoResponse(parsedMessage);
+                break;
+            case 'iceCandidate':
+                participants[parsedMessage.name].rtcPeer.addIceCandidate(parsedMessage.candidate, function (error) {
+                    if (error) {
+                        console.error("Error adding candidate: " + error);
+                        return;
+                    }
+                });
+                break;
+            default:
+                console.error('Unrecognized message', parsedMessage);
+        }
     }
-}
 
-function onNewParticipant(request) {
-    receiveVideo(request.name);
-}
+    function onNewParticipant(request) {
+        receiveVideo(request.name);
+    }
 
-function receiveVideoResponse(result) {
-    participants[result.name].rtcPeer.processAnswer (result.sdpAnswer, function (error) {
-        if (error) return console.error (error);
-    });
-}
-
-function callResponse(message) {
-    if (message.response != 'accepted') {
-        console.info('Call not accepted by peer. Closing call');
-        window.stop();
-    } else {
-        kurentoUtils.WebRtcPeer.processAnswer(message.sdpAnswer, function (error) {
+    function receiveVideoResponse(result) {
+        participants[result.name].rtcPeer.processAnswer (result.sdpAnswer, function (error) {
             if (error) return console.error (error);
         });
     }
-}
 
-function onExistingParticipants(msg) {
-	var constraints = {
-		audio : true,
-		video : {
-			mandatory : {
-				maxWidth : 320,
-				maxFrameRate : 15,
-				minFrameRate : 15
-			}
-		}
-	};
-	console.log(name + " registered in room ");
-	var participant = new Participant(name);
-    setParticipants(participants[name] = participant);
-	var video = participant.getVideoElement();
-
-	var options = {
-	      localVideo: video,
-	      mediaConstraints: constraints,
-		configuration: {
-			iceServers:[{urls: 'turn:3.38.244.111:3478', username:'ssaraoke', credential: 'qwer1234'}],
-			iceTransportPolicy: 'relay'
-		},
-	      onicecandidate: participant.onIceCandidate.bind(participant)
-	    }
-	participant.rtcPeer = new kurentoUtils.WebRtcPeer.WebRtcPeerSendonly(options,
-		function (error) {
-		  if(error) {
-			  return console.error(error);
-		  }
-		  this.generateOffer (participant.offerToReceiveVideo.bind(participant));
-	});
-
-	msg.data.forEach(receiveVideo);
-}
-
-function leaveRoom() {
-    sendMessage({
-        id : 'leaveRoom'
-    });
-
-    for ( var key in participants) {
-        participants[key].dispose();
-    }
-    document.getElementById('join').style.display = 'block';
-    document.getElementById('room').style.display = 'none';
-
-    ws.close();
-}
-
-function receiveVideo(sender) {
-	var participant = new Participant(sender);
-    setParticipants(participants[sender] = participant);
-	var video = participant.getVideoElement();
-
-	var options = {
-      remoteVideo: video,
-	configuration: {
-		iceServers: [{urls: 'turn:3.38.244.111:3478', username:'ssaraoke', credential:'qwer1234'}],
-		iceTransportPolicy: 'relay'
-	},
-      onicecandidate: participant.onIceCandidate.bind(participant)
+    function callResponse(message) {
+        if (message.response != 'accepted') {
+            console.info('Call not accepted by peer. Closing call');
+            window.stop();
+        } else {
+            kurentoUtils.WebRtcPeer.processAnswer(message.sdpAnswer, function (error) {
+                if (error) return console.error (error);
+            });
+        }
     }
 
-	participant.rtcPeer = new kurentoUtils.WebRtcPeer.WebRtcPeerRecvonly(options,
-			function (error) {
-			  if(error) {
-				  return console.error(error);
-			  }
-			  this.generateOffer (participant.offerToReceiveVideo.bind(participant));
-	});;
-}
+    function onExistingParticipants(msg) {
+        var constraints = {
+            audio : true,
+            video : {
+                mandatory : {
+                    maxWidth : 320,
+                    maxFrameRate : 15,
+                    minFrameRate : 15
+                }
+            }
+        };
+        console.log(name + " registered in room ");
+        //107이나 108중에 하나 안돌아감
+        var participant = new Participant(name, sendMessage);
+        console.log("=====Participant:[구아]=====")
+        console.log(participant);
+        setParticipants(participants[name] = participant);
+        // console.log("=====Participants[구아]=====")
+        // console.log(participants['구아']);
+        var video = participant.getVideoElement();
 
-function onParticipantLeft(request) {
-    console.log('Participant ' + request.name + ' left');
-    var participant = participants[request.name];
-    participant.dispose();
-    setParticipants(delete participants[request.name]);
-}
+        var options = {
+            localVideo: video,
+            mediaConstraints: constraints,
+            configuration: {
+                iceServers:[{urls: 'turn:3.38.244.111:3478', username:'ssaraoke', credential: 'qwer1234'}],
+                iceTransportPolicy: 'relay'
+            },
+            onicecandidate: participant.onIceCandidate.bind(participant)
+            }
+        participant.rtcPeer = new kurentoUtils.WebRtcPeer.WebRtcPeerSendonly(options,
+            function (error) {
+            if(error) {
+                return console.error(error);
+            }
+            this.generateOffer (participant.offerToReceiveVideo.bind(participant));
+        });
 
-function sendMessage(message) {
-    var jsonMessage = JSON.stringify(message);
-    console.log('Sending message: ' + jsonMessage);
-    ws.send(jsonMessage);
-}
-    /*채팅, 유튜브 링크 */
-//채팅 받았을 때(공용)
-function onReceiveChat(sender){
-    if(sender.name == name){
-        sender.name = '나';
+        msg.data.forEach(receiveVideo);
     }
-    console.log(`[receiveChat] ${sender.name}님이 ${sender.room}에 ${sender.msg}를 보냈습니다.`);
-}
-//채팅 보낼 때
-function sendChat(){
-    var chatMsg = document.getElementById('input_chat').value;
-    var message = {
-        id : 'sendChat',
-        name : name,    //내 이름 
-        room : room,    //현재 룸
-        msg: chatMsg,
+
+    function leaveRoom() {
+        sendMessage({
+            id : 'leaveRoom'
+        });
+        console.log(participants);
+        for ( var key in participants) {
+            participants[key].dispose();
+        }
+        document.getElementById('join').style.display = 'block';
+        document.getElementById('room').style.display = 'none';
+
+        ws.close();
     }
-    console.log(`[sendChat] ${name}: ${chatMsg} at room ${room}`);
-    sendMessage(message);
-}
 
-//유튜브 url 발신하는 경우(노래 끝났고 다음 노래 재생해야 하는 경우 방장이 호출
-//현재 재생되는 노래 없을 경우 시작 버튼 누른 사람이 호출)
-function sendYTUrl(){
-    setbookList(bookList);
-    var message = {
-        id: 'sendYTUrl',
-        room: room,
-        url: bookList[0],   //axios로 받아온 예약리스트 첫번째 걸 setting.
+    function receiveVideo(sender) {
+        var participant = new Participant(sender, sendMessage);
+        setParticipants(participants[sender] = participant);
+        var video = participant.getVideoElement();
+
+        var options = {
+        remoteVideo: video,
+        configuration: {
+            iceServers: [{urls: 'turn:3.38.244.111:3478', username:'ssaraoke', credential:'qwer1234'}],
+            iceTransportPolicy: 'relay'
+        },
+        onicecandidate: participant.onIceCandidate.bind(participant)
+        }
+
+        participant.rtcPeer = new kurentoUtils.WebRtcPeer.WebRtcPeerRecvonly(options,
+                function (error) {
+                if(error) {
+                    return console.error(error);
+                }
+                this.generateOffer (participant.offerToReceiveVideo.bind(participant));
+        });;
     }
-    console.log(`[sendYTUrl]유튜브 요청 보냄, url: ${bookList[0]} at room ${room}`);
-    sendMessage(message);
-}
 
+    function onParticipantLeft(request) {
+        console.log('Participant ' + request.name + ' left');
+        var participant = participants[request.name];
+        participant.dispose();
+        setParticipants(delete participants[request.name]);
+    }
 
-    //보존해야 할 현우님 영역
-    function sendYTUrl(bookList){   //booklist[0]를 signalling으로 넘긴다
+    function sendMessage(message) {
+        var jsonMessage = JSON.stringify(message);
+        console.log('Sending message: ' + jsonMessage);
+        ws.send(jsonMessage);
+    }
+
+    function register() {
+        // name = document.getElementById('name').value;
+        // room = document.getElementById('roomName').value;
+        
+        // document.getElementById('room-header').innerText = 'ROOM ' + room;
+        // document.getElementById('participants').innerText = '내 이름은 ' + name;
+        // document.getElementById('join').style.display = 'none';
+        // document.getElementById('room').style.display = 'block';
+
+        var message = {
+            id : 'joinRoom',
+            name : '구아',
+            room : '1',
+        }
+        sendMessage(message);
+    }
+        /*채팅, 유튜브 링크 */
+    //채팅 받았을 때(공용)
+    function onReceiveChat(sender){
+        // if(sender.name == name){
+        //     sender.name = '나';
+        // }
+        console.log(`[receiveChat] ${sender.name}님이 ${sender.room}에 ${sender.msg}를 보냈습니다.`);
+    }
+    //채팅 보낼 때
+    function sendChat(){
+        var chatMsg = document.getElementById('chatTxt').value;
+        var name='구아';
+        var room = '1';
+        var message = {
+            id : 'sendChat',
+            name : name,    //내 이름 
+            room : room,    //현재 룸
+            msg: chatMsg,
+        }
+        console.log(`[sendChat] ${name}: ${chatMsg} at room ${room}`);
+        sendMessage(message);
+    }
+
+    //유튜브 url 발신
+    //노래 끝났고 다음 노래 재생해야 하는 경우 방장이 호출
+    //현재 재생되는 노래 없을 경우 시작 버튼 누른 사람이 호출
+    function sendYTUrl(){
+        setbookList(bookList);  //이거 꼭 필요할까요
+        var YTUrl = bookList[0];
+        var message = {
+            id: 'sendYTUrl',
+            room: room,
+            url: YTUrl,   //axios로 받아온 예약리스트 첫번째 걸 setting.
+        }
+        console.log(`[sendYTUrl]유튜브 요청 보냄, url: ${YTUrl} at room ${room}`);
+        sendMessage(message);   //메세지 send하고 
+        bookList.shift();
         setbookList(bookList);
-        testmusic();
         console.log(bookList)
     }
 
@@ -223,9 +245,9 @@ function sendYTUrl(){
         setnowPlaymusic(YTUrl)
     }
 
-    function testmusic(){
-        setnowPlaymusic(bookList[0]);
-    }
+    // function testmusic(){
+    //     setnowPlaymusic(bookList[0]);
+    // }
     
     function nextMusic(){
 
@@ -244,12 +266,20 @@ function sendYTUrl(){
 
     return (
         <div className={styles.room}>
+            <input type={"button"} onClick={register} defaultValue={"구아로 1번방입장"}></input>
+            <input type={"text"} id={"chatTxt"}></input>
+            <input type={"button"} onClick={sendChat} defaultValue={"채팅전송"}></input>
+            <input type={"button"} onClick={sendYTUrl} defaultValue={"url전송"}></input>
+            <input type={"button"} onClick={leaveRoom} defaultValue={"바이바이"}></input>
+            
+            
             <LightRope />
             <Crazylights />
             <Musicbar />
             <MirrorBall />
             <Screen mode={styles.ScreenBasic} now={nowPlaymusic} nextMusic={nextMusic}/>
             <div className={styles.BasicCamBox}>
+                 <div id="participants"></div>
                  <NormalCam mode={styles.BasicNormalCam} sendMessage={sendMessage}/>
                  {/* <NormalCam mode={styles.BasicNormalCam}/>
                  <NormalCam mode={styles.BasicNormalCam}/>
