@@ -15,6 +15,7 @@ const PARTICIPANT_CLASS = 'participant';
  * @return
  */
 function Participant(name) {
+    //span, video(사용자 영상)
     this.name = name;
     var container = document.createElement('div');
     container.className = isPresentMainParticipant() ? PARTICIPANT_CLASS : PARTICIPANT_MAIN_CLASS;
