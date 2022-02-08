@@ -51,14 +51,14 @@ function Login({ DispatchaddInfo, state }) {
       <div className={styles.logincontent}>
         <h2 className={styles.main}>Welcome SSARAOKE</h2>
         <button
-          className={styles.btn}
+          className={styles.btnNotLoggedIn}
           onClick={LoginWithKakao}
           hidden={state.length !== 0}
         >
           카카오로 시작하기
         </button>
         <Link to="/lobby">
-          <button className={styles.btn} hidden={state.length === 0}>
+          <button className={styles.btnLoggedIn} hidden={state.length === 0}>
             로비로 돌아가기
           </button>
         </Link>
