@@ -53,7 +53,7 @@ public class LobbyServiceImpl implements LobbyService {
         }
         Room room = Room.builder()
                 .title(lobbyCreateRequest.getTitle())
-                .is_private(lobbyCreateRequest.is_private())
+                .is_private(lobbyCreateRequest.isPrivate())
                 .password(lobbyCreateRequest.getPassword())
                 .owner_seq(user.getSeq())
                 .owner_nickname(user.getNickname())

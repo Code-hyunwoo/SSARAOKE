@@ -3,6 +3,7 @@ package com.ssafy.api.room.controller;
 import com.ssafy.api.auth.resolver.Auth;
 import com.ssafy.api.room.dto.request.LobbyCreateRequest;
 import com.ssafy.api.room.dto.request.LobbyEnterRequest;
+import com.ssafy.api.room.dto.response.LobbyCreateResponse;
 import com.ssafy.api.room.dto.response.LobbyResponse;
 import com.ssafy.api.room.service.LobbyService;
 import com.ssafy.common.exception.CustomException;
@@ -34,12 +35,12 @@ public class LobbyController {
 
     // 방 생성
     @PostMapping("")
-    ResponseEntity<? extends BaseResponseBody> createRoom(@Auth User user, @RequestBody LobbyCreateRequest lobbyCreateRequest) {
+    ResponseEntity<LobbyCreateResponse> createRoom(@Auth User user, @RequestBody LobbyCreateRequest lobbyCreateRequest) {
         // 방 생성 가능할 때
         Room room = lobbyService.createRoom(user, lobbyCreateRequest);
             // 방장 입장
 //            lobbyService.enterRoom(user, new LobbyEnterRequest(room.getSeq(), lobbyCreateRequest.getPassword()));
-        return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
+        return ResponseEntity.ok().body(LobbyCreateResponse.of(room));
 
     }
 
