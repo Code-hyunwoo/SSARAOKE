@@ -1,7 +1,7 @@
 import styles from "./Room.module.css";
 
 
-function Button ({text, modal}){
+function Button ({text}){
         
     return (
         <div >
