@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("api/v1/lobby")
