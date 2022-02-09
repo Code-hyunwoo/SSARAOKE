@@ -76,6 +76,6 @@ public class GroupCallApp implements WebSocketConfigurer {
   @Override
   // wss://i6a306.p.ssafy.io:8443/groupcall
   public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-    registry.addHandler(groupCallHandler(), "/groupcall");
+    registry.addHandler(groupCallHandler(), "/groupcall").setAllowedOrigins("*");
   }
 }
