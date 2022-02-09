@@ -14,18 +14,18 @@ function Controller({book, sendYTUrl}) {
     const [show, setShow] = useState(false);
     const [booklist, setbookList] =useState(book);
     const startbookList = () => {
-        var YTUrl = booklist[0]; 
-        var message = {
-             id: 'sendYTUrl',
-            // room: room,
-             // url: YTUrl,
-        }
-        console.log(YTUrl)
-        booklist.shift();
-        setbookList(booklist);
+        // var YTUrl = booklist[0]; 
+        // var message = {
+        //      id: 'sendYTUrl',
+        //     room: room,
+        //      url: YTUrl,
+        // }
+        // console.log(YTUrl)
         sendYTUrl(booklist);
-        alert(`새로운 곡 시작!`)
-        console.log(booklist)
+        // booklist.shift();
+        // setbookList(booklist);
+        // alert(`새로운 곡 시작!`)
+        // console.log(booklist)
         // console.log(`[sendYTUrl]유튜브 요청 보냄, url: ${YTUrl} at room ${room}`);
         // sendMessage(message);
         }
