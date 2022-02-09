@@ -128,7 +128,7 @@ function Desk() {
       // const res = axios
       axios
         .post(
-          "http://i6a306.p.ssafy.io:8080/api/v1/lobby",
+          "https://i6a306.p.ssafy.io:8080/api/v1/lobby",
           {
             //post로 보낼 데이터
             title: roomTitle,

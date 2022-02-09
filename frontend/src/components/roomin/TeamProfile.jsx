@@ -14,7 +14,7 @@ function TeamProfile() {
         <ul className={styles.team}>
           <li className={styles.team_item}>
             <div className={`${styles.profile} ${styles.profile_red}`}>
-              <img src={red} />
+              <img src={red} alt="" />
               <div className={styles.profile_contents}>
                 <h2>
                   정구아 <span>Leader, Back-end</span>
@@ -27,7 +27,7 @@ function TeamProfile() {
           </li>
           <li className={styles.team_item}>
             <div className={`${styles.profile} ${styles.profile_beige}`}>
-              <img src={doggy} />
+              <img src={doggy} alt="" />
               <div className={styles.profile_contents}>
                 <h2>
                   배지환 <span>Back-end</span>
@@ -40,7 +40,7 @@ function TeamProfile() {
           </li>
           <li className={styles.team_item}>
             <div className={`${styles.profile} ${styles.profile_pink}`}>
-              <img src={green} />
+              <img src={green} alt="" />
               <div className={styles.profile_contents}>
                 <h2>
                   유혜승 <span>Back-end</span>
@@ -53,7 +53,7 @@ function TeamProfile() {
           </li>
           <li className={styles.team_item}>
             <div className={`${styles.profile} ${styles.profile_green}`}>
-              <img src={pink} />
+              <img src={pink} alt="" />
               <div className={styles.profile_contents}>
                 <h2>
                   서승원 <span>Front-end</span>
@@ -66,7 +66,7 @@ function TeamProfile() {
           </li>
           <li className={styles.team_item}>
             <div className={`${styles.profile} ${styles.profile_purple}`}>
-              <img src={purple} />
+              <img src={purple} alt="" />
               <div className={styles.profile_contents}>
                 <h2>
                   김혜란 <span>Front-end</span>
@@ -79,7 +79,7 @@ function TeamProfile() {
           </li>
           <li className={styles.team_item}>
             <div className={`${styles.profile} ${styles.profile_blue}`}>
-              <img src={blue} />
+              <img src={blue} alt="" />
               <div className={styles.profile_contents}>
                 <h2>
                   이현우 <span>Front-end</span>

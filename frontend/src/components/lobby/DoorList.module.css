@@ -6,6 +6,15 @@
   padding-right: 2vw;
 }
 
+.firstcontainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: flex-end;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
 .griditem {
   display: flex;
   flex-direction: row;
