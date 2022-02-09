@@ -12,15 +12,78 @@ import Crazylights from "../components/roomin/Crazylights";
 import { Link } from "react-router-dom";
 import Controller from "../components/remote/Controller";
 import kurentoUtils from 'kurento-utils'
-import Participant from "../components/roomin/Participants";
 import { connect } from "react-redux"; 
+
+var participants={};
+function Participant(name, sendMessage) {
+    //span, video(사용자 영상)
+    this.name = name;
+    var container = document.createElement('div');
+    container.id = name;
+
+    console.log("creating video")
+    var span = document.createElement('span');
+    var video = document.createElement('video');
+    var rtcPeer;
+
+    container.appendChild(video);
+    container.appendChild(span);
+    document.getElementById('participants').appendChild(container);
+
+    span.appendChild(document.createTextNode(name));
+
+    video.id = 'video-' + name;
+    video.autoplay = true;
+    video.controls = false;
+
+
+    console.log("DONE")
+
+    this.getElement = function() {
+        return container;
+    }
+
+    this.getVideoElement = function() {
+        return video;
+    }
+
+    this.offerToReceiveVideo = function(error, offerSdp, wp){
+        if (error) return console.error ("sdp offer error")
+        console.log('Invoking SDP offer callback function');
+        var msg =  { id : "receiveVideoFrom",
+            sender : name,
+            sdpOffer : offerSdp
+        };
+        sendMessage(msg);
+    }
+
+
+    this.onIceCandidate = function (candidate, wp) {
+        console.log("Local candidate" + JSON.stringify(candidate));
+
+        var message = {
+            id: 'onIceCandidate',
+            candidate: candidate,
+            name: name
+        };
+        sendMessage(message);
+    }
+
+    Object.defineProperty(this, 'rtcPeer', { writable: true});
+
+    this.dispose = function() {
+        console.log('Disposing participant ' + this.name);
+        this.rtcPeer.dispose();
+        container.parentNode.removeChild(container);
+    };
+}
 
 function Basic ({Nickname}){
     const [openChangeMode, setOpenChangeMode] = useState(false);
     const practice = ['https://www.youtube.com/watch?v=Xk7_eEx58ds','https://www.youtube.com/watch?v=4gXmClk8rKI', 'https://www.youtube.com/watch?v=t8KtQ8-nImI']
     const [bookList, setbookList] =  useState(practice);
     const [nowPlaymusic,setnowPlaymusic] = useState('');
-    const [participants,setParticipants] = useState({});    //서버에서 보내 줄 현재 참여자 내역
+    // const [participants,setParticipants] = useState({});    //서버에서 보내 줄 현재 참여자 내역
     const [chatArr, setChatArr] = useState([]);
     
     const name = {Nickname}.Nickname; //redux에 저장된 user nickname
@@ -107,13 +170,11 @@ function Basic ({Nickname}){
             }
         };
         console.log(name + " registered in room ");
-        //107이나 108중에 하나 안돌아감
         var participant = new Participant(name, sendMessage);
-        console.log("=====Participant:[구아]=====")
+        console.log("=====Participant=====")
         console.log(participant);
-        setParticipants(participants[name] = participant);
-        // console.log("=====Participants[구아]=====")
-        // console.log(participants['구아']);
+        participants[name] = participant;
+        // setParticipants(participants[name] = participant);
         var video = participant.getVideoElement();
 
         var options = {
@@ -144,15 +205,13 @@ function Basic ({Nickname}){
         for ( var key in participants) {
             participants[key].dispose();
         }
-        // document.getElementById('join').style.display = 'block';
-        // document.getElementById('room').style.display = 'none';
-
         ws.close();
     }
 
     function receiveVideo(sender) {
         var participant = new Participant(sender, sendMessage);
-        setParticipants(participants[sender] = participant);
+        // setParticipants(participants[sender] = participant);
+        participants[sender] = participant;
         var video = participant.getVideoElement();
 
         var options = {
@@ -177,7 +236,8 @@ function Basic ({Nickname}){
         console.log('Participant ' + request.name + ' left');
         var participant = participants[request.name];
         participant.dispose();
-        setParticipants(delete participants[request.name]);
+        // setParticipants(delete participants[request.name]);
+        delete participants[request.name]
     }
 
     function sendMessage(message) {
@@ -187,14 +247,6 @@ function Basic ({Nickname}){
     }
 
     function register() {
-        // name = document.getElementById('name').value;
-        // room = document.getElementById('roomName').value;
-        
-        // document.getElementById('room-header').innerText = 'ROOM ' + room;
-        // document.getElementById('participants').innerText = '내 이름은 ' + name;
-        // document.getElementById('join').style.display = 'none';
-        // document.getElementById('room').style.display = 'block';
-
         var message = {
             id : 'joinRoom',
             name : {Nickname}.Nickname,
@@ -208,7 +260,6 @@ function Basic ({Nickname}){
         console.log(`[receiveChat] ${sender.name}님이 ${sender.room}에 ${sender.msg}를 보냈습니다.`);
         setChatArr((chatArr) => chatArr.concat(sender));
     }
-
 
     //채팅 보낼 때
     function sendChat(msg){
@@ -256,9 +307,9 @@ function Basic ({Nickname}){
 
         var YTUrl = bookList[0]; 
         var message = {
-             id: 'sendYTUrl',
+            id: 'sendYTUrl',
             room: room,
-             url: YTUrl,
+            url: YTUrl,
         }
         // console.log(YTUrl)  
         sendMessage(message);
@@ -267,9 +318,31 @@ function Basic ({Nickname}){
         // console.log(bookList)
     }
 
+    function audioMute() {
+        if(participants[name].rtcPeer.audioEnabled) {
+            console.log("마이크 끄기");
+            participants[name].rtcPeer.audioEnabled = false;
+
+        }
+        else {
+            console.log("마이크 켜기");
+            participants[name].rtcPeer.audioEnabled = true;
+        }
+    }
+    function videoMute() {
+        if(participants[name].rtcPeer.videoEnabled) {
+            console.log("비디오 끄기");
+            participants[name].rtcPeer.videoEnabled = false;
+        }
+        else {
+            console.log("비디오 켜기");
+            participants[name].rtcPeer.videoEnabled = true;
+        }
+    }
+
     return (
         <div className={styles.room}>
-            <input type={"button"} onClick={register} defaultValue={"구아로 1번방입장"}></input>
+            <input type={"button"} onClick={register} defaultValue={"1번방입장"}></input>
                     
             <LightRope />
             <Crazylights />
@@ -289,8 +362,8 @@ function Basic ({Nickname}){
                 <RoomChat mode={styles.BasicChat} sendChat={sendChat} chatArr={chatArr} />
             </div>
             <div className={styles.ButtonBox}>
-                <Button text={"마이크"}/>
-                <Button text={"캠"}/>
+                <Button text={"마이크"} getOnClick={audioMute}/>
+                <Button text={"캠"} getOnClick={videoMute}/>
                 <Controller book={bookList} sendYTUrl={sendYTUrl}/>
                 
                 <Button text={"컨텐츠"}/>
