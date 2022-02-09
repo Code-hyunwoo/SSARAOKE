@@ -413,12 +413,12 @@ function Basic({ Nickname }) {
           모드선택{" "}
         </button>
         {openChangeMode && <ChangeMode closeChangeMode={setOpenChangeMode} />}
-        <button onClick={leaveRoom} className={(styles.btn, styles.neon)}>
-          <Link to="/lobby" id={styles.btn_no}>
+        <Link to="/lobby" id={styles.btn_no}>
+          <button onClick={leaveRoom} className={(styles.btn, styles.neon)}>
             {" "}
             나가기
-          </Link>
-        </button>
+          </button>
+        </Link>
       </div>
     </div>
   );

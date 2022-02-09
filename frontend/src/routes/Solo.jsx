@@ -51,12 +51,9 @@ function Solo() {
         </button>
         {openChangeMode && <ChangeMode closeChangeMode={setOpenChangeMode} />}
 
-        <button className={(styles.btn, styles.neon)}>
-          <Link to="/lobby" id={styles.btn_no}>
-            {" "}
-            나가기
-          </Link>
-        </button>
+        <Link to="/lobby" id={styles.btn_no}>
+          <button className={(styles.btn, styles.neon)}> 나가기</button>
+        </Link>
       </div>
     </div>
   );
