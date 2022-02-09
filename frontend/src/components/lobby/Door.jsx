@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import closedImg from "./img/closed2.PNG";
 import axios from "axios";
 
-function Door({ thumbnail = closedImg, title, hostname, usercnt = 0, tags }) {
+// function Door({ thumbnail = closedImg, title, hostname, usercnt = 0, tags }) {
+function Door({ thumbnail = closedImg, title, user, current, tags }) {
 // function Door({roomdata}) {
   // 방 생성되면 created값 true로 변경
   const [created, setCreated] = useState(false);
@@ -26,24 +27,28 @@ function Door({ thumbnail = closedImg, title, hostname, usercnt = 0, tags }) {
   return (
     <div className={Styles.roomsamecss}>
       {/* <img className={Styles.video} src={roomdata.thumbnail} alt="thumbnail" /> */}
-      {/* <img className={Styles.video} src={roomdata[6]} alt="thumbnail" /> */}
+      {/* <img className={Styles.video} src={roomdata.thumnail_url} alt="thumbnail" /> */}
       <img className={Styles.video} src={thumbnail} alt="thumbnail" />
 
-      {/* <div className={Styles.roomtitle}>{roomdata[7]}</div> */}
+      {/* <div className={Styles.roomtitle}>{roomdata.title}</div> */}
       <div className={Styles.roomtitle}>{title}</div>
 
       <div className={Styles.roomgroup}>
-        {/* <div className={Styles.roomuser}>{roomdata[2]}</div> */}
-        <div className={Styles.roomuser}>{hostname}</div>
-        {/* <div className={Styles.roomfull}>{roomdata[0]}/8</div> */}
-        <div className={Styles.roomfull}>{usercnt}/8</div>
+        {/* <div className={Styles.roomuser}>{roomdata.owner_nicname}</div> */}
+        {/* <div className={Styles.roomuser}>{hostname}</div> */}
+        <div className={Styles.roomuser}>{user}</div>
+        {/* <div className={Styles.roomfull}>{roomdata.current}/8</div> */}
+        {/* <div className={Styles.roomfull}>{usercnt}/8</div> */}
+        <div className={Styles.roomfull}>{current}/8</div>
       </div>
 
       <div className={Styles.tag}>
-        {tags &&
+        {/* {tags &&
           tags.map((tag) => {
             return ` #${tag}`;
-          })}
+          })} */}
+          {/* #{tags[0].tag_name} #{tags[1].tag_name} #{tags[2].tag_name} #{tags[3].tag_name}  */}
+        
       </div>
       <Link to="/basic" className={Styles.joinlink}>
         <button

@@ -8,7 +8,7 @@ function Desk() {
   //모달 실행
   const [show, setShow] = useState(false);
 
-  //tag 값 받아오기
+  //모달 종료시, 값들 리셋
   const handleClose = () => {
     setShow(false);
     setcheckedTags(new Set());
@@ -18,7 +18,8 @@ function Desk() {
     setRoompw('');
   };
   const handleShow = () => setShow(true);
-
+  
+  //tag 값 받아오기
   const [checkedTags, setcheckedTags] = useState(new Set());
   const [bChecked, setChecked] = useState(false); //체크가 되었는지 여부를 위한 함수. 기본 F -비워져있음.
 
@@ -61,9 +62,6 @@ function Desk() {
 
   // 모드 값 가져오기 - radio버튼이기에 한번에 하나만 체크됨.
   const [selected, setSelected] = useState("");
-  // const [checkMode, setCheckMode] = useState(false);
-  // //라디오 값은 하나 체크하면 나머지는 자동으로 풀리는데
-  // //그럼 체크 푸는 함수?는 필요 없겠지...?
   const checkedModeHandler = (e) => {
       setSelected(e.target.value);
       console.log(selected);
@@ -79,7 +77,6 @@ function Desk() {
 
 
   //방 공개 여부 -boolean으로
-  //*****************이거 필로 보기 */
   const [ opened, setOpended] = useState(false);
 
   // const roomopenHandler = ({target}) => {
@@ -102,13 +99,6 @@ function Desk() {
   //비밀번호 -> 비공개방으로 설정하면 비밀번호를 필로 넣도록 설정
   const [roompw, setRoompw] = useState("");
   const getRoompw = (e) => {
-    // if(value === true) {  //방 공개여부가 비공개일때
-    //   //비밀번호가 비었다면
-    //   if( roompw === ''){
-    //     alert(`비밀번호를 입력해 주세요`);
-    //   }
-    //   else( roompw =! '')
-    // }
     setRoompw(e.target.value);
     console.log(roompw);
   }
@@ -148,12 +138,6 @@ function Desk() {
       // navigate(`/${selected}`)
     };
         
-
-  
-
-
-
-
   return (
     <>
       <div className={styles.btngroup}>
