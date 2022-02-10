@@ -342,7 +342,7 @@ function Basic ({Nickname}){
 
     return (
         <div className={styles.room}>
-            <input type={"button"} onClick={register} defaultValue={"1번방입장"}></input>
+            <input className={styles.testbtn} type={"button"} onClick={register} defaultValue={"1번방입장"}></input>
                     
             <LightRope />
             <Crazylights />
@@ -351,12 +351,6 @@ function Basic ({Nickname}){
             <Screen mode={styles.ScreenBasic} now={nowPlaymusic} nextMusic={nextMusic}/>
             <div className={styles.BasicCamBox}>
                  <div id="participants"></div>
-                 <NormalCam mode={styles.BasicNormalCam} sendMessage={sendMessage}/>
-                 {/* <NormalCam mode={styles.BasicNormalCam}/>
-                 <NormalCam mode={styles.BasicNormalCam}/>
-                 <NormalCam mode={styles.BasicNormalCam}/>  
-                 <NormalCam mode={styles.BasicNormalCam}/>  
-                 <NormalCam mode={styles.BasicNormalCam}/>   */}
             </div>
             <div className={styles.BasicChatBox}>
                 <RoomChat mode={styles.BasicChat} sendChat={sendChat} chatArr={chatArr} />
@@ -365,7 +359,6 @@ function Basic ({Nickname}){
                 <Button text={"마이크"} getOnClick={audioMute}/>
                 <Button text={"캠"} getOnClick={videoMute}/>
                 <Controller book={bookList} sendYTUrl={sendYTUrl}/>
-                
                 <Button text={"컨텐츠"}/>
                 <button className={styles.btn, styles.neon} 
                 onClick={()=> {
