@@ -1,147 +1,138 @@
-@import url('https://fonts.googleapis.com/css2?family=Oregano&display=swap');
-
-
-
+@import url("https://fonts.googleapis.com/css2?family=Oregano&display=swap");
 
 .ChangeModeBackground {
-    width: 90vw;
-    height: 100vh;
-    background-color: transparent;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -85vh;
-    z-index: 5;
-  }
-  
-  .ChangeModeContainer {
-    width: 60vw;
-    height: 60vh;
-    border-radius: 12px;
-    background-color: black;
-    box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 25px;
-    display: flex;
-    flex-direction: column;
-    padding: 25px;
-    z-index: 5;
-  }
-  
-  .ChangeModeContainer .title {
-    display: inline-block;
-    text-align: center;
-    margin-top: 10px;
-    color: white;
-    font-size: 5.8vw;
-    font-weight: bold;
-    font-family: 'Oregano', cursive;
-  }
-  
-  
-  
-  .ChangeModeContainer .body {
-    flex: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    
-  }
-  
-  .ChangeModeContainer .footer {
-    flex: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+  width: 90vw;
+  height: 100vh;
+  background-color: transparent;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -85vh;
+  z-index: 5;
+}
 
-  #modeButton {
-    width: 20vw;
-    height: 9vh;
-    background-color: #fff89a;
-    font-family: 'Oregano', cursive;
-    font-size: 5vh;
-    font-weight: bold;
-    border-radius: 20px;
-  }
+.ChangeModeContainer {
+  width: 60vw;
+  height: 60vh;
+  border-radius: 12px;
+  background-color: black;
+  box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 25px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  z-index: 5;
+}
 
-  #modeLink {
-    text-decoration: none;
-    color: black;
+.ChangeModeContainer .title {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+  color: white;
+  font-size: 5.8vw;
+  font-weight: bold;
+  font-family: "Oregano", cursive;
+}
 
-  }
+.ChangeModeContainer .body {
+  flex: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
-  #backButton {
-    width: 10vw;
-    height: 10vh;
-    font-size: 7vh;
-    font-weight: bold;
-    font-family: 'Oregano', cursive;
-    background-color: black;
-    color: white;
-    border: none;
-  }
+.ChangeModeContainer .footer {
+  flex: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+#modeButton {
+  width: 15vw;
+  height: 9vh;
+  background-color: #fff89a;
+  font-family: "Oregano", cursive;
+  font-size: 5vh;
+  font-weight: bold;
+  border-radius: 20px;
+}
 
-  /* -----------------------------------------------unfolding */
-  .ChangeModeContainer {
-    animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-  }
+#modeLink {
+  text-decoration: none;
+  color: black;
+}
 
-  .ChangeModeContainer .ChangeModeBackground {
-    transform: scale(0);
-    animation: zoomIn .5s .8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-  }
-  
-  .ChangeModeContainer.out {
-    transform: scale(1); 
-    animation: unfoldOut 1s .3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-  }
+#backButton {
+  width: 10vw;
+  height: 10vh;
+  font-size: 7vh;
+  font-weight: bold;
+  font-family: "Oregano", cursive;
+  background-color: black;
+  color: white;
+  border: none;
+}
 
-  .ChangeModeContainer.out .ChangeModeBackground {
-    animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-  }
+/* -----------------------------------------------unfolding */
+.ChangeModeContainer {
+  animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.ChangeModeContainer .ChangeModeBackground {
+  transform: scale(0);
+  animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.ChangeModeContainer.out {
+  transform: scale(1);
+  animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.ChangeModeContainer.out .ChangeModeBackground {
+  animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
 
 /* Dimmed showing */
-  @keyframes unfoldIn { 
-    0% { 
-      transform: scaleX(0) scaleY(0.005); 
-    } 
-    50% { 
-    transform: scaleX(1) scaleY(0.005); 
-  } 
-  100% { 
-  transform: scaleY(1) scaleX(1); 
-} 
-}
-  /* Show modal content */ 
-  @keyframes zoomIn { 
-    from { 
-      transform: scale(0); 
-    } 
-    to { 
-      transform: scale(1); 
-    } 
-  } 
-  /* Hide modal content */
-  @keyframes zoomOut { 
-    from { 
-      transform: scale(1); 
-    } 
-    to { 
-      transform: scale(0); 
-    } 
-  } 
-  /* Dimmed hiding */ 
-  @keyframes unfoldOut { 
-    0% { 
-      transform: scale(1) 
-    } 
-    50% { 
-      transform: scaleX(1) scaleY(0.005); 
-    } 
-    100% { 
-      transform: scaleX(0) scaleY(0.005); 
-    } 
+@keyframes unfoldIn {
+  0% {
+    transform: scaleX(0) scaleY(0.005);
   }
+  50% {
+    transform: scaleX(1) scaleY(0.005);
+  }
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+}
+/* Show modal content */
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+/* Hide modal content */
+@keyframes zoomOut {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+/* Dimmed hiding */
+@keyframes unfoldOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scaleX(1) scaleY(0.005);
+  }
+  100% {
+    transform: scaleX(0) scaleY(0.005);
+  }
+}
