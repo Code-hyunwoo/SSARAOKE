@@ -12,15 +12,16 @@ function Nicname(props) {
         console.log(newnicname);
     }
 
-    const onChangeNicname = () => {
+    const onChangeNicname = (e) => {
+        console.log(e)
         axios
-        .patch('http://i6a306.p.ssafy.io:8080/api/v1/user/nickname', {
+        .patch('https://i6a306.p.ssafy.io:8080/api/v1/user/nickname', {
             changed: newnicname,
         }
         , {headers :{
             "Content-Type": 'application/json',
             // "Authorization" : token,  // -> 승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
-        "Authorization" : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0IiwiaXNzIjoic3NhcmFva2UiLCJleHAiOjE2NDU0NTEwODEsImlhdCI6MTY0NDE1NTA4MX0.N9j_0TcCsgKetRCh26r-p93hajHoSPV7OLk6jsXswNKgAMSGbI-kl3Vh9YRtKoq14CnEN20pFVaC99HbAzQFDw',  // -> 승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
+        "Authorization" : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI3IiwiaXNzIjoic3NhcmFva2UiLCJleHAiOjE2NDU2MDAyMDIsImlhdCI6MTY0NDMwNDIwMn0.bAx6gwfL1Ej3u-J-Bb8Tmqf5_Eiw1UsHajGHHKPb41sxtns0Ri55jKkWvzMm9D2UJfB2dYkZGtmc0EOaEGYqWA',  // -> 승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
         // "Authorization" : 'Bearer 19U379_00nq0x7mQEYRvmFLkoB4k-k_IF5jCnQo9dJgAAAF-1yUoHw',  // -> 승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
         // "Authorization" : 'Bearer g9bkH1SdbJt7QT8t2Wl80oRCi_EbcE__3Yr9LQo9dJgAAAF-1yUoHg',  // -> 승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
         }})
@@ -51,9 +52,17 @@ function Nicname(props) {
                         {/* <div> */}
                             <button 
                                 style={{top:'20vh',borderRadius:'30vh', backgroundColor:'#ffcd438f'}}
-                                onClick={onChangeNicname, props.onHide}
+                                // onClick={onChangeNicname, props.onHide}
+                                onClick={onChangeNicname}
                             >
                                 수정
+                            </button>
+                            <button 
+                                style={{top:'20vh',borderRadius:'30vh', backgroundColor:'#ffcd438f'}}
+                                // onClick={onChangeNicname, props.onHide}
+                                onClick={props.onHide}
+                            >
+                                닫기
                             </button>
                         {/* </div> */}
                     </div>
