@@ -1,103 +1,97 @@
 .ChatScreen {
-    position: absolute;
-      width: 30vw;
-      /* height: 420px; */
-      height: 42.5vh;
-      left: 34.5vw;
-      top: 22vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      
-      background: transparent;
-      border: 0.3vw solid #FFCE43;
-      box-sizing: border-box;
-      border-radius: 3vh;
-      font-size: 1vw;
-      font-family: "surroundAir";
-      box-shadow: 
-          0 0 .1rem #fff, 
-          0 0 .1rem #fff, 
-          0 0 .1rem #fff, 
-          0 0 0.4rem #FFFFFF, 
-          0 0 2.0rem #FFCE43, inset 
-          0 0 0.8rem #FFCE43;  
-  }
-  .Box{
-    width:95%;
-    height: 95%;
-    /* border:1px solid black; */
-    border-radius: 1rem;
-  }
-  .ChatBox{
-    height:85%;
-    width: 100%;
-    display: block;
-    overflow: auto;
-  }
-  .InputBox{
-    display: flex;
-    width: 100%;
-    height: 15%;
-    flex:1;
-    justify-content: center;
-    align-items: center;
-  
-  }
-  .Chat{
-    display: block;
-    /* justify-content: start; */
-    /* align-items: center; */
-    /* width:95%; */
-    /* height:13%; */
-    /* border:1px solid sandybrown; */
-    padding: 0.6vw;
-    word-break: break-all;
-    word-wrap: break-word;
-    border-radius: 1rem;
-    /* background-color: #ff0000; */
-  }
-  .ChatContent{
-    /* width: 80%; */
-    margin-left: 5%;
-    /* border:1px solid rgb(255, 0, 0); */
-    color: #FFCE43;
-    /* margin-left:1vw; */
-  }
-  .ChatName{
-    /* width: 50%; */
-    font-weight: bold;
-    /* border:1px solid rgb(255, 0, 0); */
-    color: white
-  }
-  
-  .Nick{
-    display: flex;
-    width: 20%;
-    height: 70%;
-    font-weight: bold;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    color: white;
-    border: 0.2vw solid #f9b208;
-  }
-  
-  .Contents{
-    width: 70%;
-    height: 70%;
-    background-color: transparent;
-    color: #FFCE43;
-    border: 0.1vw solid #ffffff;
-  
-  }
+  /* position: absolute; */
+  width: 31vw;
+  height: 45vh;
+  /* left: 34.5vw; */
+  /* top: 22vh; */
+  margin: 0.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: 0.3vw solid #ffce43;
+  box-sizing: border-box;
+  border-radius: 3vh;
+  font-size: 1vw;
+  font-family: "surroundAir";
+  box-shadow: 0 0 0.1rem #fff, 0 0 0.1rem #fff, 0 0 0.1rem #fff,
+    0 0 0.4rem #ffffff, 0 0 2rem #ffce43, inset 0 0 0.8rem #ffce43;
+}
+.Box {
+  width: 95%;
+  height: 95%;
+  /* border: 1px solid white; */
+  border-radius: 1rem;
+  /* padding-top: 30px; */
+  /* margin-top: 30px; */
+}
+.ChatBox {
+  height: 85%;
+  width: 100%;
+  display: block;
+  overflow: auto;
+}
+.InputBox {
+  display: flex;
+  width: 100%;
+  height: 15%;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+.Chat {
+  display: block;
+  /* justify-content: start; */
+  /* align-items: center; */
+  /* width:95%; */
+  /* height:13%; */
+  /* border:1px solid sandybrown; */
+  padding: 0.6vw;
+  word-break: break-all;
+  word-wrap: break-word;
+  border-radius: 1rem;
+  /* background-color: #ff0000; */
+}
+.ChatContent {
+  /* width: 80%; */
+  margin-left: 5%;
+  /* border:1px solid rgb(255, 0, 0); */
+  color: #ffce43;
+  /* margin-left:1vw; */
+}
+.ChatName {
+  /* width: 50%; */
+  font-weight: bold;
+  /* border:1px solid rgb(255, 0, 0); */
+  color: white;
+}
 
-  .styles_scrollable-div__prSCv{
-    height: 100% !important;
-  }
+.Nick {
+  display: flex;
+  width: 20%;
+  height: 70%;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: white;
+  border: 0.2vw solid #f9b208;
+}
 
-  .chatbtn {
-    width: 3vw;
-    height: 4vh;
-    font-weight: bold;
-  }
+.Contents {
+  width: 70%;
+  height: 70%;
+  background-color: transparent;
+  color: #ffce43;
+  border: 0.1vw solid #ffffff;
+}
+
+.styles_scrollable-div__prSCv {
+  height: 100% !important;
+}
+
+.chatbtn {
+  width: 3vw;
+  height: 70%;
+  font-weight: bold;
+}

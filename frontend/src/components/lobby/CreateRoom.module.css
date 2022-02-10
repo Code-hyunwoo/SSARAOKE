@@ -2,7 +2,8 @@
   display: flex;
   justify-content: flex-end;
   padding-right: 2vw;
-  padding-top: 5vh;
+  margin-bottom: -5vh;
+  padding-top: 8vh;
 }
 
 /* CreateRoom */
