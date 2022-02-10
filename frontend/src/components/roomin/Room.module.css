@@ -101,12 +101,14 @@
 /* ------------------------------------------- Screen */
 
 #ScreenBasic {
-  width: 55vw !important;
-  height: 60vh !important;
+  width: 45vw !important;
+  height: 50vh !important;
   border-radius: 10px;
   margin-top: 11%;
-  margin-left: 4%;
+  margin-left: 3.8%;
   position: absolute;
+  top: 4vh;
+
 }
 
 #ScreenFree {
@@ -119,12 +121,12 @@
 }
 
 #ScreenSolo {
-  width: 35vw !important;
+  width: 34vw !important;
   height: 35vh !important;
   border-radius: 10px;
   position: absolute;
-  top: 22%;
-  left: 3%;
+  top: 22vh;
+  left: 3vw;
 }
 
 /* ------------------------------------------- NormalCam */
@@ -193,54 +195,131 @@
 
 .BasicCamBox {
   position: absolute;
-  width: 35vw;
-  height: 47vh;
-  top: 12vh;
-  left: 63vw;
-  display: inline-block;
+  width: 41vw;
+  height: 52vh;
+  top: 10vh;
+  /* left: 56vw; */
+  right: 3.5vw;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
   border-radius: 10px;
 }
+
+.BasicCamBox > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  border-radius: 10px;
+}
+
+
+.BasicCamBox > div > div{
+  width: 32%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-left:0.5%; 
+  margin-right:0.5%; 
+  flex-direction: column;
+}
+
+.BasicCamBox video{
+  width: 100%;
+  display: flex;
+  border-radius: 10px;
+  margin-bottom: 1vh;
+}
+
+.BasicCamBox span{
+  font-size: 1vw;
+  font-family: "ROKAFSansBold";
+  color: #00f7a5;
+}
+
+
 
 .SoloCamBox {
   position: absolute;
   display: flex;
   text-align: center;
   justify-content: center;
-  width: 100vw;
+  width: 90vw;
   height: 35vh;
-  top: 63vh;
-  display: inline-block;
+  top: 56.2vh;
+  left: 5vw;
+  display: flex;
+  justify-content: center;
+  text-align: center;
   border-radius: 10px;
 }
 
-.DuetCamBox1 {
+.SoloCamBox > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+}
+
+
+
+.SoloCamBox > div > div {
+  width: 14%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-left:0.5%; 
+  margin-right:0.5%; 
+  flex-direction: column;
+}
+
+.SoloCamBox video{
+  width: 100%;
+  /* height: 100%; */
+  display: flex;
+  border-radius: 10px;
+  margin-bottom: 1vh;
+}
+
+.SoloCamBox span{
+  font-size: 1vw;
+  font-family: "ROKAFSansBold";
+  color: #00f7a5;
+  /* font-family: "Cafe24Ssurround"; */
+  /* font-family: "Cafe24SsurroundAir"; */
+}
+
+
+.FreeCamBox {
   position: absolute;
   width: 25vw;
   height: 30vh;
-  top: 68vh;
+  top: 20vh;
   left: 3.5vw;
   display: inline-block;
   border-radius: 10px;
 }
 
-.DuetCamBox2 {
-  position: absolute;
-  width: 25vw;
-  height: 30vh;
-  top: 68vh;
-  right: 0.5vw;
-  display: inline-block;
-  border-radius: 10px;
-}
+
 
 /* ------------------------------------------- ChatBox */
 
 .BasicChatBox {
   background-color: rgb(0, 0, 0);
   position: absolute;
-  width: 33vw;
+  width: 41vw;
   height: 21vh;
-  top: 62vh;
+  top: 63vh;
   right: 3.5vw;
   display: inline-block;
   border-radius: 10px;
@@ -260,10 +339,10 @@
 .SoloChatBox {
   background-color: transparent;
   position: absolute;
-  width: 28vw;
+  width: 34vw;
   height: 34vh;
   top: 22vh;
-  right: 3.6vw;
+  right: 3vw;
   display: inline-block;
   border-radius: 10px;
 }
@@ -271,7 +350,7 @@
 /* ------------------------------------------- Chat */
 
 #BasicChat {
-  background-color: rgba(0, 0, 0, 0.938);
+  background-color: rgba(0, 0, 0, 0.966);
   color: white;
   font-size: 1vw;
   width: 100%;
@@ -284,7 +363,7 @@
 }
 
 #FreeChat {
-  background-color: rgb(49, 53, 52);
+  background-color: rgba(0, 0, 0, 0.966);
   color: white;
   font-size: 1vw;
   width: 100%;
@@ -297,7 +376,7 @@
 }
 
 #SoloChat {
-  background-color: rgb(49, 53, 52);
+  background-color: rgba(0, 0, 0, 0.966);
   color: white;
   font-size: 1vw;
   width: 100%;
@@ -740,8 +819,9 @@
   align-items: center;
   background-color: transparent;
   color: white;
-  border: 0.1vw solid #cfc976;
-  border-radius: 0.2vw;
+  border: 0.1vw solid #3d3c3c;
+  border-radius: 0.3vw;
+  border-bottom-left-radius: 0.5vw;
 
 
 }
@@ -755,6 +835,7 @@
   color: #FFCE43;
   border: 0.15vw solid #3d3c3c;
   border-radius: 0.1vw;
+  border-bottom-right-radius: 0.5vw;
 }
 
 
@@ -765,7 +846,10 @@
   /* width:95%; */
   /* height:13%; */
   /* border:1px solid sandybrown; */
-  padding: 0.7vw;
+  padding-left: 0.7vw;
+  padding-right: 0.7vw;
+  padding-top: 0.4vw;
+  padding-bottom: 0.25vw;
   word-break: break-all;
   word-wrap: break-word;
   border-radius: 1rem;
@@ -783,4 +867,10 @@
   font-weight: bold;
   /* border:1px solid rgb(255, 0, 0); */
   color: white
+}
+
+
+
+.testbtn {
+  position:absolute;
 }

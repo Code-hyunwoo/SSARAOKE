@@ -17,7 +17,7 @@ function Login({ DispatchaddInfo, state }) {
       success: (response) => {
         console.log(response);
         axios
-          .post("http://i6a306.p.ssafy.io:8080/api/v1/auth/kakao", {
+          .post("https://i6a306.p.ssafy.io:8080/api/v1/auth/kakao", {
             accessToken: response.access_token,
             oauthType: "KAKAO",
             refreshToken: response.refresh_token,

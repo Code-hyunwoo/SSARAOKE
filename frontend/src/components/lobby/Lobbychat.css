@@ -51,7 +51,10 @@
     /* width:95%; */
     /* height:13%; */
     /* border:1px solid sandybrown; */
-    padding: 0.6vw;
+    padding-left: 0.6vw;
+    padding-right: 0.6vw;
+    padding-top: 0.3vw;
+    padding-bottom: 0.3vw;
     word-break: break-all;
     word-wrap: break-word;
     border-radius: 1rem;
