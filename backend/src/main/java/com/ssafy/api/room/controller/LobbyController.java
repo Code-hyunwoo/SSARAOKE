@@ -38,6 +38,7 @@ public class LobbyController {
     @PostMapping("")
     ResponseEntity<LobbyCreateResponse> createRoom(@Auth User user, @RequestBody LobbyCreateRequest lobbyCreateRequest) {
         // 방 생성 가능할 때
+        log.error("is_private: {}", lobbyCreateRequest.isPrivate());
         Room room = lobbyService.createRoom(user, lobbyCreateRequest);
             // 방장 입장
 //            lobbyService.enterRoom(user, new LobbyEnterRequest(room.getSeq(), lobbyCreateRequest.getPassword()));
