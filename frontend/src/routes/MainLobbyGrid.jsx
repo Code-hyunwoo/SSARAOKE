@@ -1,7 +1,6 @@
 import NavbarLobby from "../components/layout/NavbarLobby";
 import LobbyBackGround from "../components/lobby/background/LobbyBackGround";
 import DoorList from "../components/lobby/DoorList";
-import Lobbychat from "../components/lobby/Lobbychat";
 import axios from "axios";
 
 function MainLobbyGrid() {
@@ -37,7 +36,6 @@ function MainLobbyGrid() {
       {/* <button onClick={start}>test</button> */}
       <NavbarLobby />
       <LobbyBackGround />
-      {/* <Lobbychat /> */}
       <DoorList />
     </div>
   );

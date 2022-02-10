@@ -1,71 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Oregano&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oregano&display=swap");
 
 /* 로비로 나가는 버튼 */
-.backbtn{
-    position: absolute;
-    /* width: 129.08px;
+.backbtn {
+  position: absolute;
+  /* width: 129.08px;
     height: 134.5px; */
-    width: 0vw;
-    height: 0vh;
-    left: -1vw;
-    top: 85vh;
+  width: 0vw;
+  height: 0vh;
+  left: -1vw;
+  top: 85vh;
 
-    border-bottom: 2vw solid transparent;
-    border-top: 2vw solid transparent;
-    border-left: 3.5vw solid #FFCE43;
-    border-right: 3.5vw solid transparent;
+  border-bottom: 2vw solid transparent;
+  border-top: 2vw solid transparent;
+  border-left: 3.5vw solid #ffce43;
+  border-right: 3.5vw solid transparent;
 
-    background: none;
-    transform: rotate(180deg);
+  background: none;
+  transform: rotate(180deg);
 }
 
 /* 자판기 큰틀 */
-.machineOutline{
-position: absolute;
-width: 68vw;
-height: 85vh;
-/* width: 65rem;
+.machineOutline {
+  position: absolute;
+  width: 68vw;
+  height: 85vh;
+  /* width: 65rem;
 height: 3rem; */
-left: 10vw;
-top: 7vh;
+  left: 10vw;
+  top: 7vh;
 
-background: rgba(255, 206, 67, 0.2);
-border: 0.4vw solid #FFFFFF;
-box-sizing: border-box;
+  background: rgba(255, 206, 67, 0.2);
+  border: 0.4vw solid #ffffff;
+  box-sizing: border-box;
 
-/* border: 0.2rem solid #fff;  */
-border-radius: 1vw; 
-padding: 0.4vw; 
-box-shadow: 
-    0 0 .15vw #fff, 
-    0 0 .15vw #fff, 
-    0 0 1vw #fff, 
-    0 0 0.4vw #FFFFFF, 
-    0 0 1.8vw #FFFFFF, 
-    inset 0 0 1.1vw #FFFFFF;
-/* box-shadow: 0 0 .2rem #fff, 0 0 .2rem #fff, 0 0 2rem #bc13fe, 0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe; */
+  /* border: 0.2rem solid #fff;  */
+  border-radius: 1vw;
+  padding: 0.4vw;
+  box-shadow: 0 0 0.15vw #fff, 0 0 0.15vw #fff, 0 0 1vw #fff, 0 0 0.4vw #ffffff,
+    0 0 1.8vw #ffffff, inset 0 0 1.1vw #ffffff;
+  /* box-shadow: 0 0 .2rem #fff, 0 0 .2rem #fff, 0 0 2rem #bc13fe, 0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe; */
 }
 
 /* 자판기 음료칸 */
-.machineInline{
-    position: absolute;
-    width: 64vw;
-    height: 55vh;
-    left: 1.6vw;
-    top: 3%;
-    
-    /* background: rgba(184, 222, 253, 0.315);; */
-    background: rgba(171, 215, 250, 0.4);
-    border: 0.4vw solid #FFFFFF;
-    box-sizing: border-box;
-    border-radius: 2vw;
-    box-shadow: 
-        0 0 .1vw #fff, 
-        0 0 .1vw #fff, 
-        0 0 .1vw #fff, 
-        0 0 0.3vw #FFFFFF, 
-        0 0 1.3vw #FFFFFF, inset 
-        0 0 0.4vw #FFFFFF;    
+.machineInline {
+  position: absolute;
+  width: 64vw;
+  height: 55vh;
+  left: 1.6vw;
+  top: 3%;
+
+  /* background: rgba(184, 222, 253, 0.315);; */
+  background: rgba(171, 215, 250, 0.4);
+  border: 0.4vw solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 2vw;
+  box-shadow: 0 0 0.1vw #fff, 0 0 0.1vw #fff, 0 0 0.1vw #fff, 0 0 0.3vw #ffffff,
+    0 0 1.3vw #ffffff, inset 0 0 0.4vw #ffffff;
 }
 
 /* 음료캔_하나만 만들어서 증식하자 */
@@ -73,255 +63,252 @@ box-shadow:
 
 /* 윗줄 클릭신 전체 반짝 */
 .upCanline {
-    position: absolute;
-    width: 62vw;
-    height: 20vh;
-    left: 0.5vw;
-    top: 0%;
+  position: absolute;
+  width: 62vw;
+  height: 20vh;
+  left: 0.5vw;
+  top: 0%;
 
-    border-radius: 3vw;
-    border: 0.4vw dotted #ff77f8;
+  border-radius: 3vw;
+  border: 0.4vw dotted #ff77f8;
 }
 
 .tooltip {
-    padding: 20px;
-    line-height: 1.4;
-    display: inline-block;
-    color: #092f808e;
-    font-weight: bold;
+  padding: 20px;
+  line-height: 1.4;
+  display: inline-block;
+  color: #092f808e;
+  font-weight: bold;
 }
 
 .tooltiptext {
-    /* display: none; */
-    position: absolute;
-    /* max-width: 2px; */
-    border: 1px solid;
-    border-radius: 5px;
-    /* padding: 5px; */
-    font-size: 0.8em;
-    color: white;
-    background: #092f808e;
-
+  /* display: none; */
+  position: absolute;
+  /* max-width: 2px; */
+  border: 1px solid;
+  border-radius: 5px;
+  /* padding: 5px; */
+  font-size: 0.8em;
+  color: white;
+  background: #092f808e;
 }
 
 /* 음료칸 바 */
-.canBar{
-    position: absolute;
-    width: 63.25vw;
-    height: 3.5vh;
-    left: 0vw;
-    /* top: 230px; */
-    border-radius: 0.5vw;
-    font-weight: bold;
-    text-align: center;
-    align-items: center;
-    font-size: 1.4vw;
-    font-family: 'Oregano', cursive;
-    background: #E2B73D;
+.canBar {
+  position: absolute;
+  width: 63.25vw;
+  height: 3.5vh;
+  left: 0vw;
+  /* top: 230px; */
+  border-radius: 0.5vw;
+  font-weight: bold;
+  text-align: center;
+  align-items: center;
+  font-size: 1.4vw;
+  font-family: "Oregano", cursive;
+  background: #e2b73d;
 }
 
 /* 닉네임 박스 */
-.nicnameBox{
-    position: absolute;
-    width: 10vw;
-    height: 8.4vh;
-    left: 2vw;
-    top: 60vh;
-    
-    background: rgba(255, 206, 67, 0.06);
-    border: 0.3vw solid #FFCE43;
-    box-sizing: border-box; 
-    font-weight: bold;
-    font-family: 'Oregano', cursive;
-    font-size: 2vw;
-    align-items: center;
-    text-align: center;
-    padding: 0.1vh 0;
-    color: white;
+.nicknameBox {
+  position: absolute;
+  width: 10vw;
+  height: 8.4vh;
+  left: 2vw;
+  top: 60vh;
+
+  background: rgba(255, 206, 67, 0.06);
+  border: 0.3vw solid #ffce43;
+  box-sizing: border-box;
+  font-weight: bold;
+  font-family: "Oregano", cursive;
+  font-size: 2vw;
+  align-items: center;
+  text-align: center;
+  padding: 0.1vh 0;
+  color: white;
 }
 
 /* 싸라오케 박스 */
-.ssaraoke{
-    position: absolute;
-    width: 10vw;
-    height: 8.4vh;
-    left: 13.4vw;
-    top: 60vh;
-    
-    background: rgba(255, 206, 67, 0.06);
-    border: 0.3vw solid #FFCE43;
-    box-sizing: border-box; 
+.ssaraoke {
+  position: absolute;
+  width: 10vw;
+  height: 8.4vh;
+  left: 13.4vw;
+  top: 60vh;
 
-    font-weight: bold;
-    font-family: 'Oregano', cursive;
-    font-size: 1.5vw;
-    align-items: center;
-    text-align: center;
-    padding: 1vh 0;
-    color: white;
+  background: rgba(255, 206, 67, 0.06);
+  border: 0.3vw solid #ffce43;
+  box-sizing: border-box;
+
+  font-weight: bold;
+  font-family: "Oregano", cursive;
+  font-size: 1.5vw;
+  align-items: center;
+  text-align: center;
+  padding: 1vh 0;
+  color: white;
 }
 
 /* 현우님 번호 박스 */
-.phoneN{
-    position: absolute;
-    width: 10vw;
-    height: 8.4vh;
-    left: 25vw;
-    top: 60vh;
-    
-    background: rgba(255, 206, 67, 0.06);
-    border: 0.3vw solid #FFCE43;
-    box-sizing: border-box; 
+.phoneN {
+  position: absolute;
+  width: 10vw;
+  height: 8.4vh;
+  left: 25vw;
+  top: 60vh;
 
-    font-weight: bold;
-    font-family: 'Oregano', cursive;
-    font-size: 1.5vw;
-    text-align: center;
-    padding: 1vh 0;
-    color: white;
+  background: rgba(255, 206, 67, 0.06);
+  border: 0.3vw solid #ffce43;
+  box-sizing: border-box;
+
+  font-weight: bold;
+  font-family: "Oregano", cursive;
+  font-size: 1.5vw;
+  text-align: center;
+  padding: 1vh 0;
+  color: white;
 }
 
 /* 이메일 박스 */
-.emailBox{
-    position: absolute;
-    width: 33vw;
-    height: 11vh;
-    left: 2vw;
-    top: 70vh;
-    
-    background: rgba(255, 206, 67, 0.6);
-    border: 0.3vw solid #FFCE43;
-    box-sizing: border-box;
-    /* box-shadow: 0vw 4vw 4vw rgba(0, 0, 0, 0.25); */
+.emailBox {
+  position: absolute;
+  width: 33vw;
+  height: 11vh;
+  left: 2vw;
+  top: 70vh;
 
-    font-weight: bold;
-    font-family: 'Oregano', cursive;
-    font-size: 2.2vw;
-    text-align: center;
-    padding: 1vh 0;
-    color: white;
+  background: rgba(255, 206, 67, 0.6);
+  border: 0.3vw solid #ffce43;
+  box-sizing: border-box;
+  /* box-shadow: 0vw 4vw 4vw rgba(0, 0, 0, 0.25); */
+
+  font-weight: bold;
+  font-family: "Oregano", cursive;
+  font-size: 2.2vw;
+  text-align: center;
+  padding: 1vh 0;
+  color: white;
 }
 
 /* 지폐칸 */
-.cash{
-    position: absolute;
-    width: 11vw;
-    height: 3vh;
-    left: 37.5vw;
-    top: 65vh;
-    
-    border: 10px solid rgba(255, 206, 67, 0.8);
-    /* border: 10px solid #FFCE43; */
+.cash {
+  position: absolute;
+  width: 11vw;
+  height: 3vh;
+  left: 37.5vw;
+  top: 65vh;
+
+  border: 10px solid rgba(255, 206, 67, 0.8);
+  /* border: 10px solid #FFCE43; */
 }
 
-.cashbar{
-    position: absolute;
-    /* width: 0px; */
-    height: 4vh;
-    /* left: 720px;
+.cashbar {
+  position: absolute;
+  /* width: 0px; */
+  height: 4vh;
+  /* left: 720px;
     top: 682px; */
-    
-    /* border: 10px solid #FFCE43; */
-    border: 10px solid rgba(255, 206, 67, 0.8);
-    /* background-color: rgba(255, 206, 67, 0.8); */
-    /* color: rgba(255, 206, 67, 0.8); */
+
+  /* border: 10px solid #FFCE43; */
+  border: 10px solid rgba(255, 206, 67, 0.8);
+  /* background-color: rgba(255, 206, 67, 0.8); */
+  /* color: rgba(255, 206, 67, 0.8); */
 }
 
 /* 동전칸 */
-.coin{
-    position: absolute;
-    width: 5.5vw;
-    height: 11.8vh;
-    left: 50.7vw;
-    top: 62.3vh;
-    border-radius: 50vh;
-    background: rgba(234, 235, 236, 0.5);
+.coin {
+  position: absolute;
+  width: 5.5vw;
+  height: 11.8vh;
+  left: 50.7vw;
+  top: 62.3vh;
+  border-radius: 50vh;
+  background: rgba(234, 235, 236, 0.5);
 }
 
-.coinLine{
-    position: absolute;
-    width: 0.8vw;
-    height: 11.6vh;
-    left: 53vw;
-    top: 62.4vh;
-    
-    background: rgba(160, 174, 186, 0.6);
-    border: 0.01vw solid #A0AEBA;
-    box-sizing: border-box;
-    box-shadow: 0vw 0.3vw 0.3vw rgba(0, 0, 0, 0.25);
-    border-radius: 3vh;
-}
+.coinLine {
+  position: absolute;
+  width: 0.8vw;
+  height: 11.6vh;
+  left: 53vw;
+  top: 62.4vh;
 
+  background: rgba(160, 174, 186, 0.6);
+  border: 0.01vw solid #a0aeba;
+  box-sizing: border-box;
+  box-shadow: 0vw 0.3vw 0.3vw rgba(0, 0, 0, 0.25);
+  border-radius: 3vh;
+}
 
 /* 자판기 여는 문 */
-.machineDoor{
-    position: absolute;
-    width: 3.3vw;
-    height: 18vh;
-    left: 60.5vw;
-    top: 62vh;
-    
-    background: rgba(234, 235, 236, 0.2);
-    border: 0.2vw solid #EAEBEC;
-    box-sizing: border-box;
+.machineDoor {
+  position: absolute;
+  width: 3.3vw;
+  height: 18vh;
+  left: 60.5vw;
+  top: 62vh;
+
+  background: rgba(234, 235, 236, 0.2);
+  border: 0.2vw solid #eaebec;
+  box-sizing: border-box;
 }
 
-.machineDoorR{
-    position: absolute;
-    width: 2.5vw;
-    height: 5vh;
-    left: 60.9vw;
-    top: 64vh;
-    
-    border-radius: 49vh;
-    background: rgba(255, 206, 67, 0.06);
-    border: 0.2vw solid #000000;
-    box-sizing: border-box;
+.machineDoorR {
+  position: absolute;
+  width: 2.5vw;
+  height: 5vh;
+  left: 60.9vw;
+  top: 64vh;
+
+  border-radius: 49vh;
+  background: rgba(255, 206, 67, 0.06);
+  border: 0.2vw solid #000000;
+  box-sizing: border-box;
 }
 
 /* 쓰레기통 */
-.trashCan{
-    position: absolute;
-    width: 18vw;
-    height: 18vh;
-    left: 80vw;
-    top: 75vh;
-    /* background: #0381D7; */
-    /* border: 5px solid #0381D7; */
+.trashCan {
+  position: absolute;
+  width: 18vw;
+  height: 18vh;
+  left: 80vw;
+  top: 75vh;
+  /* background: #0381D7; */
+  /* border: 5px solid #0381D7; */
 }
 
 /* 쓰레기통 캔들 */
-.trash1{
-    position: absolute;
-    width: 2vw;
-    height: 7vh;
-    left: 86vw;
-    top: 74.5vh;
-    /* top: 810px; */
-    
-    background: #F4E668;
-    border-radius: 0.8vw;
-    transform: matrix(0.99, -0.35, 0.45, 0.99, 0, 0);
-    /* transform: matrix(0.87, 0.45, -0.51, 0.88, 0, 0); */
-}    
-    
-    /* Rectangle 260 */
-    
-.trash2{
-    position: absolute;
-    width: 2vw;
-    height: 7vh;
-    left: 87vw;
-    top: 73vh;
-    
-    background: #0E3892;
-    border: 0.1vw solid #0E3892;
-    box-sizing: border-box;
-    border-radius: 0.8vw;
-    
-}    
-    /* Rectangle 254 */
-    
+.trash1 {
+  position: absolute;
+  width: 2vw;
+  height: 7vh;
+  left: 86vw;
+  top: 74.5vh;
+  /* top: 810px; */
+
+  background: #f4e668;
+  border-radius: 0.8vw;
+  transform: matrix(0.99, -0.35, 0.45, 0.99, 0, 0);
+  /* transform: matrix(0.87, 0.45, -0.51, 0.88, 0, 0); */
+}
+
+/* Rectangle 260 */
+
+.trash2 {
+  position: absolute;
+  width: 2vw;
+  height: 7vh;
+  left: 87vw;
+  top: 73vh;
+
+  background: #0e3892;
+  border: 0.1vw solid #0e3892;
+  box-sizing: border-box;
+  border-radius: 0.8vw;
+}
+/* Rectangle 254 */
+
 /* .trash3{    
     position: absolute;
     width: 2vw;
@@ -335,63 +322,62 @@ box-shadow:
     border-radius: 0.8vw;
     transform: matrix(0.93, -0.33, 0.38, 0.94, 0, 0);
 }     */
-    
-    /* Rectangle 255 */
-    
-.trash4{
-    position: absolute;
-    width: 2vw;
-    height: 7vh;
-    left: 88vw;
-    top: 73.5vh;
-    
-    background: #75B7EC;
-    border: 0.1vw solid #75B7EC;
-    box-sizing: border-box;
-    border-radius: 0.8vw;
-    transform: matrix(0.97, 0.2, -0.23, 0.98, 0, 0);
-}    
-    
-    /* Rectangle 256 */
-    
-.trash5{    
-    position: absolute;
-    width: 2vw;
-    height: 7vh;
-    left: 89vw;
-    top: 73.9vh;
-    
-    background: #D6195E;
-    border-radius: 0.8vw;
-    transform: matrix(0.75, -0.61, 0.7, 0.76, 0, 0);
-}    
-    
-    /* Rectangle 257 */
-    
-.trash6{
-    position: absolute;
-    width: 2vw;
-    height: 7vh;
-    left: 90vw;
-    top: 74vh;
-    
-    background: #ED89B5;
-    border-radius: 0.8vw;
-    transform: matrix(0.87, 0.45, -0.51, 0.88, 0, 0);
-}    
-    
-    /* Rectangle 259 */
-    
-.trash7{    
-    position: absolute;
-    width: 2vw;
-    height: 7vh;
-    left: 89.5vw;
-    top: 72.5vh;
-    
-    background: #C445D9;
-    border: 0.1vw solid #C445D9;
-    box-sizing: border-box;
-    border-radius: 0.8vw;   
-} 
 
+/* Rectangle 255 */
+
+.trash4 {
+  position: absolute;
+  width: 2vw;
+  height: 7vh;
+  left: 88vw;
+  top: 73.5vh;
+
+  background: #75b7ec;
+  border: 0.1vw solid #75b7ec;
+  box-sizing: border-box;
+  border-radius: 0.8vw;
+  transform: matrix(0.97, 0.2, -0.23, 0.98, 0, 0);
+}
+
+/* Rectangle 256 */
+
+.trash5 {
+  position: absolute;
+  width: 2vw;
+  height: 7vh;
+  left: 89vw;
+  top: 73.9vh;
+
+  background: #d6195e;
+  border-radius: 0.8vw;
+  transform: matrix(0.75, -0.61, 0.7, 0.76, 0, 0);
+}
+
+/* Rectangle 257 */
+
+.trash6 {
+  position: absolute;
+  width: 2vw;
+  height: 7vh;
+  left: 90vw;
+  top: 74vh;
+
+  background: #ed89b5;
+  border-radius: 0.8vw;
+  transform: matrix(0.87, 0.45, -0.51, 0.88, 0, 0);
+}
+
+/* Rectangle 259 */
+
+.trash7 {
+  position: absolute;
+  width: 2vw;
+  height: 7vh;
+  left: 89.5vw;
+  top: 72.5vh;
+
+  background: #c445d9;
+  border: 0.1vw solid #c445d9;
+  box-sizing: border-box;
+  border-radius: 0.8vw;
+}
