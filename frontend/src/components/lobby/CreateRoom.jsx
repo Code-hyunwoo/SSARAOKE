@@ -8,7 +8,7 @@ function Desk() {
   //모달 실행
   const [show, setShow] = useState(false);
 
-  //tag 값 받아오기
+  //모달 종료시, 값들 리셋
   const handleClose = () => {
     setShow(false);
     setcheckedTags(new Set());
@@ -18,7 +18,8 @@ function Desk() {
     setRoompw("");
   };
   const handleShow = () => setShow(true);
-
+  
+  //tag 값 받아오기
   const [checkedTags, setcheckedTags] = useState(new Set());
   const [bChecked, setChecked] = useState(false); //체크가 되었는지 여부를 위한 함수. 기본 F -비워져있음.
 
@@ -65,9 +66,6 @@ function Desk() {
 
   // 모드 값 가져오기 - radio버튼이기에 한번에 하나만 체크됨.
   const [selected, setSelected] = useState("");
-  // const [checkMode, setCheckMode] = useState(false);
-  // //라디오 값은 하나 체크하면 나머지는 자동으로 풀리는데
-  // //그럼 체크 푸는 함수?는 필요 없겠지...?
   const checkedModeHandler = (e) => {
     setSelected(e.target.value);
     console.log(selected);
@@ -81,9 +79,9 @@ function Desk() {
   const arrcheckedTags = Array.from(checkedTags);
   // console.log('배열:', arrcheckedTags);
 
+
   //방 공개 여부 -boolean으로
-  //*****************이거 필로 보기 */
-  const [opened, setOpended] = useState(false);
+  const [ opened, setOpended] = useState(false);
 
   // const roomopenHandler = ({target}) => {
   //     setOpended(target.opened);
@@ -105,13 +103,6 @@ function Desk() {
   //비밀번호 -> 비공개방으로 설정하면 비밀번호를 필로 넣도록 설정
   const [roompw, setRoompw] = useState("");
   const getRoompw = (e) => {
-    // if(value === true) {  //방 공개여부가 비공개일때
-    //   //비밀번호가 비었다면
-    //   if( roompw === ''){
-    //     alert(`비밀번호를 입력해 주세요`);
-    //   }
-    //   else( roompw =! '')
-    // }
     setRoompw(e.target.value);
     console.log(roompw);
   };
@@ -126,36 +117,30 @@ function Desk() {
       alert(`비밀번호를 입력해 주세요`);
     } else if (value === false || (value === true && roompw !== "")) {
       // const res = axios
-      axios
-        .post(
-          "https://i6a306.p.ssafy.io:8080/api/v1/lobby",
-          {
-            //post로 보낼 데이터
-            title: roomTitle,
-            tags: arrcheckedTags,
-            // mode: selected,
-            // is_private: opened,
-            // Private: opened,
-            isPrivate: value,
-            password: roompw,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-              // "Authorization" : token,  // -> 승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
-              Authorization:
-                "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI3IiwiaXNzIjoic3NhcmFva2UiLCJleHAiOjE2NDU2MDAyMDIsImlhdCI6MTY0NDMwNDIwMn0.bAx6gwfL1Ej3u-J-Bb8Tmqf5_Eiw1UsHajGHHKPb41sxtns0Ri55jKkWvzMm9D2UJfB2dYkZGtmc0EOaEGYqWA", // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
-            },
-          }
-        )
+        axios
+        .post('https://i6a306.p.ssafy.io:8080/api/v1/lobby', { 
+          //post로 보낼 데이터
+          title: roomTitle,
+          tags: arrcheckedTags,
+          // mode: selected,
+          // is_private: opened,
+          // Private: opened,
+          isPrivate: value,
+          password : roompw
+        }
+        , {headers : { 
+          "Content-Type": 'application/json',
+          // "Authorization" : token,  // -> 승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
+          "Authorization" : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI3IiwiaXNzIjoic3NhcmFva2UiLCJleHAiOjE2NDU2MDAyMDIsImlhdCI6MTY0NDMwNDIwMn0.bAx6gwfL1Ej3u-J-Bb8Tmqf5_Eiw1UsHajGHHKPb41sxtns0Ri55jKkWvzMm9D2UJfB2dYkZGtmc0EOaEGYqWA',  // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
+        }})
         .then((res) => {
           console.log(res);
           navigate(`/${selected}`);
-        });
-    }
-    // navigate(`/${selected}`)
-  };
-
+        })
+      }
+      // navigate(`/${selected}`)
+    };
+        
   return (
     <>
       <div className={styles.btngroup}>
@@ -208,7 +193,7 @@ function Desk() {
                     onChange={checkedModeHandler}
                     style={{ width: "20px", height: "20px" }}
                   />{" "}
-                  &nbsp;Basic(8인)
+                  &nbsp;Basic(6인)
                 </div>
                 <div className={styles.typeF}>
                   <input
@@ -219,7 +204,7 @@ function Desk() {
                     onChange={checkedModeHandler}
                     style={{ width: "20px", height: "20px" }}
                   />{" "}
-                  &nbsp;Free(8인)
+                  &nbsp;Free(6인)
                 </div>
                 <div className={styles.typeS}>
                   <input
@@ -230,7 +215,7 @@ function Desk() {
                     onChange={checkedModeHandler}
                     style={{ width: "20px", height: "20px" }}
                   />{" "}
-                  &nbsp;Solo(8인)
+                  &nbsp;Solo(6인)
                 </div>
                 <div className={styles.typeD}>
                   <input
@@ -241,7 +226,7 @@ function Desk() {
                     onChange={checkedModeHandler}
                     style={{ width: "20px", height: "20px" }}
                   />{" "}
-                  &nbsp;Duet(8인)
+                  &nbsp;Duet(6인)
                 </div>
               </div>
 
