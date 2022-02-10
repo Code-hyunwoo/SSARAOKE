@@ -18,7 +18,7 @@ function Desk() {
     setRoompw("");
   };
   const handleShow = () => setShow(true);
-  
+
   //tag 값 받아오기
   const [checkedTags, setcheckedTags] = useState(new Set());
   const [bChecked, setChecked] = useState(false); //체크가 되었는지 여부를 위한 함수. 기본 F -비워져있음.
@@ -79,9 +79,8 @@ function Desk() {
   const arrcheckedTags = Array.from(checkedTags);
   // console.log('배열:', arrcheckedTags);
 
-
   //방 공개 여부 -boolean으로
-  const [ opened, setOpended] = useState(false);
+  const [opened, setOpended] = useState(false);
 
   // const roomopenHandler = ({target}) => {
   //     setOpended(target.opened);
@@ -117,30 +116,36 @@ function Desk() {
       alert(`비밀번호를 입력해 주세요`);
     } else if (value === false || (value === true && roompw !== "")) {
       // const res = axios
-        axios
-        .post('https://i6a306.p.ssafy.io:8080/api/v1/lobby', { 
-          //post로 보낼 데이터
-          title: roomTitle,
-          tags: arrcheckedTags,
-          // mode: selected,
-          // is_private: opened,
-          // Private: opened,
-          isPrivate: value,
-          password : roompw
-        }
-        , {headers : { 
-          "Content-Type": 'application/json',
-          // "Authorization" : token,  // -> 승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
-          "Authorization" : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI3IiwiaXNzIjoic3NhcmFva2UiLCJleHAiOjE2NDU2MDAyMDIsImlhdCI6MTY0NDMwNDIwMn0.bAx6gwfL1Ej3u-J-Bb8Tmqf5_Eiw1UsHajGHHKPb41sxtns0Ri55jKkWvzMm9D2UJfB2dYkZGtmc0EOaEGYqWA',  // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
-        }})
+      axios
+        .post(
+          "https://i6a306.p.ssafy.io:8080/api/v1/lobby",
+          {
+            //post로 보낼 데이터
+            title: roomTitle,
+            tags: arrcheckedTags,
+            // mode: selected,
+            // is_private: opened,
+            // Private: opened,
+            isPrivate: value,
+            password: roompw,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              // "Authorization" : token,  // -> 승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
+              Authorization:
+                "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI3IiwiaXNzIjoic3NhcmFva2UiLCJleHAiOjE2NDU2MDAyMDIsImlhdCI6MTY0NDMwNDIwMn0.bAx6gwfL1Ej3u-J-Bb8Tmqf5_Eiw1UsHajGHHKPb41sxtns0Ri55jKkWvzMm9D2UJfB2dYkZGtmc0EOaEGYqWA", // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
+            },
+          }
+        )
         .then((res) => {
           console.log(res);
           navigate(`/${selected}`);
-        })
-      }
-      // navigate(`/${selected}`)
-    };
-        
+        });
+    }
+    // navigate(`/${selected}`)
+  };
+
   return (
     <>
       <div className={styles.btngroup}>
