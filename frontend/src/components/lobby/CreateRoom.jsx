@@ -73,7 +73,7 @@ function Desk() {
   //1. 배열로 변경
   //2. 값 보내기 전에 set을 []로 변경하여 보내기
   const arrcheckedTags = Array.from(checkedTags);
-  console.log('배열:', arrcheckedTags);
+  // console.log('배열:', arrcheckedTags);
 
 
   //방 공개 여부 -boolean으로
@@ -115,7 +115,7 @@ function Desk() {
       else if(value === false || (value === true && roompw !== '')){
       // const res = axios
         axios
-        .post('http://i6a306.p.ssafy.io:8080/api/v1/lobby', { 
+        .post('https://i6a306.p.ssafy.io:8080/api/v1/lobby', { 
           //post로 보낼 데이터
           title: roomTitle,
           tags: arrcheckedTags,
@@ -185,7 +185,7 @@ function Desk() {
                     onChange={checkedModeHandler}
                     style={{ width: "20px", height: "20px" }}
                   />{" "}
-                  &nbsp;Basic(8인)
+                  &nbsp;Basic(6인)
                 </div>
                 <div className={styles.typeF}>
                   <input
@@ -196,7 +196,7 @@ function Desk() {
                     onChange={checkedModeHandler}
                     style={{ width: "20px", height: "20px" }}
                   />{" "}
-                  &nbsp;Free(8인)
+                  &nbsp;Free(6인)
                 </div>
                 <div className={styles.typeS}>
                   <input
@@ -207,7 +207,7 @@ function Desk() {
                     onChange={checkedModeHandler}
                     style={{ width: "20px", height: "20px" }}
                   />{" "}
-                  &nbsp;Solo(8인)
+                  &nbsp;Solo(6인)
                 </div>
                 <div className={styles.typeD}>
                   <input
@@ -218,7 +218,7 @@ function Desk() {
                     onChange={checkedModeHandler}
                     style={{ width: "20px", height: "20px" }}
                   />{" "}
-                  &nbsp;Duet(8인)
+                  &nbsp;Duet(6인)
                 </div>
               </div>
 
