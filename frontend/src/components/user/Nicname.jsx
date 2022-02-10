@@ -15,7 +15,7 @@ function Nicname(props) {
     const onChangeNicname = (e) => {
         console.log(e)
         axios
-        .patch('http://i6a306.p.ssafy.io:8080/api/v1/user/nickname', {
+        .patch('https://i6a306.p.ssafy.io:8080/api/v1/user/nickname', {
             changed: newnicname,
         }
         , {headers :{

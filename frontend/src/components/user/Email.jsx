@@ -19,7 +19,7 @@ function Email(props) {
     //변경한 이메일 값 보내기 & 버튼 누르면 창 닫기도록
     const onChangeEmail = () => {
         axios
-        .patch('http://i6a306.p.ssafy.io:8080/api/v1/user/email', {
+        .patch('https://i6a306.p.ssafy.io:8080/api/v1/user/email', {
             // changed: newemail,
             changed: newemail,
         }
