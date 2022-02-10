@@ -53,7 +53,7 @@ public class RoomController {
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
 
-    @PostMapping("out/{room_seq}")
+    @PostMapping("/out/{room_seq}")
     ResponseEntity<? extends BaseResponseBody> out(@Auth User user, @PathParam("room_seq") Long room_seq) {
         roomService.out(user, room_seq);
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
