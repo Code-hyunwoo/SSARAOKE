@@ -10,21 +10,30 @@ function ChangeMode({ closeChangeMode }) {
           <span>Select Mode</span>
         </div>
         <div className={styles.body}>
-          <Link to="/basic" id={styles.modeLink}>
-            <button id={styles.modeButton}> Basic </button>
-          </Link>
-          <Link to="/free" id={styles.modeLink}>
-            {" "}
-            <button id={styles.modeButton}> Free </button>
-          </Link>
-          <Link to="/solo" id={styles.modeLink}>
-            {" "}
-            <button id={styles.modeButton}> Solo </button>
-          </Link>
-          <Link to="/duet" id={styles.modeLink}>
-            {" "}
-            <button id={styles.modeButton}> duet </button>
-          </Link>
+          <button id={styles.modeButton}>
+            <Link to="/basic" id={styles.modeLink}>
+              {" "}
+              Basic{" "}
+            </Link>
+          </button>
+          <button id={styles.modeButton}>
+            <Link to="/free" id={styles.modeLink}>
+              {" "}
+              Free{" "}
+            </Link>
+          </button>
+          <button id={styles.modeButton}>
+            <Link to="/solo" id={styles.modeLink}>
+              {" "}
+              Solo{" "}
+            </Link>
+          </button>
+          <button id={styles.modeButton}>
+            <Link to="/duet" id={styles.modeLink}>
+              {" "}
+              duet{" "}
+            </Link>
+          </button>
         </div>
         <div className={styles.footer}>
           <button id={styles.backButton} onClick={() => closeChangeMode(false)}>
