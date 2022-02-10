@@ -1,5 +1,5 @@
 import styles from "./NavbarHome.module.css";
-import logo from "../../assets/SSARAOKE-LOGO4.png";
+import logo from "../../assets/SSARAOKE-LOGO4-modified.png";
 import { Link } from "react-router-dom";
 
 function NavbarHome() {

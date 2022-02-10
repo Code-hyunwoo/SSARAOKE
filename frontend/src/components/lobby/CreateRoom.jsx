@@ -12,10 +12,10 @@ function Desk() {
   const handleClose = () => {
     setShow(false);
     setcheckedTags(new Set());
-    setRoomTitle('');
-    setSelected('');
-    setOpended('');
-    setRoompw('');
+    setRoomTitle("");
+    setSelected("");
+    setOpended("");
+    setRoompw("");
   };
   const handleShow = () => setShow(true);
   
@@ -23,8 +23,10 @@ function Desk() {
   const [checkedTags, setcheckedTags] = useState(new Set());
   const [bChecked, setChecked] = useState(false); //체크가 되었는지 여부를 위한 함수. 기본 F -비워져있음.
 
-  const checkedTagsHandler = (value, isChecked) => { // value = 각 태그들의 value, 체크되면
-    if (isChecked) { //체크되면
+  const checkedTagsHandler = (value, isChecked) => {
+    // value = 각 태그들의 value, 체크되면
+    if (isChecked) {
+      //체크되면
       checkedTags.add(value); //set()에 그 value를 넣음.
       setcheckedTags(checkedTags); //4개를 체크하면 그 4개가 들어감. checkedTags을 나중에 백에 전송할때 쓰면 됨.
       // console.log(checkedTags);
@@ -35,12 +37,14 @@ function Desk() {
   };
 
   //tag 값 4개만 받아오도록 하는 함수.
-  const checkHandler = ({ target }) => { //체크하는 순간 실행
+  const checkHandler = ({ target }) => {
+    //체크하는 순간 실행
     // console.log(target)
     setChecked(target.bChecked); //체크되어서 T가 된다.
     // console.log(target.bChecked)
     checkedTagsHandler(target.value, target.checked); //내가 클릭한 값, 내가 클릭한 값의 체크 여부(bchecked) set()함수에 넣고
-    if (checkedTags.size === 5) { //set()함수에 4개를 넘으면
+    if (checkedTags.size === 5) {
+      //set()함수에 4개를 넘으면
       alert(`태그는 최대 4개까지 선택할 수 있습니다.`);
       checkedTags.delete(target.value); //아까 들어간 값을 삭제
       setcheckedTags(checkedTags); //남은 4개가 다시 set()의 값
@@ -52,24 +56,24 @@ function Desk() {
   // 객체 업데이트를 위해 useState안에 객체를 사용
   // 현재값   , 변경할 값       =  초기값
   // 방제 가져오기
-  const [ roomTitle, setRoomTitle] = useState('');
+  const [roomTitle, setRoomTitle] = useState("");
   const getTitle = (e) => {
     // console.log(e.target); //이벤트가 발생한 타겟의 요소 출력
     // console.log(e.target.value); //이벤트가 발생한 타겟의 value를 출력
     setRoomTitle(e.target.value); //이게 이제 roomTitle을 이 값으로 지정한 것.
-    console.log(roomTitle); //한글자 칠때마다 콘솔이 우수수 찍힘 
-  }
+    console.log(roomTitle); //한글자 칠때마다 콘솔이 우수수 찍힘
+  };
 
   // 모드 값 가져오기 - radio버튼이기에 한번에 하나만 체크됨.
   const [selected, setSelected] = useState("");
   const checkedModeHandler = (e) => {
-      setSelected(e.target.value);
-      console.log(selected);
-  }
+    setSelected(e.target.value);
+    console.log(selected);
+  };
   //값을 바꾸는 것은 onChange!!!
- 
+
   //방 타입 -> checkedTags를 가져오면 됨. 이미 만들어 주셨음. 굿!
-   //set으로는 백 전달 불가. 변경해줘야
+  //set으로는 백 전달 불가. 변경해줘야
   //1. 배열로 변경
   //2. 값 보내기 전에 set을 []로 변경하여 보내기
   const arrcheckedTags = Array.from(checkedTags);
@@ -86,33 +90,32 @@ function Desk() {
 
   let value = true;
   const roomopenHandler = (e) => {
-   if(typeof e.target.value === 'string'){
-     (e.target.value === 'false' ? value = false : value = true);
-   }
-   console.log(value);
-}
-//   const roomopenHandler = (e) => {
-//     setOpended(e.target.value);
-//     console.log(selected);
-// }
+    if (typeof e.target.value === "string") {
+      e.target.value === "false" ? (value = false) : (value = true);
+    }
+    console.log(value);
+  };
+  //   const roomopenHandler = (e) => {
+  //     setOpended(e.target.value);
+  //     console.log(selected);
+  // }
 
   //비밀번호 -> 비공개방으로 설정하면 비밀번호를 필로 넣도록 설정
   const [roompw, setRoompw] = useState("");
   const getRoompw = (e) => {
     setRoompw(e.target.value);
     console.log(roompw);
-  }
+  };
 
   //방 생성 버튼을 누르면, 선택된 값들을 보내기 위해 & 방장 정보도 보내야
   const navigate = useNavigate(); //생성된 방으로 보내기 위해
 
-//헤더에 토큰을 넣어서 보내는 역할
-    const onCreateRoom= (e) => {
-      if(value === true && roompw === ''){
-        e.preventDefault();
-        alert(`비밀번호를 입력해 주세요`);
-      }
-      else if(value === false || (value === true && roompw !== '')){
+  //헤더에 토큰을 넣어서 보내는 역할
+  const onCreateRoom = (e) => {
+    if (value === true && roompw === "") {
+      e.preventDefault();
+      alert(`비밀번호를 입력해 주세요`);
+    } else if (value === false || (value === true && roompw !== "")) {
       // const res = axios
         axios
         .post('https://i6a306.p.ssafy.io:8080/api/v1/lobby', { 
@@ -169,9 +172,14 @@ function Desk() {
               <div className={styles.createtitle}>노래방 생성</div>
             </Modal.Header>
             <Modal.Body>
-              <div >
+              <div>
                 <div className={styles.roomtitle}>방 제목 : </div>
-                <input type={"text"} className={styles.titleinput} onChange={getTitle} name="title" />
+                <input
+                  type={"text"}
+                  className={styles.titleinput}
+                  onChange={getTitle}
+                  name="title"
+                />
               </div>
 
               <div>
@@ -180,8 +188,8 @@ function Desk() {
                   <input
                     type="radio"
                     name="mode"
-                    value='Basic'
-                    checked={selected == 'Basic'}
+                    value="Basic"
+                    checked={selected === "Basic"}
                     onChange={checkedModeHandler}
                     style={{ width: "20px", height: "20px" }}
                   />{" "}
@@ -192,7 +200,7 @@ function Desk() {
                     type="radio"
                     name="mode"
                     value="Free"
-                    checked={selected == 'Free'}
+                    checked={selected === "Free"}
                     onChange={checkedModeHandler}
                     style={{ width: "20px", height: "20px" }}
                   />{" "}
@@ -203,7 +211,7 @@ function Desk() {
                     type="radio"
                     name="mode"
                     value="Solo"
-                    checked={selected == 'Solo'}
+                    checked={selected === "Solo"}
                     onChange={checkedModeHandler}
                     style={{ width: "20px", height: "20px" }}
                   />{" "}
@@ -214,7 +222,7 @@ function Desk() {
                     type="radio"
                     name="mode"
                     value="Duet"
-                    checked={selected == 'Duet'}
+                    checked={selected === "Duet"}
                     onChange={checkedModeHandler}
                     style={{ width: "20px", height: "20px" }}
                   />{" "}
@@ -452,7 +460,9 @@ function Desk() {
               </div>
               <div>
                 {/* <button className={styles.btn} >만들기</button> */}
-                <button className={styles.btn} onClick={onCreateRoom}>만들기</button>
+                <button className={styles.btn} onClick={onCreateRoom}>
+                  만들기
+                </button>
               </div>
             </Modal.Body>
             {/* <Modal.Footer > */}

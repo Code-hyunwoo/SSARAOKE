@@ -7,8 +7,8 @@ const addInfo = (infoObj) => {
   return { type: ADD, infoObj };
 };
 
-const deleteInfo = (seq) => {
-  return { type: DELETE, seq };
+const deleteInfo = () => {
+  return { type: DELETE };
 };
 
 const reducer = (state = [], action) => {
@@ -25,8 +25,8 @@ const reducer = (state = [], action) => {
       console.log(newUserInfo);
       return newUserInfo;
     case DELETE:
-      const restInfo = state.filter((user) => user.seq !== action.seq);
-      return restInfo;
+      state.splice(0);
+      return state;
     default:
       return state;
   }
