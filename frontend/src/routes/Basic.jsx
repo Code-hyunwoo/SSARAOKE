@@ -327,10 +327,6 @@ function Basic({ Nickname }) {
     setnowPlaymusic(YTUrl);
   }
 
-  // function testmusic(){
-  //     setnowPlaymusic(bookList[0]);
-  // }
-
   function nextMusic() {
     var YTUrl = bookList[0];
     var message = {
@@ -367,6 +363,7 @@ function Basic({ Nickname }) {
   return (
     <div className={styles.room}>
       <input
+        className={styles.testbtn}
         type={"button"}
         onClick={register}
         defaultValue={"1번방입장"}
@@ -383,12 +380,6 @@ function Basic({ Nickname }) {
       />
       <div className={styles.BasicCamBox}>
         <div id="participants"></div>
-        <NormalCam mode={styles.BasicNormalCam} sendMessage={sendMessage} />
-        {/* <NormalCam mode={styles.BasicNormalCam}/>
-                 <NormalCam mode={styles.BasicNormalCam}/>
-                 <NormalCam mode={styles.BasicNormalCam}/>  
-                 <NormalCam mode={styles.BasicNormalCam}/>  
-                 <NormalCam mode={styles.BasicNormalCam}/>   */}
       </div>
       <div className={styles.BasicChatBox}>
         <RoomChat
@@ -401,7 +392,6 @@ function Basic({ Nickname }) {
         <Button text={"마이크"} getOnClick={audioMute} />
         <Button text={"캠"} getOnClick={videoMute} />
         <Controller book={bookList} sendYTUrl={sendYTUrl} />
-
         <Button text={"컨텐츠"} />
         <button
           className={(styles.btn, styles.neon)}
