@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import ReactScrollableFeed from "react-scrollable-feed";
 import { connect } from "react-redux";
 
-const socket = io.connect("http://localhost:80");
+const socket = io.connect("https://i6a306.p.ssafy.io:9000/");
 socket.emit("init", "연결되었습니다.");
 
 function Lobbychat({ Nickname }) {
