@@ -48,7 +48,7 @@ public class LobbyController {
 
     // 방 참가
     @PostMapping("/enter")
-    ResponseEntity<? extends BaseResponseBody> enterRoom(@Auth User user, LobbyEnterRequest lobbyEnterRequest) {
+    ResponseEntity<? extends BaseResponseBody> enterRoom(@Auth User user, @RequestBody LobbyEnterRequest lobbyEnterRequest) {
         // 사용자 방 입장
         lobbyService.enterRoom(user, lobbyEnterRequest);
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
