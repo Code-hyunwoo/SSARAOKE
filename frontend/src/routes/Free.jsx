@@ -1,7 +1,6 @@
 import styles from "../components/roomin/Room.module.css";
 import Musicbar from "../components/roomin/Musicbar";
 import Screen from "../components/roomin/Screen";
-import NormalCam from "../components/roomin/NormalCam";
 import RoomChat from "../components/roomin/R_Chat";
 import Button from "../components/roomin/Button";
 import MirrorBall from "../components/roomin/MirrorBall";
@@ -13,6 +12,7 @@ import { Link } from "react-router-dom";
 import Controller from "../components/remote/Controller";
 import kurentoUtils from "kurento-utils";
 import { connect } from "react-redux";
+import { useEffect } from "react";
 
 var participants = {};
 function Participant(name, sendMessage) {
@@ -91,13 +91,17 @@ function Free({ Nickname }) {
   //갈아치워야 할 기존 영역
 
   var ws = new WebSocket("wss://i6a306.p.ssafy.io:8443/groupcall");
+  useEffect(() => {
+    console.log('입장확인')
   ws.onopen = () => {
+    register()
     console.log("WebSocket Client Connected");
   };
-
-  window.onbeforeunload = function () {
-    ws.close();
-  };
+}, []);
+//   ws.onopen = () => {
+//     register()
+//     console.log("WebSocket Client Connected");
+//   };
 
   ws.onmessage = function (message) {
     var parsedMessage = JSON.parse(message.data);
@@ -363,15 +367,27 @@ function Free({ Nickname }) {
       participants[name].rtcPeer.videoEnabled = true;
     }
   }
+
+  function basicsinger(){
+    if (document.getElementById(name).className !== styles.basicSingercam) {
+      document.getElementById(name).className=styles.basicSingercam
+  } else {
+      document.getElementById(name).className = "undefined"
+  }
+}
+
+  function solosinger(){
+    
+    if (document.getElementById(name).className !== styles.soloSingercam) {
+        document.getElementById(name).className=styles.soloSingercam
+  } else {
+        document.getElementById(name).className = "undefined"
+  }
+}
+
   return (
     <div className={styles.room}>
-      <input
-        className={styles.testbtn}
-        type={"button"}
-        onClick={register}
-        defaultValue={"1번방입장"}
-      ></input>
-
+      
       <LightRope />
       <Crazylights />
       <Musicbar />
@@ -396,6 +412,7 @@ function Free({ Nickname }) {
       <div className={styles.ButtonBox}>
         <Button text={"마이크"} getOnClick={audioMute} />
         <Button text={"캠"} getOnClick={videoMute} />
+        <Button text={"Singer"} getOnClick={basicsinger} />
         <Controller book={bookList} sendYTUrl={sendYTUrl} />
         <Button text={"컨텐츠"} />
         <button
