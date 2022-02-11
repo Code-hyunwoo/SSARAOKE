@@ -54,19 +54,19 @@ public class RoomController {
     }
 
     @PostMapping("/out/{room_seq}")
-    ResponseEntity<? extends BaseResponseBody> out(@Auth User user, @PathParam("room_seq") Long room_seq) {
+    ResponseEntity<? extends BaseResponseBody> out(@Auth User user, @PathVariable("room_seq") Long room_seq) {
         roomService.out(user, room_seq);
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
 
     @GetMapping("/disappear/{room_seq}")
-    ResponseEntity<RoomUserResponse> dissapear(@PathParam("room_seq") Long room_seq) {
+    ResponseEntity<RoomUserResponse> disappear(@PathVariable("room_seq") Long room_seq) {
         RoomUserResponse response = roomService.disappear(room_seq);
         return ResponseEntity.ok().body(response);
     }
 
     @DeleteMapping("/{room_seq}")
-    ResponseEntity<? extends BaseResponseBody> delete(@PathParam("room_seq") Long room_seq) {
+    ResponseEntity<? extends BaseResponseBody> delete(@PathVariable("room_seq") Long room_seq) {
         roomService.deleteRoom(room_seq);
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
