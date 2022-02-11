@@ -2,6 +2,8 @@ import { createStore } from "redux";
 
 const ADD = "ADD";
 const DELETE = "DELETE";
+const UPDATENICKNAME = "UPDATENICKNAME";
+const UPDATEEMAIL = "UPDATEEMAIL";
 
 const addInfo = (infoObj) => {
   return { type: ADD, infoObj };
@@ -9,6 +11,14 @@ const addInfo = (infoObj) => {
 
 const deleteInfo = () => {
   return { type: DELETE };
+};
+
+const modifyNickname = (newNickname) => {
+  return { type: UPDATENICKNAME, newNickname };
+};
+
+const modifyEmail = (newEmail) => {
+  return { type: UPDATEEMAIL, newEmail };
 };
 
 const reducer = (state = [], action) => {
@@ -22,11 +32,26 @@ const reducer = (state = [], action) => {
         },
         ...state,
       ];
-      console.log(newUserInfo);
+      console.log("newUserInfo:", newUserInfo);
       return newUserInfo;
     case DELETE:
       state.splice(0);
+      // const deletedInfo = [];
+      // console.log("deletedInfo:", deletedInfo);
+      // const deletedInfo = [{ ...state[0], token: undefined }];
+      // return deletedInfo;
       return state;
+    case UPDATENICKNAME:
+      const updatedInfo = [...state];
+      updatedInfo[0] = { ...state[0], nickname: action.newNickname };
+      // const updatedInfo = [
+      //   Object.assign({}, state[0], { nickname: action.newNickname }),
+      // ];
+      return updatedInfo;
+    case UPDATEEMAIL:
+      const updatedInfo2 = [...state];
+      updatedInfo2[0] = { ...state[0], email: action.newEmail };
+      return updatedInfo2;
     default:
       return state;
   }
@@ -37,6 +62,8 @@ const store = createStore(reducer);
 export const actionCreators = {
   addInfo,
   deleteInfo,
+  modifyNickname,
+  modifyEmail,
 };
 
 export default store;

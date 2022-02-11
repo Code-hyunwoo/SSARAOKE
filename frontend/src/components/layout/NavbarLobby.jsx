@@ -24,6 +24,7 @@ function NavbarLobby({ state, DispatchdeleteInfo }) {
     // }
     DispatchdeleteInfo();
     alert("로그아웃 완료! 이용해 주셔서 감사합니다!");
+    console.log("로그아웃 후 state:", state);
     navigate("/");
   };
   // console.log("방금 로그인한 사용자의 seq : ", state[0].seq);

@@ -14,7 +14,7 @@ function Desk() {
     setcheckedTags(new Set());
     setRoomTitle("");
     setSelected("");
-    setOpended("");
+    setOpened("");
     setRoompw("");
   };
   const handleShow = () => setShow(true);
@@ -80,10 +80,10 @@ function Desk() {
   // console.log('배열:', arrcheckedTags);
 
   //방 공개 여부 -boolean으로
-  const [opened, setOpended] = useState(false);
+  const [opened, setOpened] = useState(false);
 
   // const roomopenHandler = ({target}) => {
-  //     setOpended(target.opened);
+  //     setOpened(target.opened);
   //     console.log(opened);
   // }
 
@@ -95,7 +95,7 @@ function Desk() {
     console.log(value);
   };
   //   const roomopenHandler = (e) => {
-  //     setOpended(e.target.value);
+  //     setOpened(e.target.value);
   //     console.log(selected);
   // }
 
@@ -190,48 +190,60 @@ function Desk() {
               <div>
                 <div className={styles.roomtype}>방 타입 :</div>
                 <div className={styles.typeB}>
-                  <input
-                    type="radio"
-                    name="mode"
-                    value="Basic"
-                    checked={selected === "Basic"}
-                    onChange={checkedModeHandler}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp;Basic(6인)
+                  <label for="type1" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type1"
+                      type="radio"
+                      name="mode"
+                      value="Basic"
+                      checked={selected === "Basic"}
+                      onChange={checkedModeHandler}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp;Basic (6인)
+                  </label>
                 </div>
                 <div className={styles.typeF}>
-                  <input
-                    type="radio"
-                    name="mode"
-                    value="Free"
-                    checked={selected === "Free"}
-                    onChange={checkedModeHandler}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp;Free(6인)
+                  <label for="type2" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type2"
+                      type="radio"
+                      name="mode"
+                      value="Free"
+                      checked={selected === "Free"}
+                      onChange={checkedModeHandler}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp;Free (6인)
+                  </label>
                 </div>
                 <div className={styles.typeS}>
-                  <input
-                    type="radio"
-                    name="mode"
-                    value="Solo"
-                    checked={selected === "Solo"}
-                    onChange={checkedModeHandler}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp;Solo(6인)
+                  <label for="type3" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type3"
+                      type="radio"
+                      name="mode"
+                      value="Solo"
+                      checked={selected === "Solo"}
+                      onChange={checkedModeHandler}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp;Solo (6인)
+                  </label>
                 </div>
                 <div className={styles.typeD}>
-                  <input
-                    type="radio"
-                    name="mode"
-                    value="Duet"
-                    checked={selected === "Duet"}
-                    onChange={checkedModeHandler}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp;Duet(6인)
+                  <label for="type4" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type4"
+                      type="radio"
+                      name="mode"
+                      value="Duet"
+                      checked={selected === "Duet"}
+                      onChange={checkedModeHandler}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp;Duet (6인)
+                  </label>
                 </div>
               </div>
 
@@ -239,219 +251,267 @@ function Desk() {
                 <div className={styles.roomtag}>태그 : </div>
                 <div className={styles.roomtag2}>(최대 4개) </div>
                 <div className={styles.tagB}>
-                  <input
-                    type="checkbox"
-                    name="song"
-                    value="발라드"
-                    checked={bChecked}
-                    onChange={(e) => {
-                      checkHandler(e);
-                    }}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp; #발라드
+                  <label for="type5" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type5"
+                      type="checkbox"
+                      name="song"
+                      value="발라드"
+                      checked={bChecked}
+                      onChange={(e) => {
+                        checkHandler(e);
+                      }}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp; #발라드
+                  </label>
                 </div>
                 <div className={styles.tagH}>
-                  <input
-                    type="checkbox"
-                    name="song"
-                    value="힙합"
-                    checked={bChecked}
-                    onChange={(e) => {
-                      checkHandler(e);
-                    }}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp; #힙합
+                  <label for="type6" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type6"
+                      type="checkbox"
+                      name="song"
+                      value="힙합"
+                      checked={bChecked}
+                      onChange={(e) => {
+                        checkHandler(e);
+                      }}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp; #힙합
+                  </label>
                 </div>
                 <div className={styles.tagQ}>
-                  <input
-                    type="checkbox"
-                    name="song"
-                    value="ROCK"
-                    checked={bChecked}
-                    onChange={(e) => {
-                      checkHandler(e);
-                    }}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp; #ROCK
+                  <label for="type7" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type7"
+                      type="checkbox"
+                      name="song"
+                      value="ROCK"
+                      checked={bChecked}
+                      onChange={(e) => {
+                        checkHandler(e);
+                      }}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp; #ROCK
+                  </label>
                 </div>
                 <div className={styles.tagT}>
-                  <input
-                    type="checkbox"
-                    name="song"
-                    value="트로트"
-                    checked={bChecked}
-                    onChange={(e) => {
-                      checkHandler(e);
-                    }}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp; #트로트
+                  <label for="type8" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type8"
+                      type="checkbox"
+                      name="song"
+                      value="트로트"
+                      checked={bChecked}
+                      onChange={(e) => {
+                        checkHandler(e);
+                      }}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp; #트로트
+                  </label>
                 </div>
                 <div className={styles.tagP}>
-                  <input
-                    type="checkbox"
-                    name="song"
-                    value="팝"
-                    checked={bChecked}
-                    onChange={(e) => {
-                      checkHandler(e);
-                    }}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp; #팝
+                  <label for="type9" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type9"
+                      type="checkbox"
+                      name="song"
+                      value="팝"
+                      checked={bChecked}
+                      onChange={(e) => {
+                        checkHandler(e);
+                      }}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp; #팝
+                  </label>
                 </div>
 
                 <div className={styles.tagW}>
-                  <input
-                    type="checkbox"
-                    name="song"
-                    value="K-POP"
-                    checked={bChecked}
-                    onChange={(e) => {
-                      checkHandler(e);
-                    }}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp; #K-POP
+                  <label for="type10" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type10"
+                      type="checkbox"
+                      name="song"
+                      value="K-POP"
+                      checked={bChecked}
+                      onChange={(e) => {
+                        checkHandler(e);
+                      }}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp; #K-POP
+                  </label>
                 </div>
                 <div className={styles.tagZ}>
-                  <input
-                    type="checkbox"
-                    name="song"
-                    value="R&B"
-                    checked={bChecked}
-                    onChange={(e) => {
-                      checkHandler(e);
-                    }}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp; #R&B
+                  <label for="type11" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type11"
+                      type="checkbox"
+                      name="song"
+                      value="R&B"
+                      checked={bChecked}
+                      onChange={(e) => {
+                        checkHandler(e);
+                      }}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp; #R&B
+                  </label>
                 </div>
                 <div className={styles.tagX}>
-                  <input
-                    type="checkbox"
-                    name="song"
-                    value="댄스"
-                    checked={bChecked}
-                    onChange={(e) => {
-                      checkHandler(e);
-                    }}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp; #댄스
+                  <label for="type12" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type12"
+                      type="checkbox"
+                      name="song"
+                      value="댄스"
+                      checked={bChecked}
+                      onChange={(e) => {
+                        checkHandler(e);
+                      }}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp; #댄스
+                  </label>
                 </div>
                 <div className={styles.tagC}>
-                  <input
-                    type="checkbox"
-                    name="song"
-                    value="인디"
-                    checked={bChecked}
-                    onChange={(e) => {
-                      checkHandler(e);
-                    }}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp; #인디
+                  <label for="type13" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type13"
+                      type="checkbox"
+                      name="song"
+                      value="인디"
+                      checked={bChecked}
+                      onChange={(e) => {
+                        checkHandler(e);
+                      }}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp; #인디
+                  </label>
                 </div>
                 <div className={styles.tag7080}>
-                  <input
-                    type="checkbox"
-                    name="song"
-                    value="7080"
-                    checked={bChecked}
-                    onChange={(e) => {
-                      checkHandler(e);
-                    }}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp; #7080
+                  <label for="type14" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type14"
+                      type="checkbox"
+                      name="song"
+                      value="7080"
+                      checked={bChecked}
+                      onChange={(e) => {
+                        checkHandler(e);
+                      }}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp; #7080
+                  </label>
                 </div>
                 <div className={styles.tag1990}>
-                  <input
-                    type="checkbox"
-                    name="song"
-                    value="1990"
-                    checked={bChecked}
-                    onChange={(e) => {
-                      checkHandler(e);
-                    }}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp; #1990
+                  <label for="type15" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type15"
+                      type="checkbox"
+                      name="song"
+                      value="1990"
+                      checked={bChecked}
+                      onChange={(e) => {
+                        checkHandler(e);
+                      }}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp; #1990
+                  </label>
                 </div>
                 <div className={styles.tag2000}>
-                  <input
-                    type="checkbox"
-                    name="song"
-                    value="2000"
-                    checked={bChecked}
-                    onChange={(e) => {
-                      checkHandler(e);
-                    }}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp; #2000
+                  <label for="type16" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type16"
+                      type="checkbox"
+                      name="song"
+                      value="2000"
+                      checked={bChecked}
+                      onChange={(e) => {
+                        checkHandler(e);
+                      }}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp; #2000
+                  </label>
                 </div>
                 <div className={styles.tag2010}>
-                  <input
-                    type="checkbox"
-                    name="song"
-                    value="2010"
-                    checked={bChecked}
-                    onChange={(e) => {
-                      checkHandler(e);
-                    }}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp; #2010
+                  <label for="type17" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type17"
+                      type="checkbox"
+                      name="song"
+                      value="2010"
+                      checked={bChecked}
+                      onChange={(e) => {
+                        checkHandler(e);
+                      }}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp; #2010
+                  </label>
                 </div>
                 <div className={styles.tag2020}>
-                  <input
-                    type="checkbox"
-                    name="song"
-                    value="2020"
-                    checked={bChecked}
-                    onChange={(e) => {
-                      checkHandler(e);
-                    }}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp; #2020
+                  <label for="type18" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type18"
+                      type="checkbox"
+                      name="song"
+                      value="2020"
+                      checked={bChecked}
+                      onChange={(e) => {
+                        checkHandler(e);
+                      }}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp; #2020
+                  </label>
                 </div>
               </div>
 
               <div>
                 <div className={styles.roomFC}>공개여부 : </div>
                 <div className={styles.roomFree}>
-                  <input
-                    type="radio"
-                    name="public"
-                    value="false"
-                    // value="open"
-                    // checked={opened == 'open'}
-                    // checked={opened}
-                    // onChange={(e) => {roomopenHandler(e)}}
-                    onChange={roomopenHandler}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp;공개
+                  <label for="type19" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type19"
+                      type="radio"
+                      name="public"
+                      value="false"
+                      // value="open"
+                      // checked={opened == 'open'}
+                      // checked={opened}
+                      // onChange={(e) => {roomopenHandler(e)}}
+                      onChange={roomopenHandler}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp;공개
+                  </label>
                 </div>
                 <div className={styles.roomclose}>
-                  <input
-                    type="radio"
-                    name="public"
-                    value="true"
-                    // value="close"
-                    // checked={opened == 'close'}
-                    // checked={opened}
-                    // onChange={(e) => {roomopenHandler(e)}}
-                    onChange={roomopenHandler}
-                    style={{ width: "20px", height: "20px" }}
-                  />{" "}
-                  &nbsp;비공개
+                  <label for="type20" style={{ cursor: "pointer" }}>
+                    <input
+                      id="type20"
+                      type="radio"
+                      name="public"
+                      value="true"
+                      // value="close"
+                      // checked={opened == 'close'}
+                      // checked={opened}
+                      // onChange={(e) => {roomopenHandler(e)}}
+                      onChange={roomopenHandler}
+                      style={{ width: "20px", height: "20px" }}
+                    />{" "}
+                    &nbsp;비공개
+                  </label>
                   <input
                     type="password"
                     name="roompw"

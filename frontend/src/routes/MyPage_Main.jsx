@@ -10,8 +10,12 @@ import Email from "../components/user/Email";
 import Forest from "../components/lobby/background/Forest";
 import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
 import RoomPw from "../components/lobby/RoomPw";
+import { connect } from "react-redux";
+import { useEffect } from "react";
+import axios from "axios";
 
-function Mypage_Main() {
+function Mypage_Main({ state }) {
+  console.log(state);
   // 모달용
   const [bookmarkShow, setBookmarkShow] = React.useState(false);
   const [videoShow, setVideoShow] = React.useState(false);
@@ -20,6 +24,25 @@ function Mypage_Main() {
   // 마우스오버용
   const [bookMShow, setBookMShow] = React.useState(false);
   const [videoMShow, setVideoMShow] = React.useState(false);
+
+  const [email, setEmail] = React.useState("");
+  useEffect(() => {
+    console.log("이거 실행 안됨?");
+    axios
+      .get("https://i6a306.p.ssafy.io:8080/api/v1/user", {
+        headers: {
+          Authorization: state[0].token,
+        },
+      })
+      .then((response) => {
+        console.log("DB에서 이메일 불러오기", response);
+        setEmail(response.data.email);
+      })
+      .catch((e) => {
+        console.log("에러 발생");
+        console.log(e);
+      });
+  }, []);
 
   return (
     <div>
@@ -204,17 +227,17 @@ function Mypage_Main() {
           className={Styles.nicknameBox}
         >
           {" "}
-          {`Nickname`}{" "}
+          {state[0].nickname}{" "}
         </button>
         <Nickname show={nicknameShow} onHide={() => setNicknameShow(false)} />
         {/* 싸라오케 */}
         <div className={Styles.ssaraoke}>SSARAOKE</div>
         {/* 번호 */}
-        <div className={Styles.phoneN}>010-7100-1722</div>
+        <div className={Styles.phoneN}>문의 : 010-7100-1722</div>
         {/* 이메일 */}
         <button onClick={() => setEmailShow(true)} className={Styles.emailBox}>
           {" "}
-          {`E-mail`}{" "}
+          {state[0].email}{" "}
         </button>
         <Email show={emailShow} onHide={() => setEmailShow(false)} />
 
@@ -249,4 +272,9 @@ function Mypage_Main() {
     </div>
   );
 }
-export default Mypage_Main;
+
+function mapStateToProps(state) {
+  return { state };
+}
+
+export default connect(mapStateToProps, null)(Mypage_Main);
