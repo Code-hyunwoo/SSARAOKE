@@ -313,8 +313,8 @@ function Basic({ Nickname }) {
     };
     console.log(`[sendYTUrl]유튜브 요청 보냄, url: ${YTUrl} at room ${room}`);
     sendMessage(message); //메세지 send하고
-    bookList.shift();
-    setbookList(bookList);
+    bookList.shift(); //bookList에서 첫번째 요소 제거
+    setbookList(bookList); //첫뻔재 요소를 뺀 나머지 요소를 다시 예약리스트로 설정
     console.log(bookList);
   }
 
