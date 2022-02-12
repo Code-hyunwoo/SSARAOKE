@@ -3,8 +3,11 @@ import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
 
-function Desk() {
+function Desk({state}) {
+  console.log(state);
+  
   //모달 실행
   const [show, setShow] = useState(false);
 
@@ -157,8 +160,7 @@ function Desk() {
             headers: {
               "Content-Type": "application/json",
               // "Authorization" : token,  // -> 승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
-              Authorization:
-                "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI3IiwiaXNzIjoic3NhcmFva2UiLCJleHAiOjE2NDU2MDAyMDIsImlhdCI6MTY0NDMwNDIwMn0.bAx6gwfL1Ej3u-J-Bb8Tmqf5_Eiw1UsHajGHHKPb41sxtns0Ri55jKkWvzMm9D2UJfB2dYkZGtmc0EOaEGYqWA", // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
+              Authorization:state[0].token, // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
             },
           }
         )
@@ -505,7 +507,9 @@ function Desk() {
     </>
   );
 }
-
+function mapStateToProps(state) { //state 받아오는 함수 - store에서 직빵으로 값 보내주는 것.
+  return { state };
+}
 //   render(<Desk />);
-
-export default Desk;
+//connect에는 항상 인자 두개
+export default connect(mapStateToProps, null)(Desk);

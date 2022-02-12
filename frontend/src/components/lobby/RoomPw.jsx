@@ -1,8 +1,9 @@
 import axios from "axios";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useState } from "react";
 import { Button, Modal, Table } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+// import { connect } from "react-redux";
+import { Router, unstable_HistoryRouter, useHref, useNavigate } from "react-router-dom";
 import Styles from "./RoomPw.module.css";
 
 // function RoomPw({roomseq, show, onHide}) { //숏컷 연산
@@ -11,7 +12,10 @@ function RoomPw(props) { //위의 숏컷 연산이 props안에 다 들어있음.
   // const [roompwShow, setRoompwShow] = React.useState(false);
 
   // console.log(roomseq, show, onHide);
-  console.log(props);
+  console.log("props",props);
+  console.log(props.onHide);
+
+  const { onHide } = props;
   
   //사용자가 입력한 비번
   const [enterpw, setEnterpw] = useState("");
@@ -25,34 +29,11 @@ function RoomPw(props) { //위의 숏컷 연산이 props안에 다 들어있음.
 
   //여기서 입력을 누를때 값을 넘기고, 값이 맞으면 그때 네비게이션으로 페이지 넘기기
   // const navigate = useNavigate();
+//useHref() 써보기
 
+  // const goroonin = useHref();
+  // const history = unstable_HistoryRouter();
   // const roomin = navigate("/basic");
-  
-  //방의 비밀번호 받아오기X -> 비번을 보내서 백에서 검사
-  // useEffect(() => {
-  //   axios
-  //     .get("https://i6a306.p.ssafy.io:8080/api/v1/lobby/enter")
-  //     .then((response) => {
-  //       console.log(response.data);
-  //       console.log(response.data.password);
-  //       setRealpw(response.data.password);
-  //     })
-  //     .catch((e) => {
-  //       console.log("에러 발생");
-  //       console.error(e);
-  //     });
-  //     console.log("useEffect enter")
-  // },[]);
-
-  //찐 비번과 입력값 비교하기
-  // const pwaccord = () => {
-  //   if(enterpw === realpw){
-  //     navigate("/basic")
-  //   }
-  //   else{
-  //     alert("비밀번호가 일치하지 않습니다.");
-  //   }
-  // }
 
   //성공이면 방 입장
   // const goroom = () => navigate("/basic")
@@ -73,20 +54,21 @@ function RoomPw(props) { //위의 숏컷 연산이 props안에 다 들어있음.
       {
         headers:{
           "Content-Type": "application/json",
-          Authorization: 
-            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI3IiwiaXNzIjoic3NhcmFva2UiLCJleHAiOjE2NDU2MDAyMDIsImlhdCI6MTY0NDMwNDIwMn0.bAx6gwfL1Ej3u-J-Bb8Tmqf5_Eiw1UsHajGHHKPb41sxtns0Ri55jKkWvzMm9D2UJfB2dYkZGtmc0EOaEGYqWA", // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌
+          Authorization: props.state[0].token, // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌
+          // Authorization: state[0].token, // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌
         },
       }
     )
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       console.log(res.data);
-      alert(res.data);
+      // alert("res값"+res.data);
       // alert("방번호: ",roomseq, "비밀번호: ", enterpw);
       if(res.status === 200){
         alert("입장 성공!!")
-        // navigate("/basic")
-        // goroom();
+      }
+      else if(res.status !== 200){
+        alert("입장 실패!"); //왜 안되냐
       }
     }
     );
@@ -125,10 +107,13 @@ function RoomPw(props) { //위의 숏컷 연산이 props안에 다 들어있음.
                 <button className={Styles.button} onClick={EnterRoom}>
                   입력
                 </button>
-                <button className={Styles.button} onClick={props.onHide}>
+                {/* <Link to="/lobby"> */}
+                <button className={Styles.button} onClick={onHide}>
+                {/* <button className={Styles.button} onClick={props.onHide}> */}
                 {/* <button className={Styles.button}> */}
                   닫기
                 </button>
+                {/* </Link> */}
               </div>
             </Modal.Body>
           </div>
@@ -137,4 +122,9 @@ function RoomPw(props) { //위의 숏컷 연산이 props안에 다 들어있음.
     </div>
   );
 }
+// function mapStateToProps(state) { //state 받아오는 함수 - store에서 직빵으로 값 보내주는 것.
+//   return { state };
+// }
+
+// export default connect(mapStateToProps, null)(RoomPw);
 export default RoomPw;
