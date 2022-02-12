@@ -21,6 +21,7 @@ import javax.websocket.server.PathParam;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("api/v1/room")
 @RestController
@@ -52,14 +53,14 @@ public class RoomController {
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
 
-    @PostMapping("out/{room_seq}")
+    @PostMapping("/out/{room_seq}")
     ResponseEntity<? extends BaseResponseBody> out(@Auth User user, @PathVariable("room_seq") Long room_seq) {
         roomService.out(user, room_seq);
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
 
     @GetMapping("/disappear/{room_seq}")
-    ResponseEntity<RoomUserResponse> dissapear(@PathVariable("room_seq") Long room_seq) {
+    ResponseEntity<RoomUserResponse> disappear(@PathVariable("room_seq") Long room_seq) {
         RoomUserResponse response = roomService.disappear(room_seq);
         return ResponseEntity.ok().body(response);
     }
