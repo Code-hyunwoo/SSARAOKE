@@ -10,7 +10,7 @@ import Styles from "./remote.module.css";
 import styles2 from "../roomin/Room.module.css";
 import axios from "axios";
 
-function Controller({ book, sendYTUrl }) {
+function Controller({ book, sendYTUrl, setOpenFirework }) {
   const [show, setShow] = useState(false);
   const [booklist, setbookList] = useState(book);
   const startbookList = () => {
@@ -29,6 +29,7 @@ function Controller({ book, sendYTUrl }) {
     // console.log(`[sendYTUrl]유튜브 요청 보냄, url: ${YTUrl} at room ${room}`);
     // sendMessage(message);
   };
+
   // 노래 검색 기능
   const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
   const [searchitem, setSearchitem] = useState("");
@@ -66,7 +67,12 @@ function Controller({ book, sendYTUrl }) {
 
       <Modal
         show={show}
-        onHide={() => setShow(false)}
+        onHide={() => {
+          setShow(false);
+          setTimeout(function () {
+            setOpenFirework(false);
+          }, 5000);
+        }}
         size="xl"
         dialogClassName="modal-90w"
       >
@@ -80,10 +86,12 @@ function Controller({ book, sendYTUrl }) {
                 {/* 검색창 */}
                 <div className={Styles.searchpage}>
                   {/* 검색 */}
-                  <MusicSearchbar
-                    setSearchitem={setSearchitem}
-                    searchMusic={searchMusic}
-                  />
+                  <div>
+                    <MusicSearchbar
+                      setSearchitem={setSearchitem}
+                      searchMusic={searchMusic}
+                    />
+                  </div>
                   {/* 검색 결과 */}
                   <MSearchResult />
                 </div>
@@ -92,7 +100,7 @@ function Controller({ book, sendYTUrl }) {
               <div className={Styles.remotepage}>
                 {/* 기타 효과 - 템포, 에코, 음성, 조명, 필터, 박수 북, 폭죽, 좋아요 등  */}
                 <div className={Styles.effectpage}>
-                  <Effect />
+                  <Effect setOpenFirework={setOpenFirework} />
                 </div>
                 {/* 노래 관련 버튼 */}
                 <div>

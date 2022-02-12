@@ -1,5 +1,6 @@
 import Styles from "./remote.module.css";
 
+<<<<<<< HEAD
 function Effect() {
   return (
     <div>
@@ -8,6 +9,12 @@ function Effect() {
         간주점프
         {/* <div className={Styles.tempoupbtn} ></div> */}
       </button>
+=======
+function Effect({setOpenFirework}) {
+
+    
+    
+>>>>>>> front
 
       {/* 템포 다운*/}
       {/* <button className={Styles.tempo} 
@@ -34,6 +41,7 @@ function Effect() {
         <div className={Styles.lightdown}></div>
       </button>
 
+<<<<<<< HEAD
       {/* 필터*/}
       <button className={Styles.fgbtn} style={{ left: "20.6vw", top: "1.2vh" }}>
         필터
@@ -77,6 +85,30 @@ function Effect() {
       </button>
       {/* 좋아요 */}
       {/* <button className={Styles.effectbtn} style={{left: '790px', top: '15px'}}> */}
+=======
+            {/* 필터*/}
+            <button className={Styles.fgbtn} style={{left: '20.6vw', top: '1.2vh'}}>
+                필터
+            </button>
+            {/* 배경*/}
+            <button className={Styles.fgbtn} style={{left: '20.6vw', top: '5vh'}}>
+                배경 
+            </button>
+            {/* 박수 */}
+            <button className={Styles.effectbtn} style={{left: '27.5vw', top: '1.8vh'}}>
+                <img src='https://cdn-icons-png.flaticon.com/512/2446/2446723.png' style={{width: '100%'}}/>
+            </button>
+            {/* 탬버린 */}
+            <button className={Styles.effectbtn} style={{left: '32vw', top: '1.8vh'}}>
+                <img src='https://cdn-icons-png.flaticon.com/512/1426/1426588.png' style={{width: '100%'}}/>
+            </button>
+            {/* 폭죽 */}
+            <button className={Styles.effectbtn} onClick={() => setOpenFirework(true)} style={{left: '36.5vw', top: '1.8vh'}}>
+            <img src='https://cdn-icons-png.flaticon.com/512/1700/1700807.png' style={{width: '100%'}}/>
+            </button>
+            {/* 좋아요 */}
+            {/* <button className={Styles.effectbtn} style={{left: '790px', top: '15px'}}> */}
+>>>>>>> front
 
       {/* </button> */}
     </div>
