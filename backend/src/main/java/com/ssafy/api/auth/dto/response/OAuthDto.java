@@ -16,5 +16,5 @@ public class OAuthDto {
     private OAuthType oAuthType;
     private String nickname;
     boolean isNew;
-
+    private String email;
 }
