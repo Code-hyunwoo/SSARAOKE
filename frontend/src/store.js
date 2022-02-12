@@ -29,6 +29,7 @@ const reducer = (state = [], action) => {
           seq: action.infoObj.seq,
           nickname: action.infoObj.nickname,
           token: action.infoObj.token,
+          email: action.infoObj.email,
         },
         ...state,
       ];
