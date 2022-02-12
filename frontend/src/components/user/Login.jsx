@@ -30,6 +30,7 @@ function Login({ DispatchaddInfo, state }) {
                 seq: res.data.seq,
                 nickname: res.data.nickname,
                 token: res.data.token,
+                email: res.data.email,
               });
             }
 

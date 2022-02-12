@@ -16,13 +16,13 @@ function DoorList() {
   // const [loading, setLoading] = useState(false)
 
   //함수로 감싸지 않고 하기
-  console.log("doorlist"); //값 받기 전에 찍고
+  // console.log("doorlist"); //값 받기 전에 찍고
   useEffect(() => {
     //페이지 호출과 동시에 불러오기 위해 사용
     axios
       .get("https://i6a306.p.ssafy.io:8080/api/v1/lobby")
       .then((response) => {
-        console.log(response.data); //값 너머오는지 찍고
+        // console.log(response.data); //값 너머오는지 찍고
         setRoomdata(response.data); //값 저장하고
         console.log("룸데이타:", roomdata); //값 저장되었는지 확인
         console.log("roomseq: ", roomdata[0].room_seq); 
@@ -31,7 +31,7 @@ function DoorList() {
         console.log("에러 발생");
         console.error(e);
       });
-    console.log("doorlist useEffect"); //실행되는지 찍고
+    // console.log("doorlist useEffect"); //실행되는지 찍고
   }, []); //,[]는 무한 랜더링 방지
 
   //로비에서 DoorList뺴고는 다 불러오는데 list를 데이터 초과로 받지 못함. 한번만 받게 해야하는데

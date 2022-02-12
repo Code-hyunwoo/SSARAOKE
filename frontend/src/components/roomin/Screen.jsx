@@ -27,5 +27,4 @@ function Screen ({mode, now, nextMusic}){
 
 }
 
-// 'https://www.youtube.com/watch?v=4gXmClk8rKI', 'https://www.youtube.com/watch?v=t8KtQ8-nImI'
 export default Screen

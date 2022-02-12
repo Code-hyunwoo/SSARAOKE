@@ -49,8 +49,8 @@ function Door({ thumbnail, title, user, current, tags, roomseq, isPrivate, state
   // console.log(roomseq, "out"); //룸번호 받아오는지 보기
   //roomseq가 바뀔때마다 작동하면서 바뀌게 됨.
   useEffect(() => {
-    if(roomseq !== undefined){
-      console.log(roomseq, "in");
+    if (roomseq !== undefined) {
+      // console.log(roomseq, "in");
       setCreated(true);
       if(isPrivate === false){
         // setThum(thumbnail); //썸네일 생기면 이걸로 바꾸기
@@ -148,7 +148,6 @@ function Door({ thumbnail, title, user, current, tags, roomseq, isPrivate, state
       // }
     }
   };
-
 
   //방 입장시 일단 베이직으로? 베이직으로 들어갔는데 다른 모드면? 방 생성할때 mode값도 같이 넘겨줘야하나
 
