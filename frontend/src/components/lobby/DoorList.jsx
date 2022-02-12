@@ -26,6 +26,7 @@ function DoorList() {
         setRoomdata(response.data); //값 저장하고
         console.log("룸데이타:", roomdata); //값 저장되었는지 확인
         console.log("roomseq: ", roomdata[0].room_seq); 
+        console.log("roomseq: ", roomdata[0].mode); 
       })
       .catch((e) => {
         console.log("에러 발생");
@@ -83,6 +84,7 @@ function DoorList() {
           user={roomdata[0]?.owner_nickname}
           current={roomdata[0]?.current}
           isPrivate={roomdata[0]?.isPrivate}
+          mode={roomdata[0]?.mode}
         />
         <Lobbychat />
         <Door
@@ -93,6 +95,7 @@ function DoorList() {
           user={roomdata[1]?.owner_nickname}
           current={roomdata[1]?.current}
           isPrivate={roomdata[1]?.isPrivate}
+          mode={roomdata[1]?.mode}
         />
       </div>
       {/* 두번째줄 */}
@@ -105,6 +108,7 @@ function DoorList() {
           user={roomdata[2]?.owner_nickname}
           current={roomdata[2]?.current}
           isPrivate={roomdata[2]?.isPrivate}
+          mode={roomdata[2]?.mode}
         />
         {/* <Door /> */}
         <div className={styles.griditem}>
@@ -116,6 +120,7 @@ function DoorList() {
             user={roomdata[3]?.owner_nickname}
             current={roomdata[3]?.current}
             isPrivate={roomdata[3]?.isPrivate}
+            mode={roomdata[3]?.mode}
           />
           {/* <Door /> */}
           {/* <Door /> */}
@@ -127,6 +132,7 @@ function DoorList() {
             user={roomdata[4]?.owner_nickname}
             current={roomdata[4]?.current}
             isPrivate={roomdata[4]?.isPrivate}
+            mode={roomdata[4]?.mode}
           />
         </div>
         {/* <Door /> */}
@@ -138,6 +144,7 @@ function DoorList() {
           user={roomdata[5]?.owner_nickname}
           current={roomdata[5]?.current}
           isPrivate={roomdata[5]?.isPrivate}
+          mode={roomdata[5]?.mode}
         />
       </div>
       {/* 세번째줄 */}
@@ -150,6 +157,7 @@ function DoorList() {
           user={roomdata[6]?.owner_nickname}
           current={roomdata[6]?.current}
           isPrivate={roomdata[6]?.isPrivate}
+          mode={roomdata[6]?.mode}
         />
         <div className={styles.griditem}>
           <Door
@@ -160,6 +168,7 @@ function DoorList() {
             user={roomdata[7]?.owner_nickname}
             current={roomdata[7]?.current}
             isPrivate={roomdata[7]?.isPrivate}
+            mode={roomdata[7]?.mode}
           />
           <Door
             tags={roomdata[8]?.tagList}
@@ -169,6 +178,7 @@ function DoorList() {
             user={roomdata[8]?.owner_nickname}
             current={roomdata[8]?.current}
             isPrivate={roomdata[8]?.isPrivate}
+            mode={roomdata[8]?.mode}
           />
         </div>
         <Door
@@ -179,6 +189,7 @@ function DoorList() {
           user={roomdata[9]?.owner_nickname}
           current={roomdata[9]?.current}
           isPrivate={roomdata[9]?.isPrivate}
+          mode={roomdata[9]?.mode}
         />
       </div>
       {/* 네번째줄 */}
@@ -191,6 +202,7 @@ function DoorList() {
           user={roomdata[10]?.owner_nickname}
           current={roomdata[10]?.current}
           isPrivate={roomdata[10]?.isPrivate}
+          mode={roomdata[10]?.mode}
         />
         <div className={styles.griditem}>
           <Door
@@ -201,6 +213,7 @@ function DoorList() {
             user={roomdata[11]?.owner_nickname}
             current={roomdata[11]?.current}
             isPrivate={roomdata[11]?.isPrivate}
+            mode={roomdata[11]?.mode}
           />
           <Door
             tags={roomdata[12]?.tagList}
@@ -210,6 +223,7 @@ function DoorList() {
             user={roomdata[12]?.owner_nickname}
             current={roomdata[12]?.current}
             isPrivate={roomdata[12]?.isPrivate}
+            mode={roomdata[12]?.mode}
           />
         </div>
         <Door
@@ -220,6 +234,7 @@ function DoorList() {
           user={roomdata[13]?.owner_nickname}
           current={roomdata[13]?.current}
           isPrivate={roomdata[13]?.isPrivate}
+          mode={roomdata[13]?.mode}
         />
       </div>
       {/* 다섯번째줄 */}
@@ -232,6 +247,7 @@ function DoorList() {
           user={roomdata[14]?.owner_nickname}
           current={roomdata[14]?.current}
           isPrivate={roomdata[14]?.isPrivate}
+          mode={roomdata[14]?.mode}
         />
         <div className={styles.griditem}>
           <Door
@@ -242,6 +258,7 @@ function DoorList() {
             user={roomdata[15]?.owner_nickname}
             current={roomdata[15]?.current}
             isPrivate={roomdata[15]?.isPrivate}
+            mode={roomdata[15]?.mode}
           />
           <Door
             tags={roomdata[16]?.tagList}
@@ -251,6 +268,7 @@ function DoorList() {
             user={roomdata[16]?.owner_nickname}
             current={roomdata[16]?.current}
             isPrivate={roomdata[16]?.isPrivate}
+            mode={roomdata[16]?.mode}
           />
         </div>
         <Door
@@ -261,6 +279,7 @@ function DoorList() {
           user={roomdata[17]?.owner_nickname}
           current={roomdata[17]?.current}
           isPrivate={roomdata[17]?.isPrivate}
+          mode={roomdata[17]?.mode}
         />
       </div>
     </>

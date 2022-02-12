@@ -17,7 +17,7 @@ import { connect } from "react-redux";
 // import axios from "axios";
 
 // function Door({ thumbnail = closedImg, title, hostname, usercnt = 0, tags }) {
-function Door({ thumbnail, title, user, current, tags, roomseq, isPrivate, state }) {
+function Door({ thumbnail, title, user, current, tags, roomseq, isPrivate, mode, state }) {
 // function Door({roomdata}) {
 
 //  alert("방번호:",roomseq);
@@ -121,7 +121,7 @@ function Door({ thumbnail, title, user, current, tags, roomseq, isPrivate, state
         //   console.log("값 보내졌나 : ",res);
         //   alert("값 보내졌나 : "+res);
         // })
-        navigate(`/Room/${roomNum}`);
+        navigate(`/Room/${mode}/${roomNum}`);
       }
       // else if(isPrivate === true){
       //   //입장 가능한 방이니깐 버튼 활성화 & 버튼색 변경
