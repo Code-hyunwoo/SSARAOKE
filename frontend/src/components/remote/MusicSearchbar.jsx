@@ -1,11 +1,18 @@
+import { useState } from "react";
 import Styles from "./remote.module.css";
+import axios from "axios";
 
-function MusicSearchbar() {
-  const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
-  const search = (e) => {
-    const searchitem = e.target.value;
-    console.log("이걸로 검색", searchitem);
+function MusicSearchbar({ setSearchitem, searchMusic }) {
+  const getSearchitem = (e) => {
+    setSearchitem(e.target.value);
   };
+
+  const entersearch = (e) => {
+    if (e.key === "Enter") {
+      searchMusic();
+    }
+  };
+
   return (
     <div>
       <input
@@ -13,9 +20,13 @@ function MusicSearchbar() {
         id="search"
         name="search"
         placeholder=" 노래 제목/가수로 검색하세요"
-        onKeyPress={search}
+        onChange={getSearchitem}
+        onKeyPress={entersearch}
       />
-      <button className={Styles.serachbtn}> 검색 </button>
+      <button className={Styles.serachbtn} onClick={searchMusic}>
+        {" "}
+        검색{" "}
+      </button>
     </div>
   );
 }

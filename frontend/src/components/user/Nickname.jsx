@@ -42,6 +42,12 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
       });
   };
 
+  const entermodify = (e) => {
+    if (e.key === "Enter") {
+      onChangeNickname();
+    }
+  };
+
   return (
     <div>
       <Modal
@@ -60,11 +66,12 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
             <div style={{ textAlign: "center" }}>
               Nickname 수정 :{" "}
               <input
+                type="text"
                 style={{ left: "90vw" }}
                 placeholder="Nickname"
-                // value={newnickname}
                 name="newnickname"
                 onChange={getNickname}
+                onKeyPress={entermodify}
               />
               &nbsp;
               {/* <div> */}

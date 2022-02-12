@@ -44,6 +44,12 @@ function Email({ show, onHide, state, DispatchmodifyEmail }) {
       });
   };
 
+  const entermodify = (e) => {
+    if (e.key === "Enter") {
+      onChangeEmail();
+    }
+  };
+
   return (
     <div>
       <Modal show={show} onHide={onHide} size="sm">
@@ -52,7 +58,13 @@ function Email({ show, onHide, state, DispatchmodifyEmail }) {
             {/* <div style={{textAlign:'center', padding:'5%'}}> */}
             <div style={{ textAlign: "center" }}>
               E-Mail 수정 :{" "}
-              <input name="newemail" onChange={getEmail} placeholder="Email" />
+              <input
+                type="text"
+                name="newemail"
+                onChange={getEmail}
+                placeholder="Email"
+                onKeyPress={entermodify}
+              />
               &nbsp;
               {/* 버튼 누르면 모달 종료 어떻게??*/}
               <button

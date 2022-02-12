@@ -8,6 +8,7 @@ import MSearchResult from "./M_SearchResult";
 import Record from "./Record";
 import Styles from "./remote.module.css";
 import styles2 from "../roomin/Room.module.css";
+import axios from "axios";
 
 function Controller({ book, sendYTUrl }) {
   const [show, setShow] = useState(false);
@@ -27,6 +28,28 @@ function Controller({ book, sendYTUrl }) {
     // console.log(booklist)
     // console.log(`[sendYTUrl]유튜브 요청 보냄, url: ${YTUrl} at room ${room}`);
     // sendMessage(message);
+  };
+  // 노래 검색 기능
+  const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
+  const [searchitem, setSearchitem] = useState("");
+  const [searchresult, setSearchresult] = useState([]);
+  const params = {
+    key: apiKey,
+    part: "snippet",
+    channelId: "UCZUhx8ClCv6paFW7qi3qljg",
+    channelType: "any",
+    q: searchitem,
+    type: "video",
+    maxResults: 20,
+  };
+  const searchMusic = () => {
+    console.log("이걸로 검색", searchitem);
+    axios
+      .get("https://www.googleapis.com/youtube/v3/search", { params })
+      .then((res) => {
+        setSearchresult(res.data.items);
+        console.log(searchresult);
+      });
   };
 
   return (
@@ -57,9 +80,10 @@ function Controller({ book, sendYTUrl }) {
                 {/* 검색창 */}
                 <div className={Styles.searchpage}>
                   {/* 검색 */}
-                  <div>
-                    <MusicSearchbar />
-                  </div>
+                  <MusicSearchbar
+                    setSearchitem={setSearchitem}
+                    searchMusic={searchMusic}
+                  />
                   {/* 검색 결과 */}
                   <MSearchResult />
                 </div>
