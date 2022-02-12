@@ -39,7 +39,7 @@ public class AuthServiceImpl implements AuthService {
         //굳이 Optional객체 이렇게 써야하나 현타옴...
         if(existUser.isPresent()){
             String token = "Bearer " + JwtTokenProvider.getToken(existUser.get().getSeq());
-            return new OAuthDto(existUser.get().getSeq(), token, requestDto.getOAuthType(), existUser.get().getNickname(), false);
+            return new OAuthDto(existUser.get().getSeq(), token, requestDto.getOAuthType(), existUser.get().getNickname(), false, existUser.get().getEmail());
         }
         //회원가입 로직
         else{
@@ -52,7 +52,7 @@ public class AuthServiceImpl implements AuthService {
             User savedUser = userRepository.save(newUser);
 
             String token = "Bearer " + JwtTokenProvider.getToken(savedUser.getSeq());
-            return new OAuthDto(savedUser.getSeq(), token, requestDto.getOAuthType(), savedUser.getNickname(), true);
+            return new OAuthDto(savedUser.getSeq(), token, requestDto.getOAuthType(), savedUser.getNickname(), true, savedUser.getEmail());
         }
     }
 
