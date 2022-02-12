@@ -13,6 +13,7 @@ import Controller from "../components/remote/Controller";
 import kurentoUtils from "kurento-utils";
 import { connect } from "react-redux";
 import { useEffect } from "react";
+import Firework from "../components/remote/Firework";
 
 var participants = {};
 function Participant(name, sendMessage) {
@@ -75,6 +76,7 @@ function Participant(name, sendMessage) {
 
 function Free({ Nickname }) {
   const [openChangeMode, setOpenChangeMode] = useState(false);
+  const [openFirework, setOpenFirework] =useState(false);
   const practice = [
     "https://www.youtube.com/watch?v=Xk7_eEx58ds",
     "https://www.youtube.com/watch?v=4gXmClk8rKI",
@@ -397,6 +399,7 @@ function Free({ Nickname }) {
         now={nowPlaymusic}
         nextMusic={nextMusic}
       />
+      {openFirework && <Firework/>}
       <div className={styles.FreeCamBox}>
         <div id="participants"></div>
       </div>
@@ -413,7 +416,7 @@ function Free({ Nickname }) {
         <Button text={"마이크"} getOnClick={audioMute} />
         <Button text={"캠"} getOnClick={videoMute} />
         <Button text={"Singer"} getOnClick={basicsinger} />
-        <Controller book={bookList} sendYTUrl={sendYTUrl} />
+        <Controller book={bookList} sendYTUrl={sendYTUrl} setOpenFirework={setOpenFirework} />
         <Button text={"컨텐츠"} />
         <button
           className={(styles.btn, styles.neon)}

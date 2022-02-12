@@ -1,6 +1,9 @@
 import Styles from "./remote.module.css"; 
 
-function Effect() {
+function Effect({setOpenFirework}) {
+
+    
+    
 
     return(
         <div>
@@ -57,7 +60,7 @@ function Effect() {
                 <img src='https://cdn-icons-png.flaticon.com/512/1426/1426588.png' style={{width: '100%'}}/>
             </button>
             {/* 폭죽 */}
-            <button className={Styles.effectbtn} style={{left: '36.5vw', top: '1.8vh'}}>
+            <button className={Styles.effectbtn} onClick={() => setOpenFirework(true)} style={{left: '36.5vw', top: '1.8vh'}}>
             <img src='https://cdn-icons-png.flaticon.com/512/1700/1700807.png' style={{width: '100%'}}/>
             </button>
             {/* 좋아요 */}
