@@ -28,3 +28,8 @@
   font-family: "surroundAir";
   src: url(../fonts/Cafe24SsurroundAir.ttf);
 }
+
+.pxpx {
+  padding-left: 4rem !important;
+  padding-right: 4rem !important;
+}

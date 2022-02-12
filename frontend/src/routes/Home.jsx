@@ -34,7 +34,7 @@ function Home() {
   return (
     <div>
       <Login />
-      <Container fluid className="px-5">
+      <Container fluid className={styles.pxpx}>
         <hr className={styles.line} />
         <Row className="mx-5" data-aos="fade-right">
           <Col md={{ span: 4, offset: 1 }}>

@@ -10,7 +10,8 @@ import Styles from "./remote.module.css";
 import styles2 from "../roomin/Room.module.css"
 
 
-function Controller({book, sendYTUrl}) {
+
+function Controller({book, sendYTUrl, setOpenFirework}) {
     const [show, setShow] = useState(false);
     const [booklist, setbookList] =useState(book);
     const startbookList = () => {
@@ -44,7 +45,11 @@ function Controller({book, sendYTUrl}) {
            
             <Modal 
               show={show} 
-              onHide={() => setShow(false)} 
+              onHide={() => {
+                  setShow(false);
+                  setTimeout(function(){
+                      setOpenFirework(false);},5000);
+                }} 
               size="xl"
               dialogClassName="modal-90w"
               >
@@ -70,7 +75,7 @@ function Controller({book, sendYTUrl}) {
                             <div className={Styles.remotepage}>
                                 {/* 기타 효과 - 템포, 에코, 음성, 조명, 필터, 박수 북, 폭죽, 좋아요 등  */}
                                 <div className={Styles.effectpage}>
-                                    <Effect />
+                                    <Effect setOpenFirework={setOpenFirework} />
                                 </div>
                                 {/* 노래 관련 버튼 */}
                                 <div>

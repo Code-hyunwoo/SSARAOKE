@@ -13,6 +13,7 @@ import Controller from "../components/remote/Controller";
 import kurentoUtils from "kurento-utils";
 import { connect } from "react-redux";
 import { useEffect } from "react";
+import Firework from "../components/remote/Firework";
 
 var participants = {};
 function Participant(name, sendMessage) {
@@ -75,6 +76,7 @@ function Participant(name, sendMessage) {
 
 function Duet({ Nickname }) {
   const [openChangeMode, setOpenChangeMode] = useState(false);
+  const [openFirework, setOpenFirework] =useState(false);
   const practice = [
     "https://www.youtube.com/watch?v=Xk7_eEx58ds",
     "https://www.youtube.com/watch?v=4gXmClk8rKI",
@@ -414,6 +416,7 @@ function Duet({ Nickname }) {
         now={nowPlaymusic}
         nextMusic={nextMusic}
       />
+      {openFirework && <Firework/>}
       <div className={styles.duetSingercam}></div>
       <div className={styles.DuetCamBox}>
         <div id="participants"></div>
@@ -432,7 +435,7 @@ function Duet({ Nickname }) {
         <Button text={"캠"} getOnClick={videoMute} />
         <Button text={"Singer1"} getOnClick={duetsinger} />
         <Button text={"Singer2"} getOnClick={duetsinger2} />
-        <Controller book={bookList} sendYTUrl={sendYTUrl} />
+        <Controller book={bookList} sendYTUrl={sendYTUrl} setOpenFirework={setOpenFirework} />
         <Button text={"컨텐츠"} />
         <button
           className={(styles.btn, styles.neon)}
