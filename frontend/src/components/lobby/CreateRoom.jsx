@@ -137,7 +137,7 @@ function Desk({state}) {
 
   //헤더에 토큰을 넣어서 보내는 역할
   const onCreateRoom = (e) => {
-    if (value === true && roompw === "") {
+    if (value === true && roompw === "" && value!==false) {
       e.preventDefault();
       alert(`비밀번호를 입력해 주세요`);
     } else if (value === false || (value === true && roompw !== "")) {
@@ -150,7 +150,7 @@ function Desk({state}) {
             //post로 보낼 데이터
             title: roomTitle,
             tags: arrcheckedTags,
-            // mode: selected,
+            mode: selected,
             // is_private: opened,
             // Private: opened,
             isPrivate: value,
@@ -165,9 +165,9 @@ function Desk({state}) {
           }
         )
         .then((res) => {
-          console.log(res);
+          console.log({selected});
           // navigate(`/${selected}`);
-          navigate(`/Room/${res.data.room_seq}`)
+          navigate(`/Room/${selected}/${res.data.room_seq}`)
         });
     }
     // navigate(`/${selected}`)

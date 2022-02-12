@@ -94,8 +94,9 @@ function Room({ Nickname }) {
     const [chatArr, setChatArr] = useState([]);
   
     const name = { Nickname }.Nickname; //redux에 저장된 user nickname
-    const {roomnum} = useParams()
-    const room = {roomnum}; //redux에 저장된 room_seq
+    const {mode, roomnum} = useParams();
+    const room = {roomnum}.roomnum; //redux에 저장된 room_seq
+    const firstmode = {mode}.mode;
 
     const [ transScreen, settransScreen] = useState(styles.ScreenBasic);
     const [ transCamBox, settransCamBox] = useState(styles.BasicCamBox);
@@ -135,11 +136,24 @@ function Room({ Nickname }) {
         setnowMode('Freemode')
     }
     
+    useEffect(() => {
+      if (firstmode ==='Basic'){
+        transformBasic();
+      } else if(firstmode === 'Free'){
+        transformFree();
+      } else if(firstmode === 'Solo'){
+        transformSolo();
+      } else if(firstmode === 'Duet'){
+        transformDuet();
+      }
+    }, []);
     //갈아치워야 할 기존 영역
   
     var ws = new WebSocket("wss://i6a306.p.ssafy.io:8443/groupcall");
     useEffect(() => {
       console.log('입장확인')
+      console.log({roomnum})
+      console.log({mode})
       ws.onopen = () => {
       register()
       console.log("WebSocket Client Connected");

@@ -16,7 +16,7 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/lobby" element={<MainLobbyGrid />}></Route>
           <Route path="/mypage" element={<MypageMain />}></Route>
-          <Route path="/Room/:roomnum" element={<Room/>}> </Route>
+          <Route path="/Room/:mode/:roomnum" element={<Room/>}> </Route>
           {/* <Route path="/basic" element={<Basic />}></Route> */}
           {/* <Route path="/solo" element={<Solo />}></Route> */}
           {/* <Route path="/duet" element={<Duet />}></Route> */}
