@@ -1,6 +1,23 @@
 import Styles from "./remote.module.css";
+import Clap from "./audio/Clap.wav";
+import Tambourine from "./audio/Tambourine.mp3";
 
 function Effect({setOpenFirework}) {
+
+  const audio = new Audio(Clap)
+  const audio2 = new Audio(Tambourine)
+  // const audio = new Audio("./audio/Next.mp3")
+  function Clapaudio(){
+      audio.volume = 0.1
+      audio.play()
+  }
+
+  function Tamaudio(){
+    audio2.volume = 0.2
+    audio2.play()
+  }
+
+
   return (
     <div>
       {/* 템포 업 */}
@@ -46,11 +63,11 @@ function Effect({setOpenFirework}) {
                 배경 
             </button>
             {/* 박수 */}
-            <button className={Styles.effectbtn} style={{left: '27.5vw', top: '1.8vh'}}>
+            <button className={Styles.effectbtn} onClick={Clapaudio} style={{left: '27.5vw', top: '1.8vh'}}>
                 <img src='https://cdn-icons-png.flaticon.com/512/2446/2446723.png' style={{width: '100%'}}/>
             </button>
             {/* 탬버린 */}
-            <button className={Styles.effectbtn} style={{left: '32vw', top: '1.8vh'}}>
+            <button className={Styles.effectbtn} onClick={Tamaudio} style={{left: '32vw', top: '1.8vh'}}>
                 <img src='https://cdn-icons-png.flaticon.com/512/1426/1426588.png' style={{width: '100%'}}/>
             </button>
             {/* 폭죽 */}

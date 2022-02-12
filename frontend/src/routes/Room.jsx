@@ -146,7 +146,7 @@ function Room({ Nickname }) {
       } else if(firstmode === 'Duet'){
         transformDuet();
       }
-    }, []);
+    },[])
     //갈아치워야 할 기존 영역
   
     var ws = new WebSocket("wss://i6a306.p.ssafy.io:8443/groupcall");
