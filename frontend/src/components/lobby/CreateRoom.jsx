@@ -3,8 +3,11 @@ import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
 
-function Desk() {
+function Desk({state}) {
+  console.log(state);
+  
   //모달 실행
   const [show, setShow] = useState(false);
 
@@ -16,12 +19,17 @@ function Desk() {
     setSelected("");
     setOpened("");
     setRoompw("");
+    setArrcheckedTags([]);
   };
   const handleShow = () => setShow(true);
 
-  //tag 값 받아오기
+  //tag 값 받아오기_set버전
   const [checkedTags, setcheckedTags] = useState(new Set());
   const [bChecked, setChecked] = useState(false); //체크가 되었는지 여부를 위한 함수. 기본 F -비워져있음.
+
+  // const arrcheckedTags = [];
+  //tag 값 받아오기_배열 버전 -> 배열버전 넘겨주는 중
+  const [arrcheckedTags, setArrcheckedTags] = useState([]);
 
   const checkedTagsHandler = (value, isChecked) => {
     // value = 각 태그들의 value, 체크되면
@@ -30,11 +38,19 @@ function Desk() {
       checkedTags.add(value); //set()에 그 value를 넣음.
       setcheckedTags(checkedTags); //4개를 체크하면 그 4개가 들어감. checkedTags을 나중에 백에 전송할때 쓰면 됨.
       // console.log(checkedTags);
-    } else if (!isChecked && checkedTags.has(value)) {
+      // arrcheckedTags = [...checkedTags]
+      // arrcheckedTags.push(value); //배열
+      setArrcheckedTags([...arrcheckedTags, value]); //배열
+      console.log(arrcheckedTags);
+    } else if (!isChecked && checkedTags.has(value) && arrcheckedTags.find(one => one === value)) {
       checkedTags.delete(value);
       setcheckedTags(checkedTags);
+      const filter = arrcheckedTags.filter(one => one !== value);
+      setArrcheckedTags([...filter]);
     }
   };
+
+  console.log('배열값', arrcheckedTags);
 
   //tag 값 4개만 받아오도록 하는 함수.
   const checkHandler = ({ target }) => {
@@ -49,6 +65,8 @@ function Desk() {
       checkedTags.delete(target.value); //아까 들어간 값을 삭제
       setcheckedTags(checkedTags); //남은 4개가 다시 set()의 값
       console.log(checkedTags);
+      const filter = arrcheckedTags.filter(one => one !== target.value);
+      setArrcheckedTags([...filter]);
       target.checked = false; //그 빠진 값을 다시 T에서 F로 되돌린다.(체크되어있는 상태를 풀어주는것. set에서는 이미 빠졌고)
     }
   };
@@ -76,8 +94,16 @@ function Desk() {
   //set으로는 백 전달 불가. 변경해줘야
   //1. 배열로 변경
   //2. 값 보내기 전에 set을 []로 변경하여 보내기
-  const arrcheckedTags = Array.from(checkedTags);
-  // console.log('배열:', arrcheckedTags);
+  // const arrcheckedTags = Array.from(checkedTags);
+  // const arrcheckedTags = [];
+  
+  // const arrcheckedTags = [...checkedTags];
+
+  // checkedTags.forEach((element) => {
+  //   arrcheckedTags.concat(element);
+  // });
+  console.log('배열:', arrcheckedTags);
+
 
   //방 공개 여부 -boolean으로
   const [opened, setOpened] = useState(false);
@@ -115,6 +141,7 @@ function Desk() {
       e.preventDefault();
       alert(`비밀번호를 입력해 주세요`);
     } else if (value === false || (value === true && roompw !== "")) {
+      console.log("방 공개여부:", value);
       // const res = axios
       axios
         .post(
@@ -133,8 +160,7 @@ function Desk() {
             headers: {
               "Content-Type": "application/json",
               // "Authorization" : token,  // -> 승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
-              Authorization:
-                "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI3IiwiaXNzIjoic3NhcmFva2UiLCJleHAiOjE2NDU2MDAyMDIsImlhdCI6MTY0NDMwNDIwMn0.bAx6gwfL1Ej3u-J-Bb8Tmqf5_Eiw1UsHajGHHKPb41sxtns0Ri55jKkWvzMm9D2UJfB2dYkZGtmc0EOaEGYqWA", // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
+              Authorization:state[0].token, // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
             },
           }
         )
@@ -541,7 +567,9 @@ function Desk() {
     </>
   );
 }
-
+function mapStateToProps(state) { //state 받아오는 함수 - store에서 직빵으로 값 보내주는 것.
+  return { state };
+}
 //   render(<Desk />);
-
-export default Desk;
+//connect에는 항상 인자 두개
+export default connect(mapStateToProps, null)(Desk);

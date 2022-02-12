@@ -24,7 +24,8 @@ function DoorList() {
       .then((response) => {
         // console.log(response.data); //값 너머오는지 찍고
         setRoomdata(response.data); //값 저장하고
-        // console.log("룸데이타:", roomdata); //값 저장되었는지 확인
+        console.log("룸데이타:", roomdata); //값 저장되었는지 확인
+        console.log("roomseq: ", roomdata[0].room_seq); 
       })
       .catch((e) => {
         console.log("에러 발생");
@@ -81,6 +82,7 @@ function DoorList() {
           thumnail={roomdata[0]?.thumbnail_url}
           user={roomdata[0]?.owner_nickname}
           current={roomdata[0]?.current}
+          isPrivate={roomdata[0]?.isPrivate}
         />
         <Lobbychat />
         <Door
@@ -90,6 +92,7 @@ function DoorList() {
           thumnail={roomdata[1]?.thumbnail_url}
           user={roomdata[1]?.owner_nickname}
           current={roomdata[1]?.current}
+          isPrivate={roomdata[1]?.isPrivate}
         />
       </div>
       {/* 두번째줄 */}
@@ -101,6 +104,7 @@ function DoorList() {
           thumnail={roomdata[2]?.thumnail}
           user={roomdata[2]?.owner_nickname}
           current={roomdata[2]?.current}
+          isPrivate={roomdata[2]?.isPrivate}
         />
         {/* <Door /> */}
         <div className={styles.griditem}>
@@ -111,6 +115,7 @@ function DoorList() {
             thumnail={roomdata[3]?.thumnail}
             user={roomdata[3]?.owner_nickname}
             current={roomdata[3]?.current}
+            isPrivate={roomdata[3]?.isPrivate}
           />
           {/* <Door /> */}
           {/* <Door /> */}
@@ -121,6 +126,7 @@ function DoorList() {
             thumnail={roomdata[4]?.thumnail}
             user={roomdata[4]?.owner_nickname}
             current={roomdata[4]?.current}
+            isPrivate={roomdata[4]?.isPrivate}
           />
         </div>
         {/* <Door /> */}
@@ -131,6 +137,7 @@ function DoorList() {
           thumnail={roomdata[5]?.thumnail}
           user={roomdata[5]?.owner_nickname}
           current={roomdata[5]?.current}
+          isPrivate={roomdata[5]?.isPrivate}
         />
       </div>
       {/* 세번째줄 */}
@@ -142,6 +149,7 @@ function DoorList() {
           thumnail={roomdata[6]?.thumnail}
           user={roomdata[6]?.owner_nickname}
           current={roomdata[6]?.current}
+          isPrivate={roomdata[6]?.isPrivate}
         />
         <div className={styles.griditem}>
           <Door
@@ -151,6 +159,7 @@ function DoorList() {
             thumnail={roomdata[7]?.thumnail}
             user={roomdata[7]?.owner_nickname}
             current={roomdata[7]?.current}
+            isPrivate={roomdata[7]?.isPrivate}
           />
           <Door
             tags={roomdata[8]?.tagList}
@@ -159,6 +168,7 @@ function DoorList() {
             thumnail={roomdata[8]?.thumnail}
             user={roomdata[8]?.owner_nickname}
             current={roomdata[8]?.current}
+            isPrivate={roomdata[8]?.isPrivate}
           />
         </div>
         <Door
@@ -168,6 +178,7 @@ function DoorList() {
           thumnail={roomdata[9]?.thumnail}
           user={roomdata[9]?.owner_nickname}
           current={roomdata[9]?.current}
+          isPrivate={roomdata[9]?.isPrivate}
         />
       </div>
       {/* 네번째줄 */}
@@ -179,6 +190,7 @@ function DoorList() {
           thumnail={roomdata[10]?.thumnail}
           user={roomdata[10]?.owner_nickname}
           current={roomdata[10]?.current}
+          isPrivate={roomdata[10]?.isPrivate}
         />
         <div className={styles.griditem}>
           <Door
@@ -188,6 +200,7 @@ function DoorList() {
             thumnail={roomdata[11]?.thumnail}
             user={roomdata[11]?.owner_nickname}
             current={roomdata[11]?.current}
+            isPrivate={roomdata[11]?.isPrivate}
           />
           <Door
             tags={roomdata[12]?.tagList}
@@ -196,6 +209,7 @@ function DoorList() {
             thumnail={roomdata[12]?.thumnail}
             user={roomdata[12]?.owner_nickname}
             current={roomdata[12]?.current}
+            isPrivate={roomdata[12]?.isPrivate}
           />
         </div>
         <Door
@@ -205,6 +219,7 @@ function DoorList() {
           thumnail={roomdata[13]?.thumnail}
           user={roomdata[13]?.owner_nickname}
           current={roomdata[13]?.current}
+          isPrivate={roomdata[13]?.isPrivate}
         />
       </div>
       {/* 다섯번째줄 */}
@@ -216,6 +231,7 @@ function DoorList() {
           thumnail={roomdata[14]?.thumnail}
           user={roomdata[14]?.owner_nickname}
           current={roomdata[14]?.current}
+          isPrivate={roomdata[14]?.isPrivate}
         />
         <div className={styles.griditem}>
           <Door
@@ -225,6 +241,7 @@ function DoorList() {
             thumnail={roomdata[15]?.thumnail}
             user={roomdata[15]?.owner_nickname}
             current={roomdata[15]?.current}
+            isPrivate={roomdata[15]?.isPrivate}
           />
           <Door
             tags={roomdata[16]?.tagList}
@@ -233,6 +250,7 @@ function DoorList() {
             thumnail={roomdata[16]?.thumnail}
             user={roomdata[16]?.owner_nickname}
             current={roomdata[16]?.current}
+            isPrivate={roomdata[16]?.isPrivate}
           />
         </div>
         <Door
@@ -242,6 +260,7 @@ function DoorList() {
           thumnail={roomdata[17]?.thumnail}
           user={roomdata[17]?.owner_nickname}
           current={roomdata[17]?.current}
+          isPrivate={roomdata[17]?.isPrivate}
         />
       </div>
     </>
