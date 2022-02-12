@@ -2,7 +2,7 @@ import Styles from "./remote.module.css";
 import Clap from "./audio/Clap.wav";
 import Tambourine from "./audio/Tambourine.mp3";
 
-function Effect({setOpenFirework}) {
+function Effect({setOpenFirework, hideControl}) {
 
   const audio = new Audio(Clap)
   const audio2 = new Audio(Tambourine)
@@ -10,11 +10,20 @@ function Effect({setOpenFirework}) {
   function Clapaudio(){
       audio.volume = 0.1
       audio.play()
+      hideControl()
   }
 
   function Tamaudio(){
     audio2.volume = 0.2
     audio2.play()
+    hideControl()
+  }
+
+  function afterfire(){
+    setTimeout(function () {
+      setOpenFirework(false);
+    }, 6000);
+    hideControl()
   }
 
 
@@ -71,7 +80,10 @@ function Effect({setOpenFirework}) {
                 <img src='https://cdn-icons-png.flaticon.com/512/1426/1426588.png' style={{width: '100%'}}/>
             </button>
             {/* 폭죽 */}
-            <button className={Styles.effectbtn} onClick={() => setOpenFirework(true)} style={{left: '36.5vw', top: '1.8vh'}}>
+            <button className={Styles.effectbtn} onClick={() => {
+              setOpenFirework(true);
+              afterfire();
+              }} style={{left: '36.5vw', top: '1.8vh'}}>
             <img src='https://cdn-icons-png.flaticon.com/512/1700/1700807.png' style={{width: '100%'}}/>
             </button>
             {/* 좋아요 */}

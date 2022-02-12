@@ -9,16 +9,24 @@ function ChangeMode({ closeChangeMode,transformBasic,transformSolo,transformDuet
           <span>Select Mode</span>
         </div>
         <div className={styles.body}>
-          <button id={styles.modeButton} onClick={transformBasic}>
+          <button id={styles.modeButton} onClick={() => {
+            transformBasic();
+            closeChangeMode(false)}}>
               Basic
           </button>
-          <button id={styles.modeButton} onClick={transformFree}>
+          <button id={styles.modeButton} onClick={() => {
+            transformFree();
+            closeChangeMode(false)}}>
               Free
           </button>
-          <button id={styles.modeButton} onClick={transformSolo}>
+          <button id={styles.modeButton} onClick={() => {
+            transformSolo();
+            closeChangeMode(false)}}>
               Solo
           </button>
-          <button id={styles.modeButton} onClick={transformDuet}>
+          <button id={styles.modeButton} onClick={() => {
+            transformDuet();
+            closeChangeMode(false)}}>
               duet
           </button>
         </div>
