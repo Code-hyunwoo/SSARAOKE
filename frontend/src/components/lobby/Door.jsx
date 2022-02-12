@@ -121,7 +121,7 @@ function Door({ thumbnail, title, user, current, tags, roomseq, isPrivate, state
         //   console.log("값 보내졌나 : ",res);
         //   alert("값 보내졌나 : "+res);
         // })
-        navigate("/basic");
+        navigate(`/Room/${roomNum}`);
       }
       // else if(isPrivate === true){
       //   //입장 가능한 방이니깐 버튼 활성화 & 버튼색 변경

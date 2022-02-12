@@ -72,6 +72,7 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
                 name="newnickname"
                 onChange={getNickname}
                 onKeyPress={entermodify}
+                maxLength="5"
               />
               &nbsp;
               {/* <div> */}

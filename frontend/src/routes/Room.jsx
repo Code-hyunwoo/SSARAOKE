@@ -8,7 +8,7 @@ import LightRope from "../components/roomin/LightRope";
 import ChangeMode from "../components/roomin/ChangeMode";
 import { useState } from "react";
 import Crazylights from "../components/roomin/Crazylights";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Controller from "../components/remote/Controller";
 import kurentoUtils from "kurento-utils";
 import { connect } from "react-redux";
@@ -94,7 +94,8 @@ function Room({ Nickname }) {
     const [chatArr, setChatArr] = useState([]);
   
     const name = { Nickname }.Nickname; //redux에 저장된 user nickname
-    const room = "1"; //redux에 저장된 room_seq
+    const {roomnum} = useParams()
+    const room = {roomnum}; //redux에 저장된 room_seq
 
     const [ transScreen, settransScreen] = useState(styles.ScreenBasic);
     const [ transCamBox, settransCamBox] = useState(styles.BasicCamBox);
@@ -323,7 +324,7 @@ function Room({ Nickname }) {
       var message = {
         id: "joinRoom",
         name: { Nickname }.Nickname,
-        room: "1",
+        room: room,
       };
       sendMessage(message);
     }
@@ -340,7 +341,6 @@ function Room({ Nickname }) {
     function sendChat(msg) {
       var chatMsg = msg;
       var name = { Nickname }.Nickname;
-      var room = "1";
       var message = {
         id: "sendChat",
         name: name, //내 이름

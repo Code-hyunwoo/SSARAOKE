@@ -166,7 +166,8 @@ function Desk({state}) {
         )
         .then((res) => {
           console.log(res);
-          navigate(`/${selected}`);
+          // navigate(`/${selected}`);
+          navigate(`/Room/${res.data.room_seq}`)
         });
     }
     // navigate(`/${selected}`)
@@ -210,6 +211,7 @@ function Desk({state}) {
                   className={styles.titleinput}
                   onChange={getTitle}
                   name="title"
+                  maxLength="12"
                 />
               </div>
 
