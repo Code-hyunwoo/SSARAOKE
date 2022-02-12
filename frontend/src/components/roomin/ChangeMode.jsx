@@ -10,6 +10,20 @@ function ChangeMode({ closeChangeMode,transformBasic,transformSolo,transformDuet
           <span>Select Mode</span>
         </div>
         <div className={styles.body}>
+<<<<<<< HEAD
+          <Link to="/basic" id={styles.modeLink}>
+            <button id={styles.modeButton}> Basic </button>
+          </Link>
+          <Link to="/free" id={styles.modeLink}>
+            <button id={styles.modeButton}> Free </button>
+          </Link>
+          <Link to="/solo" id={styles.modeLink}>
+            <button id={styles.modeButton}> Solo </button>
+          </Link>
+          <Link to="/duet" id={styles.modeLink}>
+            <button id={styles.modeButton}> duet </button>
+          </Link>
+=======
           <button id={styles.modeButton} onClick={transformBasic}>
               Basic
           </button>
@@ -22,6 +36,7 @@ function ChangeMode({ closeChangeMode,transformBasic,transformSolo,transformDuet
           <button id={styles.modeButton} onClick={transformDuet}>
               duet
           </button>
+>>>>>>> front
         </div>
         <div className={styles.footer}>
           <button id={styles.backButton} onClick={() => closeChangeMode(false)}>
