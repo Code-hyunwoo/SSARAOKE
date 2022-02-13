@@ -4,6 +4,7 @@ import { Modal } from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
+import swal from 'sweetalert2';
 
 function Desk({state}) {
   console.log(state);
@@ -61,7 +62,8 @@ function Desk({state}) {
     checkedTagsHandler(target.value, target.checked); //내가 클릭한 값, 내가 클릭한 값의 체크 여부(bchecked) set()함수에 넣고
     if (checkedTags.size === 5) {
       //set()함수에 4개를 넘으면
-      alert(`태그는 최대 4개까지 선택할 수 있습니다.`);
+      // alert(`태그는 최대 4개까지 선택할 수 있습니다.`);
+      selectTag();
       checkedTags.delete(target.value); //아까 들어간 값을 삭제
       setcheckedTags(checkedTags); //남은 4개가 다시 set()의 값
       console.log(checkedTags);
@@ -89,6 +91,9 @@ function Desk({state}) {
     console.log(selected);
   };
   //값을 바꾸는 것은 onChange!!!
+
+  const selectMode = selected;
+  console.log("mode: ", selectMode);
 
   //방 타입 -> checkedTags를 가져오면 됨. 이미 만들어 주셨음. 굿!
   //set으로는 백 전달 불가. 변경해줘야
@@ -135,11 +140,59 @@ function Desk({state}) {
   //방 생성 버튼을 누르면, 선택된 값들을 보내기 위해 & 방장 정보도 보내야
   const navigate = useNavigate(); //생성된 방으로 보내기 위해
 
+  //비밀번호 입력 경고창
+  const writePw = () => {
+    swal.fire({
+      title: '비밀번호를 입력하세요',
+      icon: 'warning',
+      confirmButtonColor: '#73E0C1',
+      confirmButtonText: '확인'
+    })
+    .then((result) => {
+      console.log("sweetalert", result);
+    })
+  }
+
+  const selectTag = () => {
+    swal.fire({
+      // title: "태그는 최대 4개까지 선택할 수 있습니다.",
+      text: "태그는 최대 4개까지 선택할 수 있습니다.",
+      icon: 'warning',
+      confirmButtonColor: '#73E0C1',
+      confirmButtonText: '확인'
+    })
+    .then((result) => {
+      console.log("sweetalert", result);
+    })
+  }
+
+  // const { value: accept } = await Swal.fire({
+  // const writePw = 
+  // swal.fire({
+  //   title: 'Terms and conditions',
+  //   input: 'checkbox',
+  //   inputValue: 1,
+  //   inputPlaceholder:
+  //     'I agree with the terms and conditions',
+  //   confirmButtonText:
+  //     'Continue <i class="fa fa-arrow-right"></i>',
+  //   inputValidator: (result) => {
+  //     return !result && 'You need to agree with T&C'
+  //   }
+  // })
+  
+  // if (accept) {
+  //   Swal.fire('You agreed with T&C :)')
+  // }
+
+
   //헤더에 토큰을 넣어서 보내는 역할
   const onCreateRoom = (e) => {
     if (value === true && roompw === "" && value!==false) {
       e.preventDefault();
-      alert(`비밀번호를 입력해 주세요`);
+      // alert(`비밀번호를 입력해 주세요`);
+      writePw();
+      // swal.fire('비밀번호를 입력해 주세요.');
     } else if (value === false || (value === true && roompw !== "")) {
       console.log("방 공개여부:", value);
       // const res = axios
@@ -150,7 +203,8 @@ function Desk({state}) {
             //post로 보낼 데이터
             title: roomTitle,
             tags: arrcheckedTags,
-            mode: selected,
+            // mode: selected,
+            mode: selectMode,
             // is_private: opened,
             // Private: opened,
             isPrivate: value,
