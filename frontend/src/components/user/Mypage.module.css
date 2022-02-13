@@ -6,7 +6,9 @@
   left: -59.5vh;
   top: 54vh;
 
+  padding: 0.2vh 0;
   background: #ffcd438f;
+  font-size: 2.3vh;
   /* background: rgba(228, 83, 21, 0.61); */
   border-radius: 1vw;
   font-family: "Cafe24SsurroundAir";

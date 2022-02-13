@@ -4,6 +4,7 @@ import { Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { actionCreators } from "../../store";
 import Styles from "./Mypage.module.css";
+import swal from 'sweetalert2';
 
 function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
   //변경할 닉네임값 받아오기
@@ -14,6 +15,35 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
     setNewnickname(e.target.value);
     console.log(newnickname);
   };
+
+  //동일 닉네임 입력 경고창
+  const sameNickname = () => {
+    swal.fire({
+      title: '동일 닉네임이 존재합니다.',
+      icon: 'error',
+      showConfirmButton: false,
+      // confirmButtonColor: '#73E0C1',
+      // confirmButtonText: '확인'
+      timer: 1500
+    })
+    .then((result) => {
+      console.log("sweetalert", result);
+    })
+  }
+  
+  const success = () => {
+    swal.fire({
+      title: '닉네임 수정 성공!',
+      icon: 'success',
+      showConfirmButton: false,
+      // confirmButtonColor: '#73E0C1',
+      // confirmButtonText: '확인'
+      timer: 1500
+    })
+    .then((result) => {
+      console.log("sweetalert", result);
+    })
+  }
 
   const onChangeNickname = () => {
     axios
@@ -33,15 +63,24 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
         }
       )
       .then((res) => {
-        DispatchmodifyNickname(newnickname);
-        onHide();
-        console.log(res);
+        if(res.status === 200){
+          DispatchmodifyNickname(newnickname);
+          onHide();
+          success();
+          // window.alert("닉네임 수정 성공!");
+        }
+        else{
+          // alert("동일 닉네임이 존재합니다.");
+        }
+        // console.log("then",res);
       })
-      .catch((res) => {
-        console.log(res);
+      .catch((arr) => {
+        // window.alert("동일 닉네임이 존재합니다.")
+        sameNickname();
       });
   };
 
+  //엔터로 입력가능하도록
   const entermodify = (e) => {
     if (e.key === "Enter") {
       onChangeNickname();
@@ -64,7 +103,7 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
           <Modal.Body>
             {/* <div style={{padding:'5px', textAlign:'center'}}> */}
             <div style={{ textAlign: "center" }}>
-              Nickname 수정 :{" "}
+              Nickname 수정 :{" "} <br/>
               <input
                 type="text"
                 style={{ left: "90vw" }}
@@ -76,6 +115,7 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
               />
               &nbsp;
               {/* <div> */}
+              
               <button
                 style={{
                   top: "20vh",

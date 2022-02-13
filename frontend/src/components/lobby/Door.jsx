@@ -3,18 +3,13 @@ import Styles from "./Door.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import closedImg from "./img/closed2.PNG";
-import openImg2 from "./img/openImg2.PNG";
 import openImg3 from "./img/openImg3.png";
-import openImg5 from "./img/openImg5.png";
-import openImg6 from "./img/openImg6.png";
-import openMic2 from "./img/openMic2.png";
-import lock from "./img/lock.png";
 import lock2 from "./img/lock2.png";
 import axios from "axios";
 import RoomPw from "./RoomPw";
 import { render } from "@testing-library/react";
 import { connect } from "react-redux";
-// import axios from "axios";
+import swal from 'sweetalert2';
 
 // function Door({ thumbnail = closedImg, title, hostname, usercnt = 0, tags }) {
 function Door({ thumbnail, title, user, current, tags, roomseq, isPrivate, mode, state }) {
@@ -41,6 +36,14 @@ function Door({ thumbnail, title, user, current, tags, roomseq, isPrivate, mode,
     if(thumbnail === null) setThum(closedImg);
   }
 
+  const [tagColor, setTagColor] = useState([]);
+
+  // 발라드 R&B K-POP 힙합 팝 트로트 인디 ROCK 댄스 7080 1990 2000 2010 2020
+  // if(tags.tag_name === "발라드"){
+  //   <span style={{color:"#000000"}}>tags.tag_name</span>
+  // }
+  
+
   //roomseq 넘기기 -> join버튼 활성화되면 값 들어감.
   const [roomNum, setRoomNum] = useState("");
   
@@ -54,9 +57,6 @@ function Door({ thumbnail, title, user, current, tags, roomseq, isPrivate, mode,
       setCreated(true);
       if(isPrivate === false){
         // setThum(thumbnail); //썸네일 생기면 이걸로 바꾸기
-        // setThum(openMic2);
-        // setThum(openImg3);
-        // setThum(openImg2);
         setThum(openImg3)
         // setThum(openImg5);
       }
@@ -74,10 +74,24 @@ function Door({ thumbnail, title, user, current, tags, roomseq, isPrivate, mode,
   console.log(roomseq, created);
   // console.log("태그 값:1번",tags[0].tag_name);
 
+    //방이 꽉찬 경우
+    const roomPull = () => {
+      swal.fire({
+        text: "방 정원이 초과되었습니다.",
+        icon: 'warning',
+        confirmButtonColor: '#73E0C1',
+        confirmButtonText: '확인'
+      })
+      .then((result) => {
+        console.log("sweetalert", result);
+      })
+    }
+
   //방에 들어가는 사용자 값
   const onJoinRoom= (e) => {
     if( current === 6){
-      alert('방에 자리가 없습니다.');
+      // alert('방에 자리가 없습니다.');
+      roomPull();
     }
     else if (0 < current < 6){
       //비번 있을떄 없을때
@@ -104,6 +118,7 @@ function Door({ thumbnail, title, user, current, tags, roomseq, isPrivate, mode,
         })
         .then((res) => {
           console.log(res);
+          console.log(res.data);
         });
         // axios
         // .post('https://i6a306.p.ssafy.io:8080/api/v1/lobby/enter', { 
@@ -170,13 +185,59 @@ function Door({ thumbnail, title, user, current, tags, roomseq, isPrivate, mode,
       </div>
 
       {/* 방태그 */}
+      {/* 발라드 R&B K-POP 힙합 팝 트로트 인디 ROCK 댄스 7080 1990 2000 2010 2020 */}
       <div className={Styles.tag}>
         {tags &&
           tags.map((tag) => {
+            if(tag.tag_name === "발라드"){
+               return <h style={{color:"#F9B208"}}>#{tag.tag_name} </h>
+            }
+            else if(tag.tag_name === "R&B"){
+              return <h style={{color:"#FFDA1A"}}>#{tag.tag_name} </h>
+            }
+            else if(tag.tag_name === "K-POP"){
+              return <h style={{color:"#73E0C1"}}>#{tag.tag_name} </h>
+            }
+            else if(tag.tag_name === "힙합"){
+              return <h style={{color:"#ED89B5"}}>#{tag.tag_name} </h>
+            }
+            else if(tag.tag_name === "팝"){
+              return <h style={{color:"#C445D9"}}>#{tag.tag_name} </h>
+            }
+            else if(tag.tag_name === "트로트"){
+              return <h style={{color:"#19F62F"}}>#{tag.tag_name} </h>
+            }
+            else if(tag.tag_name === "인디"){
+              return <h style={{color:"#FFF89A"}}>#{tag.tag_name} </h>
+            }
+            else if(tag.tag_name === "ROCK"){
+              return <h style={{color:"#9790F0"}}>#{tag.tag_name} </h>
+            }
+            else if(tag.tag_name === "댄스"){
+              return <h style={{color:"#FFD0D0"}}>#{tag.tag_name} </h>
+            }
+            else if(tag.tag_name === "7080"){
+              return <h style={{color:"#9EFFB9"}}>#{tag.tag_name} </h>
+            }
+            else if(tag.tag_name === "1990"){
+              return <h style={{color:"#D6195E"}}>#{tag.tag_name} </h>
+            }
+            else if(tag.tag_name === "2000"){
+              return <h style={{color:"#FF2BEA"}}>#{tag.tag_name} </h>
+            }
+            else if(tag.tag_name === "2010"){
+              return <h style={{color:"#FF0000"}}>#{tag.tag_name} </h>
+            }
+            else if(tag.tag_name === "2020"){
+              return <h style={{color:"#FF763C"}}>#{tag.tag_name} </h>
+            }
+          })}
+        {/* {tags &&
+          tags.map((tag) => {
             return `#${tag.tag_name} `;
-          })
-        }
-          </div>
+          })} */}
+
+      </div>
       {/* if문으로  */}
       {/* <Link to="/basic" className={Styles.joinlink}> */}
       <div className={Styles.joinlink}>
@@ -218,6 +279,7 @@ function Door({ thumbnail, title, user, current, tags, roomseq, isPrivate, mode,
             // onHide={() => setRoompwShow(false)} //모달 끌수있도록 -> 안먹음
             roomseq= {roomNum} //roomseq 넘기기
             state={state}
+            mode={mode}
           />
       </div>
       {/* </Link> */}

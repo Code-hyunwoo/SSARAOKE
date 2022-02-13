@@ -4,6 +4,7 @@ import { Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { actionCreators } from "../../store";
 import Styles from "./Mypage.module.css";
+import swal from 'sweetalert2';
 
 function Email({ show, onHide, state, DispatchmodifyEmail }) {
   // console.log(props);
@@ -16,6 +17,20 @@ function Email({ show, onHide, state, DispatchmodifyEmail }) {
     setNewemail(e.target.value);
     console.log(newemail);
   };
+
+  const success = () => {
+    swal.fire({
+      title: '이메일 수정 성공!',
+      icon: 'success',
+      showConfirmButton: false,
+      // confirmButtonColor: '#73E0C1',
+      // confirmButtonText: '확인'
+      timer: 1500
+    })
+    .then((result) => {
+      console.log("sweetalert", result);
+    })
+  }
 
   //변경한 이메일 값 보내기 & 버튼 누르면 창 닫기도록
   const onChangeEmail = () => {
@@ -37,6 +52,7 @@ function Email({ show, onHide, state, DispatchmodifyEmail }) {
       .then((res) => {
         DispatchmodifyEmail(newemail);
         onHide();
+        success();
         console.log(res);
       })
       .catch((res) => {
