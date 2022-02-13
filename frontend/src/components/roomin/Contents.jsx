@@ -8,7 +8,7 @@ function Contents({ closeContents, transformDuet}) {
         <div className={styles.title}>
           <span>Contents</span>
         </div>
-        <div className={styles.body}>
+        <div className={styles.body2}>
           <button id={styles.modeButton2} onClick={() => {
             transformDuet();
             closeContents(false)}}>
