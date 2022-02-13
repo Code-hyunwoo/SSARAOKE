@@ -4,7 +4,7 @@
         width: 50vw;
         height: 60vh;
         top: 20%;
-        left: 25%
+        left: 25%;
     }
   
   .fireworks {
@@ -31,9 +31,12 @@
     background-color: #ffffff;
     width: 4px;
     height: 0px;
-      will-change: transform;
-      transform: translateY(1000px);
-      animation: fireworkstart 3s ease-out;
+    position:fixed;
+
+    will-change: transform;
+    transform: translateY(1000px);
+    animation: fireworkstart 3s ease-out;
+    overflow: hidden;  
   }
   .fireworks .firework .explosion {
     position: absolute;
