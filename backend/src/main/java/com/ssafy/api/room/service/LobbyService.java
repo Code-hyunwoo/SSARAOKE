@@ -17,7 +17,7 @@ public interface LobbyService {
     boolean checkBanUser(User user, Long room_seq);
     long getRoomUserCount(LobbyEnterRequest lobbyEnterRequest);
     boolean checkPassword(LobbyEnterRequest lobbyEnterRequest);
-    void enterRoom(User user, LobbyEnterRequest lobbyEnterRequest);
+    Room enterRoom(User user, LobbyEnterRequest lobbyEnterRequest);
     List<LobbyResponse> searchRoom(String word);
     List<LobbyResponse> tagSearchRoom(String tag_name);
 }

@@ -44,6 +44,9 @@ public class Room extends BaseTimeEntity{
     @Column
     private String thumbnail_url;
 
+    @Column
+    private String mode;
+
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reservation> reservations = new ArrayList<Reservation>();
 
@@ -57,14 +60,14 @@ public class Room extends BaseTimeEntity{
     private List<User> users = new ArrayList<User>();
 
     @Builder
-    public Room(String title, boolean is_private, String password, Long owner_seq, String owner_nickname, String thumbnail_url){
+    public Room(String title, boolean is_private, String password, Long owner_seq, String owner_nickname, String thumbnail_url, String mode){
         this.title = title;
         this.is_private = is_private;
         this.password = password;
         this.owner_seq = owner_seq;
         this.owner_nickname = owner_nickname;
         this.thumbnail_url = thumbnail_url;
-
+        this.mode = mode;
     }
 
     public void setThumbnailUrl(String thumbnail_url){

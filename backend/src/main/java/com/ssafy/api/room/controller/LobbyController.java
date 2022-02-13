@@ -4,6 +4,7 @@ import com.ssafy.api.auth.resolver.Auth;
 import com.ssafy.api.room.dto.request.LobbyCreateRequest;
 import com.ssafy.api.room.dto.request.LobbyEnterRequest;
 import com.ssafy.api.room.dto.response.LobbyCreateResponse;
+import com.ssafy.api.room.dto.response.LobbyEnterResponse;
 import com.ssafy.api.room.dto.response.LobbyResponse;
 import com.ssafy.api.room.service.LobbyService;
 import com.ssafy.common.exception.CustomException;
@@ -40,7 +41,7 @@ public class LobbyController {
         // 방 생성 가능할 때
         log.error("is_private: {}", lobbyCreateRequest.isPrivate());
         Room room = lobbyService.createRoom(user, lobbyCreateRequest);
-            // 방장 입장
+        // 방장 입장
 //            lobbyService.enterRoom(user, new LobbyEnterRequest(room.getSeq(), lobbyCreateRequest.getPassword()));
         return ResponseEntity.ok().body(LobbyCreateResponse.of(room));
 
@@ -48,10 +49,10 @@ public class LobbyController {
 
     // 방 참가
     @PostMapping("/enter")
-    ResponseEntity<? extends BaseResponseBody> enterRoom(@Auth User user, @RequestBody LobbyEnterRequest lobbyEnterRequest) {
+    ResponseEntity<LobbyEnterResponse> enterRoom(@Auth User user, @RequestBody LobbyEnterRequest lobbyEnterRequest) {
         // 사용자 방 입장
-        lobbyService.enterRoom(user, lobbyEnterRequest);
-        return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
+        Room room = lobbyService.enterRoom(user, lobbyEnterRequest);
+        return ResponseEntity.ok().body(LobbyEnterResponse.of(room));
     }
 
     // 방 검색

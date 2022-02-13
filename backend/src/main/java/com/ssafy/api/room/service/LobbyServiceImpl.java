@@ -58,6 +58,7 @@ public class LobbyServiceImpl implements LobbyService {
                 .owner_seq(user.getSeq())
                 .owner_nickname(user.getNickname())
                 .thumbnail_url(null)
+                .mode(lobbyCreateRequest.getMode())
                 .build();
 
         roomRepository.save(room);
@@ -126,7 +127,7 @@ public class LobbyServiceImpl implements LobbyService {
 
     @Override
     @Transactional
-    public void enterRoom(User user, LobbyEnterRequest lobbyEnterRequest) {
+    public Room enterRoom(User user, LobbyEnterRequest lobbyEnterRequest) {
         // 존재하는 방인지 체크
         if (!existRoom(lobbyEnterRequest.getRoom_seq())) {
             throw new CustomException(ErrorCode.ROOM_NOT_FOUND);
@@ -148,6 +149,8 @@ public class LobbyServiceImpl implements LobbyService {
 
         // Room에 user추가, User에 room추가
         room.addUser(user);
+
+        return room;
     }
 
     @Override

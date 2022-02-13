@@ -18,4 +18,5 @@ public class LobbyCreateRequest {
     @JsonProperty
     private boolean isPrivate;
     private String password;
+    private String mode;
 }
