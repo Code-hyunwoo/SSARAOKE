@@ -4,6 +4,7 @@ import com.ssafy.api.auth.resolver.Auth;
 import com.ssafy.api.room.dto.request.LobbyCreateRequest;
 import com.ssafy.api.room.dto.request.LobbyEnterRequest;
 import com.ssafy.api.room.dto.response.LobbyCreateResponse;
+import com.ssafy.api.room.dto.response.LobbyEnterResponse;
 import com.ssafy.api.room.dto.response.LobbyResponse;
 import com.ssafy.api.room.service.LobbyService;
 import com.ssafy.common.exception.CustomException;
