@@ -10,7 +10,8 @@ import Styles from "./remote.module.css";
 import styles2 from "../roomin/Room.module.css";
 import axios from "axios";
 
-function Controller({ book, sendYTUrl, setOpenFirework }) {
+function Controller({ book, sendYTUrl, setOpenFirework, 
+  setstartDream, setstartGoodDay}) {
   const [show, setShow] = useState(false);
   const [booklist, setbookList] = useState(book);
   const startbookList = () => {
@@ -112,7 +113,10 @@ function Controller({ book, sendYTUrl, setOpenFirework }) {
                   <button className={Styles.songstart} onClick={startbookList}>
                     시작
                   </button>
-                  <button className={Styles.songdelete}>취소</button>
+                  <button className={Styles.songdelete} onClick={() => {
+                    setstartDream(false);
+                    setstartGoodDay(false);
+                    }}>취소</button>
                   {/* 녹화 시작/중지 */}
                   <Record />
                   {/* 노래 예약, 삭제, 목록 */}

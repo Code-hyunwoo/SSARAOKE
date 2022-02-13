@@ -15,6 +15,8 @@ import kurentoUtils from "kurento-utils";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import Firework from "../components/remote/Firework";
+import Dream from "../components/roomin/Dream";
+import GoodDay from "../components/roomin/GoodDay";
 
 ////////////////////////////////////////////////////////////participants
 var participants = {};
@@ -105,6 +107,8 @@ function Room({ Nickname }) {
     const [ transChatBox, settransChatBox] = useState(styles.BasicChatBox);
     const [ transChat, settransChat] = useState(styles.BasicChat);
     const [ nowMode, setnowMode] = useState('Basicmode');
+    const [startDream, setstartDream] = useState(false);
+    const [startGoodDay, setstartGoodDay] = useState(false);
 
     function transformBasic() {
         settransScreen(styles.ScreenBasic);
@@ -471,6 +475,9 @@ function Room({ Nickname }) {
         nextMusic={nextMusic}
       />
       {openFirework && <Firework/>}
+      {startDream && <Dream setstartDream={setstartDream}/>}
+      {startGoodDay && <GoodDay setstartGoodDay={setstartGoodDay}/>}
+      
       <div className={transCamBox}>
         <div id="participants"></div>
       </div>
@@ -489,7 +496,10 @@ function Room({ Nickname }) {
         {nowMode === 'Solomode' && <Button text={"Singer"} getOnClick={solosinger} />}
         {nowMode === 'Duetmode' && <Button text={"Singer1"} getOnClick={duetsinger} />}
         {nowMode === 'Duetmode' && <Button text={"Singer2"} getOnClick={duetsinger2} />}
-        <Controller book={bookList} sendYTUrl={sendYTUrl} setOpenFirework={setOpenFirework}/>
+        
+        
+        <Controller book={bookList} sendYTUrl={sendYTUrl} setOpenFirework={setOpenFirework}
+        setstartDream={setstartDream} setstartGoodDay={setstartGoodDay}/>
         <button
           className={(styles.btn, styles.neon)}
           onClick={() => {
@@ -502,6 +512,8 @@ function Room({ Nickname }) {
         {openContents && <Contents
         closeContents={setOpenContents}
         transformDuet={transformDuet}
+        setstartDream={setstartDream}
+        setstartGoodDay={setstartGoodDay}
         />}
         <button
           className={(styles.btn, styles.neon)}

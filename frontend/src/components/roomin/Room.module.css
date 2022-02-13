@@ -214,6 +214,7 @@
   bottom: 29vh;
   right: 25.5vw;
   /* border: 0.3vw solid #ffce43; */
+  /* background-color: #00f7a5; */
 }
 
 .duetSingercam > video {
@@ -237,6 +238,7 @@
   bottom: 29vh;
   right: 3.5vw;
   /* border: 0.3vw solid #ffce43; */
+  /* background-color: #00f7a5; */
 }
 
 .duetSingercam2 > video {
@@ -250,6 +252,28 @@
   0 0 2rem #ffffff, 
   inset 0 0 0.8rem #ffffff;
 }
+
+#contentsdiv{
+  position: absolute;
+}
+
+#duetContents > video {
+  position: absolute !important;
+  width: 22vw !important;
+  height: auto !important;
+  border-radius: 1vw;
+  top: 22vh;
+  left: 50vw;
+  border: 0.3vw solid #ffffff;
+  box-shadow: 
+  0 0 0.1rem #fff, 
+  0 0 0.1rem #fff, 
+  0 0 0.1rem #fff,
+  0 0 0.4rem #ffffff, 
+  0 0 2rem #ffffff, 
+  inset 0 0 0.8rem #ffffff;
+}
+
 
 
 

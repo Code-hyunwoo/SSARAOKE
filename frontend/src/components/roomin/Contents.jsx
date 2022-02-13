@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./Button.module.css";
 
-function Contents({ closeContents, transformDuet}) {
+function Contents({ closeContents, transformDuet, setstartDream, setstartGoodDay}) {
+
+  
   return (
     <div className={styles.ChangeModeBackground}>
       <div className={styles.ChangeModeContainer}>
@@ -11,19 +13,19 @@ function Contents({ closeContents, transformDuet}) {
         <div className={styles.body2}>
           <button id={styles.modeButton2} onClick={() => {
             transformDuet();
-            closeContents(false)}}>
+            closeContents(false);
+            setstartDream(true);
+            }}>
               Dream (With 백현)
           </button>
           <button id={styles.modeButton2} onClick={() => {
             transformDuet();
-            closeContents(false)}}>
+            closeContents(false);
+            setstartGoodDay(true);
+            }}>
              좋은날 (With 아이유)
           </button>
-          <button id={styles.modeButton2} onClick={() => {
-            transformDuet();
-            closeContents(false)}}>
-              사랑의 배터리 (With 홍진영)
-          </button>
+          
          
         </div>
         <div className={styles.footer}>
