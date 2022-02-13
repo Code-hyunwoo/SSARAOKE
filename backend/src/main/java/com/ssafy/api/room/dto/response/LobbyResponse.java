@@ -19,9 +19,10 @@ public class LobbyResponse {
     private String title;
     private int current;
     private List<Tag> tagList;
-    public String owner_nickname;
-    public boolean isPrivate;
-    public String thumbnail_url;
+    private String owner_nickname;
+    private boolean isPrivate;
+    private String thumbnail_url;
+    private String mode;
 
     public static List<LobbyResponse> of(List<Room> rooms) {
         List<LobbyResponse> list = new ArrayList<LobbyResponse>();
@@ -33,7 +34,7 @@ public class LobbyResponse {
     }
 
     public static LobbyResponse of(Room room, int current, List<Tag> tagList){
-        return new LobbyResponse(room.getSeq(), room.getTitle(), current, tagList, room.getOwner_nickname(), room.is_private(), room.getThumbnail_url());
+        return new LobbyResponse(room.getSeq(), room.getTitle(), current, tagList, room.getOwner_nickname(), room.is_private(), room.getThumbnail_url(), room.getMode());
     }
 
 }
