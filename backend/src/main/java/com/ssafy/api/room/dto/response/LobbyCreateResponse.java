@@ -13,8 +13,9 @@ import java.util.List;
 public class LobbyCreateResponse {
     private Long room_seq;
     private String title;
+    private String mode;
 
     public static LobbyCreateResponse of(Room room) {
-        return new LobbyCreateResponse(room.getSeq(), room.getTitle());
+        return new LobbyCreateResponse(room.getSeq(), room.getTitle(), room.getMode());
     }
 }
