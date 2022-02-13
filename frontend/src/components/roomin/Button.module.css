@@ -1,4 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Oregano&display=swap");
+@font-face {
+  font-family: "ROKAFSansBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSansBold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 .ChangeModeBackground {
   width: 90vw;
@@ -29,7 +37,7 @@
   text-align: center;
   margin-top: 10px;
   color: white;
-  font-size: 5.8vw;
+  font-size: 5.5vw;
   font-weight: bold;
   font-family: "Oregano", cursive;
 }
@@ -39,6 +47,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+
+.ChangeModeContainer .body2 {
+  flex: 50vh;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
   text-align: center;
 }
 
@@ -56,6 +72,16 @@
   font-family: "Oregano", cursive;
   font-size: 5vh;
   font-weight: bold;
+  border-radius: 20px;
+}
+
+#modeButton2 {
+  width: 35vw;
+  height: 7vh;
+  background-color: #fff89a;
+  font-family: "ROKAFSansBold";
+  font-size: 4vh;
+  /* font-weight: bold; */
   border-radius: 20px;
 }
 
