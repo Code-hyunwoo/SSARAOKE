@@ -5,7 +5,7 @@ import './App.css';
 import UserVideoComponent from './UserVideoComponent';
 
 const OPENVIDU_SERVER_URL = 'https://i6a306.p.ssafy.io';
-const OPENVIDU_SERVER_SECRET = 'MY_SECRET';
+const OPENVIDU_SERVER_SECRET = 'qwer1234';
 function sendMessage(data){
     this.state.session.signal(data)
     .then(() => {
@@ -35,7 +35,7 @@ class App extends Component {
         this.leaveSession = this.leaveSession.bind(this);
         this.handleChangeSessionId = this.handleChangeSessionId.bind(this);
         this.handleChangeUserName = this.handleChangeUserName.bind(this);
-        this.handleMainVideoStream = this.handleMainVideoStream.bind(this);
+        // this.handleMainVideoStream = this.handleMainVideoStream.bind(this);
         this.onbeforeunload = this.onbeforeunload.bind(this);
     }
 
@@ -65,13 +65,13 @@ class App extends Component {
         });
     }
 
-    handleMainVideoStream(stream) {
-        if (this.state.mainStreamManager !== stream) {
-            this.setState({
-                mainStreamManager: stream
-            });
-        }
-    }
+    // handleMainVideoStream(stream) {
+    //     if (this.state.mainStreamManager !== stream) {
+    //         this.setState({
+    //             mainStreamManager: stream
+    //         });
+    //     }
+    // }
 
     deleteSubscriber(streamManager) {
         let subscribers = this.state.subscribers;
@@ -205,14 +205,9 @@ class App extends Component {
             <div className="container">
                 {this.state.session === undefined ? (
                     <div id="join">
-                        <div id="img-div">
-                            <img src="resources/images/openvidu_grey_bg_transp_cropped.png" alt="OpenVidu logo" />
-                        </div>
-                        <div id="join-dialog" className="jumbotron vertical-center">
-                            <h1> Join a video session </h1>
+                        
                             <form className="form-group" onSubmit={this.joinSession}>
                                 <p>
-                                    <label>Participant: </label>
                                     <input
                                         className="form-control"
                                         type="text"
@@ -223,7 +218,6 @@ class App extends Component {
                                     />
                                 </p>
                                 <p>
-                                    <label> Session: </label>
                                     <input
                                         className="form-control"
                                         type="text"
@@ -237,7 +231,6 @@ class App extends Component {
                                     <input className="btn btn-lg btn-success" name="commit" type="submit" value="JOIN" />
                                 </p>
                             </form>
-                        </div>
                     </div>
                 ) : null}
 
@@ -253,21 +246,21 @@ class App extends Component {
                                 value="Leave session"
                             />
                         </div>
-
-                        {this.state.mainStreamManager !== undefined ? (
+                        {/*mainStreamManager(화면에 크게 뜨는 애 지워버림) */}
+                        {/* {this.state.mainStreamManager !== undefined ? (
                             <div id="main-video" className="col-md-6">
                                 <UserVideoComponent streamManager={this.state.mainStreamManager} />
                             </div>
-                        ) : null}
+                        ) : null} */}
                         <div id="video-container" className="col-md-6">
                             {this.state.publisher !== undefined ? (
-                                <div className="stream-container col-md-6 col-xs-6" onClick={() => this.handleMainVideoStream(this.state.publisher)}>
+                                <div className="stream-container col-md-6 col-xs-6">
                                     <UserVideoComponent
                                         streamManager={this.state.publisher} />
                                 </div>
                             ) : null}
                             {this.state.subscribers.map((sub, i) => (
-                                <div key={i} className="stream-container col-md-6 col-xs-6" onClick={() => this.handleMainVideoStream(sub)}>
+                                <div key={i} className="stream-container col-md-6 col-xs-6">
                                     <UserVideoComponent streamManager={sub} />
                                 </div>
                             ))}
