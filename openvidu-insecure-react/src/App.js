@@ -3,22 +3,14 @@ import { OpenVidu } from 'openvidu-browser';
 import React, { Component } from 'react';
 import './App.css';
 import UserVideoComponent from './UserVideoComponent';
+import { useState } from 'react';
 
 const OPENVIDU_SERVER_URL = 'https://i6a306.p.ssafy.io';
 const OPENVIDU_SERVER_SECRET = 'qwer1234';
-function sendMessage(data){
-    this.state.session.signal(data)
-    .then(() => {
-        console.log('Message successfully sent');
-    })
-    .catch(error => {
-        console.error(error);
-    });
-}
-
 
 
 class App extends Component {
+
     constructor(props) {
         super(props);
 
@@ -26,7 +18,7 @@ class App extends Component {
             mySessionId: 'SessionA',
             myUserName: 'Participant' + Math.floor(Math.random() * 100),
             session: undefined,
-            mainStreamManager: undefined,
+            // mainStreamManager: undefined,
             publisher: undefined,
             subscribers: [],
         };
@@ -37,6 +29,12 @@ class App extends Component {
         this.handleChangeUserName = this.handleChangeUserName.bind(this);
         // this.handleMainVideoStream = this.handleMainVideoStream.bind(this);
         this.onbeforeunload = this.onbeforeunload.bind(this);
+
+        this.sendMessage = this.sendMessage.bind(this);
+        this.sendYTUrl = this.sendYTUrl.bind(this);
+        this.audioMute = this.audioMute.bind(this);
+        this.videoMute = this.videoMute.bind(this);
+        
     }
 
     
@@ -100,6 +98,17 @@ class App extends Component {
 
                 // --- 3) Specify the actions when events take place in the session ---
 
+                // my-chat
+                mySession.on('signal:my-chat', (event) => {
+                    // console.log(event.data); // Message
+                    // console.log(event.from); // Connection object of the sender
+                    // console.log(event.type); // The type of message ("my-chat")
+                    console.log('[ReceiveMessage]' + event.data);
+                });
+                mySession.on('signal:YTUrl', (event) => {
+                    console.log('[ReceiveURL]' + event.data);
+                });
+
                 // On every new Stream received...
                 mySession.on('streamCreated', (event) => {
                     // Subscribe to the Stream to receive it. Second parameter is undefined
@@ -161,7 +170,7 @@ class App extends Component {
 
                             // Set the main video in the page to display our webcam and store our Publisher
                             this.setState({
-                                mainStreamManager: publisher,
+                                // mainStreamManager: publisher,
                                 publisher: publisher,
                             });
                         })
@@ -173,7 +182,48 @@ class App extends Component {
         );
     }
 
-    
+    sendMessage(){
+        console.log('[sendMessage] 이것은 채ㅣㅌㅇ임');
+        const mySession = this.state.session;
+        mySession.signal({
+            data: '이것은 채팅임',  // Any string (optional)
+            to: [],                     // Array of Connection objects (optional. Broadcast to everyone if empty)
+            type: 'my-chat'             // The type of message (optional)
+          })
+          .then(() => {
+              console.log('Message successfully sent');
+          })
+          .catch(error => {
+              console.error(error);
+          });
+    }
+
+
+    sendYTUrl(){
+        console.log('[sendYTUrl] 이것은 유튜브');
+        const mySession = this.state.session;
+        mySession.signal({
+            data: '이것은 유튜브',  // Any string (optional)
+            to: [],                     // Array of Connection objects (optional. Broadcast to everyone if empty)
+            type: 'YTUrl'             // The type of message (optional)
+          })
+          .then(() => {
+              console.log('Url successfully sent');
+          })
+          .catch(error => {
+              console.error(error);
+          });
+    }
+
+    audioMute(){
+        const me = this.state.publisher;
+        me.publishAudio(false); 
+    }
+    videoMute(){
+        const me = this.state.publisher;
+        me.publishVideo(false); 
+    }
+
 
     leaveSession() {
 
@@ -192,7 +242,7 @@ class App extends Component {
             subscribers: [],
             mySessionId: 'SessionA',
             myUserName: 'Participant' + Math.floor(Math.random() * 100),
-            mainStreamManager: undefined,
+            // mainStreamManager: undefined,
             publisher: undefined
         });
     }
@@ -203,9 +253,9 @@ class App extends Component {
 
         return (
             <div className="container">
+                {/* 세션이 없으면 생김 state로 세션 감지 */}
                 {this.state.session === undefined ? (
                     <div id="join">
-                        
                             <form className="form-group" onSubmit={this.joinSession}>
                                 <p>
                                     <input
@@ -228,12 +278,13 @@ class App extends Component {
                                     />
                                 </p>
                                 <p className="text-center">
-                                    <input className="btn btn-lg btn-success" name="commit" type="submit" value="JOIN" />
+                                    <input  name="commit" type="submit" value="JOIN" />
                                 </p>
                             </form>
                     </div>
                 ) : null}
 
+                {/* 세션이 생기면 생김 */}
                 {this.state.session !== undefined ? (
                     <div id="session">
                         <div id="session-header">
@@ -245,6 +296,10 @@ class App extends Component {
                                 onClick={this.leaveSession}
                                 value="Leave session"
                             />
+                            <button type='text' defaultValue={'채팅'} onClick={this.sendMessage}>채팅</button>
+                            <button type='text' defaultValue={'유튜브'} onClick={this.sendYTUrl}>유튭</button>
+                            <button type='text' defaultValue={'마이크'} onClick={this.audioMute}>마이크</button>
+                            <button type='text' defaultValue={'캠'} onClick={this.videoMute}>캠</button>
                         </div>
                         {/*mainStreamManager(화면에 크게 뜨는 애 지워버림) */}
                         {/* {this.state.mainStreamManager !== undefined ? (
@@ -345,6 +400,9 @@ class App extends Component {
                 .catch((error) => reject(error));
         });
     }
+
+
+
 }
 
 export default App;

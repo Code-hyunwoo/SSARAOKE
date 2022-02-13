@@ -3,66 +3,10 @@ html {
 	min-height: 100%;
 }
 
-nav {
-	height: 50px;
-	width: 100%;
-	z-index: 1;
-	background-color: #4d4d4d !important;
-	border-color: #4d4d4d !important;
-	border-top-right-radius: 0 !important;
-	border-top-left-radius: 0 !important;
-}
 
-.navbar-header {
-	width: 100%;
-}
-
-.nav-icon {
-	padding: 5px 15px 5px 15px;
-	float: right;
-}
-
-nav a {
-	color: #ccc !important;
-}
-
-nav i.fa {
-	font-size: 40px;
-	color: #ccc;
-}
-
-nav a:hover {
-	color: #a9a9a9 !important;
-}
-
-nav i.fa:hover {
-	color: #a9a9a9;
-}
 
 #main-container {
 	padding-bottom: 80px;
-}
-
-.vertical-center {
-	position: absolute;
-	top: 56%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.horizontal-center {
-	margin: 0 auto;
-}
-
-.form-control {
-	color: #0088aa;
-	font-weight: bold;
-}
-
-.form-control:focus {
-	border-color: #0088aa;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(0, 136, 170, 0.6);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(0, 136, 170, 0.6);
 }
 
 input.btn {
@@ -83,86 +27,6 @@ input.btn {
 	border-color: #1abd61;
 }
 
-.footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 60px;
-	background-color: #4d4d4d;
-}
-
-.footer .text-muted {
-	margin: 20px 0;
-	float: left;
-	color: #ccc;
-}
-
-.openvidu-logo {
-	height: 35px;
-	float: right;
-	margin: 12px 0;
-	-webkit-transition: all 0.1s ease-in-out;
-	-moz-transition: all 0.1s ease-in-out;
-	-o-transition: all 0.1s ease-in-out;
-	transition: all 0.1s ease-in-out;
-}
-
-.openvidu-logo:hover {
-	-webkit-filter: grayscale(0.5);
-	filter: grayscale(0.5);
-}
-
-.demo-logo {
-	margin: 0;
-	height: 22px;
-	float: left;
-	padding-right: 8px;
-}
-
-a:hover .demo-logo {
-	-webkit-filter: brightness(0.7);
-	filter: brightness(0.7);
-}
-
-#join-dialog h1 {
-	color: #4d4d4d;
-	font-weight: bold;
-	text-align: center;
-}
-
-#img-div {
-	text-align: center;
-	position: absolute;
-	top: 19%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-#img-div img {
-    height: 15%;
-    width: 42.5%;
-}
-
-#join-dialog label {
-	color: #0088aa;
-}
-
-#join-dialog input.btn {
-	margin-top: 15px;
-}
-
-#session-header {
-	margin-bottom: 20px;
-}
-
-#session-title {
-	display: inline-block;
-}
-
-#buttonLeaveSession {
-	float: right;
-	margin-top: 20px;
-}
 
 #video-container video {
 	position: relative;
