@@ -6,6 +6,7 @@ import Button from "../components/roomin/Button";
 import MirrorBall from "../components/roomin/MirrorBall";
 import LightRope from "../components/roomin/LightRope";
 import ChangeMode from "../components/roomin/ChangeMode";
+import Contents from "../components/roomin/Contents";
 import { useState } from "react";
 import Crazylights from "../components/roomin/Crazylights";
 import { Link, useParams } from "react-router-dom";
@@ -82,6 +83,7 @@ function Room({ Nickname }) {
     
 
     const [openChangeMode, setOpenChangeMode] = useState(false);
+    const [openContents, setOpenContents] = useState(false);
     const [openFirework, setOpenFirework] =useState(false);
     const practice = [
       "https://www.youtube.com/watch?v=Xk7_eEx58ds",
@@ -488,7 +490,19 @@ function Room({ Nickname }) {
         {nowMode === 'Duetmode' && <Button text={"Singer1"} getOnClick={duetsinger} />}
         {nowMode === 'Duetmode' && <Button text={"Singer2"} getOnClick={duetsinger2} />}
         <Controller book={bookList} sendYTUrl={sendYTUrl} setOpenFirework={setOpenFirework}/>
-        <Button text={"컨텐츠"} />
+        <button
+          className={(styles.btn, styles.neon)}
+          onClick={() => {
+            setOpenContents(true);
+          }}
+        >
+          {" "}
+          컨텐츠{" "}
+        </button>
+        {openContents && <Contents
+        closeContents={setOpenContents}
+        transformDuet={transformDuet}
+        />}
         <button
           className={(styles.btn, styles.neon)}
           onClick={() => {
