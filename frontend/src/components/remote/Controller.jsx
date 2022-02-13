@@ -30,6 +30,12 @@ function Controller({ book, sendYTUrl, setOpenFirework }) {
     // sendMessage(message);
   };
 
+  // 리모콘 끄기
+  function hideControl(){
+    setShow(false)
+  }
+
+
   // 노래 검색 기능
   const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
   const [searchitem, setSearchitem] = useState("");
@@ -69,9 +75,6 @@ function Controller({ book, sendYTUrl, setOpenFirework }) {
         show={show}
         onHide={() => {
           setShow(false);
-          setTimeout(function () {
-            setOpenFirework(false);
-          }, 5000);
         }}
         size="xl"
         dialogClassName="modal-90w"
@@ -100,7 +103,7 @@ function Controller({ book, sendYTUrl, setOpenFirework }) {
               <div className={Styles.remotepage}>
                 {/* 기타 효과 - 템포, 에코, 음성, 조명, 필터, 박수 북, 폭죽, 좋아요 등  */}
                 <div className={Styles.effectpage}>
-                  <Effect setOpenFirework={setOpenFirework} />
+                  <Effect setOpenFirework={setOpenFirework} hideControl={hideControl} />
                 </div>
                 {/* 노래 관련 버튼 */}
                 <div>
