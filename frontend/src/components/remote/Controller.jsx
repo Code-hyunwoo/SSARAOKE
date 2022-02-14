@@ -63,16 +63,6 @@ function Controller({ book, sendYTUrl, setOpenFirework }) {
     setSearchresult([]);
   };
 
-  const getCheckedValue = () => {
-    const query = 'input[name="songbook"]:checked';
-    const selected = document.querySelectorAll(query);
-
-    let result = "";
-    selected.forEach((el) => {
-      result += el.value + " ";
-    });
-  };
-
   // const data = {
   //   kind: "youtube#searchListResponse",
   //   etag: "0SZ6QR7l7X3nwKms_f5nqzbR78w",
@@ -319,9 +309,7 @@ function Controller({ book, sendYTUrl, setOpenFirework }) {
                   {/* 노래 예약, 삭제, 목록 */}
                   <div>
                     <button className={Styles.booklist}>예약 목록</button>
-                    <button className={Styles.book} onClick={getCheckedValue}>
-                      예약
-                    </button>
+                    <button className={Styles.book}>예약</button>
                   </div>
                 </div>
               </div>

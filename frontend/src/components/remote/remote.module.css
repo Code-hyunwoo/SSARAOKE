@@ -73,7 +73,7 @@
 
 /* 검색 내용 나오는 창 */
 .searchcontent {
-  display: flex;
+  /* display: flex; */
   position: absolute;
   width: 40.5vw;
   height: 32vh;
@@ -83,9 +83,10 @@
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 30px;
-  font-size: 1vw;
   overflow: auto;
   padding: 5px;
+  font-size: 15px;
+  white-space: nowrap;
 }
 
 /* 좋아요 체크버튼 */
