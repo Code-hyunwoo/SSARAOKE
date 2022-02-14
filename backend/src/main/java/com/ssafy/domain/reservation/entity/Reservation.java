@@ -24,19 +24,15 @@ public class Reservation {
     private Room room;
 
     @Column
-    private int song_no;
+    private String song_no;
 
     @Column(name = "song_title")
     private String title;
 
-    @Column
-    private String artist;
-
     @Builder
-    public Reservation(Room room, int song_no, String title, String artist){
+    public Reservation(Room room, String song_no, String title){
         this.room = room;
         this.song_no = song_no;
         this.title = title;
-        this.artist = artist;
     }
 }

@@ -11,7 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ReservationAddRequest {
     private Long room_seq;
-    private int song_no;
+    private String song_no;
     private String title;
-    private String artist;
 }

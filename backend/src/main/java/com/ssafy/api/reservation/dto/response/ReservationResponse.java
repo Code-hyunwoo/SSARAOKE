@@ -15,9 +15,8 @@ import java.util.List;
 @AllArgsConstructor
 public class ReservationResponse {
     private long reservation_seq;
-    private int song_no;
+    private String song_no;
     private String song_title;
-    private String artist;
 
     public static List<ReservationResponse> of(List<Reservation> reservations) {
         List<ReservationResponse> list = new ArrayList<ReservationResponse>();
@@ -28,6 +27,6 @@ public class ReservationResponse {
     }
 
     private static ReservationResponse of(Reservation reservation) {
-        return new ReservationResponse(reservation.getSeq(), reservation.getSong_no(), reservation.getTitle(), reservation.getArtist());
+        return new ReservationResponse(reservation.getSeq(), reservation.getSong_no(), reservation.getTitle());
     }
 }

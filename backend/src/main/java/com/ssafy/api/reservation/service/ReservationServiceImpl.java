@@ -32,7 +32,6 @@ public class ReservationServiceImpl implements ReservationService {
                 .room(room)
                 .song_no(reservationAddRequest.getSong_no())
                 .title(reservationAddRequest.getTitle())
-                .artist(reservationAddRequest.getArtist())
                 .build();
         reservationRepository.save(reservation);
         return getReservationList(room.getSeq());
