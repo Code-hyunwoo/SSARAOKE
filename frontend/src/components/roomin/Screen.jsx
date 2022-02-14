@@ -1,6 +1,6 @@
 import styles from "./Room.module.css";
 import ReactPlayer from "react-player";
-import ScoreSound from "./video/Score.mp3";
+import ScoreSound from "./audio/Score.mp3";
 
 
 
