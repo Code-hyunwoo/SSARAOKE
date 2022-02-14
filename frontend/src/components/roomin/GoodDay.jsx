@@ -1,7 +1,5 @@
 import styles from "./Room.module.css";
 import ReactPlayer from "react-player";
-import IU from "./video/IU.mp4";
-import GoodDayMv from "./video/GoodDay.mp4";
 
 
 
@@ -16,14 +14,14 @@ function GoodDay({setstartGoodDay}) {
         <div id={styles.contentsdiv}>
             <ReactPlayer 
             id={styles.ScreenDuet} 
-            url={GoodDayMv}
+            url={'https://ssaraoke.s3.ap-northeast-2.amazonaws.com/duet/KakaoTalk_20220214_133835329.mp4'}
             playing={true}
             muted={true}
             controls={false}
             />
             <ReactPlayer 
             id={styles.duetContents} 
-            url={IU}
+            url={'https://ssaraoke.s3.ap-northeast-2.amazonaws.com/duet/KakaoTalk_20220214_133809960.mp4'}
             playing={true}
             muted={false}
             controls={false}

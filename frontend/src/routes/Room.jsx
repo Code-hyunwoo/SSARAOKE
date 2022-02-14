@@ -17,6 +17,7 @@ import { useEffect } from "react";
 import Firework from "../components/remote/Firework";
 import Dream from "../components/roomin/Dream";
 import GoodDay from "../components/roomin/GoodDay";
+import ScoreBoard from "../components/roomin/ScoreBoard";
 
 ////////////////////////////////////////////////////////////participants
 var participants = {};
@@ -107,8 +108,9 @@ function Room({ Nickname }) {
     const [ transChatBox, settransChatBox] = useState(styles.BasicChatBox);
     const [ transChat, settransChat] = useState(styles.BasicChat);
     const [ nowMode, setnowMode] = useState('Basicmode');
-    const [startDream, setstartDream] = useState(false);
-    const [startGoodDay, setstartGoodDay] = useState(false);
+    const [ startDream, setstartDream] = useState(false);
+    const [ startGoodDay, setstartGoodDay] = useState(false);
+    const [ startScoreBoard, setstartScoreBoard] = useState(false);
 
     function transformBasic() {
         settransScreen(styles.ScreenBasic);
@@ -473,10 +475,12 @@ function Room({ Nickname }) {
         mode={transScreen}
         now={nowPlaymusic}
         nextMusic={nextMusic}
+        setstartScoreBoard={setstartScoreBoard}
       />
       {openFirework && <Firework/>}
-      {startDream && <Dream setstartDream={setstartDream}/>}
+      {startDream && <Dream setstartDream={setstartDream} setstartScoreBoard={setstartScoreBoard}/>}
       {startGoodDay && <GoodDay setstartGoodDay={setstartGoodDay}/>}
+      {startScoreBoard && <ScoreBoard setstartScoreBoard={setstartScoreBoard} />}
       
       <div className={transCamBox}>
         <div id="participants"></div>
