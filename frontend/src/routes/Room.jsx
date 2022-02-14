@@ -49,7 +49,6 @@ function Room({ Nickname }) {
     const [ transChat, settransChat] = useState(styles.BasicChat);
     const [ nowMode, setnowMode] = useState('Basicmode');
 
-    const [ mySessionId, setmySessionId] = useState('Room1');
     // const [ myUserName, setmyUserName] = useState({ Nickname }.Nickname);//Nickname으로 쓰임
     const [ session, setsession] = useState(undefined);
     const [ publisher, setpublisher] = useState(undefined);
@@ -260,7 +259,6 @@ function Room({ Nickname }) {
       setOV(undefined);
       setsession(undefined);
       setsubscribers([]);
-      setmySessionId('');
       setpublisher(undefined);
     }
     function sendMessage(type, data){
@@ -320,7 +318,7 @@ function Room({ Nickname }) {
     }
 
     function getToken() {
-        return createSession(mySessionId).then((sessionId) => createToken(sessionId));
+        return createSession(room).then((sessionId) => createToken(sessionId));
     }
 
   function createSession(sessionId) {
