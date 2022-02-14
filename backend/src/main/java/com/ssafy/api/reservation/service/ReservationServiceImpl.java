@@ -33,8 +33,9 @@ public class ReservationServiceImpl implements ReservationService {
                 .orElseThrow(()->new CustomException(ErrorCode.ROOM_NOT_FOUND));
         String newTitle = reservationAddRequest.getTitle().replace(TJ_PREFIX, "");
         newTitle = newTitle.replace(TJ_POSTFIX, "");
-        newTitle = newTitle.replace("[]", "");  //[TJ노래방]이었다면 []만 남아있을 테니까 삭제
-        newTitle = newTitle.replace("/", "");
+        newTitle = newTitle.replace("[] ", "");  //[TJ노래방]이었다면 []만 남아있을 테니까 삭제
+        newTitle = newTitle.replace("  /", "");   //[  /반키내림]이었다면
+
         Reservation reservation = Reservation.builder()
                 .room(room)
                 .song_no(reservationAddRequest.getSong_no())
