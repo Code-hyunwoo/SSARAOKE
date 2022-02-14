@@ -55,7 +55,8 @@ function Room({ state }) {
     const [ publisher, setpublisher] = useState(undefined);
     const [ subscribers, setsubscribers] = useState([]);
     const [OV, setOV] = useState(undefined);
-    
+    const [gsfilter, setgsfilter] = useState(false);
+  
     function transformBasic() {
         settransScreen(styles.ScreenBasic);
         settransCamBox(styles.BasicCamBox);
@@ -358,6 +359,45 @@ function Room({ state }) {
       }
   }
 
+  function voiceFilterEcho() {
+    const me = publisher;
+    if (!gsfilter) {
+      setgsfilter(true);
+        me.stream.applyFilter("GStreamerFilter", { command: "audioecho delay=50000000 intensity=0.7 feedback=0.5" });
+        console.log("에코 추가");
+    } else {
+        setgsfilter(false);
+        me.stream.removeFilter()
+        console.log("에코 제거");
+    }
+}
+
+function voiceFilterMegaPhone() {
+    const me = publisher;
+    if (!gsfilter) {
+        setgsfilter(true);
+        me.stream.applyFilter("GStreamerFilter", { command:  "audioamplify amplification=1.7"});
+        console.log("확성기 추가");
+    } else {
+        setgsfilter(false);
+        me.stream.removeFilter()
+        console.log("확성기 제거");
+    }
+}
+
+function voiceFilterModulation() {
+    const me = publisher;
+    if (!gsfilter) {
+        setgsfilter(true);
+        me.stream.applyFilter("GStreamerFilter", { command: "pitch pitch=1.7"});
+        console.log("음성 변조 추가");
+    } else {
+        setgsfilter(false);
+        me.stream.removeFilter()
+        console.log("음성 변조 제거");
+    }
+}
+
     function getToken() {
         return createSession(room).then((sessionId) => createToken(sessionId));
     }
@@ -508,6 +548,10 @@ function Room({ state }) {
         {nowMode === 'Duetmode' && <Button text={"Singer2"} getOnClick={duetsinger2} />}
         <Controller book={bookList} sendYTUrl={sendYTUrl} setOpenFirework={setOpenFirework}/>
         <Button text={"컨텐츠"} />
+        <Button text={"에코"} getOnClick={voiceFilterEcho} />
+        <Button text={"확성기"} getOnClick={voiceFilterMegaPhone} />
+        <Button text={"음성변조"} getOnClick={voiceFilterModulation} />
+
         <button
           className={(styles.btn, styles.neon)}
           onClick={() => {
