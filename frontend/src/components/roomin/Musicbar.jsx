@@ -5,13 +5,11 @@ function Musicbar() {
   return (
     <div id={styles.Musicbar}>
       <Marquee gradientWidth={0} speed={40} className={styles.Musicbar}>
-        <text>
-          {" "}
-          [Now Playing] Fromise9 - DM
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [NEXT]
-          Fromise9 - WE GO
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </text>
+        {" "}
+        [Now Playing] Fromise9 - DM
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [NEXT]
+        Fromise9 - WE GO
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </Marquee>
     </div>
   );

@@ -2,16 +2,20 @@ import { Table } from "react-bootstrap";
 import Styles from "./remote.module.css";
 import axios from "axios";
 
-function MSearchResult({ items }) {
+function MSearchResult({ items, roomseq }) {
+  // console.log(roomseq);
   const addToBooklist = (videotitle, videoId) => {
     axios
       .post("https://i6a306.p.ssafy.io:8080/api/v1/reservation/add", {
-        room_seq: "받아오기",
+        room_seq: roomseq,
         song_no: videoId,
         title: videotitle,
       })
       .then((res) => {
         console.log(res);
+      })
+      .catch(() => {
+        alert("Error가 발생했습니다.");
       });
   };
 
@@ -19,7 +23,7 @@ function MSearchResult({ items }) {
     <div className={Styles.searchcontent}>
       <Table>
         {items.length !== 0 ? (
-          <thead>
+          <thead style={{ fontSize: "17px" }}>
             <tr>
               <th>#</th>
               <th>노래 제목</th>
@@ -34,7 +38,7 @@ function MSearchResult({ items }) {
           <tbody>
             <tr>
               <td>{index + 1}</td>
-              <td style={{ fontSize: "15px" }}>
+              <td style={{ fontSize: "17px" }}>
                 {item.snippet.title.endsWith(" / TJ Karaoke")
                   ? item.snippet.title.slice(0, -13)
                   : item.snippet.title}
@@ -45,7 +49,10 @@ function MSearchResult({ items }) {
                   className="songbook"
                   type="radio"
                   value={item.snippet.title}
-                  onClick={addToBooklist(item.snippet.title, item.id.videoId)}
+                  style={{ whiteSpace: "nowrap" }}
+                  onClick={() => {
+                    addToBooklist(item.snippet.title, item.id.videoId);
+                  }}
                 >
                   추가
                 </button>
