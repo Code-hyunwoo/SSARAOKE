@@ -35,7 +35,7 @@ public class ReservationServiceImpl implements ReservationService {
         newTitle = newTitle.replace(TJ_POSTFIX, "");
         newTitle = newTitle.replace("[] ", "");  //[TJ노래방]이었다면 []만 남아있을 테니까 삭제
         newTitle = newTitle.replace("  /", "");   //[  /반키내림]이었다면
-
+        newTitle = newTitle.replace("/", "");   //[  /반키내림]이었다면
         Reservation reservation = Reservation.builder()
                 .room(room)
                 .song_no(reservationAddRequest.getSong_no())
