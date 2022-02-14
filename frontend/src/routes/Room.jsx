@@ -144,6 +144,8 @@ function Room({ state }) {
 
               // Update the state with the new subscribers
               // setsubscribers(subscribers);
+              console.log('-----new sub-----');
+              console.log(Subscriber);
               console.log(subscribers);
               // this.setState({
               //     subscribers: subscribers,
@@ -237,14 +239,23 @@ function Room({ state }) {
         this.leaveRoom();
     }
 
-    function deleteSubscriber(streamManager) {
-      let Subscribers = subscribers;
-      let index = Subscribers.indexOf(streamManager, 0);
-      if (index > -1) {
-          Subscribers.splice(index, 1);
-          setsubscribers(Subscribers);
+    // function deleteSubscriber(streamManager) {
+    //   let Subscribers = subscribers;
+    //   let index = Subscribers.indexOf(streamManager, 0);
+    //   if (index > -1) {
+    //       Subscribers.splice(index, 1);
+    //       setsubscribers(Subscribers);
+    //   }
+    // }
+
+    const deleteSubscriber = (streamManager) => {
+      let subs = subscribers;
+      let idx = subs.indexOf(streamManager, 0);
+      if (idx > -1) {
+        subs.splice(idx, 1);
+        setsubscribers([...subs]);
       }
-    }
+    };
 
     function leaveRoom() {
 
@@ -448,19 +459,19 @@ function Room({ state }) {
       />
       {openFirework && <Firework/>}
       <div className={transCamBox}>
-        <div id="participants">
-          {publisher !== undefined ? (
+        <div id="video-container">
+          {session !== undefined ? (
             <UserVideoComponent
               streamManager={publisher} />
 
           ) : null}
-          {(session !== undefined) && (subscribers.length !== 0)?(
-            Object.values(subscribers).map((sub, i) => ( 
+          {(session !== undefined)?(
+            subscribers.map((sub, i) => ( 
               <div key={i} className="stream-container col-md-6 col-xs-6">
               <UserVideoComponent streamManager={sub} />
               </div>
             ))) 
-            : null 
+            : null
           }
         </div> 
       </div>
@@ -513,6 +524,7 @@ function Room({ state }) {
 function mapStateToProps(state) {
   return { state };
 }
+
 
 // function mapStateToProps(state) {
 //     const Nickname = state[0].nickname;
