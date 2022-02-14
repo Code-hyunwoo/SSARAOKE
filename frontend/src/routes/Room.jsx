@@ -21,24 +21,25 @@ import axios from 'axios';
 
 const OPENVIDU_SERVER_URL = 'https://i6a306.p.ssafy.io';
 const OPENVIDU_SERVER_SECRET = 'qwer1234';
+const URL_PREFIX = 'https://www.youtube.com/watch?v=';
 
 
 ////////////////////////////////////////////////////////////Room
 
-function Room({ Nickname }) {
+function Room({ state }) {
     const [openChangeMode, setOpenChangeMode] = useState(false);
     const [openFirework, setOpenFirework] =useState(false);
     const practice = [
-      "https://www.youtube.com/watch?v=Xk7_eEx58ds",
-      "https://www.youtube.com/watch?v=4gXmClk8rKI",
-      "https://www.youtube.com/watch?v=t8KtQ8-nImI",
+      "Xk7_eEx58ds",
+      "4gXmClk8rKI",
+      "t8KtQ8-nImI",
     ];
     const [bookList, setbookList] = useState(practice);
     const [nowPlaymusic, setnowPlaymusic] = useState("");
     // const [participants,setParticipants] = useState({});    //서버에서 보내 줄 현재 참여자 내역
     const [chatArr, setChatArr] = useState([]);
   
-    const name = { Nickname }.Nickname; //redux에 저장된 user nickname
+    const name = state[0].nickname;//{ Nickname }.Nickname; //redux에 저장된 user nickname
     const {mode, roomnum} = useParams();
     const room = {roomnum}.roomnum; //redux에 저장된 room_seq
     const firstmode = {mode}.mode;
@@ -125,7 +126,7 @@ function Room({ Nickname }) {
               console.log(
                 `${event.data} 재생 요청 들어옴 -> YT플레이어로 당장 틀기`
               ); 
-              var YTUrl = event.data;
+              var YTUrl = URL_PREFIX + event.data;
               setnowPlaymusic(YTUrl);
         
           });
@@ -139,10 +140,10 @@ function Room({ Nickname }) {
               // subscribers.push(subscriber);
               let subs = subscribers;
               subs.push(Subscriber);
-              setsubscribers(...subs);
+              setsubscribers(subs);
 
               // Update the state with the new subscribers
-              setsubscribers(subscribers);
+              // setsubscribers(subscribers);
               console.log(subscribers);
               // this.setState({
               //     subscribers: subscribers,
@@ -260,6 +261,22 @@ function Room({ Nickname }) {
       setsession(undefined);
       setsubscribers([]);
       setpublisher(undefined);
+
+      axios
+      .get(`https://i6a306.p.ssafy.io:8080/api/v1/room/out/${room}`,
+        {
+          headers: {
+            "Content-Type": 'application/json',
+            Authorization: state[0].token,
+          },
+        })
+      .then((res) => {
+        console.log("out 성공", res);
+      })
+      .catch((res) => {
+        console.log("out 실패",res);
+      })
+
     }
     function sendMessage(type, data){
       const mySession = session;
@@ -286,7 +303,7 @@ function Room({ Nickname }) {
   
     function sendChat(msg){
       console.log('[sendChat] 이것은 채ㅣㅌㅇ임');
-      var chatMsg = { Nickname }.Nickname + ":" + msg;
+      var chatMsg = state[0].nickname + ":" + msg;
       console.log(`[sendChat] ${chatMsg}`);
       sendMessage('my-chat', chatMsg)
     }
@@ -493,10 +510,13 @@ function Room({ Nickname }) {
     );
 }
 
-
 function mapStateToProps(state) {
-    const Nickname = state[0].nickname;
-    return { Nickname };
+  return { state };
 }
+
+// function mapStateToProps(state) {
+//     const Nickname = state[0].nickname;
+//     return { Nickname };
+// }
   
 export default connect(mapStateToProps, null)(Room);
