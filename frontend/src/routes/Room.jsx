@@ -405,9 +405,12 @@ function Room({ state }) {
 
   function createToken(sessionId) {
       return new Promise((resolve, reject) => {
-          var data = {};
           axios
-              .post(OPENVIDU_SERVER_URL + "/openvidu/api/sessions/" + sessionId + "/connection", data, {
+            .post(OPENVIDU_SERVER_URL + "/openvidu/api/sessions/" + sessionId + "/connection", JSON.stringify({
+              "kurentoOptions": {
+                "allowedFilters": ["GStreamerFilter", "FaceOverlayFilter"]
+              }
+                      }), {
                   headers: {
                       Authorization: 'Basic ' + btoa('OPENVIDUAPP:' + OPENVIDU_SERVER_SECRET),
                       'Content-Type': 'application/json',
