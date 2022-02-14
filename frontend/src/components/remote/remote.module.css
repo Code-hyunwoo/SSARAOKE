@@ -1,438 +1,438 @@
-
+.modalposition {
+  display: flex;
+  justify-content: center;
+}
 
 /* remote 배경 */
 .remotebg {
-    position: absolute;
-    width: 48vw;
-    height: 80vh;
-    
-    opacity: 0.9;
-    background: #F9B208;
-    border-radius: 30px;
-    /* left: 11.5vw; */
-    margin-top: 3vh;
-    box-shadow: rgba(255, 255, 255, 0.35) 0px 10px 25px;
-    
+  position: absolute;
+  width: 48vw;
+  height: 85vh;
 
-
+  opacity: 1;
+  background: #f9b208;
+  border-radius: 30px;
+  /* left: 11.5vw; */
+  margin-top: 3vh;
+  box-shadow: rgba(255, 255, 255, 0.35) 0px 10px 25px;
 }
 
 /* remote 검색 페이지 배경 */
 /* .searchbg{
-    position: absolute;
-    width: 905px;
-    height: 400px;
-    left: 42px;
-    top: 30px;
-    
-    background: #4b4848cc;
-    border-radius: 60px;    
+  position: absolute;
+  width: 905px;
+  height: 400px;
+  left: 42px;
+  top: 30px;
+  
+  background: #4b4848cc;
+  border-radius: 60px;    
 } */
 
-.searchpage{
-    position: absolute;
-    /* width: 884px;
-    height: 379px;
-    left: 10px;
-    top: 10px; */
-    width: 43vw;
-    height: 40vh;
-    left: 2.5vw;
-    top: 2.5vh;
-    border: 10px solid #4b4848cc;
-    background: #E1E1DF;
-    border-radius: 50px;
+.searchpage {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 44vw;
+  height: 44vh;
+  left: 2.1vw;
+  top: 1vh;
+  border: 10px solid #4b4848cc;
+  background: #e1e1df;
+  border-radius: 35px;
 }
 
 /* 검색창 */
-.serachbar{
-    position: absolute;
-    width: 40vw;
-    height: 5.2vh;
-    left: 1.1vw;
-    top: 1.1vh;
-
-    background: #C4C4C4;
-    border-radius: 30px;
-    font-size: 1.5vw;
-    /* font-family: 'Cafe24SsurroundAir'; */
-    font-family: 'Cafe24Ssurround';
-    /* font-family: 'ROKAFSansBold'; */
+.serachbar {
+  position: absolute;
+  width: 40.5vw;
+  height: 5.2vh;
+  left: 1.1vw;
+  top: 1.1vh;
+  padding: 15px;
+  background: #c4c4c4;
+  border-radius: 30px;
+  font-size: 1.5vw;
+  /* font-family: 'Cafe24SsurroundAir'; */
+  font-family: "Cafe24Ssurround";
+  /* font-family: 'ROKAFSansBold'; */
 }
 
-.serachbtn{
-    position: absolute;
-    width: 5.6vw;
-    height: 4.4vh;
-    left: 35.3vw;
-    top: 1.5vh;
-    border-radius: 30px;
-    /* font-family: 'Cafe24SsurroundAir'; */
-    /* font-family: 'Cafe24Ssurround'; */
-    font-family: 'ROKAFSansBold';
-    font-size: 1.3vw;
-
+.serachbtn {
+  position: absolute;
+  width: 5.6vw;
+  height: 4.4vh;
+  left: 35.5vw;
+  top: 1.5vh;
+  border-radius: 30px;
+  /* font-family: 'Cafe24SsurroundAir'; */
+  /* font-family: 'Cafe24Ssurround'; */
+  font-family: "ROKAFSansBold";
+  font-size: 1.3vw;
 }
 
 /* 검색 내용 나오는 창 */
-.searchcontent{
-    position: absolute;
-    width: 40vw;
-    height: 28.5vh;
-    left: 1vw;
-    top: 7.6vh;
-    font-family: 'ROKAFSansBold';
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    border-radius: 30px;
-    font-size: 1.1vw;
+.searchcontent {
+  /* display: flex; */
+  position: absolute;
+  width: 40.5vw;
+  height: 32vh;
+  left: 1.1vw;
+  top: 8vh;
+  font-family: "ROKAFSansBold";
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 30px;
+  overflow: auto;
+  padding: 5px;
+  font-size: 15px;
+  white-space: nowrap;
 }
 
 /* 좋아요 체크버튼 */
-.likebtn{
-    position: absolute;
-    width: 41px;
-    height: 37px;
-    left: 10px;
-    top: 10px;
+.likebtn {
+  position: absolute;
+  width: 41px;
+  height: 37px;
+  left: 10px;
+  top: 10px;
 }
 
 /* 예약 삭제 버튼 체크버튼 */
-.bookdel{
-    position: absolute;
-    width: 36px;
-    height: 32px;
-    left: 1183px;
-    top: 268px;
+.bookdel {
+  position: absolute;
+  width: 36px;
+  height: 32px;
+  left: 1183px;
+  top: 268px;
 
-    border: 1px solid #626262;
-    box-sizing: border-box;
+  border: 1px solid #626262;
+  box-sizing: border-box;
 }
 
-
 /* 리모콘 기능들 있는 부분 */
-.remotepage{
-    position: absolute;
-    /* width: 711.97px;
-    height: 249.78px;
-    left: 556.28px; */
-    width: 44vw;
-    height: 26vh;
-    left: 2.1vw;
-    top: 45vh;
-    font-family: 'ROKAFSansBold';
-    background: #4b4848cc;
-    border-radius: 60px;
+.remotepage {
+  position: absolute;
+  /* width: 711.97px;
+  height: 249.78px;
+  left: 556.28px; */
+  width: 44vw;
+  height: 26vh;
+  left: 2.1vw;
+  top: 49vh;
+  font-family: "ROKAFSansBold";
+  background: #4b4848cc;
+  border-radius: 45px;
 }
 
 /* 음성, 배경, 박수 등 기능 부분 */
-.effectpage{
-    position: absolute;
-    width: 41.2vw;
-    height: 9.5vh;
-    left: 1.4vw;
-    top: 1.9vh;
-    
-    background: #E1E1DF;
-    border-radius: 60px;
+.effectpage {
+  position: absolute;
+  width: 41.2vw;
+  height: 9.5vh;
+  left: 1.4vw;
+  top: 1.9vh;
+
+  background: #e1e1df;
+  border-radius: 60px;
 }
 
 /* 간주점프 */
-.jump{
-    position: absolute;
-    width: 6vw;
-    height: 6.5vh;
-    
-    background: #FFCE43;
-    font-size: 1.2vw;
-    border-radius: 30px;
-    font-family: 'ROKAFSansBold';
+.jump {
+  position: absolute;
+  width: 6vw;
+  height: 6.5vh;
+
+  background: #ffce43;
+  font-size: 1.2vw;
+  border-radius: 30px;
+  font-family: "ROKAFSansBold";
 }
 
 /* .tempoupbtn{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    left: 60px;
-    top: -9px;
-    border-bottom: 10px solid transparent;
-    border-top: 10px solid transparent;
-    border-left: 15px solid #F9B208;
-    border-right: 20px solid transparent;
-    background: none;
-    transform: rotate(-90deg);
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 60px;
+  top: -9px;
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-left: 15px solid #F9B208;
+  border-right: 20px solid transparent;
+  background: none;
+  transform: rotate(-90deg);
 
-    background: none;
+  background: none;
 } */
 
 /* 템포 다운 */
 /* .tempodown{
-    position: absolute;
-    width: 96.55px;
-    height: 29.29px;
-    left: 599.09px;
-    top: 714.05px;
+  position: absolute;
+  width: 96.55px;
+  height: 29.29px;
+  left: 599.09px;
+  top: 714.05px;
 
-    background: #F3E66D;
-    border-radius: 30px;
+  background: #F3E66D;
+  border-radius: 30px;
 } */
 
 /* .tempodownbtn{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    left: 60px;
-    top: 14px;
-    
-    border-bottom: 10px solid transparent;
-    border-top: 10px solid transparent;
-    border-left: 15px solid #F9B208;
-    border-right: 20px solid transparent;
-    background: none;
-    transform: rotate(90deg); */
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 60px;
+  top: 14px;
+  
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-left: 15px solid #F9B208;
+  border-right: 20px solid transparent;
+  background: none;
+  transform: rotate(90deg); */
 
-    /* background: #F9B208; */
-    /* background: none;s */
-    /* background: #FFCE43; */
-    /* transform: rotate(-90deg); */
-    /* transform: matrix(-1, 0, 0, -1, 0, 0); */
+/* background: #F9B208; */
+/* background: none;s */
+/* background: #FFCE43; */
+/* transform: rotate(-90deg); */
+/* transform: matrix(-1, 0, 0, -1, 0, 0); */
 /* } */
 
 /* 에코 설정 */
-.echo{
-    position: absolute;
-    width: 6.5vw;
-    height: 3.4vh;
-    left: 7.8vw;
-    top: 1.2vh;
+.echo {
+  position: absolute;
+  width: 6.5vw;
+  height: 3.4vh;
+  left: 7.8vw;
+  top: 1.2vh;
 
-    background: #FFCE43;
-    border-radius: 30px;
-    font-size: 0.7vw;
-    font-family: 'ROKAFSansBold';
+  background: #ffce43;
+  border-radius: 30px;
+  font-size: 0.7vw;
+  font-family: "ROKAFSansBold";
 }
 
 /* 음성변조 */
-.change{
-    position: absolute;
-    width: 6.5vw;
-    height: 3.4vh;
-    left: 7.8vw;
-    top: 5.2vh;
+.change {
+  position: absolute;
+  width: 6.5vw;
+  height: 3.4vh;
+  left: 7.8vw;
+  top: 5.2vh;
 
-    background: #FFCE43;
-    border-radius: 30px;
-    font-size: 0.7vw;
-    font-family: 'ROKAFSansBold';
+  background: #ffce43;
+  border-radius: 30px;
+  font-size: 0.7vw;
+  font-family: "ROKAFSansBold";
 }
 
 /* 조명  */
-.light{
-    position: absolute;
-    width: 5.2vw;
-    height: 3.4vh;
-    /* left: 50%; */
-    /* top: 677.44px; */
+.light {
+  position: absolute;
+  width: 5.2vw;
+  height: 3.4vh;
+  /* left: 50%; */
+  /* top: 677.44px; */
 
-    /* background: #C4C4C4; */
-    background: #FFF89A;
-    border-radius: 30px;
-    font-family: 'ROKAFSansBold';
+  /* background: #C4C4C4; */
+  background: #fff89a;
+  border-radius: 30px;
+  font-family: "ROKAFSansBold";
 }
 
-.lightup{
-    position: absolute;
-    /* width: 1vw; */
-    /* height: 50%; */
-    left: 2.8vw;
-    top: -0.9vh;
-    
-    border-bottom: 10px solid transparent;
-    border-top: 10px solid transparent;
-    border-left: 15px solid #F9B208;
-    border-right: 20px solid transparent;
-    background: none;
-    transform: rotate(-90deg);
+.lightup {
+  position: absolute;
+  /* width: 1vw; */
+  /* height: 50%; */
+  left: 2.8vw;
+  top: -0.9vh;
 
-    /* background: #4B4848; */
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-left: 15px solid #f9b208;
+  border-right: 20px solid transparent;
+  background: none;
+  transform: rotate(-90deg);
+
+  /* background: #4B4848; */
 }
 
-.lightdown{
-    position: absolute;
-    /* width: 20px; */
-    /* height: 20px; */
-    left: 2.8vw;
-    top: 1.7vh;
-    
-    border-bottom: 10px solid transparent;
-    border-top: 10px solid transparent;
-    border-left: 15px solid #F9B208;
-    border-right: 20px solid transparent;
-    background: none;
-    transform: rotate(90deg);
+.lightdown {
+  position: absolute;
+  /* width: 20px; */
+  /* height: 20px; */
+  left: 2.8vw;
+  top: 1.7vh;
 
-    /* background: #4B4848; */
-    /* transform: matrix(-1, 0, 0, -1, 0, 0); */
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-left: 15px solid #f9b208;
+  border-right: 20px solid transparent;
+  background: none;
+  transform: rotate(90deg);
+
+  /* background: #4B4848; */
+  /* transform: matrix(-1, 0, 0, -1, 0, 0); */
 }
 
 /* 필터, 배경 */
-.fgbtn{
-    position: absolute;
-    width: 5.2vw;
-    height: 3.4vh;
-    /* left: 918.56px;
-    top: 677.44px; */
+.fgbtn {
+  position: absolute;
+  width: 5.2vw;
+  height: 3.4vh;
+  /* left: 918.56px;
+  top: 677.44px; */
 
-    /* background: #C4C4C4; */
-    background: #FFF89A;
-    border-radius: 30px;
-    font-family: 'ROKAFSansBold';
+  /* background: #C4C4C4; */
+  background: #fff89a;
+  border-radius: 30px;
+  font-family: "ROKAFSansBold";
 }
 
 /* 박수,북,폭죽,좋아요 버튼*/
-.effectbtn{
-    position: absolute;
-    width: 3vw;
-    height: 3vw;
-    /* left: 1024px;
-    top: 10px; */
-    border-radius: 50%;
+.effectbtn {
+  position: absolute;
+  width: 3vw;
+  height: 3vw;
+  /* left: 1024px;
+  top: 10px; */
+  border-radius: 50%;
 }
 
 /* 북마크 목록 */
-.bookmarklist{
-    position: absolute;
-    width: 6.2vw;
-    height: 11.5vh;
-    left: 2.5vw;
-    top: 13vh;
-    font-size: 1vw;
-    border-radius: 50%;
-    background: #E4D76A;
-    /* border: 2px solid #000000; */
+.bookmarklist {
+  position: absolute;
+  width: 6.2vw;
+  height: 11.5vh;
+  left: 2.5vw;
+  top: 13vh;
+  font-size: 1vw;
+  border-radius: 50%;
+  background: #e4d76a;
+  /* border: 2px solid #000000; */
 }
 
 /* 노래 취소 */
-.songdelete{
-    position: absolute;
-    width: 7vw;
-    height: 5vh;
-    left: 10vw;
-    top: 19.5vh;
-    
-    background: #ff4d4d;
-    border: 3px solid #ff0000;
-    box-sizing: border-box;
-    border-radius: 60px;
-    font-size: 1vw;
-    color: white;
+.songdelete {
+  position: absolute;
+  width: 7vw;
+  height: 5vh;
+  left: 10vw;
+  top: 19.5vh;
+
+  background: #ff4d4d;
+  border: 3px solid #ff0000;
+  box-sizing: border-box;
+  border-radius: 60px;
+  font-size: 1vw;
+  color: white;
 }
 
 /* 노래 시작 */
-.songstart{
-    position: absolute;
-    width: 7vw;
-    height: 5vh;
-    left: 10vw;
-    top: 13.5vh;
-    
-    background: #3f61fa;
-    border: 3px solid #002fff;
-    box-sizing: border-box;
-    border-radius: 60px;
-    font-size: 1vw;
-    color: white;
+.songstart {
+  position: absolute;
+  width: 7vw;
+  height: 5vh;
+  left: 10vw;
+  top: 13.5vh;
+
+  background: #3f61fa;
+  border: 3px solid #002fff;
+  box-sizing: border-box;
+  border-radius: 60px;
+  font-size: 1vw;
+  color: white;
 }
 
 /* 녹화시작 */
-.recordstart{
-    position: absolute;
-    width: 7vw;
-    height: 5vh;
-    left: 18vw;
-    top: 13.5vh;
-    
-    background: #3f61fa;
-    border: 3px solid #002fff;
-    box-sizing: border-box;
-    border-radius: 60px;
-    font-size: 1vw;
-    color: white;
+.recordstart {
+  position: absolute;
+  width: 7vw;
+  height: 5vh;
+  left: 18vw;
+  top: 13.5vh;
+
+  background: #3f61fa;
+  border: 3px solid #002fff;
+  box-sizing: border-box;
+  border-radius: 60px;
+  font-size: 1vw;
+  color: white;
 }
 
 /* 녹화끝 */
-.recordend{
-    position: absolute;
-    width: 7vw;
-    height: 5vh;
-    left: 18vw;
-    top: 19.5vh;
-    
-    background: #ff4d4d;
-    border: 3px solid #ff0000;
-    box-sizing: border-box;
-    border-radius: 60px;
-    color: white;
-    font-size: 1vw;
+.recordend {
+  position: absolute;
+  width: 7vw;
+  height: 5vh;
+  left: 18vw;
+  top: 19.5vh;
+
+  background: #ff4d4d;
+  border: 3px solid #ff0000;
+  box-sizing: border-box;
+  border-radius: 60px;
+  color: white;
+  font-size: 1vw;
 }
 
-
 /* 예약 목록 */
-.booklist{
-    position: absolute;
-    width: 8vw;
-    height: 8vh;
-    left: 26.2vw;
-    top: 15vh;
-    
-    background: rgba(243, 230, 109, 0.91);
-    border-radius: 60px;
-    font-size: 1.1vw;
+.booklist {
+  position: absolute;
+  width: 8vw;
+  height: 8vh;
+  left: 26.2vw;
+  top: 15vh;
+
+  background: rgba(243, 230, 109, 0.91);
+  border-radius: 60px;
+  font-size: 1.1vw;
 }
 
 /* 예약 삭제 */
-.bookdelete{
-    position: absolute;
-    width: 115.86px;
-    height: 48.82px;
-    left: 986.56px;
-    top: 837.72px;
-    
-    background: rgba(243, 230, 109, 0.91);
-    border-radius: 60px;
+.bookdelete {
+  position: absolute;
+  width: 115.86px;
+  height: 48.82px;
+  left: 986.56px;
+  top: 837.72px;
+
+  background: rgba(243, 230, 109, 0.91);
+  border-radius: 60px;
 }
 
 /* 예약 버튼 */
-.book{
-    position: absolute;
-    width: 6.2vw;
-    height: 11.5vh;
-    left: 35.5vw;
-    top: 13vh;
-    
-    border-radius: 50%;
-    background: #E4D76A;
-    font-size: 1.1vw;
-}
+.book {
+  position: absolute;
+  width: 6.2vw;
+  height: 11.5vh;
+  left: 35.5vw;
+  top: 13vh;
 
+  border-radius: 50%;
+  background: #e4d76a;
+  font-size: 1.1vw;
+}
 
 /* 폰트 */
 @font-face {
-    font-family: 'ROKAFSansBold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSansBold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "ROKAFSansBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSansBold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Cafe24Ssurround';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Cafe24Ssurround";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Cafe24SsurroundAir';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Cafe24SsurroundAir";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
-
