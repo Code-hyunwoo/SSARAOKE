@@ -338,12 +338,25 @@ function Room({ state }) {
 
     function audioMute(){
       const me = publisher;
-      me.publishAudio(false);
-    }
+      if (me.stream.audioActive) {
+        me.publishAudio(false);
+        console.log("마이크 끄기");
+      } else {
+        me.publishAudio(true);
+        console.log("마이크 켜기");
+      }
+  }
+
     function videoMute(){
       const me = publisher;
-      me.publishVideo(false); 
-    }
+      if (me.stream.videoActive) {
+        me.publishVideo(false);
+        console.log("비디오 끄기");
+      } else {
+        me.publishVideo(true);
+        console.log("비디오 켜기");
+      }
+  }
 
     function getToken() {
         return createSession(room).then((sessionId) => createToken(sessionId));
