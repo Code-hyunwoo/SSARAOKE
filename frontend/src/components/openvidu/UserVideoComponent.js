@@ -12,9 +12,9 @@ export default class UserVideoComponent extends Component {
         // return '유저'
     }
 
-    render() { 
+    render() {
         return (
-            <div id={this.getNicknameTag()}>
+            <div>
                 {this.props.streamManager !== undefined ? (
                     <div className="streamcomponent">
                         {/* OpenViduVideoComponent = video태그 하나 */}
