@@ -3,19 +3,13 @@ import ReactPlayer from "react-player";
 import ScoreSound from "./audio/Score.mp3";
 
 
-function Dream({setstartDream, setstartScoreBoard}) {
+function Dream({setstartDream}) {
     
     function closeContents(){
         setstartDream(false)
     }
 
-    const audio = new Audio(ScoreSound)
-    function Score(){
-      audio.volume = 0.2
-      audio.play()
-    }
     
-
     return (
         <div id={styles.contentsdiv}>
             <ReactPlayer 
@@ -34,8 +28,6 @@ function Dream({setstartDream, setstartScoreBoard}) {
             volume={0.4}
             onEnded={()=>{
                 closeContents();
-                setstartScoreBoard(true);
-                Score();
             }}
             />
             

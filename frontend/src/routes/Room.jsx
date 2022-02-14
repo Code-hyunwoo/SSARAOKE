@@ -478,7 +478,7 @@ function Room({ Nickname }) {
         setstartScoreBoard={setstartScoreBoard}
       />
       {openFirework && <Firework/>}
-      {startDream && <Dream setstartDream={setstartDream} setstartScoreBoard={setstartScoreBoard}/>}
+      {startDream && <Dream setstartDream={setstartDream}/>}
       {startGoodDay && <GoodDay setstartGoodDay={setstartGoodDay}/>}
       {startScoreBoard && <ScoreBoard setstartScoreBoard={setstartScoreBoard} />}
       
