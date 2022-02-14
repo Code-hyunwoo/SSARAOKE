@@ -53,6 +53,7 @@ public class RoomController {
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
 
+    @CrossOrigin("*")
     @PostMapping("/out/{room_seq}")
     ResponseEntity<? extends BaseResponseBody> out(@Auth User user, @PathVariable("room_seq") Long room_seq) {
         roomService.out(user, room_seq);
