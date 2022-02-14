@@ -104,8 +104,9 @@ height: 3rem; */
   font-weight: bold;
   text-align: center;
   align-items: center;
-  font-size: 1.4vw;
-  font-family: "Oregano", cursive;
+  font-size: 1.3vw;
+  font-family: "Cafe24SsurroundAir";
+  /* font-family: "Oregano", cursive; */
   background: #e2b73d;
 }
 
@@ -121,8 +122,9 @@ height: 3rem; */
   border: 0.3vw solid #ffce43;
   box-sizing: border-box;
   font-weight: bold;
-  font-family: "Oregano", cursive;
-  font-size: 2vw;
+  /* font-family: "Oregano", cursive; */
+  font-family: "Cafe24SsurroundAir";
+  font-size: 1.7vw;
   align-items: center;
   text-align: center;
   padding: 0.1vh 0;
@@ -142,7 +144,8 @@ height: 3rem; */
   box-sizing: border-box;
 
   font-weight: bold;
-  font-family: "Oregano", cursive;
+  font-family: "Cafe24SsurroundAir";
+  /* font-family: "Oregano", cursive; */
   font-size: 1.5vw;
   align-items: center;
   text-align: center;
@@ -163,10 +166,11 @@ height: 3rem; */
   box-sizing: border-box;
 
   font-weight: bold;
-  font-family: "Oregano", cursive;
+  font-family: "Cafe24SsurroundAir";
+  /* font-family: "Oregano", cursive; */
   font-size: 1vw;
   text-align: center;
-  padding: 1vh 0;
+  padding: 0.7vh 0;
   color: white;
 }
 
@@ -184,8 +188,9 @@ height: 3rem; */
   /* box-shadow: 0vw 4vw 4vw rgba(0, 0, 0, 0.25); */
 
   font-weight: bold;
-  font-family: "Oregano", cursive;
-  font-size: 2.2vw;
+  font-family: "Cafe24SsurroundAir";
+  /* font-family: "Oregano", cursive; */
+  font-size: 2.1vw;
   text-align: center;
   padding: 1vh 0;
   color: white;

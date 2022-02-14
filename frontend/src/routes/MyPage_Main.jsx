@@ -233,7 +233,7 @@ function Mypage_Main({ state }) {
         {/* 싸라오케 */}
         <div className={Styles.ssaraoke}>SSARAOKE</div>
         {/* 번호 */}
-        <div className={Styles.phoneN}>문의 : 010-7100-1722</div>
+        <div className={Styles.phoneN}>문의 :<br/> 010-7100-1722</div>
         {/* 이메일 */}
         <button onClick={() => setEmailShow(true)} className={Styles.emailBox}>
           {" "}

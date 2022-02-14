@@ -1,10 +1,11 @@
 import axios from "axios";
 // import { useEffect } from "react";
 import { useState } from "react";
-import { Button, Modal, Table } from "react-bootstrap";
+import {  Modal } from "react-bootstrap";
 // import { connect } from "react-redux";
-import { Router, unstable_HistoryRouter, useHref, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import Styles from "./RoomPw.module.css";
+import swal from 'sweetalert2';
 
 // function RoomPw({roomseq, show, onHide}) { //숏컷 연산
 function RoomPw(props) { //위의 숏컷 연산이 props안에 다 들어있음.
@@ -13,7 +14,7 @@ function RoomPw(props) { //위의 숏컷 연산이 props안에 다 들어있음.
 
   // console.log(roomseq, show, onHide);
   console.log("props",props);
-  console.log(props.onHide);
+  console.log("onHide",props.onHide);
 
   const { onHide } = props;
   
@@ -23,27 +24,84 @@ function RoomPw(props) { //위의 숏컷 연산이 props안에 다 들어있음.
     setEnterpw(e.target.value); //이게 이제 roomTitle을 이 값으로 지정한 것.
     console.log(enterpw); //한글자 칠때마다 콘솔이 우수수 찍힘
   };
+  const clearPW = (e) => {
+    setEnterpw(""); //이게 이제 roomTitle을 이 값으로 지정한 것.
+    console.log(enterpw); //한글자 칠때마다 콘솔이 우수수 찍힘
+  };
+  
 
-  //db에서 받아온 찐 비번
-  // const [realpw, setRealpw] = useState("");
+  //비번이 틀린경우
+  const wrongPw = () => {
+    swal.fire({
+      text: "비밀번호가 틀렸습니다.",
+      icon: 'warning',
+      confirmButtonColor: '#73E0C1',
+      confirmButtonText: '확인'
+    })
+    .then((result) => {
+      console.log("sweetalert", result);
+    })
+  }
+
+  //방이 꽉찬 경우
+  const roomPull = () => {
+    swal.fire({
+      text: "방 정원이 초과되었습니다.",
+      icon: 'warning',
+      confirmButtonColor: '#73E0C1',
+      confirmButtonText: '확인'
+    })
+    .then((result) => {
+      console.log("sweetalert", result);
+    })
+  }
+
+  //존재하지 않는 방
+  const noRoom = () => {
+    swal.fire({
+      text: "방이 존재하지 않습니다..",
+      icon: 'warning',
+      confirmButtonColor: '#73E0C1',
+      confirmButtonText: '확인'
+    })
+    .then((result) => {
+      console.log("sweetalert", result);
+    })
+  }
+
+  //차단된 사용자
+  const Ban = () => {
+    swal.fire({
+      text: "방 입장이 제한된 사용자입니다.",
+      icon: 'warning',
+      confirmButtonColor: '#73E0C1',
+      confirmButtonText: '확인'
+    })
+    .then((result) => {
+      console.log("sweetalert", result);
+    })
+  }
+
+  //입장 실패
+  const fail = () => {
+    swal.fire({
+      text: "방 입장 실패!(비밀번호, 방 정원등을 확인하세요) ",
+      icon: 'warning',
+      confirmButtonColor: '#73E0C1',
+      confirmButtonText: '확인'
+    })
+    .then((result) => {
+      console.log("sweetalert", result);
+    })
+  }
 
   //여기서 입력을 누를때 값을 넘기고, 값이 맞으면 그때 네비게이션으로 페이지 넘기기
-  // const navigate = useNavigate();
-//useHref() 써보기
+  const navigate = useNavigate();
 
-  // const goroonin = useHref();
-  // const history = unstable_HistoryRouter();
-  // const roomin = navigate("/basic");
-
-  //성공이면 방 입장
-  // const goroom = () => navigate("/basic")
 
   // 정상입장: {200, “Success”}
-// 입장거절: {402, "차단된 사용자"}, {403, "방 정원초과"}, {404, "비밀번호 불일치"}, {405, "존재하지 않는 방"}
   //방 입장하려고 값 보내기
-  // alert("방번호: "+roomseq, "비밀번호: "+enterpw);
   const EnterRoom = (e) => {
-    // alert("방번호: "+roomseq, "비밀번호: "+enterpw);
     axios //-> 500에러 발생
     .post(
       "https://i6a306.p.ssafy.io:8080/api/v1/lobby/enter",
@@ -58,21 +116,32 @@ function RoomPw(props) { //위의 숏컷 연산이 props안에 다 들어있음.
           // Authorization: state[0].token, // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌
         },
       }
-    )
-    .then((res) => {
-      // console.log(res);
-      console.log(res.data);
-      // alert("res값"+res.data);
-      // alert("방번호: ",roomseq, "비밀번호: ", enterpw);
-      if(res.status === 200){
-        alert("입장 성공!!")
-      }
-      else if(res.status !== 200){
-        alert("입장 실패!"); //왜 안되냐
-      }
-    }
-    );
-    // navigate("/basic")
+      )
+      .then((res) => {
+        // console.log(res);
+        console.log("roompw창: ",res.data);
+        // alert("res값"+res.data);
+        // alert("방번호: ",roomseq, "비밀번호: ", enterpw);
+        if(res.status === 200){
+          // alert("입장 성공!!")
+          navigate(`/Room/${props.mode}/${props.roomseq}`)
+        }
+        else if(res.status !== 200){
+          // if(res.status !== 200){
+            // alert("입장 실패!"); //왜 안되냐
+          }
+        })
+        .catch((res) => {
+      // 입장거절: {402, "차단된 사용자"}, {403, "방 정원초과"}, {404, "비밀번호 불일치"}, {405, "존재하지 않는 방"}
+          console.log("catch:",res);
+          fail();
+          // wrongPw(); //404 비번 오류
+          // roomPull(); //403 방 정원 풀
+          // noRoom(); //405 방이 없음
+          // Ban(); // 402 차단된 사용자
+          // alert("입장 실패!");
+        })
+        
   };
 
 
@@ -107,13 +176,9 @@ function RoomPw(props) { //위의 숏컷 연산이 props안에 다 들어있음.
                 <button className={Styles.button} onClick={EnterRoom}>
                   입력
                 </button>
-                {/* <Link to="/lobby"> */}
                 <button className={Styles.button} onClick={onHide}>
-                {/* <button className={Styles.button} onClick={props.onHide}> */}
-                {/* <button className={Styles.button}> */}
                   닫기
                 </button>
-                {/* </Link> */}
               </div>
             </Modal.Body>
           </div>

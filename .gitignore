@@ -6,7 +6,7 @@ generated/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-backend/ssafy-web.log.*
+backend/commonPJT-web.log.*
 
 ### STS ###
 .apt_generated
