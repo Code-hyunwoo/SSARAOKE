@@ -1,12 +1,14 @@
 package com.ssafy.domain.tag.entity;
 
 import com.ssafy.domain.room.entity.RoomTag;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Getter
+@AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "TB_TAG")
 @Entity

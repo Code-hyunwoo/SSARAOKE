@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { actionCreators } from "../../store";
 import { Link } from "react-router-dom";
-import swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 const { Kakao } = window;
 
@@ -14,20 +14,19 @@ function Login({ DispatchaddInfo, state }) {
   const navigate = useNavigate();
 
   const loginSuccess = () => {
-    swal.fire({
-      title:"로그인 성공!",
+    Swal.fire({
+      title: "로그인 성공!",
       text: "SSARAOKE에 오신 것을 환영합니다!",
-      icon: 'success',
-      confirmButtonColor: '#73E0C1',
-      confirmButtonText: '확인'
-    })
-    .then((result) => {
+      icon: "success",
+      confirmButtonColor: "#73E0C1",
+      confirmButtonText: "확인",
+    }).then((result) => {
       console.log("sweetalert", result);
-    })
-  }
+    });
+  };
 
   const loginFail = () => {
-    swal.fire({
+    Swal.fire({
       title:"로그인 실패!",
       icon: 'error',
       confirmButtonColor: '#73E0C1',
@@ -62,7 +61,7 @@ function Login({ DispatchaddInfo, state }) {
             loginSuccess();
             // alert("로그인 성공! SSARAOKE에 오신 것을 환영합니다!");
             navigate("/lobby");
-            console.log("로그인 성공 후 state : ", state);
+            // console.log("로그인 성공 후 state : ", state);
           });
       },
       fail: (error) => {

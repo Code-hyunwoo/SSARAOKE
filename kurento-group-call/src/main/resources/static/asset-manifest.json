@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b29a490e.css",
+    "main.js": "/static/js/main.1ba6510c.js",
+    "static/media/Cafe24SsurroundAir.ttf": "/static/media/Cafe24SsurroundAir.2477297bc14b8b2ed082.ttf",
+    "static/media/duet.jpg": "/static/media/duet.319e74fb300c6fe816bf.jpg",
+    "static/media/SSARAOKE-LOGO4.png": "/static/media/SSARAOKE-LOGO4.5b8352117cdb95cd15ea.png",
+    "static/media/free.jpg": "/static/media/free.e38bb1c943c682529228.jpg",
+    "static/media/lockpicture.jpg": "/static/media/lockpicture.ab569b11619768272ee8.jpg",
+    "static/media/Yellowtail-Regular.ttf": "/static/media/Yellowtail-Regular.68015177cbf9575be4a4.ttf",
+    "index.html": "/index.html",
+    "main.b29a490e.css.map": "/static/css/main.b29a490e.css.map",
+    "main.1ba6510c.js.map": "/static/js/main.1ba6510c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b29a490e.css",
+    "static/js/main.1ba6510c.js"
+  ]
+}

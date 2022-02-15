@@ -34,11 +34,6 @@ public class JwtTokenProvider {
 		this.secretKey = secretKey;
 		this.expirationTime = expirationTime;
 	}
-    
-	public void setExpirationTime() {
-    		//JwtTokenUtil.expirationTime = Integer.parseInt(expirationTime);
-    		JwtTokenProvider.expirationTime = expirationTime;
-	}
 
 	public static JWTVerifier getVerifier() {
         return JWT
@@ -70,28 +65,6 @@ public class JwtTokenProvider {
     		Date now = new Date();
     		return new Date(now.getTime() + expirationTime);
     }
-
-    ///////////////////////////////////////Filter 대신 NativeWebRequest 씀
-    public static String extractToken(HttpServletRequest request) {
-        return request.getHeader(HEADER_STRING);
-    }
-
-    public static String extractTokenByWebRequset(NativeWebRequest webRequest) {
-        return webRequest.getHeader(HEADER_STRING);
-    }
-
-    public static void setTokenInHeader(HttpServletResponse response, String token) {
-        response.setHeader(HEADER_STRING, token);
-    }
-
-    public static Long extractSeqFromToken(String token){
-        JWTVerifier verifier = JwtTokenProvider.getVerifier();
-        JwtTokenProvider.handleError(token);
-        DecodedJWT decodedJWT = verifier.verify(token.replace(JwtTokenProvider.TOKEN_PREFIX, ""));
-        String userId = decodedJWT.getSubject();
-        return Long.parseLong(userId);
-    }
-    ///////////////////////////////////////
 
 
     public static void handleError(String token) {
