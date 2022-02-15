@@ -57,11 +57,6 @@ public class ReservationServiceImpl implements ReservationService {
         return getReservationList(reservationDeleteRequest.getRoom_seq());
     }
 
-    @Transactional
-    public void deleteById(Long reservation_seq){
-        reservationRepository.deleteById(reservation_seq);
-    }
-
     @Transactional(readOnly = true)
     @Override
     public List<ReservationResponse> getReservationList(Long room_seq) {
@@ -69,5 +64,18 @@ public class ReservationServiceImpl implements ReservationService {
                 .orElseThrow(()->new CustomException(ErrorCode.ROOM_NOT_FOUND));
         List<Reservation> list = room.getReservations();
         return ReservationResponse.of(list);
+    }
+
+    @Transactional
+    @Override
+    public ReservationResponse getFirst(Long room_seq) {
+        Room room = roomRepository.findById(room_seq)
+                .orElseThrow(()->new CustomException(ErrorCode.ROOM_NOT_FOUND));
+        Reservation reservation = room.getFirstReservation();
+        ReservationResponse response = ReservationResponse.of(reservation);
+        //delete해야함
+        room.removeReservation(response.getReservation_seq());
+        reservationRepository.deleteById(response.getReservation_seq());
+        return response;
     }
 }

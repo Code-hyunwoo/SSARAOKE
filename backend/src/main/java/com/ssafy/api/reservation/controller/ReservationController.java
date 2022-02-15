@@ -41,4 +41,9 @@ public class ReservationController {
         return ResponseEntity.ok().body(response);
     }
 
+    @GetMapping("/first/{room_seq}")
+    ResponseEntity<ReservationResponse>getfirst(@PathVariable("room_seq") Long room_seq){
+        ReservationResponse response = reservationService.getFirst(room_seq);
+        return ResponseEntity.ok().body(response);
+    }
 }

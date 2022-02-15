@@ -26,7 +26,7 @@ public class ReservationResponse {
         return list;
     }
 
-    private static ReservationResponse of(Reservation reservation) {
+    public static ReservationResponse of(Reservation reservation) {
         return new ReservationResponse(reservation.getSeq(), reservation.getSong_no(), reservation.getTitle());
     }
 }

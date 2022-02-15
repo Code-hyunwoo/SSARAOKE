@@ -139,4 +139,8 @@ public class Room extends BaseTimeEntity{
         this.reservations.remove(reservation);
     }
 
+    public Reservation getFirstReservation(){
+        return reservations.get(0);
+    }
+
 }
