@@ -62,6 +62,7 @@ function Room({ state }) {
   const [OV, setOV] = useState(undefined);
   const [gsfilter, setgsfilter] = useState(false);
   const [nowplaying, setnowplaying] = useState(false);
+  const [musicbartitle, setmusicbartitle] = useState("");
   function transformBasic() {
     settransScreen(styles.ScreenBasic);
     settransCamBox(styles.BasicCamBox);
@@ -128,17 +129,18 @@ function Room({ state }) {
       });
       mySession.on("signal:YTUrl", (event) => {
         console.log("[ReceiveURL]" + event.data);
-        console.log(`${event.data} 재생 요청 들어옴 -> YT플레이어로 당장 틀기`);
+        var data = JSON.parse(event.data);
         var url;
         if (event.data === "") {
-          url = event.data;
+          url = data.url;
           setnowplaying(false);
         } else {
-          url = URL_PREFIX + event.data;
+          url = URL_PREFIX + data.url;
           setnowplaying(true);
         }
         // setYTUrl(url);
         //뮤직바 설정해야 함
+        setmusicbartitle(data.title);
         setnowPlaymusic(url); //현재 재생할 url
       });
 
@@ -340,7 +342,11 @@ function Room({ state }) {
       .then((res) => {
         console.log("예약첫번째곡 불러옴", res.data);
         //title어디다 저장해두지 뮤직바 어디지
-        sendMessage("YTUrl", res.data.song_no); //전송
+        var data = {
+          url : res.data.song_no,
+          title: res.data.title,
+        };
+        sendMessage("YTUrl", JSON.stringify(data)); //전송
         console.log(
           `[sendYTUrl]유튜브 요청 보냄, url: ${res.data.song_no} at room ${room}`
         );
@@ -606,7 +612,7 @@ function Room({ state }) {
     <div className={styles.room}>
       <LightRope />
       <Crazylights />
-      <Musicbar />
+      <Musicbar musicbartitle={musicbartitle}/>
       <MirrorBall />
       <Screen
         mode={transScreen}
