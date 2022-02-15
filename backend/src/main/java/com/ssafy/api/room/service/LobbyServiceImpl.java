@@ -166,18 +166,6 @@ public class LobbyServiceImpl implements LobbyService {
 
         Tag tag = tagRepository.findTagByTag_name(tag_name);
         List<Room> rooms = roomTagRepository.findAllByTag_Seq(tag.getSeq());
-        // 비효율적
-//        List<Room> AllRooms = roomRepository.findAll();
-//        List<Room> rooms = new ArrayList<>();
-//        for(int i=0; i<AllRooms.size(); i++){
-//            List<RoomTag> roomTags = AllRooms.get(i).getRoomTags();
-//            innerF: for(int j=0; j<roomTags.size(); j++){
-//                if(roomTags.get(j).getTag().getSeq()==tag_seq){
-//                    rooms.add(AllRooms.get(i));
-//                    break innerF;
-//                }
-//            }
-//        }
         return getLobbyResponse(rooms);
     }
 

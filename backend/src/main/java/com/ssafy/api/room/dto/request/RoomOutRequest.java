@@ -1,4 +1,4 @@
-package com.ssafy.api.reservation.dto.request;
+package com.ssafy.api.room.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,8 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReservationAddRequest {
+public class RoomOutRequest {
     private Long room_seq;
-    private String song_no;
-    private String title;
+
 }

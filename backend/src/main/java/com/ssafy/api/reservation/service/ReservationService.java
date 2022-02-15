@@ -10,4 +10,5 @@ public interface ReservationService {
     List<ReservationResponse> add(ReservationAddRequest reservation);
     List<ReservationResponse> delete(ReservationDeleteRequest reservationDeleteRequest);
     List<ReservationResponse> getReservationList(Long room_seq);
+    ReservationResponse getFirst(Long room_seq);
 }
