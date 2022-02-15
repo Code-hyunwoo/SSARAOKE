@@ -119,4 +119,24 @@ public class Room extends BaseTimeEntity{
         return this.users.get(i);
     }
 
+    public void addReservation(Reservation reservation){
+        if(!this.reservations.contains(reservation)){
+            this.reservations.add(reservation);
+        }
+        reservation.setRoom(this);
+    }
+
+    public Reservation findReservationByReservationSeq(Long reservation_seq){
+        return this.reservations.stream()
+                .filter(reservation -> reservation.getSeq().equals(reservation_seq))
+                .findFirst()
+                .orElseThrow(()->new CustomException(ErrorCode.RESERVATION_NOT_FOUND));
+    }
+
+    public void removeReservation(Long reservation_seq){
+        Reservation reservation = findReservationByReservationSeq(reservation_seq);
+        reservation.setRoom(null);
+        this.reservations.remove(reservation);
+    }
+
 }

@@ -43,17 +43,20 @@ public class ReservationServiceImpl implements ReservationService {
                 .title(newTitle)
                 .build();
         reservationRepository.save(reservation);
+        room.addReservation(reservation);
         return getReservationList(room.getSeq());
     }
 
     @Transactional
     @Override
     public List<ReservationResponse> delete(ReservationDeleteRequest reservationDeleteRequest) {
-        //db에 리퀘스트로 받은 데이터를 삭제한다.
-        deleteById(reservationDeleteRequest.getReservation_seq());
-        List<ReservationResponse> response = getReservationList(reservationDeleteRequest.getRoom_seq());
-        return response;
+        Room room = roomRepository.findById(reservationDeleteRequest.getRoom_seq())
+                .orElseThrow(() -> new CustomException(ErrorCode.ROOM_NOT_FOUND));
+        room.removeReservation(reservationDeleteRequest.getReservation_seq());
+        reservationRepository.deleteById(reservationDeleteRequest.getReservation_seq());
+        return getReservationList(reservationDeleteRequest.getRoom_seq());
     }
+
     @Transactional
     public void deleteById(Long reservation_seq){
         reservationRepository.deleteById(reservation_seq);

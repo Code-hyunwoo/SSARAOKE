@@ -9,7 +9,6 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Getter
-@Setter
 @NoArgsConstructor
 @Table(name = "TB_RESERVATION")
 @Entity
@@ -34,5 +33,9 @@ public class Reservation {
         this.room = room;
         this.song_no = song_no;
         this.title = title;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }
