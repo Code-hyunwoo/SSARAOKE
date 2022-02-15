@@ -45,6 +45,7 @@ function WaitingList({ roomseq }) {
       })
       .then((res) => {
         console.log(res);
+        setWaitlist(res.data);
       })
       .catch(() => {
         failed();
@@ -72,9 +73,9 @@ function WaitingList({ roomseq }) {
           <ModalHeader closeButton closeVariant="white"></ModalHeader>
           <ModalBody>
             예약 리스트
-            {waitlist.map((item, key) => (
+            {waitlist.map((item, index) => (
               <li>
-                #{key + 1} - {item.song_title}{" "}
+                #{index + 1} - {item.song_title}{" "}
                 <button
                   onClick={() => {
                     deleteItem(item.reservation_seq);

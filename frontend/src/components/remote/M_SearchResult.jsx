@@ -1,9 +1,17 @@
 import { Table } from "react-bootstrap";
 import Styles from "./remote.module.css";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function MSearchResult({ items, roomseq }) {
   // console.log(roomseq);
+  const failed = () => {
+    Swal.fire({
+      icon: "error",
+      title: "요청 실패",
+      text: "에러가 발생했습니다.",
+    });
+  };
   const addToBooklist = (videotitle, videoId) => {
     axios
       .post("https://i6a306.p.ssafy.io:8080/api/v1/reservation/add", {
@@ -15,7 +23,7 @@ function MSearchResult({ items, roomseq }) {
         console.log(res);
       })
       .catch(() => {
-        alert("Error가 발생했습니다.");
+        failed();
       });
   };
 
@@ -46,6 +54,7 @@ function MSearchResult({ items, roomseq }) {
               {/* <td>{`https://www.youtube.com/watch?v=${item.id.videoId}`}</td> */}
               <td>
                 <button
+                  // key={index}
                   className="songbook"
                   type="radio"
                   value={item.snippet.title}
