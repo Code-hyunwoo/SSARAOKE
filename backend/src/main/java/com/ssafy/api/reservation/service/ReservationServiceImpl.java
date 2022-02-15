@@ -67,5 +67,4 @@ public class ReservationServiceImpl implements ReservationService {
         List<Reservation> list = room.getReservations();
         return ReservationResponse.of(list);
     }
-
 }
