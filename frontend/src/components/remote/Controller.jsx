@@ -17,6 +17,9 @@ function Controller({
   setstartDream,
   setstartGoodDay,
   roomseq,
+  sendClap,
+  sendTambourine,
+  sendFire
 }) {
   const [show, setShow] = useState(false);
 
@@ -114,6 +117,9 @@ function Controller({
                   <Effect
                     setOpenFirework={setOpenFirework}
                     hideControl={hideControl}
+                    sendClap={sendClap}
+                    sendTambourine={sendTambourine}
+                    sendFire={sendFire}
                   />
                 </div>
                 {/* 노래 관련 버튼 */}
