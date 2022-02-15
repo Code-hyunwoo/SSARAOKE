@@ -207,12 +207,12 @@
 
 .duetSingercam{
   position: absolute !important;
-  width: 15vw !important;
-  height: 35vh !important;
-  margin: 8px;
-  border-radius: 10px;
-  bottom: 29vh;
-  right: 25.5vw;
+  width: 17.5vw !important;
+  /* height: 35vh !important; */
+  /* margin: 8px; */
+  border-radius: 1vw;
+  bottom: 35.7vh;
+  right: 24vw;
   /* border: 0.3vw solid #ffce43; */
   /* background-color: #00f7a5; */
 }
@@ -231,12 +231,12 @@
 
 .duetSingercam2{
   position: absolute !important;
-  width: 15vw !important;
-  height: 35vh !important;
-  margin: 8px;
-  border-radius: 10px;
-  bottom: 29vh;
-  right: 3.5vw;
+  width: 17.5vw !important;
+  /* height: 2vh !important; */
+  /* margin: 8px; */
+  border-radius: 1vw;
+  bottom: 35.7vh;
+  right: 1.5vw;
   /* border: 0.3vw solid #ffce43; */
   /* background-color: #00f7a5; */
 }
@@ -313,7 +313,7 @@
   border-radius: 10px;
   margin-left:0.5%; 
   margin-right:0.5%; 
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 
 .BasicCamBox video{

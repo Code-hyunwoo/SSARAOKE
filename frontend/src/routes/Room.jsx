@@ -21,6 +21,8 @@ import axios from "axios";
 import Dream from "../components/roomin/Dream";
 import GoodDay from "../components/roomin/GoodDay";
 import ScoreBoard from "../components/roomin/ScoreBoard";
+import Clap from "../components/remote/audio/Clap.wav"
+import Tambourine from "../components/remote/audio/Tambourine.mp3";
 
 const OPENVIDU_SERVER_URL = "https://i6a306.p.ssafy.io";
 const OPENVIDU_SERVER_SECRET = "qwer1234";
@@ -112,11 +114,16 @@ function Room({ state }) {
       console.log("-----session changed-----");
       console.log(mySession);
       mySession.on("signal:my-chat", (event) => {
+        console.log(event); // Message
         console.log(event.data); // Message
         console.log(event.from); // Connection object of the sender
         // console.log(event.type); // The type of message ("my-chat")
         console.log(`[receiveChat] ${event.data}를 받았습니다.`);
-        setChatArr((chatArr) => chatArr.concat(event.data));
+        // setChatArr((chatArr) => chatArr.concat(event.data));
+        const message = event.data.split(":")
+        const chatmsg = {name:message[0], msg:message[1]}
+        setChatArr((chatArr) => chatArr.concat(chatmsg));
+        console.log(chatArr)
         console.log("[ReceiveMessage]" + event.data);
       });
       mySession.on("signal:YTUrl", (event) => {
@@ -134,6 +141,36 @@ function Room({ state }) {
         //뮤직바 설정해야 함
         setnowPlaymusic(url); //현재 재생할 url
       });
+
+      mySession.on('signal:effect', (event) => {
+        console.log(
+          `effect: ${event.data}`
+        ); 
+        if(event.data === "clap"){
+          //clap 치기
+          const audio = new Audio(Clap);
+          audio.volume = 0.03;
+          audio.play();
+          
+        }else if(event.data === "tambourine"){
+          //tambourine 치기
+          const audio2 = new Audio(Tambourine);
+          audio2.volume = 0.2;
+          audio2.play();
+
+        }else if(event.data === "firework"){
+          //firework 쏘기
+          setOpenFirework(true);
+          setTimeout(function () {
+            setOpenFirework(false);
+          }, 6000);
+        }
+      });
+
+
+
+
+
 
       // On every new Stream received...
       mySession.on("streamCreated", (event) => {
@@ -290,7 +327,7 @@ function Room({ state }) {
   }
 
   function sendChat(msg) {
-    console.log("[sendChat] 이것은 채ㅣㅌㅇ임");
+    console.log("[sendChat] 이것은 채팅임");
     var chatMsg = state[0].nickname + ":" + msg;
     console.log(`[sendChat] ${chatMsg}`);
     sendMessage("my-chat", chatMsg);
@@ -313,14 +350,18 @@ function Room({ state }) {
       });
   }
 
-  // function nextMusic() {
-  //   var next = bookList[0];
-  //   setYTUrl(next);
-  //   sendMessage('YTUrl', YTUrl);
-  //   bookList.shift();
-  //   setbookList(bookList);
-  //   console.log(bookList)
-  // }
+  function sendClap(){
+    sendMessage("effect", "clap");
+  }
+
+  function sendTambourine(){
+    sendMessage("effect", "tambourine");
+  }
+
+  function sendFire(){
+    sendMessage("effect", "firework");
+  }
+
 
   function audioMute() {
     const me = publisher;
@@ -626,6 +667,9 @@ function Room({ state }) {
           voiceFilterModulation={voiceFilterModulation}
           setstartDream={setstartDream}
           setstartGoodDay={setstartGoodDay}
+          sendClap={sendClap}
+          sendTambourine={sendTambourine}
+          sendFire={sendFire}
         />
         <button
           className={(styles.btn, styles.neon)}
@@ -662,10 +706,7 @@ function Room({ state }) {
         transformDuet={transformDuet}
         transformFree={transformFree}
         />)}
-        {/* 영상 저장버튼 */}
-        <input type="file" onChange={handleFileInput} />
-        <button onClick={() => uploadFile(selectedFile)}></button>
-        {/*  */}
+      
         <Link to="/lobby" id={styles.btn_no}>
           <button onClick={leaveRoom} className={(styles.btn, styles.neon)}>
             {" "}
