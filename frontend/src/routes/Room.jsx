@@ -166,10 +166,73 @@ function Room({ state }) {
           }, 6000);
         }
       });
+      
+      mySession.on('signal:basicSinger', (event) => {
+        document.getElementById(event.data).className = styles.basicSingercam;
+        console.log('내가 Singer다!')
+      })
+
+      mySession.on('signal:basicSingerout', (event) => {
+        document.getElementById(event.data).className = "undefined";
+      })
+
+      mySession.on('signal:soloSinger', (event) => {
+        document.getElementById(event.data).className = styles.soloSingercam;
+        console.log('Solo캠 이동!')
+      })
+
+      mySession.on('signal:soloSingerout', (event) => {
+        document.getElementById(event.data).className = "undefined";
+        console.log('Solo캠 아웃!')
+      })
+
+      mySession.on('signal:duetSinger', (event) => {
+        document.getElementById(event.data).className = styles.duetSingercam;
+        console.log('Duet캠1 이동!')
+      })
+
+      mySession.on('signal:duetSingerout', (event) => {
+        document.getElementById(event.data).className = "undefined";
+        console.log('Duet캠1 아웃!')
+      })
+
+      mySession.on('signal:duetSinger2', (event) => {
+        document.getElementById(event.data).className = styles.duetSingercam2;
+        console.log('Duet캠2 이동!')
+      })
+
+      mySession.on('signal:duetSinger2out', (event) => {
+        document.getElementById(event.data).className = "undefined";
+        console.log('Duet캠2 아웃!')
+      })
 
 
 
+      mySession.on('signal:changeMode', (event) => {
+        if (event.data === "Basic"){
+          transformBasic();
+          console.log('Basic 으로 Change!')
+        } else if (event.data === "Free"){
+          transformFree();
+          console.log('Free 로 Change!')
+        } else if (event.data ==="Solo"){
+          transformSolo();
+          console.log('Solo 로 Change!')
+        } else if (event.data ==="Duet"){
+          transformDuet();
+          console.log('Duet 으로 Change!')
+        }
+      })
 
+      mySession.on('signal:Contents', (event) => {
+        if (event.data === "Dream"){
+          setstartDream(true);
+          console.log('듀엣컨텐츠 Dream')
+        } else if (event.data === "GoodDay"){
+          setstartGoodDay(true);
+          console.log('듀엣컨텐츠 GoodDay')
+        }
+      })
 
 
       // On every new Stream received...
@@ -507,33 +570,63 @@ function Room({ state }) {
 
   function basicsinger() {
     if (document.getElementById(name).className !== styles.basicSingercam) {
-      document.getElementById(name).className = styles.basicSingercam;
+      // document.getElementById(name).className = styles.basicSingercam;
+      sendMessage('basicSinger', name)
     } else {
-      document.getElementById(name).className = "undefined";
+      // document.getElementById(name).className = "undefined";
+      sendMessage('basicSingerout', name)
     }
   }
 
   function solosinger() {
     if (document.getElementById(name).className !== styles.soloSingercam) {
-      document.getElementById(name).className = styles.soloSingercam;
+      // document.getElementById(name).className = styles.soloSingercam;
+      sendMessage('soloSinger', name)
     } else {
-      document.getElementById(name).className = "undefined";
+      // document.getElementById(name).className = "undefined";
+      sendMessage('soloSingerout', name)
     }
   }
   function duetsinger() {
     if (document.getElementById(name).className !== styles.duetSingercam) {
-      document.getElementById(name).className = styles.duetSingercam;
+      // document.getElementById(name).className = styles.duetSingercam;
+      sendMessage('duetSinger', name)
     } else {
-      document.getElementById(name).className = "undefined";
+      // document.getElementById(name).className = "undefined";
+      sendMessage('duetSingerout', name)
     }
   }
 
   function duetsinger2() {
     if (document.getElementById(name).className !== styles.duetSingercam2) {
-      document.getElementById(name).className = styles.duetSingercam2;
+      // document.getElementById(name).className = styles.duetSingercam2;
+      sendMessage('duetSinger2', name)
     } else {
-      document.getElementById(name).className = "undefined";
+      // document.getElementById(name).className = "undefined";
+      sendMessage('duetSinger2out', name)
     }
+  }
+
+  function sendChangeModeB(){
+    sendMessage("changeMode","Basic");
+  }
+
+  function sendChangeModeF(){
+    sendMessage("changeMode", "Free");
+  }
+  function sendChangeModeS(){
+    sendMessage("changeMode", "Solo");
+  }
+  function sendChangeModeD(){
+    sendMessage("changeMode", "Duet");
+  }
+
+  function sendstartDream(){
+    sendMessage("Contents", "Dream");
+  }
+
+  function sendstartGoodDay(){
+    sendMessage("Contents", "GoodDay");
   }
 
   //////////////////////////////////////////////////////////////////////S3 파일 업로드
@@ -683,9 +776,9 @@ function Room({ state }) {
         {openContents && (
           <Contents
             closeContents={setOpenContents}
-            transformDuet={transformDuet}
-            setstartDream={setstartDream}
-            setstartGoodDay={setstartGoodDay}
+            sendChangeModeD={sendChangeModeD}
+            sendstartDream={sendstartDream}
+            sendstartGoodDay={sendstartGoodDay}
           />
         )}
 
@@ -701,10 +794,10 @@ function Room({ state }) {
         {openChangeMode && ( 
         <ChangeMode 
         closeChangeMode={setOpenChangeMode} 
-        transformBasic={transformBasic}
-        transformSolo={transformSolo}
-        transformDuet={transformDuet}
-        transformFree={transformFree}
+        sendChangeModeB={sendChangeModeB}
+        sendChangeModeF={sendChangeModeF}
+        sendChangeModeS={sendChangeModeS}
+        sendChangeModeD={sendChangeModeD}
         />)}
       
         <Link to="/lobby" id={styles.btn_no}>
