@@ -19,7 +19,10 @@ function Controller({
   roomseq,
   sendClap,
   sendTambourine,
-  sendFire
+  sendFire,
+  voiceFilterEcho,
+  voiceFilterMegaPhone,
+  voiceFilterModulation,
 }) {
   const [show, setShow] = useState(false);
 
@@ -120,6 +123,9 @@ function Controller({
                     sendClap={sendClap}
                     sendTambourine={sendTambourine}
                     sendFire={sendFire}
+                    voiceFilterEcho = {voiceFilterEcho}
+                    voiceFilterMegaPhone = {voiceFilterMegaPhone}
+                    voiceFilterModulation =  {voiceFilterModulation}
                   />
                 </div>
                 {/* 노래 관련 버튼 */}
