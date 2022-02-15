@@ -199,10 +199,12 @@ function Door({ thumbnail, title, user, current, tags, roomseq, isPrivate, mode,
               return <h style={{color:"#73E0C1"}}>#{tag.tag_name} </h>
             }
             else if(tag.tag_name === "힙합"){
-              return <h style={{color:"#ED89B5"}}>#{tag.tag_name} </h>
+              return <h style={{color:"#F2789F"}}>#{tag.tag_name} </h>
+              // return <h style={{color:"#ED89B5"}}>#{tag.tag_name} </h>
             }
             else if(tag.tag_name === "팝"){
-              return <h style={{color:"#C445D9"}}>#{tag.tag_name} </h>
+              // return <h style={{color:"#C445D9"}}>#{tag.tag_name} </h>
+              return <h style={{color:"#F999B7"}}>#{tag.tag_name} </h>
             }
             else if(tag.tag_name === "트로트"){
               return <h style={{color:"#19F62F"}}>#{tag.tag_name} </h>
@@ -211,25 +213,31 @@ function Door({ thumbnail, title, user, current, tags, roomseq, isPrivate, mode,
               return <h style={{color:"#FFF89A"}}>#{tag.tag_name} </h>
             }
             else if(tag.tag_name === "ROCK"){
-              return <h style={{color:"#9790F0"}}>#{tag.tag_name} </h>
+              return <h style={{color:"#32C1CD"}}>#{tag.tag_name} </h>
+              // return <h style={{color:"#9790F0"}}>#{tag.tag_name} </h>
             }
             else if(tag.tag_name === "댄스"){
-              return <h style={{color:"#FFD0D0"}}>#{tag.tag_name} </h>
+              // return <h style={{color:"#FFD0D0"}}>#{tag.tag_name} </h>
+              return <h style={{color:"#F9C5D5"}}>#{tag.tag_name} </h>
             }
             else if(tag.tag_name === "7080"){
               return <h style={{color:"#9EFFB9"}}>#{tag.tag_name} </h>
             }
             else if(tag.tag_name === "1990"){
-              return <h style={{color:"#D6195E"}}>#{tag.tag_name} </h>
+              // return <h style={{color:"#D6195E"}}>#{tag.tag_name} </h>
+              return <h style={{color:"#B983FF"}}>#{tag.tag_name} </h>
             }
             else if(tag.tag_name === "2000"){
-              return <h style={{color:"#FF2BEA"}}>#{tag.tag_name} </h>
+              // return <h style={{color:"#FF2BEA"}}>#{tag.tag_name} </h>
+              return <h style={{color:"#94B3FD"}}>#{tag.tag_name} </h>
             }
             else if(tag.tag_name === "2010"){
-              return <h style={{color:"#FF0000"}}>#{tag.tag_name} </h>
+              // return <h style={{color:"#FF0000"}}>#{tag.tag_name} </h>
+              return <h style={{color:"#94DAFF"}}>#{tag.tag_name} </h>
             }
             else if(tag.tag_name === "2020"){
-              return <h style={{color:"#FF763C"}}>#{tag.tag_name} </h>
+              // return <h style={{color:"#FF763C"}}>#{tag.tag_name} </h>
+              return <h style={{color:"#99FEFF"}}>#{tag.tag_name} </h>
             }
           })}
         {/* {tags &&

@@ -75,18 +75,18 @@ function NavbarLobby({ state, DispatchdeleteInfo }) {
         <div className="pt-2">
           <button className={styles.roomtagsearch} style={{color:"#F9B208"}}>#발라드</button>
           <button className={styles.roomtagsearch} style={{color:"#FFDA1A"}}>#R&B</button>
-          <button className={styles.roomtagsearch} style={{color:"#ED89B5"}}>#힙합</button>
+          <button className={styles.roomtagsearch} style={{color:"#F2789F"}}>#힙합</button>
           <button className={styles.roomtagsearch} style={{color:"#73E0C1"}}>#K-POP</button>
-          <button className={styles.roomtagsearch} style={{color:"#C445D9"}}>#팝</button>
+          <button className={styles.roomtagsearch} style={{color:"#F999B7"}}>#팝</button>
           <button className={styles.roomtagsearch} style={{color:"#19F62F"}}>#트로트</button>
           <button className={styles.roomtagsearch} style={{color:"#FFF89A"}}>#인디</button>
-          <button className={styles.roomtagsearch} style={{color:"#9790F0"}}>#ROCK</button>
-          <button className={styles.roomtagsearch} style={{color:"#FFD0D0"}}>#댄스</button>
+          <button className={styles.roomtagsearch} style={{color:"#32C1CD"}}>#ROCK</button>
+          <button className={styles.roomtagsearch} style={{color:"#F9C5D5"}}>#댄스</button>
           <button className={styles.roomtagsearch} style={{color:"#9EFFB9"}}>#7080</button>
-          <button className={styles.roomtagsearch} style={{color:"#D6195E"}}>#1990</button>
-          <button className={styles.roomtagsearch} style={{color:"#FF2BEA"}}>#2000</button>
-          <button className={styles.roomtagsearch} style={{color:"#FF0000"}}>#2010</button>
-          <button className={styles.roomtagsearch} style={{color:"#FF763C"}}>#2020</button>
+          <button className={styles.roomtagsearch} style={{color:"#B983FF"}}>#1990</button>
+          <button className={styles.roomtagsearch} style={{color:"#94B3FD"}}>#2000</button>
+          <button className={styles.roomtagsearch} style={{color:"#94DAFF"}}>#2010</button>
+          <button className={styles.roomtagsearch} style={{color:"#99FEFF"}}>#2020</button>
         </div>
       </div>
       <div className={styles.right}>
