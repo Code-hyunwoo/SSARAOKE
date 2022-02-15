@@ -14,15 +14,12 @@ import Controller from "../components/remote/Controller";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import Firework from "../components/remote/Firework";
-<<<<<<< HEAD
 import UserVideoComponent from "../components/openvidu/UserVideoComponent";
 import { OpenVidu } from 'openvidu-browser';
 import axios from 'axios';
-=======
 import Dream from "../components/roomin/Dream";
 import GoodDay from "../components/roomin/GoodDay";
 import ScoreBoard from "../components/roomin/ScoreBoard";
->>>>>>> 2462615c2062daa167d55e3d00f4077b64ba6571
 
 const OPENVIDU_SERVER_URL = 'https://i6a306.p.ssafy.io';
 const OPENVIDU_SERVER_SECRET = 'qwer1234';
