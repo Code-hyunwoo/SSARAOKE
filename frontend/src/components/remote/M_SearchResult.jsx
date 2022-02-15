@@ -21,6 +21,7 @@ function MSearchResult({ items, roomseq }) {
       })
       .then((res) => {
         console.log(res);
+        Swal.fire("예약리스트에 추가되었습니다!");
       })
       .catch(() => {
         failed();
@@ -47,8 +48,8 @@ function MSearchResult({ items, roomseq }) {
             <tr>
               <td>{index + 1}</td>
               <td style={{ fontSize: "17px" }}>
-                {item.snippet.title.endsWith(" / TJ Karaoke")
-                  ? item.snippet.title.slice(0, -13)
+                {item.snippet.title.endsWith(" / JW Karaoke")
+                  ? item.snippet.title.slice(8, -13)
                   : item.snippet.title}
               </td>
               {/* <td>{`https://www.youtube.com/watch?v=${item.id.videoId}`}</td> */}

@@ -12,7 +12,6 @@ import WaitingList from "./WaitingList";
 import Swal from "sweetalert2";
 
 function Controller({
-  book,
   sendYTUrl,
   setOpenFirework,
   setstartDream,
@@ -20,22 +19,9 @@ function Controller({
   roomseq,
 }) {
   const [show, setShow] = useState(false);
-  const [booklist, setbookList] = useState(book);
+
   const startbookList = () => {
-    // var YTUrl = booklist[0];
-    // var message = {
-    //      id: 'sendYTUrl',
-    //     room: room,
-    //      url: YTUrl,
-    // }
-    // console.log(YTUrl)
-    sendYTUrl(booklist);
-    // booklist.shift();
-    // setbookList(booklist);
-    // alert(`새로운 곡 시작!`)
-    // console.log(booklist)
-    // console.log(`[sendYTUrl]유튜브 요청 보냄, url: ${YTUrl} at room ${room}`);
-    // sendMessage(message);
+    sendYTUrl();
   };
 
   // 리모콘 끄기
@@ -50,7 +36,9 @@ function Controller({
   const params = {
     key: apiKey,
     part: "snippet",
-    channelId: "UCZUhx8ClCv6paFW7qi3qljg",
+    // TJ노래방 channelId: "UCZUhx8ClCv6paFW7qi3qljg",
+    // JW 노래방 channelId
+    channelId: "UC58ttsbMu6kCeWRrEsDI2ww",
     channelType: "any",
     q: searchitem,
     type: "video",
@@ -66,16 +54,12 @@ function Controller({
   };
 
   const searchMusic = () => {
-    console.log("이걸로 검색", searchitem);
-    console.log(roomseq);
+    console.log("검색어", searchitem);
     axios
       .get("https://www.googleapis.com/youtube/v3/search", { params })
       .then((res) => {
-        // console.log(res);
-        // console.log(typeof res.data.items);
         setSearchresult(res.data.items);
         // console.log(res.data.items);
-        // setSearchresult((searchresult) => searchresult.concat(res.data.items));
         console.log(searchresult);
       })
       .catch(() => {
