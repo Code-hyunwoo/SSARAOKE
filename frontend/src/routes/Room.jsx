@@ -14,6 +14,7 @@ import Controller from "../components/remote/Controller";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import Firework from "../components/remote/Firework";
+import AWS from "aws-sdk";
 import UserVideoComponent from "../components/openvidu/UserVideoComponent";
 import { OpenVidu } from "openvidu-browser";
 import axios from "axios";
@@ -24,7 +25,6 @@ import ScoreBoard from "../components/roomin/ScoreBoard";
 const OPENVIDU_SERVER_URL = "https://i6a306.p.ssafy.io";
 const OPENVIDU_SERVER_SECRET = "qwer1234";
 const URL_PREFIX = "https://www.youtube.com/watch?v=";
-
 ////////////////////////////////////////////////////////////Room
 
 function Room({ state }) {
@@ -495,6 +495,72 @@ function Room({ state }) {
     }
   }
 
+  //////////////////////////////////////////////////////////////////////S3 파일 업로드
+  //S3 버킷관련 정보들을 포함하고 있는 객체 -> process.env~가 붙은 것은 환경변수 -> 외부에 보여주지 않기 위함. -> npm i dotenv 설치해야
+  // const s3 = new AWS.S3({
+  //   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  //   secretAccessKey: process.env.AWS_DEFAULT_REGION,
+  //   region: process.env.AWS_DEFAULT_REGION,
+  //   //아마존.doc
+  //   //apiVersion:
+  //   //params: {Bucket: }
+  // });
+
+  //UUID 사용할거면, npm i uuid하고 import{v1, v3, v4, v5} from 'uuid';해야
+  //v1: 타임스탬프 기준, v3: MD5 해시, v4:랜덤값, v5: SHA-1해시 기준
+  // const uploadParams = {
+  //   Bucket: process.env.AWS_BUCKET,
+  //   Body: file,
+  //   key: `image/${v1().toString().replace("-","")}.${file.type.split("/")[1]}`,
+  //   ContentType: file.type,
+  //   ACL: "public-read",
+  // }
+
+  //npm i uuid, npm i 'aws-sdk' 설치
+  //import AWS from "aws-sdk"; 임포트
+  //버킷, region 값 생성
+  const S3_BUCKET = 'YOUR_BUCKET_NAME_HERE'; //BUCKET 이름 자리
+  const REGION = 'YOUR_DESIRED_REGION_HERE'; //Region 값 자리
+
+  AWS.config.update({
+    accessKeyId: '', //access키 id 넣기
+    secretAccessKey: '', //secretaccess 키 넣기
+  });
+
+  const myBucket = new AWS.S3({
+    params: {Bucket: S3_BUCKET}, //위에서 지정한 BUCKET을 받아와서 생성
+    region: REGION,
+  })
+
+  // const UploadFileToS3WithNativeSdk = () => {
+    const [progress, setProgress] = useState(0); //업로드 로딩 퍼센트 용
+    const [selectedFile, setSelectedFile] = useState(null); //선택된 파일 받아오는 함수
+
+    const handleFileInput = (e) => { //input 태그에서 저장되는 파일 불러서 저장하는 함수
+      setSelectedFile(e.target.files[0]); 
+      //만약 녹화진행중인 영상 바로 저장할꺼면 e.target.files[0]대신 해당 영상 변수를 넣으면 될 것
+    }
+
+    const uploadFile = (file) => { //input 태그에 타입이 file이 것의 값을 가져와라
+      const params = {
+        ACL: "public-read", //공개범위?
+        Body: file, //업로드된 파일이 들어갈 자리
+        Bucket: S3_BUCKET, //저장될 버켓
+        Key: file.name //파일 이름?
+      };
+
+      myBucket.putObject(params) //내 버켓에 위에서 설정한 params 를 바탕으로 넣기
+        .on('httpUploadProgress', (evt) => {
+          setProgress(Math.round((evt.loaded / evt.total)* 100)) //로딩
+        })
+        .send((err) => {
+          if(err) console.log(err)
+        })
+    }
+  // }
+
+
+
   return (
     <div className={styles.room}>
       <LightRope />
@@ -588,15 +654,18 @@ function Room({ state }) {
           {" "}
           모드선택{" "}
         </button>
-        {openChangeMode && (
-          <ChangeMode
-            closeChangeMode={setOpenChangeMode}
-            transformBasic={transformBasic}
-            transformSolo={transformSolo}
-            transformDuet={transformDuet}
-            transformFree={transformFree}
-          />
-        )}
+        {openChangeMode && ( 
+        <ChangeMode 
+        closeChangeMode={setOpenChangeMode} 
+        transformBasic={transformBasic}
+        transformSolo={transformSolo}
+        transformDuet={transformDuet}
+        transformFree={transformFree}
+        />)}
+        {/* 영상 저장버튼 */}
+        <input type="file" onChange={handleFileInput} />
+        <button onClick={() => uploadFile(selectedFile)}></button>
+        {/*  */}
         <Link to="/lobby" id={styles.btn_no}>
           <button onClick={leaveRoom} className={(styles.btn, styles.neon)}>
             {" "}

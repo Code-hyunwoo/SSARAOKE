@@ -89,9 +89,10 @@
   height: 3.5vh;
   top: 26vh;
   text-align: center;
-  font-family: "Cafe24Ssurround";
+  /* font-family: "Cafe24Ssurround"; */
+  font-family: "Cafe24SsurroundAir";
   font-size: 0.8vw;
-  font-weight: bold;
+  /* font-weight: bold; */
   color: white;
   padding: 0.04vw;
   border-radius: 5vh;

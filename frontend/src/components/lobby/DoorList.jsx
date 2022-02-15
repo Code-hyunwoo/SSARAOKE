@@ -4,6 +4,7 @@ import CreateRoom from "./CreateRoom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Lobbychat from "./Lobbychat";
+import MovingCam from "../roomin/MovingCam";
 
 function DoorList() {
   // Door.js에서 map쓸거면 선택한 태그(tags)를 배열로 받아와야함
@@ -88,6 +89,7 @@ function DoorList() {
           isPrivate={roomdata[0]?.private}
           mode={roomdata[0]?.mode}
         />
+      {/* <MovingCam /> */}
         <Lobbychat />
         <Door
           tags={roomdata[1]?.tagList}

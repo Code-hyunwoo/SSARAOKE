@@ -25,6 +25,18 @@ function Login({ DispatchaddInfo, state }) {
     });
   };
 
+  const loginFail = () => {
+    Swal.fire({
+      title:"로그인 실패!",
+      icon: 'error',
+      confirmButtonColor: '#73E0C1',
+      confirmButtonText: '확인'
+    })
+    .then((result) => {
+      console.log("sweetalert", result);
+    })
+  }
+
   const LoginWithKakao = () => {
     Kakao.Auth.login({
       success: (response) => {
@@ -52,8 +64,9 @@ function Login({ DispatchaddInfo, state }) {
             // console.log("로그인 성공 후 state : ", state);
           });
       },
-      fail: () => {
-        alert("로그인에 실패했습니다.");
+      fail: (error) => {
+        loginFail();
+        // alert("로그인에 실패했습니다.");
         navigate("/");
         // alert(JSON.stringify(error));
       },
