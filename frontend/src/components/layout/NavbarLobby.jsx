@@ -4,11 +4,26 @@ import { Link, useNavigate } from "react-router-dom";
 import SearchIcon from "./SearchIcon";
 import { connect } from "react-redux";
 import { actionCreators } from "../../store";
+import swal from 'sweetalert2';
 
 const { Kakao } = window;
 
 function NavbarLobby({ state, DispatchdeleteInfo }) {
   const navigate = useNavigate();
+
+  const logoutSuccess = () => {
+    swal.fire({
+      title:"로그아웃 완료!",
+      text: "이용해 주셔서 감사합니다!",
+      icon: 'success',
+      confirmButtonColor: '#73E0C1',
+      confirmButtonText: '확인'
+    })
+    .then((result) => {
+      console.log("sweetalert", result);
+    })
+  }
+
   const Logout = () => {
     // 카카오 라이브러리 이용하면 인증코드(access, refresh token만 삭제 / 로컬의 JWT는 남겨둠)
     // if (Kakao.Auth.getAccessToken()) {
@@ -23,7 +38,9 @@ function NavbarLobby({ state, DispatchdeleteInfo }) {
     //   navigate("/");
     // }
     DispatchdeleteInfo();
-    alert("로그아웃 완료! 이용해 주셔서 감사합니다!");
+    logoutSuccess();
+    // alert("로그아웃 완료! 이용해 주셔서 감사합니다!");
+    console.log("로그아웃 후 state:", state);
     navigate("/");
   };
   // console.log("방금 로그인한 사용자의 seq : ", state[0].seq);
@@ -56,20 +73,20 @@ function NavbarLobby({ state, DispatchdeleteInfo }) {
           </button>
         </div>
         <div className="pt-2">
-          <button className={styles.roomtagsearch}>#발라드</button>
-          <button className={styles.roomtagsearch}>#R&B</button>
-          <button className={styles.roomtagsearch}>#힙합</button>
-          <button className={styles.roomtagsearch}>#K-POP</button>
-          <button className={styles.roomtagsearch}>#팝</button>
-          <button className={styles.roomtagsearch}>#트로트</button>
-          <button className={styles.roomtagsearch}>#인디</button>
-          <button className={styles.roomtagsearch}>#ROCK</button>
-          <button className={styles.roomtagsearch}>#댄스</button>
-          <button className={styles.roomtagsearch}>#7080</button>
-          <button className={styles.roomtagsearch}>#1990</button>
-          <button className={styles.roomtagsearch}>#2000</button>
-          <button className={styles.roomtagsearch}>#2010</button>
-          <button className={styles.roomtagsearch}>#2020</button>
+          <button className={styles.roomtagsearch} style={{color:"#F9B208"}}>#발라드</button>
+          <button className={styles.roomtagsearch} style={{color:"#FFDA1A"}}>#R&B</button>
+          <button className={styles.roomtagsearch} style={{color:"#ED89B5"}}>#힙합</button>
+          <button className={styles.roomtagsearch} style={{color:"#73E0C1"}}>#K-POP</button>
+          <button className={styles.roomtagsearch} style={{color:"#C445D9"}}>#팝</button>
+          <button className={styles.roomtagsearch} style={{color:"#19F62F"}}>#트로트</button>
+          <button className={styles.roomtagsearch} style={{color:"#FFF89A"}}>#인디</button>
+          <button className={styles.roomtagsearch} style={{color:"#9790F0"}}>#ROCK</button>
+          <button className={styles.roomtagsearch} style={{color:"#FFD0D0"}}>#댄스</button>
+          <button className={styles.roomtagsearch} style={{color:"#9EFFB9"}}>#7080</button>
+          <button className={styles.roomtagsearch} style={{color:"#D6195E"}}>#1990</button>
+          <button className={styles.roomtagsearch} style={{color:"#FF2BEA"}}>#2000</button>
+          <button className={styles.roomtagsearch} style={{color:"#FF0000"}}>#2010</button>
+          <button className={styles.roomtagsearch} style={{color:"#FF763C"}}>#2020</button>
         </div>
       </div>
       <div className={styles.right}>

@@ -4,11 +4,11 @@ import { useState } from "react";
 
 
 
-function Screen ({mode, now, nextMusic}){
+function Screen ({mode, now}){
     
     function endMusic(){
         // alert(`곡 종료`)
-        nextMusic()
+        // nextMusic()
     }
 
     return (
@@ -27,5 +27,4 @@ function Screen ({mode, now, nextMusic}){
 
 }
 
-// 'https://www.youtube.com/watch?v=4gXmClk8rKI', 'https://www.youtube.com/watch?v=t8KtQ8-nImI'
 export default Screen

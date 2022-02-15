@@ -1,7 +1,13 @@
-const httpServer = require("http").createServer();
+var fs = require( 'fs' );
+const httpServer = require("https").createServer({
+  key: fs.readFileSync('ssaraokekey.pem'),
+  cert: fs.readFileSync('ssaraokecert.pem'),
+  passphrase: 'qwer1234',
+});
+
 const io = require("socket.io")(httpServer, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });
@@ -18,4 +24,4 @@ io.on("connection", (socket) => {
   });
 });
 
-httpServer.listen(80);
+httpServer.listen(9000);

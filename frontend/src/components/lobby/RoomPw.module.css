@@ -13,14 +13,14 @@
 
 .createroombg {
     position: absolute;
-    width: 25.5vw;
+    width: 27vw;
     height: 15vh;
     /* width: 58rem; */
     /* height: 34rem; */
     /* left: 0.9vw;
     top: 9vh; */
     
-    background: #ffcd438f;
+    background: #f9b108d8;
     /* background-color: rgba(0, 0, 0, 0); */
     /* background: rgba(228, 83, 21, 0.61); */
     border-radius: 2vw;
@@ -28,7 +28,7 @@
 
 .inputPW{
     text-align: center;
-    align-items: center;
+    /* align-items: center; */
     padding-top: 3vh;
     font-family: 'Cafe24SsurroundAir';
 }

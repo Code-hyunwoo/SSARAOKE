@@ -2,7 +2,8 @@
   display: flex;
   justify-content: flex-end;
   padding-right: 2vw;
-  padding-top: 5vh;
+  margin-bottom: -5vh;
+  padding-top: 8vh;
 }
 
 /* CreateRoom */
@@ -47,18 +48,18 @@
   position: absolute;
   /* width: 35%; */
   height: 10vh;
-  left: 15vw;
-  top: 5vh;
+  left: 13.8vw;
+  top: 4vh;
 
   /* font-family: Oregano; */
   font-style: normal;
   font-weight: normal;
-  font-size: 2vw;
+  font-size: 2.5vw;
   /* font-size: 40px; */
   /* line-height: 62px; */
   display: flex;
   align-items: center;
-  text-align: center;
+  justify-content: center;
   /* font-family: 'ROKAFSansBold'; */
   font-family: "Cafe24Ssurround";
 

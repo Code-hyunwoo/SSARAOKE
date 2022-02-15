@@ -101,12 +101,14 @@
 /* ------------------------------------------- Screen */
 
 #ScreenBasic {
-  width: 55vw !important;
-  height: 60vh !important;
+  width: 45vw !important;
+  height: 50vh !important;
   border-radius: 10px;
   margin-top: 11%;
-  margin-left: 4%;
+  margin-left: 3.8%;
   position: absolute;
+  top: 4vh;
+
 }
 
 #ScreenFree {
@@ -119,12 +121,21 @@
 }
 
 #ScreenSolo {
-  width: 35vw !important;
+  width: 34vw !important;
   height: 35vh !important;
   border-radius: 10px;
   position: absolute;
-  top: 22%;
-  left: 3%;
+  top: 22vh;
+  left: 3vw;
+}
+
+#ScreenDuet {
+  width: 43vw !important;
+  height: 43vh !important;
+  border-radius: 10px;
+  position: absolute;
+  top: 20vh;
+  left: 5vw;
 }
 
 /* ------------------------------------------- NormalCam */
@@ -159,89 +170,310 @@
 
 /* ------------------------------------------- SingerCam */
 
-#SoloSingerCam {
-  position: absolute;
-  width: 27vw;
-  height: 35vh;
+.soloSingercam{
+  position: absolute !important;
+  width: 20vw !important;
+  height: 35vh !important;
   margin: 8px;
   border-radius: 10px;
-  top: 22vh;
-  left: 39vw;
+  bottom: 32vh;
+  /* border: 0.3vw solid #ffce43; */
 }
 
-#DuetSingerCam1 {
-  position: absolute;
-  width: 20vw;
-  height: 35vh;
-  margin: 10px;
-  border-radius: 50px;
-  top: 25vh;
-  left: 4vw;
+.soloSingercam > video {
+
+  border: 0.3vw solid #ffffff;
+  box-shadow: 
+  0 0 0.1rem #fff, 
+  0 0 0.1rem #fff, 
+  0 0 0.1rem #fff,
+  0 0 0.4rem #ffffff, 
+  0 0 2rem #ffffff, 
+  inset 0 0 0.8rem #ffffff;
 }
 
-#DuetSingerCam2 {
-  position: absolute;
-  width: 20vw;
-  height: 35vh;
-  margin: 10px;
-  border-radius: 50px;
-  top: 25vh;
-  right: 4vw;
+.basicSingercam > video {
+
+  border: 0.3vw solid #ffffff;
+  box-shadow: 
+  0 0 0.1rem #fff, 
+  0 0 0.1rem #fff, 
+  0 0 0.1rem #fff,
+  0 0 0.4rem #ffffff, 
+  0 0 2rem #ffffff, 
+  inset 0 0 0.8rem #ffffff;
 }
+
+
+.duetSingercam{
+  position: absolute !important;
+  width: 15vw !important;
+  height: 35vh !important;
+  margin: 8px;
+  border-radius: 10px;
+  bottom: 29vh;
+  right: 25.5vw;
+  /* border: 0.3vw solid #ffce43; */
+}
+
+.duetSingercam > video {
+
+  border: 0.3vw solid #ffffff;
+  box-shadow: 
+  0 0 0.1rem #fff, 
+  0 0 0.1rem #fff, 
+  0 0 0.1rem #fff,
+  0 0 0.4rem #ffffff, 
+  0 0 2rem #ffffff, 
+  inset 0 0 0.8rem #ffffff;
+}
+
+.duetSingercam2{
+  position: absolute !important;
+  width: 15vw !important;
+  height: 35vh !important;
+  margin: 8px;
+  border-radius: 10px;
+  bottom: 29vh;
+  right: 3.5vw;
+  /* border: 0.3vw solid #ffce43; */
+}
+
+.duetSingercam2 > video {
+
+  border: 0.3vw solid #ffffff;
+  box-shadow: 
+  0 0 0.1rem #fff, 
+  0 0 0.1rem #fff, 
+  0 0 0.1rem #fff,
+  0 0 0.4rem #ffffff, 
+  0 0 2rem #ffffff, 
+  inset 0 0 0.8rem #ffffff;
+}
+
+
 
 /* ------------------------------------------- CamBox */
 
 .BasicCamBox {
   position: absolute;
-  width: 35vw;
-  height: 47vh;
-  top: 12vh;
-  left: 63vw;
-  display: inline-block;
+  width: 41vw;
+  height: 52vh;
+  top: 10vh;
+  /* left: 56vw; */
+  right: 3.5vw;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
   border-radius: 10px;
 }
+
+.BasicCamBox > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  border-radius: 10px;
+}
+
+
+.BasicCamBox > div > div{
+  width: 32%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-left:0.5%; 
+  margin-right:0.5%; 
+  flex-direction: column;
+}
+
+.BasicCamBox video{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  border-radius: 10px;
+  margin-bottom: 1vh;
+}
+
+.BasicCamBox span{
+  font-size: 1vw;
+  font-family: "ROKAFSansBold";
+  color: #00f7a5;
+}
+
+
 
 .SoloCamBox {
   position: absolute;
   display: flex;
   text-align: center;
   justify-content: center;
-  width: 100vw;
+  width: 90vw;
   height: 35vh;
-  top: 63vh;
-  display: inline-block;
+  top: 56.2vh;
+  left: 5vw;
+  display: flex;
+  justify-content: center;
+  text-align: center;
   border-radius: 10px;
 }
 
-.DuetCamBox1 {
-  position: absolute;
-  width: 25vw;
-  height: 30vh;
-  top: 68vh;
-  left: 3.5vw;
-  display: inline-block;
+.SoloCamBox > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
   border-radius: 10px;
 }
 
-.DuetCamBox2 {
+
+
+.SoloCamBox > div > div {
+  width: 14%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-left:0.5%; 
+  margin-right:0.5%; 
+  flex-direction: column;
+}
+
+.SoloCamBox video{
+  width: 100%;
+  /* height: 100%; */
+  display: flex;
+  border-radius: 10px;
+  margin-bottom: 1vh;
+}
+
+.SoloCamBox span{
+  font-size: 1vw;
+  font-family: "ROKAFSansBold";
+  color: #00f7a5;
+  /* font-family: "Cafe24Ssurround"; */
+  /* font-family: "Cafe24SsurroundAir"; */
+}
+
+
+.FreeCamBox {
   position: absolute;
-  width: 25vw;
-  height: 30vh;
-  top: 68vh;
-  right: 0.5vw;
-  display: inline-block;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
   border-radius: 10px;
 }
+
+.FreeCamBox > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.FreeCamBox > div > div {
+  width: 13%;
+  /* height: 100%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-left:0.5%; 
+  margin-right:0.5%; 
+  flex-direction: column;
+}
+
+.FreeCamBox video{
+  width: 100%;
+  /* height: 100%; */
+  display: flex;
+  border-radius: 10px;
+  margin-bottom: 1vh;
+}
+
+.FreeCamBox span{
+  font-size: 1vw;
+  font-family: "ROKAFSansBold";
+  color: #00f7a5;
+  /* font-family: "Cafe24Ssurround"; */
+  /* font-family: "Cafe24SsurroundAir"; */
+}
+
+
+.DuetCamBox {
+  position: absolute;
+  width: 45vw;
+  height: 30vh;
+  top: 58.5vh;
+  /* left: 56vw; */
+  right: 3.5vw;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  border-radius: 10px;
+}
+
+.DuetCamBox > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  border-radius: 10px;
+}
+
+.DuetCamBox > div > div{
+  width: 23%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-left:1%; 
+  margin-right:1%; 
+  flex-direction: column;
+}
+
+.DuetCamBox video{
+  width: 100%;
+  /* height: 100%; */
+  display: flex;
+  border-radius: 10px;
+  margin-bottom: 1vh;
+}
+
+.DuetCamBox span{
+  font-size: 1vw;
+  font-family: "ROKAFSansBold";
+  color: #00f7a5;
+}
+
+
 
 /* ------------------------------------------- ChatBox */
 
 .BasicChatBox {
   background-color: rgb(0, 0, 0);
   position: absolute;
-  width: 33vw;
+  width: 40vw;
   height: 21vh;
-  top: 62vh;
-  right: 3.5vw;
+  top: 63vh;
+  right: 3.6vw;
   display: inline-block;
   border-radius: 10px;
 }
@@ -260,18 +492,30 @@
 .SoloChatBox {
   background-color: transparent;
   position: absolute;
-  width: 28vw;
+  width: 34vw;
   height: 34vh;
   top: 22vh;
-  right: 3.6vw;
+  right: 3vw;
   display: inline-block;
   border-radius: 10px;
 }
 
+.DuetChatBox {
+  background-color: transparent;
+  position: absolute;
+  width: 43vw;
+  height: 17vh;
+  top: 66vh;
+  left: 5vw;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+
 /* ------------------------------------------- Chat */
 
 #BasicChat {
-  background-color: rgba(0, 0, 0, 0.938);
+  background-color: rgba(0, 0, 0, 0.966);
   color: white;
   font-size: 1vw;
   width: 100%;
@@ -284,7 +528,7 @@
 }
 
 #FreeChat {
-  background-color: rgb(49, 53, 52);
+  background-color: rgba(0, 0, 0, 0.966);
   color: white;
   font-size: 1vw;
   width: 100%;
@@ -297,7 +541,7 @@
 }
 
 #SoloChat {
-  background-color: rgb(49, 53, 52);
+  background-color: rgba(0, 0, 0, 0.966);
   color: white;
   font-size: 1vw;
   width: 100%;
@@ -399,6 +643,7 @@
   transform-style: preserve-3d;
   top: 8vh;
   left: 50vw;
+  z-index: 5;
 }
 
 .disco {
@@ -412,7 +657,9 @@
   border-radius: 50%;
   box-shadow: inset 0 0 50px rgba(0, 0, 0, 1), 0 0 50px #acacaa;
   animation: animateDisco 5s linear infinite;
+  z-index: 5;
 }
+
 
 @keyframes animateDisco {
   0% {
@@ -740,10 +987,23 @@
   align-items: center;
   background-color: transparent;
   color: white;
-  border: 0.1vw solid #cfc976;
-  border-radius: 0.2vw;
+  border: 0.1vw solid #3d3c3c;
+  border-radius: 0.3vw;
+  border-bottom-left-radius: 0.5vw;
+}
 
-
+.NickFree {
+  width: 20%;
+  height: 100%;
+  display: inline-flex;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: white;
+  border: 0.1vw solid #3d3c3c;
+  border-radius: 0.3vw;
+  border-bottom-left-radius: 0.5vw;
 }
 
 .txtmsg{
@@ -755,6 +1015,7 @@
   color: #FFCE43;
   border: 0.15vw solid #3d3c3c;
   border-radius: 0.1vw;
+  border-bottom-right-radius: 0.5vw;
 }
 
 
@@ -765,7 +1026,10 @@
   /* width:95%; */
   /* height:13%; */
   /* border:1px solid sandybrown; */
-  padding: 0.7vw;
+  padding-left: 0.7vw;
+  padding-right: 0.7vw;
+  padding-top: 0.4vw;
+  padding-bottom: 0.25vw;
   word-break: break-all;
   word-wrap: break-word;
   border-radius: 1rem;
@@ -783,4 +1047,10 @@
   font-weight: bold;
   /* border:1px solid rgb(255, 0, 0); */
   color: white
+}
+
+
+
+.testbtn {
+  position:absolute;
 }
