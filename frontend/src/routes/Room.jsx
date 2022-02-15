@@ -137,20 +137,14 @@ function Room({ state }) {
               // Subscribe to the Stream to receive it. Second parameter is undefined
               // so OpenVidu doesn't create an HTML video by its own
               let Subscriber = mySession.subscribe(event.stream, undefined);
-              // var subscribers = subscribers;
-              // subscribers.push(subscriber);
               let subs = subscribers;
               subs.push(Subscriber);
-              setsubscribers(subs);
+              setsubscribers(subs); //여기서 렌더가 되어야 하는데
+              this.forceUpdate(); //강제 렌더
 
-              // Update the state with the new subscribers
-              // setsubscribers(subscribers);
               console.log('-----new sub-----');
               console.log(Subscriber);
               console.log(subscribers);
-              // this.setState({
-              //     subscribers: subscribers,
-              // });
           });
 
           // On every Stream destroyed...
@@ -215,18 +209,6 @@ function Room({ state }) {
       register();
     }, []);
 
-    // useEffect(() => {
-    //   //시작되자마자 빈 배열 찍히는데 중간에 subscriber 추가할 때는 안 뜸
-    //   if(subscribers !== []){
-    //     console.log('-----subScribers-----');  
-    //     console.log(subscribers);
-    //   }
-    // }, [subscribers]);
-    // useEffect(() => {
-    //     console.log('-----publisher-----');  
-    //     console.log(publisher);
-    // }, [publisher]);
-
 
     function componentDidMount() {
       window.addEventListener('beforeunload', onbeforeunload);
@@ -239,15 +221,6 @@ function Room({ state }) {
     function onbeforeunload(event) {
         this.leaveRoom();
     }
-
-    // function deleteSubscriber(streamManager) {
-    //   let Subscribers = subscribers;
-    //   let index = Subscribers.indexOf(streamManager, 0);
-    //   if (index > -1) {
-    //       Subscribers.splice(index, 1);
-    //       setsubscribers(Subscribers);
-    //   }
-    // }
 
     const deleteSubscriber = (streamManager) => {
       let subs = subscribers;
@@ -275,18 +248,24 @@ function Room({ state }) {
       setpublisher(undefined);
 
       axios
-      .get(`https://i6a306.p.ssafy.io:8080/api/v1/room/out/${room}`,
+      .post(
+        "https://i6a306.p.ssafy.io:8080/api/v1/room/out", 
+        {
+          room_seq: room,
+        },
         {
           headers: {
-            "Content-Type": 'application/json',
+            "Content-Type": "application/json",
             Authorization: state[0].token,
           },
-        })
+        }
+      )
       .then((res) => {
         console.log("out 성공", res);
       })
       .catch((res) => {
-        console.log("out 실패",res);
+        console.log(room);
+        console.log("out 실패", res);
       })
 
     }
