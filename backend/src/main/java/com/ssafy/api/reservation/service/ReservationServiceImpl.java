@@ -11,6 +11,7 @@ import com.ssafy.domain.reservation.repository.ReservationRepository;
 import com.ssafy.domain.room.entity.Room;
 import com.ssafy.domain.room.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -49,8 +50,13 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public List<ReservationResponse> delete(ReservationDeleteRequest reservationDeleteRequest) {
         //db에 리퀘스트로 받은 데이터를 삭제한다.
-        reservationRepository.deleteById(reservationDeleteRequest.getReservation_seq());
-        return getReservationList(reservationDeleteRequest.getRoom_seq());
+        deleteById(reservationDeleteRequest.getReservation_seq());
+        List<ReservationResponse> response = getReservationList(reservationDeleteRequest.getRoom_seq());
+        return response;
+    }
+    @Transactional
+    public void deleteById(Long reservation_seq){
+        reservationRepository.deleteById(reservation_seq);
     }
 
     @Transactional(readOnly = true)

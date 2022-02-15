@@ -1,6 +1,7 @@
 package com.ssafy.api.room.controller;
 
 import com.ssafy.api.auth.resolver.Auth;
+import com.ssafy.api.room.dto.request.RoomOutRequest;
 import com.ssafy.api.room.dto.request.RoomThumbnailRequest;
 import com.ssafy.api.room.dto.request.RoomUserRequest;
 import com.ssafy.api.room.dto.response.RoomUserResponse;
@@ -55,10 +56,10 @@ public class RoomController {
 
     @CrossOrigin("*")
     @PostMapping("/out")
-    ResponseEntity<? extends BaseResponseBody> out(@Auth User user, @RequestBody Long room_seq) {
-        System.out.println("[RoomController.out] before " + user.getNickname() + " out from " + room_seq);
-        roomService.out(user, room_seq);
-        System.out.println("[RoomController.out] after " + user.getNickname() + " out from " + room_seq);
+    ResponseEntity<? extends BaseResponseBody> out(@Auth User user, @RequestBody RoomOutRequest request) {
+        System.out.println("[RoomController.out] before " + user.getNickname() + " out from " + request.getRoom_seq());
+        roomService.out(user, request.getRoom_seq());
+        System.out.println("[RoomController.out] after " + user.getNickname() + " out from " + request.getRoom_seq());
 
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
