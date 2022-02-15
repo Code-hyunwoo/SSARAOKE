@@ -27,6 +27,7 @@ import Tambourine from "../components/remote/audio/Tambourine.mp3";
 const OPENVIDU_SERVER_URL = "https://i6a306.p.ssafy.io";
 const OPENVIDU_SERVER_SECRET = "qwer1234";
 const URL_PREFIX = "https://www.youtube.com/watch?v=";
+const RANDOM_PITCH = ['0.76', '0.77', '0.78', '0.79', '0.80', '1.4', '1.5', '1.7', '1.8', '2.0'];
 ////////////////////////////////////////////////////////////Room
 
 function Room({ state }) {
@@ -425,7 +426,8 @@ function Room({ state }) {
     const me = publisher;
     if (!gsfilter) {
       setgsfilter(true);
-      me.stream.applyFilter("GStreamerFilter", { command: `pitch pitch=1.7` });
+      let pitch = RANDOM_PITCH[Math.floor(Math.random() * RANDOM_PITCH)]
+      me.stream.applyFilter("GStreamerFilter", { command: `pitch pitch=${pitch}` });
       console.log("음성 변조 추가");
     } else {
       setgsfilter(false);
