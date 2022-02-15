@@ -8,7 +8,7 @@ function Effect({setOpenFirework, hideControl}) {
   const audio2 = new Audio(Tambourine)
   // const audio = new Audio("./audio/Next.mp3")
   function Clapaudio(){
-      audio.volume = 0.1
+      audio.volume = 0.03
       audio.play()
       hideControl()
   }
