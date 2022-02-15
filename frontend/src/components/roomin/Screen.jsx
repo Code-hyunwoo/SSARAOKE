@@ -4,11 +4,11 @@ import ScoreSound from "./audio/Score.mp3";
 
 
 
-function Screen ({mode, now, nextMusic, setstartScoreBoard}){
+function Screen ({mode, now, setstartScoreBoard}){
     
     function endMusic(){
         // alert(`곡 종료`)
-        nextMusic()
+        // nextMusic()
     }
 
     const audio = new Audio(ScoreSound)

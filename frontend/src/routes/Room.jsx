@@ -11,90 +11,35 @@ import { useState } from "react";
 import Crazylights from "../components/roomin/Crazylights";
 import { Link, useParams } from "react-router-dom";
 import Controller from "../components/remote/Controller";
-import kurentoUtils from "kurento-utils";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import Firework from "../components/remote/Firework";
+import UserVideoComponent from "../components/openvidu/UserVideoComponent";
+import { OpenVidu } from "openvidu-browser";
+import axios from "axios";
 import Dream from "../components/roomin/Dream";
 import GoodDay from "../components/roomin/GoodDay";
 import ScoreBoard from "../components/roomin/ScoreBoard";
 
-////////////////////////////////////////////////////////////participants
-var participants = {};
-function Participant(name, sendMessage) {
-  this.name = name;
-  var container = document.createElement("div");
-  container.id = name;
-
-  console.log("creating video");
-  var span = document.createElement("span");
-  var video = document.createElement("video");
-  var rtcPeer;
-
-  container.appendChild(video);
-  container.appendChild(span);
-  document.getElementById("participants").appendChild(container);
-
-  span.appendChild(document.createTextNode(name));
-
-  video.id = "video-" + name;
-  video.autoplay = true;
-  video.controls = false;
-
-  console.log("DONE");
-
-  this.getElement = function () {
-    return container;
-  };
-
-  this.getVideoElement = function () {
-    return video;
-  };
-
-  this.offerToReceiveVideo = function (error, offerSdp, wp) {
-    if (error) return console.error("sdp offer error");
-    console.log("Invoking SDP offer callback function");
-    var msg = { id: "receiveVideoFrom", sender: name, sdpOffer: offerSdp };
-    sendMessage(msg);
-  };
-
-  this.onIceCandidate = function (candidate, wp) {
-    console.log("Local candidate" + JSON.stringify(candidate));
-
-    var message = {
-      id: "onIceCandidate",
-      candidate: candidate,
-      name: name,
-    };
-    sendMessage(message);
-  };
-
-  Object.defineProperty(this, "rtcPeer", { writable: true });
-
-  this.dispose = function () {
-    console.log("Disposing participant " + this.name);
-    this.rtcPeer.dispose();
-    container.parentNode.removeChild(container);
-  };
-}
+const OPENVIDU_SERVER_URL = "https://i6a306.p.ssafy.io";
+const OPENVIDU_SERVER_SECRET = "qwer1234";
+const URL_PREFIX = "https://www.youtube.com/watch?v=";
 
 ////////////////////////////////////////////////////////////Room
 
-function Room({ Nickname }) {
+function Room({ state }) {
   const [openChangeMode, setOpenChangeMode] = useState(false);
   const [openContents, setOpenContents] = useState(false);
   const [openFirework, setOpenFirework] = useState(false);
-  const practice = [
-    "https://www.youtube.com/watch?v=Xk7_eEx58ds",
-    "https://www.youtube.com/watch?v=4gXmClk8rKI",
-    "https://www.youtube.com/watch?v=t8KtQ8-nImI",
-  ];
-  const [bookList, setbookList] = useState(practice);
+  // const practice = [
+  //   "Xk7_eEx58ds",
+  //   "4gXmClk8rKI",
+  //   "t8KtQ8-nImI",
+  // ];
   const [nowPlaymusic, setnowPlaymusic] = useState("");
-  // const [participants,setParticipants] = useState({});    //서버에서 보내 줄 현재 참여자 내역
   const [chatArr, setChatArr] = useState([]);
 
-  const name = { Nickname }.Nickname; //redux에 저장된 user nickname
+  const name = state[0].nickname; //{ Nickname }.Nickname; //redux에 저장된 user nickname
   const { mode, roomnum } = useParams();
   const room = { roomnum }.roomnum; //redux에 저장된 room_seq
   const firstmode = { mode }.mode;
@@ -108,6 +53,13 @@ function Room({ Nickname }) {
   const [startGoodDay, setstartGoodDay] = useState(false);
   const [startScoreBoard, setstartScoreBoard] = useState(false);
 
+  // const [ myUserName, setmyUserName] = useState({ Nickname }.Nickname);//Nickname으로 쓰임
+  const [session, setsession] = useState(undefined);
+  const [publisher, setpublisher] = useState(undefined);
+  const [subscribers, setsubscribers] = useState([]);
+  const [OV, setOV] = useState(undefined);
+  const [gsfilter, setgsfilter] = useState(false);
+  const [nowplaying, setnowplaying] = useState(false);
   function transformBasic() {
     settransScreen(styles.ScreenBasic);
     settransCamBox(styles.BasicCamBox);
@@ -151,281 +103,365 @@ function Room({ Nickname }) {
       transformDuet();
     }
   }, []);
-  //갈아치워야 할 기존 영역
 
-  var ws = new WebSocket("wss://i6a306.p.ssafy.io:8443/groupcall");
+  useEffect(() => {
+    // --- 3) Specify the actions when events take place in the session ---
+    // my-chat
+    if (session !== undefined && OV !== undefined) {
+      var mySession = session;
+      console.log("-----session changed-----");
+      console.log(mySession);
+      mySession.on("signal:my-chat", (event) => {
+        console.log(event.data); // Message
+        console.log(event.from); // Connection object of the sender
+        // console.log(event.type); // The type of message ("my-chat")
+        console.log(`[receiveChat] ${event.data}를 받았습니다.`);
+        setChatArr((chatArr) => chatArr.concat(event.data));
+        console.log("[ReceiveMessage]" + event.data);
+      });
+      mySession.on("signal:YTUrl", (event) => {
+        console.log("[ReceiveURL]" + event.data);
+        console.log(`${event.data} 재생 요청 들어옴 -> YT플레이어로 당장 틀기`);
+        var url;
+        if (event.data === "") {
+          url = event.data;
+          setnowplaying(false);
+        } else {
+          url = URL_PREFIX + event.data;
+          setnowplaying(true);
+        }
+        // setYTUrl(url);
+        //뮤직바 설정해야 함
+        setnowPlaymusic(url); //현재 재생할 url
+      });
+
+      // On every new Stream received...
+      mySession.on("streamCreated", (event) => {
+        // Subscribe to the Stream to receive it. Second parameter is undefined
+        // so OpenVidu doesn't create an HTML video by its own
+        let Subscriber = mySession.subscribe(event.stream, undefined);
+        let subs = subscribers;
+        subs.push(Subscriber);
+        setsubscribers(subs);
+        // setsubscribers([...subscribers, Subscriber]); //여기서 렌더가 되어야 하는데
+        // this.forceUpdate(); //강제 렌더
+
+        console.log("-----new sub-----");
+        console.log(Subscriber);
+        console.log(subscribers);
+      });
+
+      // On every Stream destroyed...
+      mySession.on("streamDestroyed", (event) => {
+        // Remove the stream from 'subscribers' array
+        deleteSubscriber(event.stream.streamManager);
+      });
+
+      // On every asynchronous exception...
+      mySession.on("exception", (exception) => {
+        console.warn(exception);
+      });
+
+      // --- 4) Connect to the session with a valid user token ---
+
+      // 'getToken' method is simulating what your server-side should do.
+      // 'token' parameter should be retrieved and returned by your own backend
+      getToken().then((token) => {
+        console.log("-----getToken then-----");
+        // First param is the token got from OpenVidu Server. Second param can be retrieved by every user on event
+        // 'streamCreated' (property Stream.connection.data), and will be appended to DOM as the user's nickname
+        mySession
+          .connect(token, { clientData: name })
+          .then(() => {
+            let publisher = OV.initPublisher(undefined, {
+              audioSource: undefined, // The source of audio. If undefined default microphone
+              videoSource: undefined, // The source of video. If undefined default webcam
+              publishAudio: true, // Whether you want to start publishing with your audio unmuted or not
+              publishVideo: true, // Whether you want to start publishing with your video enabled or not
+              resolution: "640x480", // The resolution of your video
+              frameRate: 30, // The frame rate of your video
+              insertMode: "APPEND", // How the video is inserted in the target element 'video-container'
+              mirror: false, // Whether to mirror your local video or not
+            });
+
+            // --- 6) Publish your stream ---
+
+            mySession.publish(publisher);
+
+            // Set the main video in the page to display our webcam and store our Publisher
+            setpublisher(publisher);
+            // this.setState({
+            //     // mainStreamManager: publisher,
+            //     publisher: publisher,
+            // });
+          })
+          .catch((error) => {
+            console.log(
+              "There was an error connecting to the session:",
+              error.code,
+              error.message
+            );
+          });
+      });
+    }
+  }, [session]);
+
   useEffect(() => {
     console.log("입장확인");
     console.log({ roomnum });
     console.log({ mode });
-    ws.onopen = () => {
-      register();
-      console.log("WebSocket Client Connected");
-    };
+    register();
   }, []);
-  //   ws.onopen = () => {
-  //     register()
-  //     console.log("WebSocket Client Connected");
-  //   };
 
-  ws.onmessage = function (message) {
-    var parsedMessage = JSON.parse(message.data);
-    console.info("Received message: " + message.data);
+  window.onbeforeunload = function () {
+    onbeforeunload();
+  };
 
-    switch (parsedMessage.id) {
-      case "existingParticipants":
-        onExistingParticipants(parsedMessage);
-        break;
-      case "newParticipantArrived":
-        onNewParticipant(parsedMessage);
-        break;
-      case "participantLeft":
-        onParticipantLeft(parsedMessage);
-        break;
-      case "receiveChat": //채팅을 받았습니다!
-        onReceiveChat(parsedMessage);
-        break;
-      case "receiveYTUrl": //야 이거 당장 틀어야 함
-        onReceiveYTUrl(parsedMessage);
-        break;
-      case "receiveVideoAnswer":
-        receiveVideoResponse(parsedMessage);
-        break;
-      case "iceCandidate":
-        participants[parsedMessage.name].rtcPeer.addIceCandidate(
-          parsedMessage.candidate,
-          function (error) {
-            if (error) {
-              console.error("Error adding candidate: " + error);
-              return;
-            }
-          }
-        );
-        break;
-      default:
-        console.error("Unrecognized message", parsedMessage);
+  function onbeforeunload() {
+    leaveRoom();
+  }
+
+  const deleteSubscriber = (streamManager) => {
+    let subs = subscribers;
+    let idx = subs.indexOf(streamManager, 0);
+    if (idx > -1) {
+      subs.splice(idx, 1);
+      setsubscribers([...subs]);
     }
   };
 
-  function onNewParticipant(request) {
-    receiveVideo(request.name);
-  }
-
-  function receiveVideoResponse(result) {
-    participants[result.name].rtcPeer.processAnswer(
-      result.sdpAnswer,
-      function (error) {
-        if (error) return console.error(error);
-      }
-    );
-  }
-
-  function callResponse(message) {
-    if (message.response != "accepted") {
-      console.info("Call not accepted by peer. Closing call");
-      window.stop();
-    } else {
-      kurentoUtils.WebRtcPeer.processAnswer(
-        message.sdpAnswer,
-        function (error) {
-          if (error) return console.error(error);
-        }
-      );
-    }
-  }
-
-  function onExistingParticipants(msg) {
-    var constraints = {
-      audio: true,
-      video: {
-        mandatory: {
-          maxWidth: 320,
-          maxFrameRate: 15,
-          minFrameRate: 15,
-        },
-      },
-    };
-    console.log(name + " registered in room ");
-    var participant = new Participant(name, sendMessage);
-    console.log("=====Participant=====");
-    console.log(participant);
-    participants[name] = participant;
-    // setParticipants(participants[name] = participant);
-    var video = participant.getVideoElement();
-
-    var options = {
-      localVideo: video,
-      mediaConstraints: constraints,
-      configuration: {
-        iceServers: [
-          {
-            urls: "turn:3.38.244.111:3478",
-            username: "ssaraoke",
-            credential: "qwer1234",
-          },
-        ],
-        iceTransportPolicy: "relay",
-      },
-      onicecandidate: participant.onIceCandidate.bind(participant),
-    };
-    participant.rtcPeer = new kurentoUtils.WebRtcPeer.WebRtcPeerSendonly(
-      options,
-      function (error) {
-        if (error) {
-          return console.error(error);
-        }
-        this.generateOffer(participant.offerToReceiveVideo.bind(participant));
-      }
-    );
-
-    msg.data.forEach(receiveVideo);
-  }
-
   function leaveRoom() {
-    sendMessage({
-      id: "leaveRoom",
-    });
-    console.log(participants);
-    for (var key in participants) {
-      participants[key].dispose();
+    // --- 7) Leave the session by calling 'disconnect' method over the Session object ---
+
+    const mySession = session;
+
+    if (mySession) {
+      mySession.disconnect();
     }
-    ws.close();
-  }
 
-  function receiveVideo(sender) {
-    var participant = new Participant(sender, sendMessage);
-    // setParticipants(participants[sender] = participant);
-    participants[sender] = participant;
-    var video = participant.getVideoElement();
+    // Empty all properties...
+    setOV(undefined);
+    setsession(undefined);
+    setsubscribers([]);
+    setpublisher(undefined);
 
-    var options = {
-      remoteVideo: video,
-      configuration: {
-        iceServers: [
-          {
-            urls: "turn:3.38.244.111:3478",
-            username: "ssaraoke",
-            credential: "qwer1234",
+    axios
+      .post(
+        "https://i6a306.p.ssafy.io:8080/api/v1/room/out",
+        {
+          room_seq: room,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: state[0].token,
           },
-        ],
-        iceTransportPolicy: "relay",
-      },
-      onicecandidate: participant.onIceCandidate.bind(participant),
-    };
-
-    participant.rtcPeer = new kurentoUtils.WebRtcPeer.WebRtcPeerRecvonly(
-      options,
-      function (error) {
-        if (error) {
-          return console.error(error);
         }
-        this.generateOffer(participant.offerToReceiveVideo.bind(participant));
-      }
-    );
+      )
+      .then((res) => {
+        console.log("out 성공", res);
+      })
+      .catch((res) => {
+        console.log(room);
+        console.log("out 실패", res);
+      });
   }
-
-  function onParticipantLeft(request) {
-    console.log("Participant " + request.name + " left");
-    var participant = participants[request.name];
-    participant.dispose();
-    // setParticipants(delete participants[request.name]);
-    delete participants[request.name];
-  }
-
-  function sendMessage(message) {
-    var jsonMessage = JSON.stringify(message);
-    console.log("Sending message: " + jsonMessage);
-    ws.send(jsonMessage);
+  function sendMessage(type, data) {
+    const mySession = session;
+    mySession
+      .signal({
+        data: data, // Any string (optional)
+        to: [], // Array of Connection objects (optional. Broadcast to everyone if empty)
+        type: type, // The type of message (optional)
+      })
+      .then(() => {
+        console.log(type + " successfully sent");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   function register() {
-    var message = {
-      id: "joinRoom",
-      name: { Nickname }.Nickname,
-      room: room,
-    };
-    sendMessage(message);
-  }
-  /*채팅, 유튜브 링크 */
-  //채팅 받았을 때(공용)
-  function onReceiveChat(sender) {
-    console.log(
-      `[receiveChat] ${sender.name}님이 ${sender.room}에 ${sender.msg}를 보냈습니다.`
-    );
-    setChatArr((chatArr) => chatArr.concat(sender));
+    console.log("-----Register-----");
+    let OV = new OpenVidu();
+    setOV(OV);
+    setsession(OV.initSession());
   }
 
-  //채팅 보낼 때
   function sendChat(msg) {
-    var chatMsg = msg;
-    var name = { Nickname }.Nickname;
-    var message = {
-      id: "sendChat",
-      name: name, //내 이름
-      room: room, //현재 룸
-      msg: chatMsg,
-    };
-    console.log(`[sendChat] ${name}: ${chatMsg} at room ${room}`);
-    sendMessage(message);
+    console.log("[sendChat] 이것은 채ㅣㅌㅇ임");
+    var chatMsg = state[0].nickname + ":" + msg;
+    console.log(`[sendChat] ${chatMsg}`);
+    sendMessage("my-chat", chatMsg);
   }
 
-  //유튜브 url 발신
-  //노래 끝났고 다음 노래 재생해야 하는 경우 방장이 호출
-  //현재 재생되는 노래 없을 경우 시작 버튼 누른 사람이 호출
   function sendYTUrl() {
-    var YTUrl = bookList[0];
-    var message = {
-      id: "sendYTUrl",
-      room: room,
-      url: YTUrl, //axios로 받아온 예약리스트 첫번째 걸 setting.
-    };
-    console.log(`[sendYTUrl]유튜브 요청 보냄, url: ${YTUrl} at room ${room}`);
-    sendMessage(message); //메세지 send하고
-    bookList.shift();
-    setbookList(bookList);
-    console.log(bookList);
+    //첫곡 불러와서 전송, 해당 곡은 DB에서 삭제 됨
+    axios
+      .get(`https://i6a306.p.ssafy.io:8080/api/v1/reservation/first/${room}`)
+      .then((res) => {
+        console.log("예약첫번째곡 불러옴", res.data);
+        //title어디다 저장해두지 뮤직바 어디지
+        sendMessage("YTUrl", res.data.song_no); //전송
+        console.log(
+          `[sendYTUrl]유튜브 요청 보냄, url: ${res.data.song_no} at room ${room}`
+        );
+      })
+      .catch((res) => {
+        console.log("불러오기 실패", res);
+      });
   }
 
-  function onReceiveYTUrl(request) {
-    //server에서 받아서 setNowPlayMusic
-    console.log(
-      `${request.room}에 ${request.url} 재생 요청 들어옴 -> YT플레이어로 당장 틀기`
-    );
-    var YTUrl = request.url;
-    setnowPlaymusic(YTUrl);
-  }
-
-  function nextMusic() {
-    var YTUrl = bookList[0];
-    var message = {
-      id: "sendYTUrl",
-      room: room,
-      url: YTUrl,
-    };
-    // console.log(YTUrl)
-    sendMessage(message);
-    bookList.shift();
-    setbookList(bookList);
-    // console.log(bookList)
-  }
+  // function nextMusic() {
+  //   var next = bookList[0];
+  //   setYTUrl(next);
+  //   sendMessage('YTUrl', YTUrl);
+  //   bookList.shift();
+  //   setbookList(bookList);
+  //   console.log(bookList)
+  // }
 
   function audioMute() {
-    if (participants[name].rtcPeer.audioEnabled) {
+    const me = publisher;
+    if (me.stream.audioActive) {
+      me.publishAudio(false);
       console.log("마이크 끄기");
-      participants[name].rtcPeer.audioEnabled = false;
     } else {
+      me.publishAudio(true);
       console.log("마이크 켜기");
-      participants[name].rtcPeer.audioEnabled = true;
     }
   }
+
   function videoMute() {
-    if (participants[name].rtcPeer.videoEnabled) {
+    const me = publisher;
+    if (me.stream.videoActive) {
+      me.publishVideo(false);
       console.log("비디오 끄기");
-      participants[name].rtcPeer.videoEnabled = false;
     } else {
+      me.publishVideo(true);
       console.log("비디오 켜기");
-      participants[name].rtcPeer.videoEnabled = true;
     }
+  }
+
+  function voiceFilterEcho() {
+    const me = publisher;
+    if (!gsfilter) {
+      setgsfilter(true);
+      me.stream.applyFilter("GStreamerFilter", {
+        command: "audioecho delay=50000000 intensity=0.7 feedback=0.5",
+      });
+      console.log("에코 추가");
+    } else {
+      setgsfilter(false);
+      me.stream.removeFilter();
+      console.log("에코 제거");
+    }
+  }
+
+  function voiceFilterMegaPhone() {
+    const me = publisher;
+    if (!gsfilter) {
+      setgsfilter(true);
+      me.stream.applyFilter("GStreamerFilter", {
+        command: "audioamplify amplification=1.7",
+      });
+      console.log("확성기 추가");
+    } else {
+      setgsfilter(false);
+      me.stream.removeFilter();
+      console.log("확성기 제거");
+    }
+  }
+
+  function voiceFilterModulation() {
+    const me = publisher;
+    if (!gsfilter) {
+      setgsfilter(true);
+      me.stream.applyFilter("GStreamerFilter", { command: `pitch pitch=1.7` });
+      console.log("음성 변조 추가");
+    } else {
+      setgsfilter(false);
+      me.stream.removeFilter();
+      console.log("음성 변조 제거");
+    }
+  }
+
+  function getToken() {
+    return createSession(room).then((sessionId) => createToken(sessionId));
+  }
+
+  function createSession(sessionId) {
+    return new Promise((resolve, reject) => {
+      var data = JSON.stringify({ customSessionId: sessionId });
+      axios
+        .post(OPENVIDU_SERVER_URL + "/openvidu/api/sessions", data, {
+          headers: {
+            Authorization:
+              "Basic " + btoa("OPENVIDUAPP:" + OPENVIDU_SERVER_SECRET),
+            "Content-Type": "application/json",
+          },
+        })
+        .then((response) => {
+          console.log("CREATE SESION", response);
+          resolve(response.data.id);
+        })
+        .catch((response) => {
+          var error = Object.assign({}, response);
+          if (error?.response?.status === 409) {
+            resolve(sessionId);
+          } else {
+            console.log(error);
+            console.warn(
+              "No connection to OpenVidu Server. This may be a certificate error at " +
+                OPENVIDU_SERVER_URL
+            );
+            if (
+              window.confirm(
+                'No connection to OpenVidu Server. This may be a certificate error at "' +
+                  OPENVIDU_SERVER_URL +
+                  '"\n\nClick OK to navigate and accept it. ' +
+                  'If no certificate warning is shown, then check that your OpenVidu Server is up and running at "' +
+                  OPENVIDU_SERVER_URL +
+                  '"'
+              )
+            ) {
+              window.location.assign(
+                OPENVIDU_SERVER_URL + "/accept-certificate"
+              );
+            }
+          }
+        });
+    });
+  }
+
+  function createToken(sessionId) {
+    return new Promise((resolve, reject) => {
+      axios
+        .post(
+          OPENVIDU_SERVER_URL +
+            "/openvidu/api/sessions/" +
+            sessionId +
+            "/connection",
+          JSON.stringify({
+            kurentoOptions: {
+              allowedFilters: ["GStreamerFilter", "FaceOverlayFilter"],
+            },
+          }),
+          {
+            headers: {
+              Authorization:
+                "Basic " + btoa("OPENVIDUAPP:" + OPENVIDU_SERVER_SECRET),
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((response) => {
+          console.log("TOKEN", response);
+          resolve(response.data.token);
+        })
+        .catch((error) => reject(error));
+    });
   }
 
   function basicsinger() {
@@ -468,7 +504,7 @@ function Room({ Nickname }) {
       <Screen
         mode={transScreen}
         now={nowPlaymusic}
-        nextMusic={nextMusic}
+        // nextMusic={nextMusic}
         setstartScoreBoard={setstartScoreBoard}
       />
       {openFirework && <Firework />}
@@ -479,7 +515,18 @@ function Room({ Nickname }) {
       )}
 
       <div className={transCamBox}>
-        <div id="participants"></div>
+        <div id="video-container">
+          {session !== undefined ? (
+            <UserVideoComponent streamManager={publisher} />
+          ) : null}
+          {session !== undefined
+            ? subscribers.map((sub, i) => (
+                <div key={i} className="stream-container col-md-6 col-xs-6">
+                  <UserVideoComponent streamManager={sub} />
+                </div>
+              ))
+            : null}
+        </div>
       </div>
       <div className={transChatBox}>
         <RoomChat mode={transChat} sendChat={sendChat} chatArr={chatArr} />
@@ -504,12 +551,15 @@ function Room({ Nickname }) {
         )}
 
         <Controller
-          book={bookList}
+          roomseq={room}
           sendYTUrl={sendYTUrl}
           setOpenFirework={setOpenFirework}
+          nowplaying={nowplaying}
+          voiceFilterEcho={voiceFilterEcho}
+          voiceFilterMegaPhone={voiceFilterMegaPhone}
+          voiceFilterModulation={voiceFilterModulation}
           setstartDream={setstartDream}
           setstartGoodDay={setstartGoodDay}
-          roomseq={room}
         />
         <button
           className={(styles.btn, styles.neon)}
@@ -528,6 +578,7 @@ function Room({ Nickname }) {
             setstartGoodDay={setstartGoodDay}
           />
         )}
+
         <button
           className={(styles.btn, styles.neon)}
           onClick={() => {
@@ -558,8 +609,12 @@ function Room({ Nickname }) {
 }
 
 function mapStateToProps(state) {
-  const Nickname = state[0].nickname;
-  return { Nickname };
+  return { state };
 }
+
+// function mapStateToProps(state) {
+//     const Nickname = state[0].nickname;
+//     return { Nickname };
+// }
 
 export default connect(mapStateToProps, null)(Room);

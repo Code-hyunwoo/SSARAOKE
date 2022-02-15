@@ -12,6 +12,6 @@ import java.util.List;
 public class UserResponse {
     private String nickname;
     private String email = "";
-    private List<Bookmark> bookmarks;
+    private List<UserBookmarkResponse> bookmarks;
 
 }

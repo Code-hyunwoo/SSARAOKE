@@ -10,6 +10,7 @@ function WaitingList({ roomseq }) {
   const [show, setShow] = useState(false);
   const [waitlist, setWaitlist] = useState([]);
   const getBooklist = () => {
+    // console.log(roomseq);
     axios
       .get(
         `https://i6a306.p.ssafy.io:8080/api/v1/reservation/list/${roomseq}`,

@@ -1,6 +1,8 @@
 package com.ssafy.common.handler;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,6 +24,7 @@ import java.nio.charset.Charset;
  */
 
 @ControllerAdvice
+@Order(Ordered.HIGHEST_PRECEDENCE)
 public class NotFoundHandler {
 	@Value("${spa.default-file}")
 	String defaultFile;
