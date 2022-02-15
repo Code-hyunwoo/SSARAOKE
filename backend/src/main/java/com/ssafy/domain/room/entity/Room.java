@@ -140,7 +140,22 @@ public class Room extends BaseTimeEntity{
     }
 
     public Reservation getFirstReservation(){
-        return reservations.get(0);
+        if(!reservations.isEmpty()){
+            return reservations.get(0);
+        }else{
+            return null;
+        }
+    }
+
+    public List<Reservation> getTwoReservation(){
+        List<Reservation> list = new ArrayList<>();
+        if(reservations.size() > 0){
+            list.add(getFirstReservation());
+        }
+        if(reservations.size() > 1){
+            list.add(reservations.get(1));
+        }
+        return list;
     }
 
 }

@@ -46,4 +46,10 @@ public class ReservationController {
         ReservationResponse response = reservationService.getFirst(room_seq);
         return ResponseEntity.ok().body(response);
     }
+
+    @GetMapping("two/{room_seq}")
+    ResponseEntity<List<ReservationResponse>>getTwo(@PathVariable("room_seq") Long room_seq){
+        List<ReservationResponse> response = reservationService.getTwo(room_seq);
+        return ResponseEntity.ok().body(response);
+    }
 }
