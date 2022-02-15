@@ -40,7 +40,7 @@ function Controller({
     key: apiKey,
     part: "snippet",
     // TJ노래방 channelId: "UCZUhx8ClCv6paFW7qi3qljg",
-    // JW 노래방 channelId
+    // JW 노래방 channelId: UC58ttsbMu6kCeWRrEsDI2ww
     channelId: "UC58ttsbMu6kCeWRrEsDI2ww",
     channelType: "any",
     q: searchitem,
