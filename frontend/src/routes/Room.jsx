@@ -34,6 +34,7 @@ function Room({ state }) {
       "4gXmClk8rKI",
       "t8KtQ8-nImI",
     ];
+    const [current, setcurrent] = useState({});
     const [bookList, setbookList] = useState(practice);
     const [nowPlaymusic, setnowPlaymusic] = useState("");
     // const [participants,setParticipants] = useState({});    //서버에서 보내 줄 현재 참여자 내역
@@ -56,6 +57,8 @@ function Room({ state }) {
     const [ subscribers, setsubscribers] = useState([]);
     const [OV, setOV] = useState(undefined);
     const [gsfilter, setgsfilter] = useState(false);
+    const [nowplaying, setnowplaying] = useState(false);
+    const [YTUrl, setYTUrl] = useState("");
   
     function transformBasic() {
         settransScreen(styles.ScreenBasic);
@@ -127,8 +130,17 @@ function Room({ state }) {
               console.log(
                 `${event.data} 재생 요청 들어옴 -> YT플레이어로 당장 틀기`
               ); 
-              var YTUrl = URL_PREFIX + event.data;
-              setnowPlaymusic(YTUrl);
+              var url;
+              if(event.data === ""){
+                url = event.data;
+                setnowplaying(false);
+              }else {
+                url = URL_PREFIX + event.data;
+                setnowplaying(true);
+              }
+              // setYTUrl(url);
+              //뮤직바 설정해야 함
+              setnowPlaymusic(url); //현재 재생할 url
         
           });
 
@@ -139,8 +151,9 @@ function Room({ state }) {
               let Subscriber = mySession.subscribe(event.stream, undefined);
               let subs = subscribers;
               subs.push(Subscriber);
-              setsubscribers(subs); //여기서 렌더가 되어야 하는데
-              this.forceUpdate(); //강제 렌더
+              setsubscribers(subs);
+              // setsubscribers([...subscribers, Subscriber]); //여기서 렌더가 되어야 하는데
+              // this.forceUpdate(); //강제 렌더
 
               console.log('-----new sub-----');
               console.log(Subscriber);
@@ -208,7 +221,6 @@ function Room({ state }) {
       console.log({mode})
       register();
     }, []);
-
 
     function componentDidMount() {
       window.addEventListener('beforeunload', onbeforeunload);
@@ -300,16 +312,25 @@ function Room({ state }) {
     }
    
     function sendYTUrl(){
-      var YTUrl = bookList[0];
-      console.log(`[sendYTUrl]유튜브 요청 보냄, url: ${YTUrl} at room ${room}`);
-      sendMessage('YTUrl', YTUrl);
-      bookList.shift();
-      setbookList(bookList);
-      console.log(bookList);
+      //첫곡 불러와서 전송, 해당 곡은 DB에서 삭제 됨
+      axios
+      .get(
+        `https://i6a306.p.ssafy.io:8080/api/v1/reservation/first/${room}`)
+      .then((res) => {
+        console.log("예약첫번째곡 불러옴", res.data);
+        //title어디다 저장해두지 뮤직바 어디지
+        sendMessage('YTUrl', res.data.song_no);//전송
+        console.log(`[sendYTUrl]유튜브 요청 보냄, url: ${res.data.song_no} at room ${room}`);
+      })
+      .catch((res) => {
+        console.log(room);
+        console.log("불러오기 실패", res);
+      })
     }
 
     function nextMusic() {
-      var YTUrl = bookList[0];
+      var next = bookList[0];
+      setYTUrl(next);
       sendMessage('YTUrl', YTUrl);
       bookList.shift();
       setbookList(bookList);
@@ -525,7 +546,9 @@ function voiceFilterModulation() {
         {nowMode === 'Solomode' && <Button text={"Singer"} getOnClick={solosinger} />}
         {nowMode === 'Duetmode' && <Button text={"Singer1"} getOnClick={duetsinger} />}
         {nowMode === 'Duetmode' && <Button text={"Singer2"} getOnClick={duetsinger2} />}
-        <Controller book={bookList} sendYTUrl={sendYTUrl} setOpenFirework={setOpenFirework}/>
+        <Controller book={bookList} sendYTUrl={sendYTUrl} 
+                    setOpenFirework={setOpenFirework} setnowplaying={setnowplaying}
+                    voiceFilterEcho={voiceFilterEcho} voiceFilterMegaPhone={voiceFilterMegaPhone} voiceFilterModulation={voiceFilterModulation }/>
         <Button text={"컨텐츠"} />
         <Button text={"에코"} getOnClick={voiceFilterEcho} />
         <Button text={"확성기"} getOnClick={voiceFilterMegaPhone} />
