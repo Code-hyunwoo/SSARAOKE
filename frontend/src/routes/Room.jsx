@@ -10,11 +10,9 @@ import { useState } from "react";
 import Crazylights from "../components/roomin/Crazylights";
 import { Link, useParams } from "react-router-dom";
 import Controller from "../components/remote/Controller";
-import kurentoUtils from "kurento-utils";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import Firework from "../components/remote/Firework";
-import OpenViduVideoComponent from "../components/openvidu/OvVideo";
 import UserVideoComponent from "../components/openvidu/UserVideoComponent";
 import { OpenVidu } from 'openvidu-browser';
 import axios from 'axios';
@@ -29,15 +27,12 @@ const URL_PREFIX = 'https://www.youtube.com/watch?v=';
 function Room({ state }) {
     const [openChangeMode, setOpenChangeMode] = useState(false);
     const [openFirework, setOpenFirework] =useState(false);
-    const practice = [
-      "Xk7_eEx58ds",
-      "4gXmClk8rKI",
-      "t8KtQ8-nImI",
-    ];
-    const [current, setcurrent] = useState({});
-    const [bookList, setbookList] = useState(practice);
+    // const practice = [
+    //   "Xk7_eEx58ds",
+    //   "4gXmClk8rKI",
+    //   "t8KtQ8-nImI",
+    // ];
     const [nowPlaymusic, setnowPlaymusic] = useState("");
-    // const [participants,setParticipants] = useState({});    //서버에서 보내 줄 현재 참여자 내역
     const [chatArr, setChatArr] = useState([]);
   
     const name = state[0].nickname;//{ Nickname }.Nickname; //redux에 저장된 user nickname
@@ -58,8 +53,6 @@ function Room({ state }) {
     const [OV, setOV] = useState(undefined);
     const [gsfilter, setgsfilter] = useState(false);
     const [nowplaying, setnowplaying] = useState(false);
-    const [YTUrl, setYTUrl] = useState("");
-  
     function transformBasic() {
         settransScreen(styles.ScreenBasic);
         settransCamBox(styles.BasicCamBox);
@@ -222,16 +215,12 @@ function Room({ state }) {
       register();
     }, []);
 
-    function componentDidMount() {
-      window.addEventListener('beforeunload', onbeforeunload);
-    }
+    window.onbeforeunload = function() {
+      onbeforeunload();
+    };
 
-    function componentWillUnmount() {
-        window.removeEventListener('beforeunload', onbeforeunload);
-    }
-
-    function onbeforeunload(event) {
-        this.leaveRoom();
+    function onbeforeunload() {
+        leaveRoom();
     }
 
     const deleteSubscriber = (streamManager) => {
@@ -323,19 +312,18 @@ function Room({ state }) {
         console.log(`[sendYTUrl]유튜브 요청 보냄, url: ${res.data.song_no} at room ${room}`);
       })
       .catch((res) => {
-        console.log(room);
         console.log("불러오기 실패", res);
       })
     }
 
-    function nextMusic() {
-      var next = bookList[0];
-      setYTUrl(next);
-      sendMessage('YTUrl', YTUrl);
-      bookList.shift();
-      setbookList(bookList);
-      console.log(bookList)
-    }
+    // function nextMusic() {
+    //   var next = bookList[0];
+    //   setYTUrl(next);
+    //   sendMessage('YTUrl', YTUrl);
+    //   bookList.shift();
+    //   setbookList(bookList);
+    //   console.log(bookList)
+    // }
 
     function audioMute(){
       const me = publisher;
@@ -389,7 +377,7 @@ function voiceFilterModulation() {
     const me = publisher;
     if (!gsfilter) {
         setgsfilter(true);
-        me.stream.applyFilter("GStreamerFilter", { command: "pitch pitch=1.7"});
+        me.stream.applyFilter("GStreamerFilter", { command: `pitch pitch=1.7`});
         console.log("음성 변조 추가");
     } else {
         setgsfilter(false);
@@ -398,9 +386,9 @@ function voiceFilterModulation() {
     }
 }
 
-    function getToken() {
-        return createSession(room).then((sessionId) => createToken(sessionId));
-    }
+  function getToken() {
+      return createSession(room).then((sessionId) => createToken(sessionId));
+  }
 
   function createSession(sessionId) {
       return new Promise((resolve, reject) => {
@@ -511,7 +499,7 @@ function voiceFilterModulation() {
       <Screen
         mode={transScreen}
         now={nowPlaymusic}
-        nextMusic={nextMusic}
+        // nextMusic={nextMusic}
       />
       {openFirework && <Firework/>}
       <div className={transCamBox}>
@@ -546,8 +534,8 @@ function voiceFilterModulation() {
         {nowMode === 'Solomode' && <Button text={"Singer"} getOnClick={solosinger} />}
         {nowMode === 'Duetmode' && <Button text={"Singer1"} getOnClick={duetsinger} />}
         {nowMode === 'Duetmode' && <Button text={"Singer2"} getOnClick={duetsinger2} />}
-        <Controller book={bookList} sendYTUrl={sendYTUrl} 
-                    setOpenFirework={setOpenFirework} setnowplaying={setnowplaying}
+        <Controller sendYTUrl={sendYTUrl} 
+                    setOpenFirework={setOpenFirework} nowplaying={nowplaying} 
                     voiceFilterEcho={voiceFilterEcho} voiceFilterMegaPhone={voiceFilterMegaPhone} voiceFilterModulation={voiceFilterModulation }/>
         <Button text={"컨텐츠"} />
         <Button text={"에코"} getOnClick={voiceFilterEcho} />

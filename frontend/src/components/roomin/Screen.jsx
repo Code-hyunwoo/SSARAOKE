@@ -4,11 +4,11 @@ import { useState } from "react";
 
 
 
-function Screen ({mode, now, nextMusic}){
+function Screen ({mode, now}){
     
     function endMusic(){
         // alert(`곡 종료`)
-        nextMusic()
+        // nextMusic()
     }
 
     return (
