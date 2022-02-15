@@ -10,7 +10,7 @@
   height: 85vh;
 
   opacity: 1;
-  background: #f9b208;
+  background-color: #f9b208;
   border-radius: 30px;
   /* left: 11.5vw; */
   margin-top: 3vh;
@@ -86,7 +86,6 @@
   overflow: auto;
   padding: 5px;
   font-size: 15px;
-  white-space: nowrap;
 }
 
 /* 좋아요 체크버튼 */

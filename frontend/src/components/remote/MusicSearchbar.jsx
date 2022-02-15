@@ -1,6 +1,4 @@
-import { useState } from "react";
 import Styles from "./remote.module.css";
-import axios from "axios";
 
 function MusicSearchbar({ setSearchitem, searchMusic }) {
   const getSearchitem = (e) => {
