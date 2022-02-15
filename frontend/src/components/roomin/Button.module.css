@@ -1,4 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Oregano&display=swap");
+@font-face {
+  font-family: "ROKAFSansBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSansBold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SDSamliphopangche_Outline';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 .ChangeModeBackground {
   width: 90vw;
@@ -27,14 +42,21 @@
 .ChangeModeContainer .title {
   display: inline-block;
   text-align: center;
-  margin-top: 10px;
   color: white;
-  font-size: 5.8vw;
+  font-size: 5.5vw;
   font-weight: bold;
   font-family: "Oregano", cursive;
 }
 
 .ChangeModeContainer .body {
+  flex: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.ChangeModeContainer .body2 {
   flex: 50vh;
   display: flex;
   justify-content: center;
@@ -57,6 +79,17 @@
   font-size: 5vh;
   font-weight: bold;
   border-radius: 20px;
+}
+
+#modeButton2 {
+  width: 25vw;
+  height: 10vh;
+  background-color: #fff89a;
+  font-family: "ROKAFSansBold";
+  font-size: 4vh;
+  /* font-weight: bold; */
+  border-radius: 20px;
+  /* margin-top: 5vh; */
 }
 
 #modeLink {
@@ -135,4 +168,63 @@
   100% {
     transform: scaleX(0) scaleY(0.005);
   }
+}
+
+
+
+
+.ScoreBoard {
+  display: flex;
+  position: absolute;
+  width: 100vw;
+  height: 47vh;
+  background-color: rgba(68, 67, 67, 0.507);
+  top: 25vh;
+  justify-content: center;
+  align-items: center;
+  /* font-family: "ROKAFSansBold"; */
+  z-index: 100;
+  flex-direction: column;
+}
+
+.Score0{
+  font-size: 4vw;
+  font-family: 'SDSamliphopangche_Outline';
+  color: #fff89a;
+}
+
+.Score60{
+  font-size: 8.5vw;
+  font-family: 'SDSamliphopangche_Outline';
+  color: rgb(255, 42, 0);
+}
+
+.Score70{
+  font-size: 8.5vw;
+  font-family: 'SDSamliphopangche_Outline';
+  color: rgb(102, 255, 0);
+}
+
+.Score80{
+  font-size: 8.5vw;
+  font-family: 'SDSamliphopangche_Outline';
+  color: rgb(150, 85, 253);
+}
+
+.Score90{
+  font-size: 8.5vw;
+  font-family: 'SDSamliphopangche_Outline';
+  color: rgb(251, 255, 0);
+}
+
+.Score100{
+  font-size: 8.5vw;
+  font-family: 'SDSamliphopangche_Outline';
+  color: rgb(255, 0, 221);
+}
+
+.Score2{
+  font-size: 2.5vw;
+  font-family: 'SDSamliphopangche_Outline';
+  color: white;
 }
