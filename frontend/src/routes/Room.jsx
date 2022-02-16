@@ -22,13 +22,25 @@ import Dream from "../components/roomin/Dream";
 import GoodDay from "../components/roomin/GoodDay";
 import ScoreBoard from "../components/roomin/ScoreBoard";
 import Draggable from "react-draggable";
-import Clap from "../components/remote/audio/Clap.wav"
+import Clap from "../components/remote/audio/Clap.wav";
 import Tambourine from "../components/remote/audio/Tambourine.mp3";
+import Swal from "sweetalert2";
 
 const OPENVIDU_SERVER_URL = "https://i6a306.p.ssafy.io";
 const OPENVIDU_SERVER_SECRET = "qwer1234";
 const URL_PREFIX = "https://www.youtube.com/watch?v=";
-const RANDOM_PITCH = ['0.76', '0.77', '0.78', '0.79', '0.80', '1.4', '1.5', '1.7', '1.8', '2.0'];
+const RANDOM_PITCH = [
+  "0.76",
+  "0.77",
+  "0.78",
+  "0.79",
+  "0.80",
+  "1.4",
+  "1.5",
+  "1.7",
+  "1.8",
+  "2.0",
+];
 ////////////////////////////////////////////////////////////Room
 
 function Room({ state }) {
@@ -122,16 +134,16 @@ function Room({ state }) {
         // console.log(event.type); // The type of message ("my-chat")
         console.log(`[receiveChat] ${event.data}를 받았습니다.`);
         // setChatArr((chatArr) => chatArr.concat(event.data));
-        const message = event.data.split(":")
-        const chatmsg = {name:message[0], msg:message[1]}
+        const message = event.data.split(":");
+        const chatmsg = { name: message[0], msg: message[1] };
         setChatArr((chatArr) => chatArr.concat(chatmsg));
-        console.log(chatArr)
+        console.log(chatArr);
         console.log("[ReceiveMessage]" + event.data);
       });
       mySession.on("signal:YTUrl", (event) => {
         var data = JSON.parse(event.data);
         var url;
-        if (event.data.url === '') {
+        if (event.data.url === "") {
           url = data.url;
         } else {
           url = URL_PREFIX + data.url;
@@ -140,23 +152,19 @@ function Room({ state }) {
         setnowPlaymusic(url); //현재 재생할 url
       });
 
-      mySession.on('signal:effect', (event) => {
-        console.log(
-          `effect: ${event.data}`
-        ); 
-        if(event.data === "clap"){
+      mySession.on("signal:effect", (event) => {
+        console.log(`effect: ${event.data}`);
+        if (event.data === "clap") {
           //clap 치기
           const audio = new Audio(Clap);
           audio.volume = 0.03;
           audio.play();
-          
-        }else if(event.data === "tambourine"){
+        } else if (event.data === "tambourine") {
           //tambourine 치기
           const audio2 = new Audio(Tambourine);
           audio2.volume = 0.2;
           audio2.play();
-
-        }else if(event.data === "firework"){
+        } else if (event.data === "firework") {
           //firework 쏘기
           setOpenFirework(true);
           setTimeout(function () {
@@ -164,74 +172,71 @@ function Room({ state }) {
           }, 6000);
         }
       });
-      
-      mySession.on('signal:basicSinger', (event) => {
+
+      mySession.on("signal:basicSinger", (event) => {
         document.getElementById(event.data).className = styles.basicSingercam;
-        console.log('내가 Singer다!')
-      })
+        console.log("내가 Singer다!");
+      });
 
-      mySession.on('signal:basicSingerout', (event) => {
+      mySession.on("signal:basicSingerout", (event) => {
         document.getElementById(event.data).className = "undefined";
-      })
+      });
 
-      mySession.on('signal:soloSinger', (event) => {
+      mySession.on("signal:soloSinger", (event) => {
         document.getElementById(event.data).className = styles.soloSingercam;
-        console.log('Solo캠 이동!')
-      })
+        console.log("Solo캠 이동!");
+      });
 
-      mySession.on('signal:soloSingerout', (event) => {
+      mySession.on("signal:soloSingerout", (event) => {
         document.getElementById(event.data).className = "undefined";
-        console.log('Solo캠 아웃!')
-      })
+        console.log("Solo캠 아웃!");
+      });
 
-      mySession.on('signal:duetSinger', (event) => {
+      mySession.on("signal:duetSinger", (event) => {
         document.getElementById(event.data).className = styles.duetSingercam;
-        console.log('Duet캠1 이동!')
-      })
+        console.log("Duet캠1 이동!");
+      });
 
-      mySession.on('signal:duetSingerout', (event) => {
+      mySession.on("signal:duetSingerout", (event) => {
         document.getElementById(event.data).className = "undefined";
-        console.log('Duet캠1 아웃!')
-      })
+        console.log("Duet캠1 아웃!");
+      });
 
-      mySession.on('signal:duetSinger2', (event) => {
+      mySession.on("signal:duetSinger2", (event) => {
         document.getElementById(event.data).className = styles.duetSingercam2;
-        console.log('Duet캠2 이동!')
-      })
+        console.log("Duet캠2 이동!");
+      });
 
-      mySession.on('signal:duetSinger2out', (event) => {
+      mySession.on("signal:duetSinger2out", (event) => {
         document.getElementById(event.data).className = "undefined";
-        console.log('Duet캠2 아웃!')
-      })
+        console.log("Duet캠2 아웃!");
+      });
 
-
-
-      mySession.on('signal:changeMode', (event) => {
-        if (event.data === "Basic"){
+      mySession.on("signal:changeMode", (event) => {
+        if (event.data === "Basic") {
           transformBasic();
-          console.log('Basic 으로 Change!')
-        } else if (event.data === "Free"){
+          console.log("Basic 으로 Change!");
+        } else if (event.data === "Free") {
           transformFree();
-          console.log('Free 로 Change!')
-        } else if (event.data ==="Solo"){
+          console.log("Free 로 Change!");
+        } else if (event.data === "Solo") {
           transformSolo();
-          console.log('Solo 로 Change!')
-        } else if (event.data ==="Duet"){
+          console.log("Solo 로 Change!");
+        } else if (event.data === "Duet") {
           transformDuet();
-          console.log('Duet 으로 Change!')
+          console.log("Duet 으로 Change!");
         }
-      })
+      });
 
-      mySession.on('signal:Contents', (event) => {
-        if (event.data === "Dream"){
+      mySession.on("signal:Contents", (event) => {
+        if (event.data === "Dream") {
           setstartDream(true);
-          console.log('듀엣컨텐츠 Dream')
-        } else if (event.data === "GoodDay"){
+          console.log("듀엣컨텐츠 Dream");
+        } else if (event.data === "GoodDay") {
           setstartGoodDay(true);
-          console.log('듀엣컨텐츠 GoodDay')
+          console.log("듀엣컨텐츠 GoodDay");
         }
-      })
-
+      });
 
       // On every new Stream received...
       mySession.on("streamCreated", (event) => {
@@ -402,7 +407,7 @@ function Room({ state }) {
         console.log("예약첫번째곡 불러옴", res.data);
         //title어디다 저장해두지 뮤직바 어디지
         var data = {
-          url : res.data.song_no,
+          url: res.data.song_no,
           title: res.data.song_title,
         };
         sendMessage("YTUrl", JSON.stringify(data)); //전송
@@ -415,18 +420,17 @@ function Room({ state }) {
       });
   }
 
-  function sendClap(){
+  function sendClap() {
     sendMessage("effect", "clap");
   }
 
-  function sendTambourine(){
+  function sendTambourine() {
     sendMessage("effect", "tambourine");
   }
 
-  function sendFire(){
+  function sendFire() {
     sendMessage("effect", "firework");
   }
-
 
   function audioMute() {
     const me = publisher;
@@ -457,10 +461,18 @@ function Room({ state }) {
       me.stream.applyFilter("GStreamerFilter", {
         command: "audioecho delay=50000000 intensity=0.7 feedback=0.5",
       });
+      new Swal({
+        title: "에코 추가 완료!",
+        timer: 500,
+      });
       console.log("에코 추가");
     } else {
       setgsfilter(false);
       me.stream.removeFilter();
+      new Swal({
+        title: "에코 제거 완료!",
+        timer: 500,
+      });
       console.log("에코 제거");
     }
   }
@@ -472,10 +484,18 @@ function Room({ state }) {
       me.stream.applyFilter("GStreamerFilter", {
         command: "audioamplify amplification=1.7",
       });
+      new Swal({
+        title: "확성기 설정 완료!",
+        timer: 500,
+      });
       console.log("확성기 추가");
     } else {
       setgsfilter(false);
       me.stream.removeFilter();
+      new Swal({
+        title: "확성기 해제 완료!",
+        timer: 500,
+      });
       console.log("확성기 제거");
     }
   }
@@ -484,12 +504,20 @@ function Room({ state }) {
     const me = publisher;
     if (!gsfilter) {
       setgsfilter(true);
-      let pitch = RANDOM_PITCH[Math.floor(Math.random() * RANDOM_PITCH)]
+      let pitch = RANDOM_PITCH[Math.floor(Math.random() * RANDOM_PITCH)];
       me.stream.applyFilter("GStreamerFilter", { command: `pitch pitch=1.7` });
+      new Swal({
+        title: "음성변조 설정 완료!",
+        timer: 500,
+      });
       console.log("음성 변조 추가");
     } else {
       setgsfilter(false);
       me.stream.removeFilter();
+      new Swal({
+        title: "음성변조 해제 완료!",
+        timer: 500,
+      });
       console.log("음성 변조 제거");
     }
   }
@@ -574,69 +602,69 @@ function Room({ state }) {
   function basicsinger() {
     if (document.getElementById(name).className !== styles.basicSingercam) {
       // document.getElementById(name).className = styles.basicSingercam;
-      sendMessage('basicSinger', name)
+      sendMessage("basicSinger", name);
     } else {
       // document.getElementById(name).className = "undefined";
-      sendMessage('basicSingerout', name)
+      sendMessage("basicSingerout", name);
     }
   }
 
   function solosinger() {
     if (document.getElementById(name).className !== styles.soloSingercam) {
       // document.getElementById(name).className = styles.soloSingercam;
-      sendMessage('soloSinger', name)
+      sendMessage("soloSinger", name);
     } else {
       // document.getElementById(name).className = "undefined";
-      sendMessage('soloSingerout', name)
+      sendMessage("soloSingerout", name);
     }
   }
   function duetsinger() {
     if (document.getElementById(name).className !== styles.duetSingercam) {
       // document.getElementById(name).className = styles.duetSingercam;
-      sendMessage('duetSinger', name)
+      sendMessage("duetSinger", name);
     } else {
       // document.getElementById(name).className = "undefined";
-      sendMessage('duetSingerout', name)
+      sendMessage("duetSingerout", name);
     }
   }
 
   function duetsinger2() {
     if (document.getElementById(name).className !== styles.duetSingercam2) {
       // document.getElementById(name).className = styles.duetSingercam2;
-      sendMessage('duetSinger2', name)
+      sendMessage("duetSinger2", name);
     } else {
       // document.getElementById(name).className = "undefined";
-      sendMessage('duetSinger2out', name)
+      sendMessage("duetSinger2out", name);
     }
   }
   ///////////////////////////////////////Free모드 캠 움직임
   const [Opacity, setOpacity] = useState(false);
-    const handleStart = () => {
-        setOpacity(true);
-    };
-    const handleEnd = () => {
-        setOpacity(false);
-    };
+  const handleStart = () => {
+    setOpacity(true);
+  };
+  const handleEnd = () => {
+    setOpacity(false);
+  };
 
-  function sendChangeModeB(){
-    sendMessage("changeMode","Basic");
+  function sendChangeModeB() {
+    sendMessage("changeMode", "Basic");
   }
 
-  function sendChangeModeF(){
+  function sendChangeModeF() {
     sendMessage("changeMode", "Free");
   }
-  function sendChangeModeS(){
+  function sendChangeModeS() {
     sendMessage("changeMode", "Solo");
   }
-  function sendChangeModeD(){
+  function sendChangeModeD() {
     sendMessage("changeMode", "Duet");
   }
 
-  function sendstartDream(){
+  function sendstartDream() {
     sendMessage("Contents", "Dream");
   }
 
-  function sendstartGoodDay(){
+  function sendstartGoodDay() {
     sendMessage("Contents", "GoodDay");
   }
 
@@ -664,53 +692,54 @@ function Room({ state }) {
   //npm i uuid, npm i 'aws-sdk' 설치
   //import AWS from "aws-sdk"; 임포트
   //버킷, region 값 생성
-  const S3_BUCKET = 'YOUR_BUCKET_NAME_HERE'; //BUCKET 이름 자리
-  const REGION = 'YOUR_DESIRED_REGION_HERE'; //Region 값 자리
+  const S3_BUCKET = "YOUR_BUCKET_NAME_HERE"; //BUCKET 이름 자리
+  const REGION = "YOUR_DESIRED_REGION_HERE"; //Region 값 자리
 
   AWS.config.update({
-    accessKeyId: '', //access키 id 넣기
-    secretAccessKey: '', //secretaccess 키 넣기
+    accessKeyId: "", //access키 id 넣기
+    secretAccessKey: "", //secretaccess 키 넣기
   });
 
   const myBucket = new AWS.S3({
-    params: {Bucket: S3_BUCKET}, //위에서 지정한 BUCKET을 받아와서 생성
+    params: { Bucket: S3_BUCKET }, //위에서 지정한 BUCKET을 받아와서 생성
     region: REGION,
-  })
+  });
 
   // const UploadFileToS3WithNativeSdk = () => {
-    const [progress, setProgress] = useState(0); //업로드 로딩 퍼센트 용
-    const [selectedFile, setSelectedFile] = useState(null); //선택된 파일 받아오는 함수
+  const [progress, setProgress] = useState(0); //업로드 로딩 퍼센트 용
+  const [selectedFile, setSelectedFile] = useState(null); //선택된 파일 받아오는 함수
 
-    const handleFileInput = (e) => { //input 태그에서 저장되는 파일 불러서 저장하는 함수
-      setSelectedFile(e.target.files[0]); 
-      //만약 녹화진행중인 영상 바로 저장할꺼면 e.target.files[0]대신 해당 영상 변수를 넣으면 될 것
-    }
+  const handleFileInput = (e) => {
+    //input 태그에서 저장되는 파일 불러서 저장하는 함수
+    setSelectedFile(e.target.files[0]);
+    //만약 녹화진행중인 영상 바로 저장할꺼면 e.target.files[0]대신 해당 영상 변수를 넣으면 될 것
+  };
 
-    const uploadFile = (file) => { //input 태그에 타입이 file이 것의 값을 가져와라
-      const params = {
-        ACL: "public-read", //공개범위?
-        Body: file, //업로드된 파일이 들어갈 자리
-        Bucket: S3_BUCKET, //저장될 버켓
-        Key: file.name //파일 이름?
-      };
+  const uploadFile = (file) => {
+    //input 태그에 타입이 file이 것의 값을 가져와라
+    const params = {
+      ACL: "public-read", //공개범위?
+      Body: file, //업로드된 파일이 들어갈 자리
+      Bucket: S3_BUCKET, //저장될 버켓
+      Key: file.name, //파일 이름?
+    };
 
-      myBucket.putObject(params) //내 버켓에 위에서 설정한 params 를 바탕으로 넣기
-        .on('httpUploadProgress', (evt) => {
-          setProgress(Math.round((evt.loaded / evt.total)* 100)) //로딩
-        })
-        .send((err) => {
-          if(err) console.log(err)
-        })
-    }
+    myBucket
+      .putObject(params) //내 버켓에 위에서 설정한 params 를 바탕으로 넣기
+      .on("httpUploadProgress", (evt) => {
+        setProgress(Math.round((evt.loaded / evt.total) * 100)); //로딩
+      })
+      .send((err) => {
+        if (err) console.log(err);
+      });
+  };
   // }
-
-
 
   return (
     <div className={styles.room}>
       <LightRope />
       <Crazylights />
-      <Musicbar musicbartitle={musicbartitle}/>
+      <Musicbar musicbartitle={musicbartitle} />
       <MirrorBall />
       <Screen
         mode={transScreen}
@@ -727,30 +756,28 @@ function Room({ state }) {
 
       <div className={transCamBox}>
         {/* 캠무빙  style={{opacity: Opacity? "0.6" : "1"}} -> 넣으면 잡았을때 반투명 되는데 넣으면 빨간줄ㅠㅜ*/}
-        {nowMode === "Freemode"?
-            <div id="video-container" style={{opacity: Opacity? "0.6" : "1"}} >
-                {session !== undefined ? 
-                  (
-                  <Draggable onStart={handleStart} onStop={handleEnd} >
-                    <div>
-                      <UserVideoComponent streamManager={publisher}/>
-                    </div>
-                  </Draggable>
-                  ) 
-                : null}
-              {session !== undefined
-                ? subscribers.map((sub, i) => (
+        {nowMode === "Freemode" ? (
+          <div id="video-container" style={{ opacity: Opacity ? "0.6" : "1" }}>
+            {session !== undefined ? (
+              <Draggable onStart={handleStart} onStop={handleEnd}>
+                <div>
+                  <UserVideoComponent streamManager={publisher} />
+                </div>
+              </Draggable>
+            ) : null}
+            {session !== undefined
+              ? subscribers.map((sub, i) => (
                   <div key={i} className="stream-container col-md-6 col-xs-6">
-                    <Draggable onStart={handleStart} onStop={handleEnd} >
+                    <Draggable onStart={handleStart} onStop={handleEnd}>
                       <div>
                         <UserVideoComponent streamManager={sub} />
                       </div>
                     </Draggable>
                   </div>
-                  ))
-                  : null}
-            </div>
-        : 
+                ))
+              : null}
+          </div>
+        ) : (
           <div id="video-container">
             {session !== undefined ? (
               <UserVideoComponent streamManager={publisher} />
@@ -763,7 +790,7 @@ function Room({ state }) {
                 ))
               : null}
           </div>
-        }
+        )}
         {/* 켐무빙 */}
       </div>
       <div className={transChatBox}>
@@ -829,15 +856,16 @@ function Room({ state }) {
           {" "}
           모드선택{" "}
         </button>
-        {openChangeMode && ( 
-        <ChangeMode 
-        closeChangeMode={setOpenChangeMode} 
-        sendChangeModeB={sendChangeModeB}
-        sendChangeModeF={sendChangeModeF}
-        sendChangeModeS={sendChangeModeS}
-        sendChangeModeD={sendChangeModeD}
-        />)}
-      
+        {openChangeMode && (
+          <ChangeMode
+            closeChangeMode={setOpenChangeMode}
+            sendChangeModeB={sendChangeModeB}
+            sendChangeModeF={sendChangeModeF}
+            sendChangeModeS={sendChangeModeS}
+            sendChangeModeD={sendChangeModeD}
+          />
+        )}
+
         <Link to="/lobby" id={styles.btn_no}>
           <button onClick={leaveRoom} className={(styles.btn, styles.neon)}>
             {" "}
