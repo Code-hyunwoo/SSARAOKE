@@ -427,7 +427,7 @@ function Room({ state }) {
     if (!gsfilter) {
       setgsfilter(true);
       let pitch = RANDOM_PITCH[Math.floor(Math.random() * RANDOM_PITCH)]
-      me.stream.applyFilter("GStreamerFilter", { command: `pitch pitch=${pitch}` });
+      me.stream.applyFilter("GStreamerFilter", { command: `pitch pitch=1.7` });
       console.log("음성 변조 추가");
     } else {
       setgsfilter(false);
@@ -668,6 +668,7 @@ function Room({ state }) {
         <Controller
           roomseq={room}
           sendYTUrl={sendYTUrl}
+          sendMessage={sendMessage}
           setOpenFirework={setOpenFirework}
           nowplaying={nowplaying}
           voiceFilterEcho={voiceFilterEcho}

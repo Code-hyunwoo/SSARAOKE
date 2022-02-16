@@ -13,6 +13,7 @@ import Swal from "sweetalert2";
 
 function Controller({
   sendYTUrl,
+  sendMessage,
   setOpenFirework,
   setstartDream,
   setstartGoodDay,
@@ -23,6 +24,7 @@ function Controller({
   voiceFilterEcho,
   voiceFilterMegaPhone,
   voiceFilterModulation,
+  nowplaying,
 }) {
   const [show, setShow] = useState(false);
 
@@ -132,7 +134,7 @@ function Controller({
                 <div>
                   {/* 북마크 목록 */}
                   <button className={Styles.bookmarklist}>BookMark</button>
-                  <button className={Styles.songstart} onClick={startbookList}>
+                  <button className={Styles.songstart} onClick={startbookList} disabled={nowplaying}>
                     시작
                   </button>
                   <button
@@ -140,6 +142,7 @@ function Controller({
                     onClick={() => {
                       setstartDream(false);
                       setstartGoodDay(false);
+                      sendMessage('YTUrl', "");
                     }}
                   >
                     취소
