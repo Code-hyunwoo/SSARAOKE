@@ -21,7 +21,10 @@ function MSearchResult({ items, roomseq }) {
       })
       .then((res) => {
         console.log(res);
-        Swal.fire("예약리스트에 추가되었습니다!");
+        new Swal({
+          title: "예약목록에 추가되었습니다!",
+          timer: 700,
+        });
       })
       .catch(() => {
         failed();
