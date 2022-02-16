@@ -8,8 +8,7 @@ import Bookmark from "../components/user/Bookmark";
 import Nickname from "../components/user/Nickname";
 import Email from "../components/user/Email";
 import Forest from "../components/lobby/background/Forest";
-import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
-import RoomPw from "../components/lobby/RoomPw";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import axios from "axios";
@@ -90,6 +89,7 @@ function Mypage_Main({ state }) {
                     }
                   >
                     {/* <button onClick={() => setBookmarkShow(true)} className={Stylescan.canPink} style={{top:'6%',left: '4%'}}></button> */}
+                    <Link to="/bookmark">
                     <button
                       className={Stylescan.canPink}
                       style={{ top: "6%", left: "4%" }}
@@ -118,6 +118,7 @@ function Mypage_Main({ state }) {
                       className={Stylescan.canBB}
                       style={{ top: "6%", left: "86%" }}
                     ></button>
+                    </Link>
                     {/* <Bookmark
                             show={bookmarkShow}
                             onHide={() => setBookmarkShow(false)}
@@ -129,7 +130,7 @@ function Mypage_Main({ state }) {
             {/* 툴팁 끝 */}
           </div>
           {/* 북마크 모달  */}
-          <Bookmark show={bookmarkShow} onHide={() => setBookmarkShow(false)} />
+          {/* <Bookmark show={bookmarkShow} onHide={() => setBookmarkShow(false)} /> */}
 
           {/* 막대 바 */}
           <div className={Styles.canBar} style={{ top: "22vh" }}>
@@ -161,7 +162,7 @@ function Mypage_Main({ state }) {
                         style={
                           videoMShow
                             ? {
-                                position: "absolute",
+                              position: "absolute",
                                 width: "62vw",
                                 height: "20vh",
                                 left: "0.5vw",
@@ -172,41 +173,43 @@ function Mypage_Main({ state }) {
                             : { border: "none" }
                         }
                       >
+                      <Link to="/video">  
                         <button
-                          onClick={() => setVideoShow(true)}
+                          // onClick={() => setVideoShow(true)}
                           className={Stylescan.canB}
                           style={{ top: "52.5%", left: "4%" }}
                         ></button>
                         <button
-                          onClick={() => setVideoShow(true)}
+                          // onClick={() => setVideoShow(true)}
                           className={Stylescan.canBB}
                           style={{ top: "52.5%", left: "17.5%" }}
                         ></button>
                         <button
-                          onClick={() => setVideoShow(true)}
+                          // onClick={() => setVideoShow(true)}
                           className={Stylescan.canR}
                           style={{ top: "52.5%", left: "31%" }}
                         ></button>
                         <button
-                          onClick={() => setVideoShow(true)}
+                          // onClick={() => setVideoShow(true)}
                           className={Stylescan.canPink}
                           style={{ top: "52.5%", left: "45%" }}
                         ></button>
                         <button
-                          onClick={() => setVideoShow(true)}
+                          // onClick={() => setVideoShow(true)}
                           className={Stylescan.canY}
                           style={{ top: "52.5%", left: "59%" }}
                         ></button>
                         <button
-                          onClick={() => setVideoShow(true)}
+                          // onClick={() => setVideoShow(true)}
                           className={Stylescan.canP}
                           style={{ top: "52.5%", left: "72%" }}
                         ></button>
                         <button
-                          onClick={() => setVideoShow(true)}
+                          // onClick={() => setVideoShow(true)}
                           className={Stylescan.canN}
                           style={{ top: "52.5%", left: "86%" }}
                         ></button>
+                      </Link>
                       </div>
                     </OverlayTrigger>{" "}
                     {/* 툴팁 */}
@@ -215,7 +218,7 @@ function Mypage_Main({ state }) {
               </div>
             </div>
           </div>
-          <MyVideo show={videoShow} onHide={() => setVideoShow(false)} />
+          {/* <MyVideo show={videoShow} onHide={() => setVideoShow(false)} /> */}
           {/* 막대 바 */}
           <div className={Styles.canBar} style={{ top: "47vh" }}>
             My Video

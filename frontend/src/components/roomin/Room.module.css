@@ -152,6 +152,9 @@
   height: 15vh;
   margin: 10px;
   border-radius: 10px;
+  /* 캠무브 */
+  cursor: move;
+  user-select: none;
 }
 
 #SoloNormalCam {

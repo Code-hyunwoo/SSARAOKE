@@ -21,6 +21,7 @@ import axios from "axios";
 import Dream from "../components/roomin/Dream";
 import GoodDay from "../components/roomin/GoodDay";
 import ScoreBoard from "../components/roomin/ScoreBoard";
+import Draggable from "react-draggable";
 import Clap from "../components/remote/audio/Clap.wav"
 import Tambourine from "../components/remote/audio/Tambourine.mp3";
 
@@ -606,6 +607,14 @@ function Room({ state }) {
       sendMessage('duetSinger2out', name)
     }
   }
+  ///////////////////////////////////////Free모드 캠 움직임
+  const [Opacity, setOpacity] = useState(false);
+    const handleStart = () => {
+        setOpacity(true);
+    };
+    const handleEnd = () => {
+        setOpacity(false);
+    };
 
   function sendChangeModeB(){
     sendMessage("changeMode","Basic");
@@ -715,18 +724,37 @@ function Room({ state }) {
       )}
 
       <div className={transCamBox}>
-        <div id="video-container">
-          {session !== undefined ? (
-            <UserVideoComponent streamManager={publisher} />
-          ) : null}
-          {session !== undefined
-            ? subscribers.map((sub, i) => (
-                <div key={i} className="stream-container col-md-6 col-xs-6">
-                  <UserVideoComponent streamManager={sub} />
-                </div>
-              ))
-            : null}
-        </div>
+        {/* 캠무빙  style={{opacity: Opacity? "0.6" : "1"}} -> 넣으면 잡았을때 반투명 되는데 넣으면 빨간줄ㅠㅜ*/}
+        {firstmode === "Free"?
+          <Draggable onStart={handleStart} onStop={handleEnd} >
+            <div id="video-container" style={{opacity: Opacity? "0.6" : "1"}} >
+              {session !== undefined ? (
+                <UserVideoComponent streamManager={publisher}/>
+              ) : null}
+              {session !== undefined
+                ? subscribers.map((sub, i) => (
+                    <div key={i} className="stream-container col-md-6 col-xs-6">
+                      <UserVideoComponent streamManager={sub} />
+                    </div>
+                  ))
+                : null}
+            </div>
+          </Draggable>
+        : 
+          <div id="video-container">
+            {session !== undefined ? (
+              <UserVideoComponent streamManager={publisher} />
+            ) : null}
+            {session !== undefined
+              ? subscribers.map((sub, i) => (
+                  <div key={i} className="stream-container col-md-6 col-xs-6">
+                    <UserVideoComponent streamManager={sub} />
+                  </div>
+                ))
+              : null}
+          </div>
+        }
+        {/* 켐무빙 */}
       </div>
       <div className={transChatBox}>
         <RoomChat mode={transChat} sendChat={sendChat} chatArr={chatArr} />
