@@ -63,7 +63,6 @@ function Room({ state }) {
   const [subscribers, setsubscribers] = useState([]);
   const [OV, setOV] = useState(undefined);
   const [gsfilter, setgsfilter] = useState(false);
-  const [nowplaying, setnowplaying] = useState(false);
   const [musicbartitle, setmusicbartitle] = useState("");
   function transformBasic() {
     settransScreen(styles.ScreenBasic);
@@ -132,19 +131,12 @@ function Room({ state }) {
       mySession.on("signal:YTUrl", (event) => {
         var data = JSON.parse(event.data);
         var url;
-        if (event.data === "") {
-          console.log('노래 취소하고 시작버튼 disabled=false');
+        if (event.data.url === '') {
           url = data.url;
-          setnowplaying(false);
         } else {
-          console.log('노래 시작하고 시작버튼 disabled=true');
           url = URL_PREFIX + data.url;
-          setnowplaying(true);
         }
-        // setYTUrl(url);
-        //뮤직바 설정해야 함
         setmusicbartitle(data.title);
-        console.log('setmusicbartitle: ', data.title);
         setnowPlaymusic(url); //현재 재생할 url
       });
 
@@ -411,7 +403,7 @@ function Room({ state }) {
         //title어디다 저장해두지 뮤직바 어디지
         var data = {
           url : res.data.song_no,
-          title: res.data.title,
+          title: res.data.song_title,
         };
         sendMessage("YTUrl", JSON.stringify(data)); //전송
         console.log(
@@ -793,7 +785,6 @@ function Room({ state }) {
           sendYTUrl={sendYTUrl}
           sendMessage={sendMessage}
           setOpenFirework={setOpenFirework}
-          nowplaying={nowplaying}
           voiceFilterEcho={voiceFilterEcho}
           voiceFilterMegaPhone={voiceFilterMegaPhone}
           voiceFilterModulation={voiceFilterModulation}

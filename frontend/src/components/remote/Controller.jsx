@@ -24,12 +24,13 @@ function Controller({
   voiceFilterEcho,
   voiceFilterMegaPhone,
   voiceFilterModulation,
-  nowplaying,
 }) {
   const [show, setShow] = useState(false);
+  const [nowplaying, setnowplaying] = useState(false);
 
   const startbookList = () => {
     sendYTUrl();
+    setnowplaying(true);
   };
 
   // 리모콘 끄기
@@ -151,6 +152,7 @@ function Controller({
                     onClick={() => {
                       setstartDream(false);
                       setstartGoodDay(false);
+                      setnowplaying(false);
                       cancelMusic();
                     }}
                   >
