@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Button.module.css";
 
-function Contents({ closeContents, transformDuet, setstartDream, setstartGoodDay}) {
+function Contents({ closeContents, sendChangeModeD, sendstartDream, sendstartGoodDay}) {
 
   
   return (
@@ -12,16 +12,16 @@ function Contents({ closeContents, transformDuet, setstartDream, setstartGoodDay
         </div>
         <div className={styles.body2}>
           <button id={styles.modeButton2} onClick={() => {
-            transformDuet();
+            sendChangeModeD();
+            sendstartDream();
             closeContents(false);
-            setstartDream(true);
             }}>
               Dream (With 백현)
           </button>
           <button id={styles.modeButton2} onClick={() => {
-            transformDuet();
+            sendChangeModeD();
+            sendstartGoodDay();
             closeContents(false);
-            setstartGoodDay(true);
             }}>
              좋은날 (With 아이유)
           </button>

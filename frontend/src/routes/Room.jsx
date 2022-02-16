@@ -22,6 +22,8 @@ import Dream from "../components/roomin/Dream";
 import GoodDay from "../components/roomin/GoodDay";
 import ScoreBoard from "../components/roomin/ScoreBoard";
 import Draggable from "react-draggable";
+import Clap from "../components/remote/audio/Clap.wav"
+import Tambourine from "../components/remote/audio/Tambourine.mp3";
 
 const OPENVIDU_SERVER_URL = "https://i6a306.p.ssafy.io";
 const OPENVIDU_SERVER_SECRET = "qwer1234";
@@ -113,11 +115,16 @@ function Room({ state }) {
       console.log("-----session changed-----");
       console.log(mySession);
       mySession.on("signal:my-chat", (event) => {
+        console.log(event); // Message
         console.log(event.data); // Message
         console.log(event.from); // Connection object of the sender
         // console.log(event.type); // The type of message ("my-chat")
         console.log(`[receiveChat] ${event.data}를 받았습니다.`);
-        setChatArr((chatArr) => chatArr.concat(event.data));
+        // setChatArr((chatArr) => chatArr.concat(event.data));
+        const message = event.data.split(":")
+        const chatmsg = {name:message[0], msg:message[1]}
+        setChatArr((chatArr) => chatArr.concat(chatmsg));
+        console.log(chatArr)
         console.log("[ReceiveMessage]" + event.data);
       });
       mySession.on("signal:YTUrl", (event) => {
@@ -135,6 +142,99 @@ function Room({ state }) {
         //뮤직바 설정해야 함
         setnowPlaymusic(url); //현재 재생할 url
       });
+
+      mySession.on('signal:effect', (event) => {
+        console.log(
+          `effect: ${event.data}`
+        ); 
+        if(event.data === "clap"){
+          //clap 치기
+          const audio = new Audio(Clap);
+          audio.volume = 0.03;
+          audio.play();
+          
+        }else if(event.data === "tambourine"){
+          //tambourine 치기
+          const audio2 = new Audio(Tambourine);
+          audio2.volume = 0.2;
+          audio2.play();
+
+        }else if(event.data === "firework"){
+          //firework 쏘기
+          setOpenFirework(true);
+          setTimeout(function () {
+            setOpenFirework(false);
+          }, 6000);
+        }
+      });
+      
+      mySession.on('signal:basicSinger', (event) => {
+        document.getElementById(event.data).className = styles.basicSingercam;
+        console.log('내가 Singer다!')
+      })
+
+      mySession.on('signal:basicSingerout', (event) => {
+        document.getElementById(event.data).className = "undefined";
+      })
+
+      mySession.on('signal:soloSinger', (event) => {
+        document.getElementById(event.data).className = styles.soloSingercam;
+        console.log('Solo캠 이동!')
+      })
+
+      mySession.on('signal:soloSingerout', (event) => {
+        document.getElementById(event.data).className = "undefined";
+        console.log('Solo캠 아웃!')
+      })
+
+      mySession.on('signal:duetSinger', (event) => {
+        document.getElementById(event.data).className = styles.duetSingercam;
+        console.log('Duet캠1 이동!')
+      })
+
+      mySession.on('signal:duetSingerout', (event) => {
+        document.getElementById(event.data).className = "undefined";
+        console.log('Duet캠1 아웃!')
+      })
+
+      mySession.on('signal:duetSinger2', (event) => {
+        document.getElementById(event.data).className = styles.duetSingercam2;
+        console.log('Duet캠2 이동!')
+      })
+
+      mySession.on('signal:duetSinger2out', (event) => {
+        document.getElementById(event.data).className = "undefined";
+        console.log('Duet캠2 아웃!')
+      })
+
+
+
+      mySession.on('signal:changeMode', (event) => {
+        if (event.data === "Basic"){
+          transformBasic();
+          console.log('Basic 으로 Change!')
+        } else if (event.data === "Free"){
+          transformFree();
+          console.log('Free 로 Change!')
+        } else if (event.data ==="Solo"){
+          transformSolo();
+          console.log('Solo 로 Change!')
+        } else if (event.data ==="Duet"){
+          transformDuet();
+          console.log('Duet 으로 Change!')
+        }
+      })
+
+      mySession.on('signal:Contents', (event) => {
+        if (event.data === "Dream"){
+          setstartDream(true);
+          console.log('듀엣컨텐츠 Dream')
+        } else if (event.data === "GoodDay"){
+          setstartGoodDay(true);
+          console.log('듀엣컨텐츠 GoodDay')
+        }
+      })
+
 
       // On every new Stream received...
       mySession.on("streamCreated", (event) => {
@@ -291,7 +391,7 @@ function Room({ state }) {
   }
 
   function sendChat(msg) {
-    console.log("[sendChat] 이것은 채ㅣㅌㅇ임");
+    console.log("[sendChat] 이것은 채팅임");
     var chatMsg = state[0].nickname + ":" + msg;
     console.log(`[sendChat] ${chatMsg}`);
     sendMessage("my-chat", chatMsg);
@@ -314,14 +414,18 @@ function Room({ state }) {
       });
   }
 
-  // function nextMusic() {
-  //   var next = bookList[0];
-  //   setYTUrl(next);
-  //   sendMessage('YTUrl', YTUrl);
-  //   bookList.shift();
-  //   setbookList(bookList);
-  //   console.log(bookList)
-  // }
+  function sendClap(){
+    sendMessage("effect", "clap");
+  }
+
+  function sendTambourine(){
+    sendMessage("effect", "tambourine");
+  }
+
+  function sendFire(){
+    sendMessage("effect", "firework");
+  }
+
 
   function audioMute() {
     const me = publisher;
@@ -467,32 +571,40 @@ function Room({ state }) {
 
   function basicsinger() {
     if (document.getElementById(name).className !== styles.basicSingercam) {
-      document.getElementById(name).className = styles.basicSingercam;
+      // document.getElementById(name).className = styles.basicSingercam;
+      sendMessage('basicSinger', name)
     } else {
-      document.getElementById(name).className = "undefined";
+      // document.getElementById(name).className = "undefined";
+      sendMessage('basicSingerout', name)
     }
   }
 
   function solosinger() {
     if (document.getElementById(name).className !== styles.soloSingercam) {
-      document.getElementById(name).className = styles.soloSingercam;
+      // document.getElementById(name).className = styles.soloSingercam;
+      sendMessage('soloSinger', name)
     } else {
-      document.getElementById(name).className = "undefined";
+      // document.getElementById(name).className = "undefined";
+      sendMessage('soloSingerout', name)
     }
   }
   function duetsinger() {
     if (document.getElementById(name).className !== styles.duetSingercam) {
-      document.getElementById(name).className = styles.duetSingercam;
+      // document.getElementById(name).className = styles.duetSingercam;
+      sendMessage('duetSinger', name)
     } else {
-      document.getElementById(name).className = "undefined";
+      // document.getElementById(name).className = "undefined";
+      sendMessage('duetSingerout', name)
     }
   }
 
   function duetsinger2() {
     if (document.getElementById(name).className !== styles.duetSingercam2) {
-      document.getElementById(name).className = styles.duetSingercam2;
+      // document.getElementById(name).className = styles.duetSingercam2;
+      sendMessage('duetSinger2', name)
     } else {
-      document.getElementById(name).className = "undefined";
+      // document.getElementById(name).className = "undefined";
+      sendMessage('duetSinger2out', name)
     }
   }
   ///////////////////////////////////////Free모드 캠 움직임
@@ -503,6 +615,28 @@ function Room({ state }) {
     const handleEnd = () => {
         setOpacity(false);
     };
+
+  function sendChangeModeB(){
+    sendMessage("changeMode","Basic");
+  }
+
+  function sendChangeModeF(){
+    sendMessage("changeMode", "Free");
+  }
+  function sendChangeModeS(){
+    sendMessage("changeMode", "Solo");
+  }
+  function sendChangeModeD(){
+    sendMessage("changeMode", "Duet");
+  }
+
+  function sendstartDream(){
+    sendMessage("Contents", "Dream");
+  }
+
+  function sendstartGoodDay(){
+    sendMessage("Contents", "GoodDay");
+  }
 
   //////////////////////////////////////////////////////////////////////S3 파일 업로드
   //S3 버킷관련 정보들을 포함하고 있는 객체 -> process.env~가 붙은 것은 환경변수 -> 외부에 보여주지 않기 위함. -> npm i dotenv 설치해야
@@ -654,6 +788,9 @@ function Room({ state }) {
           voiceFilterModulation={voiceFilterModulation}
           setstartDream={setstartDream}
           setstartGoodDay={setstartGoodDay}
+          sendClap={sendClap}
+          sendTambourine={sendTambourine}
+          sendFire={sendFire}
         />
         <button
           className={(styles.btn, styles.neon)}
@@ -667,9 +804,9 @@ function Room({ state }) {
         {openContents && (
           <Contents
             closeContents={setOpenContents}
-            transformDuet={transformDuet}
-            setstartDream={setstartDream}
-            setstartGoodDay={setstartGoodDay}
+            sendChangeModeD={sendChangeModeD}
+            sendstartDream={sendstartDream}
+            sendstartGoodDay={sendstartGoodDay}
           />
         )}
 
@@ -685,15 +822,12 @@ function Room({ state }) {
         {openChangeMode && ( 
         <ChangeMode 
         closeChangeMode={setOpenChangeMode} 
-        transformBasic={transformBasic}
-        transformSolo={transformSolo}
-        transformDuet={transformDuet}
-        transformFree={transformFree}
+        sendChangeModeB={sendChangeModeB}
+        sendChangeModeF={sendChangeModeF}
+        sendChangeModeS={sendChangeModeS}
+        sendChangeModeD={sendChangeModeD}
         />)}
-        {/* 영상 저장버튼 */}
-        <input type="file" onChange={handleFileInput} />
-        <button onClick={() => uploadFile(selectedFile)}></button>
-        {/*  */}
+      
         <Link to="/lobby" id={styles.btn_no}>
           <button onClick={leaveRoom} className={(styles.btn, styles.neon)}>
             {" "}
