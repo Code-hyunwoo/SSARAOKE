@@ -48,7 +48,8 @@ function MSearchResult({ items, roomseq }) {
             <tr>
               <td>{index + 1}</td>
               <td style={{ fontSize: "17px" }}>
-                {item.snippet.title.endsWith(" / JW Karaoke")
+                {item.snippet.title.startsWith("[TJ노래방]") &&
+                item.snippet.title.endsWith(" / TJ Karaoke")
                   ? item.snippet.title.slice(8, -13)
                   : item.snippet.title}
               </td>

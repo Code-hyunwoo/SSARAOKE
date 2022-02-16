@@ -36,7 +36,7 @@ function Controller({
   const params = {
     key: apiKey,
     part: "snippet",
-    // TJ노래방 channelId: "UCZUhx8ClCv6paFW7qi3qljg",
+    // channelId: "UCZUhx8ClCv6paFW7qi3qljg",
     // JW 노래방 channelId
     channelId: "UC58ttsbMu6kCeWRrEsDI2ww",
     channelType: "any",
@@ -49,7 +49,7 @@ function Controller({
     Swal.fire({
       icon: "error",
       title: "요청 실패",
-      text: "에러가 발생했습니다.",
+      text: "검색결과를 불러오지 못했습니다.",
     });
   };
 

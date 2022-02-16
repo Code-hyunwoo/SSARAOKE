@@ -23,15 +23,23 @@ function WaitingList({ roomseq }) {
         setWaitlist(res.data);
       })
       .catch(() => {
-        alert("Error가 발생했습니다.");
+        Gfailed();
       });
   };
 
-  const failed = () => {
+  const Gfailed = () => {
     Swal.fire({
       icon: "error",
       title: "요청 실패",
-      text: "에러가 발생했습니다.",
+      text: "예약 목록을 불러오지 못했습니다.",
+    });
+  };
+
+  const Dfailed = () => {
+    Swal.fire({
+      icon: "error",
+      title: "요청 실패",
+      text: "예약곡을 삭제하지 못했습니다.",
     });
   };
 
@@ -49,7 +57,7 @@ function WaitingList({ roomseq }) {
         setWaitlist(res.data);
       })
       .catch(() => {
-        failed();
+        Dfailed();
       });
   };
 
@@ -70,13 +78,62 @@ function WaitingList({ roomseq }) {
           setShow(false);
         }}
       >
-        <div className={wstyle.listbg}>
+        <div className={wstyle.listbg} style={{ overflow: "auto" }}>
           <ModalHeader closeButton closeVariant="white"></ModalHeader>
-          <ModalBody>
-            예약 리스트
+          <ModalBody style={{ textAlign: "center" }}>
+            <div style={{ fontSize: "35px" }}>예약 목록</div>
+            <br />
+            <li>
+              #1. 아이유 - 좋은날
+              <button className={wstyle.deletebtn}>DEL</button>
+            </li>
+            <li>
+              #1. 아이유 - 좋은날
+              <button className={wstyle.deletebtn}>DEL</button>
+            </li>
+            <li>
+              #1. 아이유 - 좋은날
+              <button className={wstyle.deletebtn}>DEL</button>
+            </li>
+            <li>
+              #1. 아이유 - 좋은날
+              <button className={wstyle.deletebtn}>DEL</button>
+            </li>
+            <li>
+              #1. 아이유 - 좋은날아이유 - 좋은날아이유 - 좋은날
+              <button className={wstyle.deletebtn}>DEL</button>
+            </li>
+            <li>
+              #1. 아이유 - 좋은날아이유 - 좋은날
+              <button className={wstyle.deletebtn}>DEL</button>
+            </li>
+            <li>
+              #1. 아이유 - 좋은날
+              <button className={wstyle.deletebtn}>DEL</button>
+            </li>
+            <li>
+              #1. 아이유 - 좋은날
+              <button className={wstyle.deletebtn}>DEL</button>
+            </li>
+            <li>
+              #1. 아이유 - 좋은날
+              <button className={wstyle.deletebtn}>DEL</button>
+            </li>
+            <li>
+              #1. 아이유 - 좋은날
+              <button className={wstyle.deletebtn}>DEL</button>
+            </li>
+            <li>
+              #1. 아이유 - 좋은날
+              <button className={wstyle.deletebtn}>DEL</button>
+            </li>
+            <li>
+              #1. 아이유 - 좋은날
+              <button className={wstyle.deletebtn}>DEL</button>
+            </li>
             {waitlist.map((item, index) => (
               <li>
-                #{index + 1} - {item.song_title}{" "}
+                #{index + 1} - {item.song_title}
                 <button
                   onClick={() => {
                     deleteItem(item.reservation_seq);
