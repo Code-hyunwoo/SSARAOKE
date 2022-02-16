@@ -75,15 +75,17 @@
   align-items: center;
   background-color: transparent;
   color: white;
-  border: 0.2vw solid #f9b208;
+  /* border: 0.2vw solid #f9b208; */
+  border: var(--clr-neonW) 0.125em solid;
 }
 
 .Contents {
   width: 70%;
   height: 70%;
   background-color: transparent;
-  color: #ffce43;
-  border: 0.1vw solid #ffffff;
+  color: #fff89a;
+  /* border: 0.1vw solid #ffffff; */
+  border: var(--clr-neonW) 0.125em solid;
 }
 
 .styles_scrollable-div__prSCv {
@@ -94,4 +96,10 @@
   width: 3vw;
   height: 70%;
   font-weight: bold;
+  background-color: black;
+  color: var(--clr-neonW);
+  border: var(--clr-neonW) 0.125em solid;
+  /* text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor; */
+
+  /* box-shadow: inset 0 0 0.5em 0 var(--clr-neonW), 0 0 0.5em 0 var(--clr-neonW); */
 }
