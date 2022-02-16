@@ -149,6 +149,11 @@ function Controller({
                     className={Styles.songstart}
                     onClick={startbookList}
                     disabled={nowplaying}
+                    style={{
+                      backgroundColor: nowplaying ? "gray" : "#3f61fa",
+                      borderColor: nowplaying ? "gray" : "#002fff",
+                      color: nowplaying ? "black" : "white",
+                    }}
                   >
                     시작
                   </button>

@@ -2,8 +2,16 @@ import Styles from "./remote.module.css";
 import Clap from "./audio/Clap.wav";
 import Tambourine from "./audio/Tambourine.mp3";
 
-function Effect({ setOpenFirework, hideControl, sendClap,
-  sendTambourine, sendFire,voiceFilterEcho, voiceFilterMegaPhone, voiceFilterModulation}) {
+function Effect({
+  setOpenFirework,
+  hideControl,
+  sendClap,
+  sendTambourine,
+  sendFire,
+  voiceFilterEcho,
+  voiceFilterMegaPhone,
+  voiceFilterModulation,
+}) {
   // const audio = new Audio(Clap);
   // const audio2 = new Audio(Tambourine);
   // const audio = new Audio("./audio/Next.mp3")
@@ -29,7 +37,7 @@ function Effect({ setOpenFirework, hideControl, sendClap,
   return (
     <div>
       {/* 템포 업 */}
-      <button className={Styles.jump} style={{ left: "1.2vw", top: "1.3vh" }}>
+      <button className={Styles.jump} style={{ left: "1.2vw", top: "1.2vh" }}>
         간주점프
         {/* <div className={Styles.tempoupbtn} ></div> */}
       </button>
@@ -42,13 +50,21 @@ function Effect({ setOpenFirework, hideControl, sendClap,
             </button> */}
 
       {/* 에코*/}
-      <button className={Styles.echo} onClick={voiceFilterEcho}>에코 제거/설정</button>
+      <button className={Styles.echo} onClick={voiceFilterEcho}>
+        에코
+      </button>
 
       {/* 음성변조*/}
-      <button className={Styles.change} onClick={voiceFilterModulation}>음성 변조</button>
+      <button className={Styles.change} onClick={voiceFilterModulation}>
+        음성 변조
+      </button>
 
       {/* 조명 업 */}
-      <button className={Styles.light} onClick={voiceFilterMegaPhone} style={{ left: "14.8vw", top: "1.2vh" }}>
+      <button
+        className={Styles.light}
+        onClick={voiceFilterMegaPhone}
+        style={{ left: "14.8vw", top: "1.2vh" }}
+      >
         음향 &nbsp;
         <div className={Styles.lightup}></div>
       </button>
@@ -70,9 +86,10 @@ function Effect({ setOpenFirework, hideControl, sendClap,
       {/* 박수 */}
       <button
         className={Styles.effectbtn}
-        onClick={()=>{
+        onClick={() => {
           sendClap();
-          hideControl();}}
+          hideControl();
+        }}
         style={{ left: "27.5vw", top: "1.8vh" }}
       >
         <img
@@ -84,9 +101,10 @@ function Effect({ setOpenFirework, hideControl, sendClap,
       {/* 탬버린 */}
       <button
         className={Styles.effectbtn}
-        onClick={()=>{
+        onClick={() => {
           sendTambourine();
-          hideControl();}}
+          hideControl();
+        }}
         style={{ left: "32vw", top: "1.8vh" }}
       >
         <img

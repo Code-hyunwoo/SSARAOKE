@@ -207,7 +207,7 @@
 
   background: #ffce43;
   border-radius: 30px;
-  font-size: 0.7vw;
+  font-size: 1vw;
   font-family: "ROKAFSansBold";
 }
 
@@ -217,11 +217,11 @@
   width: 6.5vw;
   height: 3.4vh;
   left: 7.8vw;
-  top: 5.2vh;
+  top: 5vh;
 
   background: #ffce43;
   border-radius: 30px;
-  font-size: 0.7vw;
+  font-size: 1vw;
   font-family: "ROKAFSansBold";
 }
 
@@ -281,7 +281,6 @@
   height: 3.4vh;
   /* left: 918.56px;
   top: 677.44px; */
-
   /* background: #C4C4C4; */
   background: #fff89a;
   border-radius: 30px;
