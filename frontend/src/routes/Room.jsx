@@ -130,19 +130,21 @@ function Room({ state }) {
         console.log("[ReceiveMessage]" + event.data);
       });
       mySession.on("signal:YTUrl", (event) => {
-        console.log("[ReceiveURL]" + event.data);
         var data = JSON.parse(event.data);
         var url;
         if (event.data === "") {
+          console.log('노래 취소하고 시작버튼 disabled=false');
           url = data.url;
           setnowplaying(false);
         } else {
+          console.log('노래 시작하고 시작버튼 disabled=true');
           url = URL_PREFIX + data.url;
           setnowplaying(true);
         }
         // setYTUrl(url);
         //뮤직바 설정해야 함
         setmusicbartitle(data.title);
+        console.log('setmusicbartitle: ', data.title);
         setnowPlaymusic(url); //현재 재생할 url
       });
 

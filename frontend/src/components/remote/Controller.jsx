@@ -80,6 +80,14 @@ function Controller({
     setSearchresult([]);
   };
 
+  const cancelMusic = () => {
+    var data = {
+      url:"",
+      title: "",
+    };
+    sendMessage('YTUrl', JSON.stringify(data));
+  }
+
   return (
     <div>
       <button
@@ -143,7 +151,7 @@ function Controller({
                     onClick={() => {
                       setstartDream(false);
                       setstartGoodDay(false);
-                      sendMessage('YTUrl', "");
+                      cancelMusic();
                     }}
                   >
                     취소
