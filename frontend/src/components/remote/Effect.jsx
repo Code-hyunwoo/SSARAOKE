@@ -3,7 +3,7 @@ import Clap from "./audio/Clap.wav";
 import Tambourine from "./audio/Tambourine.mp3";
 
 function Effect({ setOpenFirework, hideControl, sendClap,
-  sendTambourine, sendFire }) {
+  sendTambourine, sendFire,voiceFilterEcho, voiceFilterMegaPhone, voiceFilterModulation}) {
   // const audio = new Audio(Clap);
   // const audio2 = new Audio(Tambourine);
   // const audio = new Audio("./audio/Next.mp3")
@@ -42,14 +42,14 @@ function Effect({ setOpenFirework, hideControl, sendClap,
             </button> */}
 
       {/* 에코*/}
-      <button className={Styles.echo}>에코 제거/설정</button>
+      <button className={Styles.echo} onClick={voiceFilterEcho}>에코 제거/설정</button>
 
       {/* 음성변조*/}
-      <button className={Styles.change}>음성 변조</button>
+      <button className={Styles.change} onClick={voiceFilterModulation}>음성 변조</button>
 
       {/* 조명 업 */}
-      <button className={Styles.light} style={{ left: "14.8vw", top: "1.2vh" }}>
-        조명 &nbsp;
+      <button className={Styles.light} onClick={voiceFilterMegaPhone} style={{ left: "14.8vw", top: "1.2vh" }}>
+        음향 &nbsp;
         <div className={Styles.lightup}></div>
       </button>
 
