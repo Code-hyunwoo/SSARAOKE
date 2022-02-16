@@ -103,7 +103,7 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
           <Modal.Body>
             {/* <div style={{padding:'5px', textAlign:'center'}}> */}
             <div style={{ textAlign: "center" }}>
-              Nickname 수정 :{" "} <br/>
+              Nickname 수정 :{" "} 
               <input
                 type="text"
                 style={{ left: "90vw" }}
@@ -112,12 +112,13 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
                 onChange={getNickname}
                 onKeyPress={entermodify}
                 maxLength="5"
-              />
+                />
               &nbsp;
               {/* <div> */}
-              
+                <br/>
               <button
                 style={{
+                  width: "3.2vw",
                   top: "20vh",
                   borderRadius: "30vh",
                   backgroundColor: "#ffcd438f",

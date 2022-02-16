@@ -21,6 +21,7 @@ import axios from "axios";
 import Dream from "../components/roomin/Dream";
 import GoodDay from "../components/roomin/GoodDay";
 import ScoreBoard from "../components/roomin/ScoreBoard";
+import Draggable from "react-draggable";
 
 const OPENVIDU_SERVER_URL = "https://i6a306.p.ssafy.io";
 const OPENVIDU_SERVER_SECRET = "qwer1234";
@@ -494,6 +495,14 @@ function Room({ state }) {
       document.getElementById(name).className = "undefined";
     }
   }
+  ///////////////////////////////////////Free모드 캠 움직임
+  const [Opacity, setOpacity] = useState(false);
+    const handleStart = () => {
+        setOpacity(true);
+    };
+    const handleEnd = () => {
+        setOpacity(false);
+    };
 
   //////////////////////////////////////////////////////////////////////S3 파일 업로드
   //S3 버킷관련 정보들을 포함하고 있는 객체 -> process.env~가 붙은 것은 환경변수 -> 외부에 보여주지 않기 위함. -> npm i dotenv 설치해야
@@ -581,18 +590,37 @@ function Room({ state }) {
       )}
 
       <div className={transCamBox}>
-        <div id="video-container">
-          {session !== undefined ? (
-            <UserVideoComponent streamManager={publisher} />
-          ) : null}
-          {session !== undefined
-            ? subscribers.map((sub, i) => (
-                <div key={i} className="stream-container col-md-6 col-xs-6">
-                  <UserVideoComponent streamManager={sub} />
-                </div>
-              ))
-            : null}
-        </div>
+        {/* 캠무빙  style={{opacity: Opacity? "0.6" : "1"}} -> 넣으면 잡았을때 반투명 되는데 넣으면 빨간줄ㅠㅜ*/}
+        {firstmode === "Free"?
+          <Draggable onStart={handleStart} onStop={handleEnd} >
+            <div id="video-container" style={{opacity: Opacity? "0.6" : "1"}} >
+              {session !== undefined ? (
+                <UserVideoComponent streamManager={publisher}/>
+              ) : null}
+              {session !== undefined
+                ? subscribers.map((sub, i) => (
+                    <div key={i} className="stream-container col-md-6 col-xs-6">
+                      <UserVideoComponent streamManager={sub} />
+                    </div>
+                  ))
+                : null}
+            </div>
+          </Draggable>
+        : 
+          <div id="video-container">
+            {session !== undefined ? (
+              <UserVideoComponent streamManager={publisher} />
+            ) : null}
+            {session !== undefined
+              ? subscribers.map((sub, i) => (
+                  <div key={i} className="stream-container col-md-6 col-xs-6">
+                    <UserVideoComponent streamManager={sub} />
+                  </div>
+                ))
+              : null}
+          </div>
+        }
+        {/* 켐무빙 */}
       </div>
       <div className={transChatBox}>
         <RoomChat mode={transChat} sendChat={sendChat} chatArr={chatArr} />
