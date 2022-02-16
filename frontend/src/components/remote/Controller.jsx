@@ -24,12 +24,13 @@ function Controller({
   voiceFilterEcho,
   voiceFilterMegaPhone,
   voiceFilterModulation,
-  nowplaying,
 }) {
   const [show, setShow] = useState(false);
+  const [nowplaying, setnowplaying] = useState(false);
 
   const startbookList = () => {
     sendYTUrl();
+    setnowplaying(true);
   };
 
   // 리모콘 끄기
@@ -79,6 +80,14 @@ function Controller({
 
   const resetSearch = () => {
     setSearchresult([]);
+  };
+
+  const cancelMusic = () => {
+    var data = {
+      url: "",
+      title: "",
+    };
+    sendMessage("YTUrl", JSON.stringify(data));
   };
 
   return (
@@ -148,7 +157,8 @@ function Controller({
                     onClick={() => {
                       setstartDream(false);
                       setstartGoodDay(false);
-                      sendMessage("YTUrl", "");
+                      setnowplaying(false);
+                      cancelMusic();
                     }}
                   >
                     취소
