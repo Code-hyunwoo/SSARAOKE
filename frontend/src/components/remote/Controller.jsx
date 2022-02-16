@@ -44,20 +44,15 @@ function Controller({
   const params = {
     key: apiKey,
     part: "snippet",
-<<<<<<< HEAD
     // TJ 노래방 channelId
     channelId: "UCZUhx8ClCv6paFW7qi3qljg",
     // JW 노래방 channelId
     // channelId: "UC58ttsbMu6kCeWRrEsDI2ww",
-=======
-    // TJ노래방 channelId: "UCZUhx8ClCv6paFW7qi3qljg",
-    // JW 노래방 channelId: UC58ttsbMu6kCeWRrEsDI2ww
-    channelId: "UC58ttsbMu6kCeWRrEsDI2ww",
->>>>>>> front
     channelType: "any",
     q: searchitem,
     type: "video",
     maxResults: 30,
+    fields: "items(id(videoId),snippet(title))",
   };
 
   const failed = () => {
@@ -74,8 +69,8 @@ function Controller({
       .get("https://www.googleapis.com/youtube/v3/search", { params })
       .then((res) => {
         setSearchresult(res.data.items);
-        // console.log(res.data.items);
-        console.log(searchresult);
+        console.log(res.data.items);
+        // console.log(searchresult);
       })
       .catch(() => {
         failed();
@@ -132,16 +127,20 @@ function Controller({
                     sendClap={sendClap}
                     sendTambourine={sendTambourine}
                     sendFire={sendFire}
-                    voiceFilterEcho = {voiceFilterEcho}
-                    voiceFilterMegaPhone = {voiceFilterMegaPhone}
-                    voiceFilterModulation =  {voiceFilterModulation}
+                    voiceFilterEcho={voiceFilterEcho}
+                    voiceFilterMegaPhone={voiceFilterMegaPhone}
+                    voiceFilterModulation={voiceFilterModulation}
                   />
                 </div>
                 {/* 노래 관련 버튼 */}
                 <div>
                   {/* 북마크 목록 */}
                   <button className={Styles.bookmarklist}>BookMark</button>
-                  <button className={Styles.songstart} onClick={startbookList} disabled={nowplaying}>
+                  <button
+                    className={Styles.songstart}
+                    onClick={startbookList}
+                    disabled={nowplaying}
+                  >
                     시작
                   </button>
                   <button
@@ -149,7 +148,7 @@ function Controller({
                     onClick={() => {
                       setstartDream(false);
                       setstartGoodDay(false);
-                      sendMessage('YTUrl', "");
+                      sendMessage("YTUrl", "");
                     }}
                   >
                     취소
