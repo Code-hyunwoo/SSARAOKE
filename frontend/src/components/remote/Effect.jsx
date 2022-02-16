@@ -78,6 +78,7 @@ function Effect({ setOpenFirework, hideControl, sendClap,
         <img
           src="https://cdn-icons-png.flaticon.com/512/2446/2446723.png"
           style={{ width: "100%" }}
+          alt=""
         />
       </button>
       {/* 탬버린 */}
@@ -91,6 +92,7 @@ function Effect({ setOpenFirework, hideControl, sendClap,
         <img
           src="https://cdn-icons-png.flaticon.com/512/1426/1426588.png"
           style={{ width: "100%" }}
+          alt=""
         />
       </button>
       {/* 폭죽 */}
@@ -107,6 +109,7 @@ function Effect({ setOpenFirework, hideControl, sendClap,
         <img
           src="https://cdn-icons-png.flaticon.com/512/1700/1700807.png"
           style={{ width: "100%" }}
+          alt=""
         />
       </button>
       {/* 좋아요 */}

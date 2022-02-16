@@ -23,15 +23,23 @@ function WaitingList({ roomseq }) {
         setWaitlist(res.data);
       })
       .catch(() => {
-        alert("Error가 발생했습니다.");
+        Gfailed();
       });
   };
 
-  const failed = () => {
+  const Gfailed = () => {
     Swal.fire({
       icon: "error",
       title: "요청 실패",
-      text: "에러가 발생했습니다.",
+      text: "예약 목록을 불러오지 못했습니다.",
+    });
+  };
+
+  const Dfailed = () => {
+    Swal.fire({
+      icon: "error",
+      title: "요청 실패",
+      text: "예약곡을 삭제하지 못했습니다.",
     });
   };
 
@@ -49,7 +57,7 @@ function WaitingList({ roomseq }) {
         setWaitlist(res.data);
       })
       .catch(() => {
-        failed();
+        Dfailed();
       });
   };
 
@@ -70,23 +78,75 @@ function WaitingList({ roomseq }) {
           setShow(false);
         }}
       >
-        <div className={wstyle.listbg}>
-          <ModalHeader closeButton closeVariant="white"></ModalHeader>
-          <ModalBody>
-            예약 리스트
-            {waitlist.map((item, index) => (
+        <div className={wstyle.modalposition}>
+          <div className={wstyle.listbg} style={{ overflow: "auto" }}>
+            <ModalHeader closeButton closeVariant="white"></ModalHeader>
+            <ModalBody style={{ textAlign: "center" }}>
+              <div style={{ fontSize: "35px" }}>예약 목록</div>
+              <br />
               <li>
-                #{index + 1} - {item.song_title}{" "}
-                <button
-                  onClick={() => {
-                    deleteItem(item.reservation_seq);
-                  }}
-                >
-                  DEL
-                </button>
+                #1. 조금씩여인으로다가오는너에게 - 유열
+                <button className={wstyle.deletebtn}>DEL</button>
               </li>
-            ))}
-          </ModalBody>
+              <li>
+                #1. 아이유 - 좋은날
+                <button className={wstyle.deletebtn}>DEL</button>
+              </li>
+              <li>
+                #1. 취중고백 - 김민석
+                <button className={wstyle.deletebtn}>DEL</button>
+              </li>
+              <li>
+                #1. 아이유 - 좋은날
+                <button className={wstyle.deletebtn}>DEL</button>
+              </li>
+              <li>
+                #1. 아이유 - 좋은날아이유 - 좋은날아이유 - 좋은날아이유 -
+                좋은날좋은날
+                <button className={wstyle.deletebtn}>DEL</button>
+              </li>
+              <li>
+                #1. 아이유 - 좋은날아이유 - 좋은날
+                <button className={wstyle.deletebtn}>DEL</button>
+              </li>
+              <li>
+                #1. 아이유 - 좋은날
+                <button className={wstyle.deletebtn}>DEL</button>
+              </li>
+              <li>
+                #1. 모든날, 모든순간 - 폴킴(Paul Kim)
+                <button className={wstyle.deletebtn}>DEL</button>
+              </li>
+              <li>
+                #1. 아이유 - 좋은날
+                <button className={wstyle.deletebtn}>DEL</button>
+              </li>
+              <li>
+                #1. 아이유 - 좋은날
+                <button className={wstyle.deletebtn}>DEL</button>
+              </li>
+              <li>
+                #1. Timeless - SG워너비 (SG WANNABE)
+                <button className={wstyle.deletebtn}>DEL</button>
+              </li>
+              <li>
+                #1. 아이유 - 좋은날
+                <button className={wstyle.deletebtn}>DEL</button>
+              </li>
+              {waitlist.map((item, index) => (
+                <li>
+                  #{index + 1} - {item.song_title}
+                  <button
+                    onClick={() => {
+                      deleteItem(item.reservation_seq);
+                    }}
+                  >
+                    DEL
+                  </button>
+                </li>
+              ))}
+            </ModalBody>
+          </div>
         </div>
       </Modal>
     </div>

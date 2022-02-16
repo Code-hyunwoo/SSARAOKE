@@ -108,7 +108,6 @@
   margin-left: 3.8%;
   position: absolute;
   top: 4vh;
-
 }
 
 #ScreenFree {
@@ -173,7 +172,7 @@
 
 /* ------------------------------------------- SingerCam */
 
-.soloSingercam{
+.soloSingercam {
   position: absolute !important;
   width: 20vw !important;
   height: 35vh !important;
@@ -185,31 +184,18 @@
 }
 
 .soloSingercam > video {
-
   border: 0.3vw solid #ffffff;
-  box-shadow: 
-  0 0 0.1rem #fff, 
-  0 0 0.1rem #fff, 
-  0 0 0.1rem #fff,
-  0 0 0.4rem #ffffff, 
-  0 0 2rem #ffffff, 
-  inset 0 0 0.8rem #ffffff;
+  box-shadow: 0 0 0.1rem #fff, 0 0 0.1rem #fff, 0 0 0.1rem #fff,
+    0 0 0.4rem #ffffff, 0 0 2rem #ffffff, inset 0 0 0.8rem #ffffff;
 }
 
 .basicSingercam > video {
-
   border: 0.3vw solid #ffffff;
-  box-shadow: 
-  0 0 0.1rem #fff, 
-  0 0 0.1rem #fff, 
-  0 0 0.1rem #fff,
-  0 0 0.4rem #ffffff, 
-  0 0 2rem #ffffff, 
-  inset 0 0 0.8rem #ffffff;
+  box-shadow: 0 0 0.1rem #fff, 0 0 0.1rem #fff, 0 0 0.1rem #fff,
+    0 0 0.4rem #ffffff, 0 0 2rem #ffffff, inset 0 0 0.8rem #ffffff;
 }
 
-
-.duetSingercam{
+.duetSingercam {
   position: absolute !important;
   width: 17.5vw !important;
   /* height: 35vh !important; */
@@ -222,18 +208,12 @@
 }
 
 .duetSingercam > video {
-
   border: 0.3vw solid #ffffff;
-  box-shadow: 
-  0 0 0.1rem #fff, 
-  0 0 0.1rem #fff, 
-  0 0 0.1rem #fff,
-  0 0 0.4rem #ffffff, 
-  0 0 2rem #ffffff, 
-  inset 0 0 0.8rem #ffffff;
+  box-shadow: 0 0 0.1rem #fff, 0 0 0.1rem #fff, 0 0 0.1rem #fff,
+    0 0 0.4rem #ffffff, 0 0 2rem #ffffff, inset 0 0 0.8rem #ffffff;
 }
 
-.duetSingercam2{
+.duetSingercam2 {
   position: absolute !important;
   width: 17.5vw !important;
   /* height: 2vh !important; */
@@ -246,18 +226,12 @@
 }
 
 .duetSingercam2 > video {
-
   border: 0.3vw solid #ffffff;
-  box-shadow: 
-  0 0 0.1rem #fff, 
-  0 0 0.1rem #fff, 
-  0 0 0.1rem #fff,
-  0 0 0.4rem #ffffff, 
-  0 0 2rem #ffffff, 
-  inset 0 0 0.8rem #ffffff;
+  box-shadow: 0 0 0.1rem #fff, 0 0 0.1rem #fff, 0 0 0.1rem #fff,
+    0 0 0.4rem #ffffff, 0 0 2rem #ffffff, inset 0 0 0.8rem #ffffff;
 }
 
-#contentsdiv{
+#contentsdiv {
   position: absolute;
 }
 
@@ -269,17 +243,9 @@
   top: 17vh;
   left: 51vw;
   border: 0.3vw solid #ffffff;
-  box-shadow: 
-  0 0 0.1rem #fff, 
-  0 0 0.1rem #fff, 
-  0 0 0.1rem #fff,
-  0 0 0.4rem #ffffff, 
-  0 0 2rem #ffffff, 
-  inset 0 0 0.8rem #ffffff;
+  box-shadow: 0 0 0.1rem #fff, 0 0 0.1rem #fff, 0 0 0.1rem #fff,
+    0 0 0.4rem #ffffff, 0 0 2rem #ffffff, inset 0 0 0.8rem #ffffff;
 }
-
-
-
 
 /* ------------------------------------------- CamBox */
 
@@ -307,20 +273,19 @@
   border-radius: 10px;
 }
 
-
-.BasicCamBox > div > div{
+.BasicCamBox > div > div {
   width: 32%;
   height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  margin-left:0.5%; 
-  margin-right:0.5%; 
+  margin-left: 0.5%;
+  margin-right: 0.5%;
   /* flex-direction: column; */
 }
 
-.BasicCamBox video{
+.BasicCamBox video {
   width: 100%;
   height: 100%;
   display: flex;
@@ -328,13 +293,11 @@
   margin-bottom: 1vh;
 }
 
-.BasicCamBox span{
+.BasicCamBox span {
   font-size: 1vw;
   font-family: "ROKAFSansBold";
   color: #00f7a5;
 }
-
-
 
 .SoloCamBox {
   position: absolute;
@@ -360,8 +323,6 @@
   border-radius: 10px;
 }
 
-
-
 .SoloCamBox > div > div {
   width: 14%;
   height: 100%;
@@ -369,12 +330,12 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  margin-left:0.5%; 
-  margin-right:0.5%; 
+  margin-left: 0.5%;
+  margin-right: 0.5%;
   flex-direction: column;
 }
 
-.SoloCamBox video{
+.SoloCamBox video {
   width: 100%;
   /* height: 100%; */
   display: flex;
@@ -382,14 +343,13 @@
   margin-bottom: 1vh;
 }
 
-.SoloCamBox span{
+.SoloCamBox span {
   font-size: 1vw;
   font-family: "ROKAFSansBold";
   color: #00f7a5;
   /* font-family: "Cafe24Ssurround"; */
   /* font-family: "Cafe24SsurroundAir"; */
 }
-
 
 .FreeCamBox {
   position: absolute;
@@ -419,12 +379,12 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  margin-left:0.5%; 
-  margin-right:0.5%; 
+  margin-left: 0.5%;
+  margin-right: 0.5%;
   flex-direction: column;
 }
 
-.FreeCamBox video{
+.FreeCamBox video {
   width: 100%;
   /* height: 100%; */
   display: flex;
@@ -432,14 +392,13 @@
   margin-bottom: 1vh;
 }
 
-.FreeCamBox span{
+.FreeCamBox span {
   font-size: 1vw;
   font-family: "ROKAFSansBold";
   color: #00f7a5;
   /* font-family: "Cafe24Ssurround"; */
   /* font-family: "Cafe24SsurroundAir"; */
 }
-
 
 .DuetCamBox {
   position: absolute;
@@ -465,18 +424,18 @@
   border-radius: 10px;
 }
 
-.DuetCamBox > div > div{
+.DuetCamBox > div > div {
   width: 30%;
   height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  margin-left:1%; 
-  margin-right:1%; 
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
-.DuetCamBox video{
+.DuetCamBox video {
   width: 100%;
   height: 100%;
   display: flex;
@@ -484,13 +443,11 @@
   margin-bottom: 1vh;
 }
 
-.DuetCamBox span{
+.DuetCamBox span {
   font-size: 0.9vw;
   font-family: "ROKAFSansBold";
   color: #00f7a5;
 }
-
-
 
 /* ------------------------------------------- ChatBox */
 
@@ -537,7 +494,6 @@
   display: inline-block;
   border-radius: 10px;
 }
-
 
 /* ------------------------------------------- Chat */
 
@@ -686,7 +642,6 @@
   animation: animateDisco 5s linear infinite;
   z-index: 5;
 }
-
 
 @keyframes animateDisco {
   0% {
@@ -989,9 +944,6 @@
   /* align-items: center; */
 }
 
-
-
-
 /* ------------------------------------------- ChatBox */
 
 .ChatBox {
@@ -1033,20 +985,19 @@
   border-bottom-left-radius: 0.5vw;
 }
 
-.txtmsg{
+.txtmsg {
   display: inline;
   width: 80%;
   height: 100%;
   background-color: black;
   border: none;
-  color: #FFCE43;
+  color: #ffce43;
   border: 0.15vw solid #3d3c3c;
   border-radius: 0.1vw;
   border-bottom-right-radius: 0.5vw;
 }
 
-
-.Chat{
+.Chat {
   display: block;
   /* justify-content: start; */
   /* align-items: center; */
@@ -1062,22 +1013,20 @@
   border-radius: 1rem;
   /* background-color: #ff0000; */
 }
-.ChatContent{
+.ChatContent {
   /* width: 80%; */
   margin-left: 1vw;
   /* border:1px solid rgb(255, 0, 0); */
-  color: #FFCE43;
+  color: #ffce43;
   /* margin-left:1vw; */
 }
-.ChatName{
+.ChatName {
   /* width: 50%; */
   font-weight: bold;
   /* border:1px solid rgb(255, 0, 0); */
-  color: white
+  color: white;
 }
 
-
-
 .testbtn {
-  position:absolute;
+  position: absolute;
 }
