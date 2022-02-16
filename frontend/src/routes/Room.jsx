@@ -733,21 +733,29 @@ function Room({ state }) {
 
       <div className={transCamBox}>
         {/* 캠무빙  style={{opacity: Opacity? "0.6" : "1"}} -> 넣으면 잡았을때 반투명 되는데 넣으면 빨간줄ㅠㅜ*/}
-        {firstmode === "Free"?
-          <Draggable onStart={handleStart} onStop={handleEnd} >
+        {nowMode === "Freemode"?
             <div id="video-container" style={{opacity: Opacity? "0.6" : "1"}} >
-              {session !== undefined ? (
-                <UserVideoComponent streamManager={publisher}/>
-              ) : null}
+                {session !== undefined ? 
+                  (
+                  <Draggable onStart={handleStart} onStop={handleEnd} >
+                    <div>
+                      <UserVideoComponent streamManager={publisher}/>
+                    </div>
+                  </Draggable>
+                  ) 
+                : null}
               {session !== undefined
                 ? subscribers.map((sub, i) => (
-                    <div key={i} className="stream-container col-md-6 col-xs-6">
-                      <UserVideoComponent streamManager={sub} />
-                    </div>
+                  <div key={i} className="stream-container col-md-6 col-xs-6">
+                    <Draggable onStart={handleStart} onStop={handleEnd} >
+                      <div>
+                        <UserVideoComponent streamManager={sub} />
+                      </div>
+                    </Draggable>
+                  </div>
                   ))
-                : null}
+                  : null}
             </div>
-          </Draggable>
         : 
           <div id="video-container">
             {session !== undefined ? (
