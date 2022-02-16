@@ -53,6 +53,7 @@ function Controller({
     q: searchitem,
     type: "video",
     maxResults: 30,
+    fields: "items(id(videoId),snippet(title))",
   };
 
   const failed = () => {
@@ -69,8 +70,8 @@ function Controller({
       .get("https://www.googleapis.com/youtube/v3/search", { params })
       .then((res) => {
         setSearchresult(res.data.items);
-        // console.log(res.data.items);
-        console.log(searchresult);
+        console.log(res.data.items);
+        // console.log(searchresult);
       })
       .catch(() => {
         failed();
@@ -83,11 +84,11 @@ function Controller({
 
   const cancelMusic = () => {
     var data = {
-      url:"",
+      url: "",
       title: "",
     };
-    sendMessage('YTUrl', JSON.stringify(data));
-  }
+    sendMessage("YTUrl", JSON.stringify(data));
+  };
 
   return (
     <div>
@@ -135,16 +136,20 @@ function Controller({
                     sendClap={sendClap}
                     sendTambourine={sendTambourine}
                     sendFire={sendFire}
-                    voiceFilterEcho = {voiceFilterEcho}
-                    voiceFilterMegaPhone = {voiceFilterMegaPhone}
-                    voiceFilterModulation =  {voiceFilterModulation}
+                    voiceFilterEcho={voiceFilterEcho}
+                    voiceFilterMegaPhone={voiceFilterMegaPhone}
+                    voiceFilterModulation={voiceFilterModulation}
                   />
                 </div>
                 {/* 노래 관련 버튼 */}
                 <div>
                   {/* 북마크 목록 */}
                   <button className={Styles.bookmarklist}>BookMark</button>
-                  <button className={Styles.songstart} onClick={startbookList} disabled={nowplaying}>
+                  <button
+                    className={Styles.songstart}
+                    onClick={startbookList}
+                    disabled={nowplaying}
+                  >
                     시작
                   </button>
                   <button
