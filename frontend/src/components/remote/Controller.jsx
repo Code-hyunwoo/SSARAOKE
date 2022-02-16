@@ -17,6 +17,9 @@ function Controller({
   setstartDream,
   setstartGoodDay,
   roomseq,
+  sendClap,
+  sendTambourine,
+  sendFire
 }) {
   const [show, setShow] = useState(false);
 
@@ -36,10 +39,16 @@ function Controller({
   const params = {
     key: apiKey,
     part: "snippet",
+<<<<<<< HEAD
     // TJ 노래방 channelId
     channelId: "UCZUhx8ClCv6paFW7qi3qljg",
     // JW 노래방 channelId
     // channelId: "UC58ttsbMu6kCeWRrEsDI2ww",
+=======
+    // TJ노래방 channelId: "UCZUhx8ClCv6paFW7qi3qljg",
+    // JW 노래방 channelId: UC58ttsbMu6kCeWRrEsDI2ww
+    channelId: "UC58ttsbMu6kCeWRrEsDI2ww",
+>>>>>>> front
     channelType: "any",
     q: searchitem,
     type: "video",
@@ -115,6 +124,9 @@ function Controller({
                   <Effect
                     setOpenFirework={setOpenFirework}
                     hideControl={hideControl}
+                    sendClap={sendClap}
+                    sendTambourine={sendTambourine}
+                    sendFire={sendFire}
                   />
                 </div>
                 {/* 노래 관련 버튼 */}
