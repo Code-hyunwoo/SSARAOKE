@@ -1,11 +1,17 @@
+.modalposition {
+  display: flex;
+  justify-content: center;
+}
+
 :root {
   --clr-neonW: #fff89a;
   --clr-bg: hsl(323 21% 16%);
 }
 
 .listbg {
+  position: absolute;
   height: 90vh;
-  width: 45vw;
+  width: 43vw;
   background-color: black;
   color: #fff89a;
   opacity: 1;
@@ -13,7 +19,7 @@
   font-size: 20px;
   border: var(--clr-neonW) 0.125em solid;
   border-radius: 0.25em;
-  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neonW), 0 0 0.5em 0 var(--clr-neonW);
 }
 
 .deletebtn {
@@ -33,6 +39,35 @@
 
   position: relative;
   margin: 0 20px;
+}
+
+.deletebtn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 2em 0.5em var(--clr-neonW);
+  opacity: 0;
+  background-color: var(--clr-neonW);
+  z-index: -1;
+  transition: opacity 100ms linear;
+}
+
+.deletebtn:hover,
+.deletebtn:focus {
+  color: var(--clr-neonW);
+  text-shadow: none;
+}
+
+.deletebtn:hover::before,
+.deletebtn:focus::before {
+  opacity: 1;
+}
+.deletebtn:hover::after,
+.deletebtn:focus::after {
+  opacity: 1;
 }
 
 /* 폰트 */
