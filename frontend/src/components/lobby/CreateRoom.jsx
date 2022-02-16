@@ -4,11 +4,11 @@ import { Modal } from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
-import swal from 'sweetalert2';
+import swal from "sweetalert2";
 
-function Desk({state}) {
-  console.log(state);
-  
+function Desk({ state }) {
+  // console.log(state);
+
   //모달 실행
   const [show, setShow] = useState(false);
 
@@ -43,15 +43,19 @@ function Desk({state}) {
       // arrcheckedTags.push(value); //배열
       setArrcheckedTags([...arrcheckedTags, value]); //배열
       console.log(arrcheckedTags);
-    } else if (!isChecked && checkedTags.has(value) && arrcheckedTags.find(one => one === value)) {
+    } else if (
+      !isChecked &&
+      checkedTags.has(value) &&
+      arrcheckedTags.find((one) => one === value)
+    ) {
       checkedTags.delete(value);
       setcheckedTags(checkedTags);
-      const filter = arrcheckedTags.filter(one => one !== value);
+      const filter = arrcheckedTags.filter((one) => one !== value);
       setArrcheckedTags([...filter]);
     }
   };
 
-  console.log('배열값', arrcheckedTags);
+  // console.log('배열값', arrcheckedTags);
 
   //tag 값 4개만 받아오도록 하는 함수.
   const checkHandler = ({ target }) => {
@@ -67,7 +71,7 @@ function Desk({state}) {
       checkedTags.delete(target.value); //아까 들어간 값을 삭제
       setcheckedTags(checkedTags); //남은 4개가 다시 set()의 값
       console.log(checkedTags);
-      const filter = arrcheckedTags.filter(one => one !== target.value);
+      const filter = arrcheckedTags.filter((one) => one !== target.value);
       setArrcheckedTags([...filter]);
       target.checked = false; //그 빠진 값을 다시 T에서 F로 되돌린다.(체크되어있는 상태를 풀어주는것. set에서는 이미 빠졌고)
     }
@@ -93,7 +97,7 @@ function Desk({state}) {
   //값을 바꾸는 것은 onChange!!!
 
   const selectMode = selected;
-  console.log("mode: ", selectMode);
+  // console.log("mode: ", selectMode);
 
   //방 타입 -> checkedTags를 가져오면 됨. 이미 만들어 주셨음. 굿!
   //set으로는 백 전달 불가. 변경해줘야
@@ -101,14 +105,13 @@ function Desk({state}) {
   //2. 값 보내기 전에 set을 []로 변경하여 보내기
   // const arrcheckedTags = Array.from(checkedTags);
   // const arrcheckedTags = [];
-  
+
   // const arrcheckedTags = [...checkedTags];
 
   // checkedTags.forEach((element) => {
   //   arrcheckedTags.concat(element);
   // });
-  console.log('배열:', arrcheckedTags);
-
+  // console.log('배열:', arrcheckedTags);
 
   //방 공개 여부 -boolean으로
   const [opened, setOpened] = useState(false);
@@ -142,32 +145,34 @@ function Desk({state}) {
 
   //비밀번호 입력 경고창
   const writePw = () => {
-    swal.fire({
-      title: '비밀번호를 입력하세요',
-      icon: 'warning',
-      confirmButtonColor: '#73E0C1',
-      confirmButtonText: '확인'
-    })
-    .then((result) => {
-      console.log("sweetalert", result);
-    })
-  }
+    swal
+      .fire({
+        title: "비밀번호를 입력하세요",
+        icon: "warning",
+        confirmButtonColor: "#73E0C1",
+        confirmButtonText: "확인",
+      })
+      .then((result) => {
+        console.log("sweetalert", result);
+      });
+  };
 
   const selectTag = () => {
-    swal.fire({
-      // title: "태그는 최대 4개까지 선택할 수 있습니다.",
-      text: "태그는 최대 4개까지 선택할 수 있습니다.",
-      icon: 'warning',
-      confirmButtonColor: '#73E0C1',
-      confirmButtonText: '확인'
-    })
-    .then((result) => {
-      console.log("sweetalert", result);
-    })
-  }
+    swal
+      .fire({
+        // title: "태그는 최대 4개까지 선택할 수 있습니다.",
+        text: "태그는 최대 4개까지 선택할 수 있습니다.",
+        icon: "warning",
+        confirmButtonColor: "#73E0C1",
+        confirmButtonText: "확인",
+      })
+      .then((result) => {
+        console.log("sweetalert", result);
+      });
+  };
 
   // const { value: accept } = await Swal.fire({
-  // const writePw = 
+  // const writePw =
   // swal.fire({
   //   title: 'Terms and conditions',
   //   input: 'checkbox',
@@ -180,15 +185,14 @@ function Desk({state}) {
   //     return !result && 'You need to agree with T&C'
   //   }
   // })
-  
+
   // if (accept) {
   //   Swal.fire('You agreed with T&C :)')
   // }
 
-
   //헤더에 토큰을 넣어서 보내는 역할
   const onCreateRoom = (e) => {
-    if (value === true && roompw === "" && value!==false) {
+    if (value === true && roompw === "" && value !== false) {
       e.preventDefault();
       // alert(`비밀번호를 입력해 주세요`);
       writePw();
@@ -214,14 +218,14 @@ function Desk({state}) {
             headers: {
               "Content-Type": "application/json",
               // "Authorization" : token,  // -> 승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
-              Authorization:state[0].token, // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
+              Authorization: state[0].token, // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
             },
           }
         )
         .then((res) => {
-          console.log({selected});
+          console.log({ selected });
           // navigate(`/${selected}`);
-          navigate(`/Room/${selected}/${res.data.room_seq}`)
+          navigate(`/Room/${selected}/${res.data.room_seq}`);
         });
     }
     // navigate(`/${selected}`)
@@ -623,7 +627,8 @@ function Desk({state}) {
     </>
   );
 }
-function mapStateToProps(state) { //state 받아오는 함수 - store에서 직빵으로 값 보내주는 것.
+function mapStateToProps(state) {
+  //state 받아오는 함수 - store에서 직빵으로 값 보내주는 것.
   return { state };
 }
 //   render(<Desk />);
