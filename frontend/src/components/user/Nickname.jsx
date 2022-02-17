@@ -4,7 +4,7 @@ import { Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { actionCreators } from "../../store";
 import Styles from "./Mypage.module.css";
-import swal from 'sweetalert2';
+import swal from "sweetalert2";
 
 function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
   //변경할 닉네임값 받아오기
@@ -18,32 +18,34 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
 
   //동일 닉네임 입력 경고창
   const sameNickname = () => {
-    swal.fire({
-      title: '동일 닉네임이 존재합니다.',
-      icon: 'error',
-      showConfirmButton: false,
-      // confirmButtonColor: '#73E0C1',
-      // confirmButtonText: '확인'
-      timer: 1500
-    })
-    .then((result) => {
-      console.log("sweetalert", result);
-    })
-  }
-  
+    swal
+      .fire({
+        title: "동일 닉네임이 존재합니다.",
+        icon: "error",
+        showConfirmButton: false,
+        // confirmButtonColor: '#73E0C1',
+        // confirmButtonText: '확인'
+        timer: 1500,
+      })
+      .then((result) => {
+        console.log("sweetalert", result);
+      });
+  };
+
   const success = () => {
-    swal.fire({
-      title: '닉네임 수정 성공!',
-      icon: 'success',
-      showConfirmButton: false,
-      // confirmButtonColor: '#73E0C1',
-      // confirmButtonText: '확인'
-      timer: 1500
-    })
-    .then((result) => {
-      console.log("sweetalert", result);
-    })
-  }
+    swal
+      .fire({
+        title: "닉네임 수정 성공!",
+        icon: "success",
+        showConfirmButton: false,
+        // confirmButtonColor: '#73E0C1',
+        // confirmButtonText: '확인'
+        timer: 1500,
+      })
+      .then((result) => {
+        console.log("sweetalert", result);
+      });
+  };
 
   const onChangeNickname = () => {
     axios
@@ -63,13 +65,12 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
         }
       )
       .then((res) => {
-        if(res.status === 200){
+        if (res.status === 200) {
           DispatchmodifyNickname(newnickname);
           onHide();
           success();
           // window.alert("닉네임 수정 성공!");
-        }
-        else{
+        } else {
           // alert("동일 닉네임이 존재합니다.");
         }
         // console.log("then",res);
@@ -103,7 +104,7 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
           <Modal.Body>
             {/* <div style={{padding:'5px', textAlign:'center'}}> */}
             <div style={{ textAlign: "center" }}>
-              Nickname 수정 :{" "} 
+              Nickname 수정 :{" "}
               <input
                 type="text"
                 style={{ left: "90vw" }}
@@ -112,16 +113,17 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
                 onChange={getNickname}
                 onKeyPress={entermodify}
                 maxLength="5"
-                />
+              />
               &nbsp;
               {/* <div> */}
-                <br/>
+              <br />
               <button
                 style={{
                   width: "3.2vw",
                   top: "20vh",
                   borderRadius: "30vh",
                   backgroundColor: "#ffcd438f",
+                  whiteSpace: "nowrap",
                 }}
                 onClick={onChangeNickname}
               >
