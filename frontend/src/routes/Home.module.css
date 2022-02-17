@@ -4,12 +4,12 @@
 }
 
 .row {
-  margin: 0 48px;
+  /* margin: 0 auto; */
   align-items: center;
 }
 
 .desc1 h1 {
-  color: #fff89a;
+  color: #ffce43;
   font-family: "surround";
   font-size: 60px;
   /* display: flex; */

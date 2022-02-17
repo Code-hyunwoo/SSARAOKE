@@ -24,7 +24,7 @@ function Home() {
 
     // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
     offset: 120, // offset (in px) from the original trigger point
-    delay: 100, // values from 0 to 3000, with step 50ms
+    delay: 300, // values from 0 to 3000, with step 50ms
     duration: 400, // values from 0 to 3000, with step 50ms
     easing: "ease", // default easing for AOS animations
     once: false, // whether animation should happen only once - while scrolling down
@@ -37,31 +37,38 @@ function Home() {
 
       <Container fluid className={styles.pxpx}>
         <hr className={styles.line} style={{ borderColor: "black" }} />
-        <Row className={styles.row}>
+        <Row className={styles.row} data-aos="fade-up">
           <Col md={{ span: 5, offset: 1 }}>
             <img src={gif1} alt="" className={styles.introPic} />
           </Col>
           <Col md={{ span: 4, offset: 1 }}>
             <div className={styles.desc1}>
-              <h1>친구들과 소통하며 즐기세요</h1>
+              <h1>친구들과 </h1>
+              <h1>소통하며 즐기세요</h1>
             </div>
             <div className={styles.desc2}>
               <h3>
-                SSARAOKE에서 쓸 닉네임을 정하고, 로비에서 다른 사용자들과 대화를
-                나눠보세요
+                SSARAOKE에서 쓸 닉네임을 정하고,
+                <br />
+                로비에서 다른 사용자들과 <br />
+                대화를 나눠보세요.
               </h3>
             </div>
           </Col>
         </Row>
         <hr className={styles.line} />
 
-        <Row className={styles.row}>
+        <Row className={styles.row} data-aos="fade-up">
           <Col md={{ span: 4, offset: 1 }}>
             <div className={styles.desc1}>
-              <h1>방해받지 말고 불러보세요</h1>
+              <h1>프라이빗한</h1>
+              <h1>나만의 노래방</h1>
             </div>
             <div className={styles.desc2}>
-              <h3>비밀번호를 설정하면 비공개방을 생성할 수 있습니다</h3>
+              <h3>
+                비밀번호를 설정하면
+                <br /> 비공개방을 생성할 수 있습니다.
+              </h3>
             </div>
           </Col>
           <Col md={{ span: 5, offset: 1 }}>
@@ -70,33 +77,37 @@ function Home() {
         </Row>
         <hr className={styles.line} />
 
-        <Row className={styles.row}>
+        <Row className={styles.row} data-aos="fade-up">
           <Col md={{ span: 5, offset: 1 }}>
             <img src={gif3} alt="" className={styles.introPic} />
           </Col>
           <Col md={{ span: 4, offset: 1 }}>
             <div className={styles.desc1}>
-              <h1>TJ 노래방과의 제휴</h1>
+              <h1>TJ 노래방</h1>
+              <h1>공식파트너</h1>
+              {/* <h1>공식파트너</h1> */}
             </div>
             <div className={styles.desc2}>
               <h3>
-                TJ 노래방 전곡을 제공합니다. 다양한 노래를 마음껏 즐기세요!{" "}
+                TJ 노래방 전곡을 제공합니다.
+                <br /> 다양한 노래를 마음껏 불러보세요!{" "}
               </h3>
             </div>
           </Col>
         </Row>
         <hr className={styles.line} />
 
-        <Row className={styles.row}>
+        <Row className={styles.row} data-aos="fade-up">
           <Col md={{ span: 4, offset: 1 }}>
             <div className={styles.desc1}>
-              <h1>다양한 모드 제공</h1>
+              <h1>다양한 모드</h1>
             </div>
             <div className={styles.desc2}>
               <h3>
-                기본모드 외에 자유모드, 솔로모드, 듀엣모드 등 다양한 UI를
-                제공합니다. 버튼을 눌러 노래 부르는사람에게 조명효과를 줄 수
-                있습니다.
+                기본모드 외에 자유모드, 솔로모드, <br />
+                듀엣모드 등 다양한 UI를 제공합니다.
+                <br /> 버튼을 눌러 노래 부르는사람에게 <br />
+                조명효과를 줄 수 있습니다.
               </h3>
             </div>
           </Col>
@@ -106,18 +117,19 @@ function Home() {
         </Row>
         <hr className={styles.line} />
 
-        <Row className={styles.row}>
+        <Row className={styles.row} data-aos="fade-up">
           <Col md={{ span: 5, offset: 1 }}>
             <img src={gif5} alt="" className={styles.introPic} />
           </Col>
           <Col md={{ span: 4, offset: 1 }}>
             <div className={styles.desc1}>
-              <h1>듀엣곡도 나혼자 자유롭게!</h1>
+              <h1>스타와 함께 듀엣</h1>
             </div>
             <div className={styles.desc2}>
               <h3>
-                듀엣곡 부르고 싶은데 같이부를 사람이 없을 때! 연예인과 함께
-                듀엣곡을 불러보세요. 연예인과 대화하는 느낌도 가질 수 있어요!
+                듀엣곡 부르고 싶은데 같이 부를 사람이 없을 때, <br />
+                스타와 함께 듀엣곡을 부를 수 있는 기회!! <br />
+                스타와 교감하며 노래를 불러보세요
               </h3>
             </div>
           </Col>
