@@ -47,8 +47,7 @@ public class LobbyServiceImpl implements LobbyService {
     @Override
     @Transactional
     public Room createRoom(User user, LobbyCreateRequest lobbyCreateRequest) {
-        // 더 이상 방을 생성할 수 없을 경우(30개) -> Error
-        if(getRoomCount()>=30) {
+        if(getRoomCount()>=18) {
             throw new CustomException(ErrorCode.LIMITED_ROOM);
         }
         Room room = Room.builder()
@@ -73,11 +72,9 @@ public class LobbyServiceImpl implements LobbyService {
                     .room(room)
                     .tag(tag)
                     .build();
-            // Room에도 넣고, RoomTag에도 넣고
             room.addRoomTag(roomTag);
             roomTagRepository.save(roomTag);
         }
-        // Room에 user추가, User에 room추가
         room.addUser(user);
         return room;
     }
@@ -92,15 +89,7 @@ public class LobbyServiceImpl implements LobbyService {
     @Override
     @Transactional(readOnly = true)
     public boolean checkBanUser(User user, Long room_seq) {
-        // 차단 유저면 true 리턴
         RoomBan roomBan = roomBanRepository.findRoomBanByUserSeqAndRoomSeq(user.getSeq(), room_seq);
-//        Room room = roomRepository.findById(lobbyEnterRequest.getRoom_seq()).get();
-//        List<RoomBan> roomBans = room.getRoomBans();
-//        for (int i = 0; i < roomBans.size(); i++) {
-//            if (roomBans.get(i).getUser().getSeq() == user.getSeq()) {
-//                return true;
-//            }
-//        }
 
         return !(roomBan == null);
     }
@@ -147,7 +136,6 @@ public class LobbyServiceImpl implements LobbyService {
 
         Room room = roomRepository.findById(lobbyEnterRequest.getRoom_seq()).get();
 
-        // Room에 user추가, User에 room추가
         room.addUser(user);
 
         return room;

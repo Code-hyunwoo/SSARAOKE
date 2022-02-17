@@ -32,6 +32,7 @@ public class ReservationServiceImpl implements ReservationService {
         //db에 리퀘스트로 받은 데이터를 넣어준다.
         Room room = roomRepository.findById(reservationAddRequest.getRoom_seq())
                 .orElseThrow(()->new CustomException(ErrorCode.ROOM_NOT_FOUND));
+        //TJ PREFIX 삭제
         String newTitle = reservationAddRequest.getTitle().replace(TJ_PREFIX, "");
         newTitle = newTitle.replace(TJ_POSTFIX, "");
         newTitle = newTitle.replace("[] ", "");  //[TJ노래방]이었다면 []만 남아있을 테니까 삭제
@@ -77,5 +78,13 @@ public class ReservationServiceImpl implements ReservationService {
         room.removeReservation(response.getReservation_seq());
         reservationRepository.deleteById(response.getReservation_seq());
         return response;
+    }
+
+    @Override
+    public List<ReservationResponse> getTwo(Long room_seq) {
+        Room room = roomRepository.findById(room_seq)
+                .orElseThrow(()->new CustomException(ErrorCode.ROOM_NOT_FOUND));
+        List<Reservation> response = room.getTwoReservation();
+        return ReservationResponse.of(response);
     }
 }
