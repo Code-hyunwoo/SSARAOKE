@@ -9,6 +9,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookmarkAddRequest {
+public class BookmarkRequest {
     private String title;
 }

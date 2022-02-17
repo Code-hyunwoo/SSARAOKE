@@ -91,20 +91,15 @@ public class User extends BaseTimeEntity {
         video.setUser(this);
     }
 
-    public boolean isBookmarkNotExist(int song_no){
-        return this.bookmarks.stream()
-                .noneMatch(bookmark -> bookmark.getSong_no() == song_no);
-    }
-
-    public Long deleteBookmarkBySongNo(int song_no){
-        Bookmark bookmark = findBookmarkBySongNo(song_no);
+    public Long deleteBookmarkByTitle(String title){
+        Bookmark bookmark = findBookmarkByTitle(title);
         this.bookmarks.remove(bookmark);
         return bookmark.getSeq();
     }
 
-    public Bookmark findBookmarkBySongNo(int song_no){
+    public Bookmark findBookmarkByTitle(String title){
         return this.bookmarks.stream()
-                .filter(bookmark -> bookmark.getSong_no() == song_no)
+                .filter(bookmark -> bookmark.getTitle().equals(title))
                 .findFirst()
                 .orElseThrow(()->new CustomException(ErrorCode.BOOKMARK_NOT_FOUND));
     }

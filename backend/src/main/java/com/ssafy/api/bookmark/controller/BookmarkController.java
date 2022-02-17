@@ -1,7 +1,7 @@
 package com.ssafy.api.bookmark.controller;
 
 import com.ssafy.api.auth.resolver.Auth;
-import com.ssafy.api.bookmark.dto.request.BookmarkAddRequest;
+import com.ssafy.api.bookmark.dto.request.BookmarkRequest;
 import com.ssafy.api.bookmark.dto.response.BookmarkResponse;
 import com.ssafy.api.bookmark.service.BookmarkService;
 import com.ssafy.common.model.response.BaseResponseBody;
@@ -29,14 +29,14 @@ public class BookmarkController {
     }
 
     @PostMapping("/add")
-    ResponseEntity<? extends BaseResponseBody> add(@Auth User user, @RequestBody BookmarkAddRequest bookmarkAddRequest) {
+    ResponseEntity<? extends BaseResponseBody> add(@Auth User user, @RequestBody BookmarkRequest bookmarkAddRequest) {
         bookmarkService.add(user, bookmarkAddRequest);
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
 
-    @DeleteMapping("/delete/{song_no}")
-    ResponseEntity<? extends BaseResponseBody> delete(@Auth User user, @PathVariable("song_no") int song_no) {
-        bookmarkService.delete(user, song_no);
+    @DeleteMapping("/delete")
+    ResponseEntity<? extends BaseResponseBody> delete(@Auth User user, @RequestBody BookmarkRequest bookmarkRequest) {
+        bookmarkService.delete(user, bookmarkRequest.getTitle());
         return ResponseEntity.ok().body(BaseResponseBody.of(200, "Success"));
     }
 }

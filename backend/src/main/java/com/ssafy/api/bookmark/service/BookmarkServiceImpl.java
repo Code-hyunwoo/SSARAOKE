@@ -1,9 +1,7 @@
 package com.ssafy.api.bookmark.service;
 
-import com.ssafy.api.bookmark.dto.request.BookmarkAddRequest;
+import com.ssafy.api.bookmark.dto.request.BookmarkRequest;
 import com.ssafy.api.bookmark.dto.response.BookmarkResponse;
-import com.ssafy.common.exception.CustomException;
-import com.ssafy.common.exception.ErrorCode;
 import com.ssafy.domain.bookmark.entity.Bookmark;
 import com.ssafy.domain.bookmark.repository.BookmarkRepository;
 import com.ssafy.domain.user.entity.User;
@@ -28,7 +26,7 @@ public class BookmarkServiceImpl implements BookmarkService {
 
     @Transactional
     @Override
-    public void add(User user, BookmarkAddRequest bookmarks) {
+    public void add(User user, BookmarkRequest bookmarks) {
 //        if(!user.isBookmarkNotExist(bookmarks.getSong_no())){
 //            throw new CustomException(ErrorCode.EXIST_SONG_NO);
 //        }
@@ -41,8 +39,8 @@ public class BookmarkServiceImpl implements BookmarkService {
 
     @Transactional
     @Override
-    public void delete(User user, int song_no) {
-        Long bookmark_seq = user.deleteBookmarkBySongNo(song_no);
+    public void delete(User user, String title) {
+        Long bookmark_seq = user.deleteBookmarkByTitle(title);
         bookmarkRepository.deleteById(bookmark_seq);
     }
 
