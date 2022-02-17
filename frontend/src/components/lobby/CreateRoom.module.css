@@ -1,9 +1,12 @@
 .tooltip {
+  position: absolute;
   display: flex;
   justify-content: flex-start;
-  padding-left: 2vw;
-  margin-bottom: -5vh;
-  padding-top: 8vh;
+  padding-left: 8vw;
+  margin-bottom: -10vh;
+  padding-top: 1vh;
+  padding-bottom: 0.3vh;
+  top: 22.2vh;
 }
 
 .btngroup {

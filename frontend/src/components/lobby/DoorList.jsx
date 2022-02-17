@@ -28,8 +28,6 @@ function DoorList() {
   //roomdata 값이 유효할 때
   return (
     <>
-      
-
       {/* <button onClick={Roomdata}>button</button> */}
       <CreateRoom />
       <div className={styles.firstcontainer}>

@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import swal from "sweetalert2";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 
 function Desk({ state }) {
@@ -153,19 +154,16 @@ function Desk({ state }) {
 
   return (
     <>
-      {/* <div>
-      <OverlayTrigger
-              
-              delay={{ hide: 5, show: 5 }}
-              overlay={(props) => <Tooltip {...props}> 원활한 이용을 위해 이어폰을 착용해주세요!! </Tooltip>}
-              placement="right"
-      >
-        <img 
-          src="https://img.icons8.com/external-bearicons-outline-color-bearicons/64/000000/external-question-call-to-action-bearicons-outline-color-bearicons.png"
-          style={{left:"5vw"}}
-          />
-      </OverlayTrigger> 
-      </div> */}
+      <div className={styles.tooltip}>
+        <OverlayTrigger
+                
+                delay={{ hide: 5, show: 5 }}
+                overlay={(props) => <Tooltip {...props}> 원활한 이용을 위해 이어폰을 착용해주세요!! </Tooltip>}
+                placement="right"
+        >
+            <img src="https://img.icons8.com/external-bearicons-gradient-bearicons/50/000000/external-question-call-to-action-bearicons-gradient-bearicons.png"/>
+        </OverlayTrigger> 
+      </div>
 
       <div className={styles.btngroup}>
         <button
