@@ -1,3 +1,11 @@
+.tooltip {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 2vw;
+  margin-bottom: -5vh;
+  padding-top: 8vh;
+}
+
 .btngroup {
   display: flex;
   justify-content: flex-end;

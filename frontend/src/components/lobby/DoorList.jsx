@@ -28,19 +28,7 @@ function DoorList() {
   //roomdata 값이 유효할 때
   return (
     <>
-      {/* <div>
-      <OverlayTrigger
-              
-              delay={{ hide: 5, show: 5 }}
-              overlay={(props) => <Tooltip {...props}> 원활한 이용을 위해 이어폰을 착용해주세요!! </Tooltip>}
-              placement="right"
-      >
-        <img 
-          src="https://img.icons8.com/external-bearicons-outline-color-bearicons/64/000000/external-question-call-to-action-bearicons-outline-color-bearicons.png"
-          style={{left:"5vw"}}
-          />
-      </OverlayTrigger> 
-      </div> */}
+      
 
       {/* <button onClick={Roomdata}>button</button> */}
       <CreateRoom />
