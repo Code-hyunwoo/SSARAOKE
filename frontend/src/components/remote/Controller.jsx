@@ -70,8 +70,6 @@ function Controller({
       .get("https://www.googleapis.com/youtube/v3/search", { params })
       .then((res) => {
         setSearchresult(res.data.items);
-        console.log(res.data.items);
-        // console.log(searchresult);
       })
       .catch(() => {
         failed();
@@ -144,7 +142,7 @@ function Controller({
                 {/* 노래 관련 버튼 */}
                 <div>
                   {/* 북마크 목록 */}
-                  <button className={Styles.bookmarklist}>BookMark</button>
+                  <button className={Styles.bookmarklist} disabled >BookMark</button>
                   <button
                     className={Styles.songstart}
                     onClick={startbookList}
@@ -174,7 +172,7 @@ function Controller({
                   <div>
                     {/* <button className={Styles.booklist}>예약 목록</button> */}
                     <WaitingList roomseq={roomseq} />
-                    <button className={Styles.book}>예약</button>
+                    <button className={Styles.book} disabled>예약</button>
                   </div>
                 </div>
               </div>

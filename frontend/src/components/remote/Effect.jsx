@@ -12,34 +12,11 @@ function Effect({
   voiceFilterMegaPhone,
   voiceFilterModulation,
 }) {
-  // const audio = new Audio(Clap);
-  // const audio2 = new Audio(Tambourine);
-  // const audio = new Audio("./audio/Next.mp3")
-  // function Clapaudio() {
-  //   audio.volume = 0.03;
-  //   audio.play();
-  //   hideControl();
-  // }
-
-  // function Tamaudio() {
-  //   audio2.volume = 0.2;
-  //   audio2.play();
-  //   hideControl();
-  // }
-
-  // function afterfire() {
-  //   setTimeout(function () {
-  //     setOpenFirework(false);
-  //   }, 6000);
-  //   hideControl();
-  // }
-
   return (
     <div>
       {/* 템포 업 */}
       <button className={Styles.jump} style={{ left: "1.2vw", top: "1.2vh" }}>
         간주점프
-        {/* <div className={Styles.tempoupbtn} ></div> */}
       </button>
 
       {/* 템포 다운*/}
@@ -117,8 +94,6 @@ function Effect({
       <button
         className={Styles.effectbtn}
         onClick={() => {
-          // setOpenFirework(true);
-          // afterfire();
           sendFire();
           hideControl();
         }}

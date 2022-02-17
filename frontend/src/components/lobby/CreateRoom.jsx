@@ -5,10 +5,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import swal from "sweetalert2";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
+
 
 function Desk({ state }) {
-  // console.log(state);
-
   //모달 실행
   const [show, setShow] = useState(false);
 
@@ -28,7 +28,6 @@ function Desk({ state }) {
   const [checkedTags, setcheckedTags] = useState(new Set());
   const [bChecked, setChecked] = useState(false); //체크가 되었는지 여부를 위한 함수. 기본 F -비워져있음.
 
-  // const arrcheckedTags = [];
   //tag 값 받아오기_배열 버전 -> 배열버전 넘겨주는 중
   const [arrcheckedTags, setArrcheckedTags] = useState([]);
 
@@ -38,11 +37,7 @@ function Desk({ state }) {
       //체크되면
       checkedTags.add(value); //set()에 그 value를 넣음.
       setcheckedTags(checkedTags); //4개를 체크하면 그 4개가 들어감. checkedTags을 나중에 백에 전송할때 쓰면 됨.
-      // console.log(checkedTags);
-      // arrcheckedTags = [...checkedTags]
-      // arrcheckedTags.push(value); //배열
       setArrcheckedTags([...arrcheckedTags, value]); //배열
-      console.log(arrcheckedTags);
     } else if (
       !isChecked &&
       checkedTags.has(value) &&
@@ -55,22 +50,16 @@ function Desk({ state }) {
     }
   };
 
-  // console.log('배열값', arrcheckedTags);
-
   //tag 값 4개만 받아오도록 하는 함수.
   const checkHandler = ({ target }) => {
     //체크하는 순간 실행
-    // console.log(target)
     setChecked(target.bChecked); //체크되어서 T가 된다.
-    // console.log(target.bChecked)
     checkedTagsHandler(target.value, target.checked); //내가 클릭한 값, 내가 클릭한 값의 체크 여부(bchecked) set()함수에 넣고
     if (checkedTags.size === 5) {
       //set()함수에 4개를 넘으면
-      // alert(`태그는 최대 4개까지 선택할 수 있습니다.`);
       selectTag();
       checkedTags.delete(target.value); //아까 들어간 값을 삭제
       setcheckedTags(checkedTags); //남은 4개가 다시 set()의 값
-      console.log(checkedTags);
       const filter = arrcheckedTags.filter((one) => one !== target.value);
       setArrcheckedTags([...filter]);
       target.checked = false; //그 빠진 값을 다시 T에서 F로 되돌린다.(체크되어있는 상태를 풀어주는것. set에서는 이미 빠졌고)
@@ -82,62 +71,32 @@ function Desk({ state }) {
   // 방제 가져오기
   const [roomTitle, setRoomTitle] = useState("");
   const getTitle = (e) => {
-    // console.log(e.target); //이벤트가 발생한 타겟의 요소 출력
-    // console.log(e.target.value); //이벤트가 발생한 타겟의 value를 출력
     setRoomTitle(e.target.value); //이게 이제 roomTitle을 이 값으로 지정한 것.
-    console.log(roomTitle); //한글자 칠때마다 콘솔이 우수수 찍힘
   };
 
   // 모드 값 가져오기 - radio버튼이기에 한번에 하나만 체크됨.
   const [selected, setSelected] = useState("");
   const checkedModeHandler = (e) => {
     setSelected(e.target.value);
-    console.log(selected);
   };
   //값을 바꾸는 것은 onChange!!!
 
   const selectMode = selected;
-  // console.log("mode: ", selectMode);
-
-  //방 타입 -> checkedTags를 가져오면 됨. 이미 만들어 주셨음. 굿!
-  //set으로는 백 전달 불가. 변경해줘야
-  //1. 배열로 변경
-  //2. 값 보내기 전에 set을 []로 변경하여 보내기
-  // const arrcheckedTags = Array.from(checkedTags);
-  // const arrcheckedTags = [];
-
-  // const arrcheckedTags = [...checkedTags];
-
-  // checkedTags.forEach((element) => {
-  //   arrcheckedTags.concat(element);
-  // });
-  // console.log('배열:', arrcheckedTags);
 
   //방 공개 여부 -boolean으로
   const [opened, setOpened] = useState(false);
-
-  // const roomopenHandler = ({target}) => {
-  //     setOpened(target.opened);
-  //     console.log(opened);
-  // }
 
   let value = true;
   const roomopenHandler = (e) => {
     if (typeof e.target.value === "string") {
       e.target.value === "false" ? (value = false) : (value = true);
     }
-    console.log(value);
   };
-  //   const roomopenHandler = (e) => {
-  //     setOpened(e.target.value);
-  //     console.log(selected);
-  // }
 
   //비밀번호 -> 비공개방으로 설정하면 비밀번호를 필로 넣도록 설정
   const [roompw, setRoompw] = useState("");
   const getRoompw = (e) => {
     setRoompw(e.target.value);
-    console.log(roompw);
   };
 
   //방 생성 버튼을 누르면, 선택된 값들을 보내기 위해 & 방장 정보도 보내야
@@ -152,87 +111,60 @@ function Desk({ state }) {
         confirmButtonColor: "#73E0C1",
         confirmButtonText: "확인",
       })
-      .then((result) => {
-        console.log("sweetalert", result);
-      });
   };
 
   const selectTag = () => {
     swal
       .fire({
-        // title: "태그는 최대 4개까지 선택할 수 있습니다.",
         text: "태그는 최대 4개까지 선택할 수 있습니다.",
         icon: "warning",
         confirmButtonColor: "#73E0C1",
         confirmButtonText: "확인",
       })
-      .then((result) => {
-        console.log("sweetalert", result);
-      });
   };
-
-  // const { value: accept } = await Swal.fire({
-  // const writePw =
-  // swal.fire({
-  //   title: 'Terms and conditions',
-  //   input: 'checkbox',
-  //   inputValue: 1,
-  //   inputPlaceholder:
-  //     'I agree with the terms and conditions',
-  //   confirmButtonText:
-  //     'Continue <i class="fa fa-arrow-right"></i>',
-  //   inputValidator: (result) => {
-  //     return !result && 'You need to agree with T&C'
-  //   }
-  // })
-
-  // if (accept) {
-  //   Swal.fire('You agreed with T&C :)')
-  // }
 
   //헤더에 토큰을 넣어서 보내는 역할
   const onCreateRoom = (e) => {
     if (value === true && roompw === "" && value !== false) {
       e.preventDefault();
-      // alert(`비밀번호를 입력해 주세요`);
       writePw();
-      // swal.fire('비밀번호를 입력해 주세요.');
     } else if (value === false || (value === true && roompw !== "")) {
-      console.log("방 공개여부:", value);
-      // const res = axios
       axios
         .post(
           "https://i6a306.p.ssafy.io:8080/api/v1/lobby",
           {
-            //post로 보낼 데이터
             title: roomTitle,
             tags: arrcheckedTags,
-            // mode: selected,
             mode: selectMode,
-            // is_private: opened,
-            // Private: opened,
             isPrivate: value,
             password: roompw,
           },
           {
             headers: {
               "Content-Type": "application/json",
-              // "Authorization" : token,  // -> 승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
-              Authorization: state[0].token, // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌.
+              Authorization: state[0].token, 
             },
           }
         )
         .then((res) => {
-          console.log({ selected });
-          // navigate(`/${selected}`);
           navigate(`/Room/${selected}/${res.data.room_seq}`);
         });
     }
-    // navigate(`/${selected}`)
   };
 
   return (
     <>
+      <div className={styles.tooltip}>
+        <OverlayTrigger
+                
+                delay={{ hide: 5, show: 5 }}
+                overlay={(props) => <Tooltip {...props}> 원활한 이용을 위해 이어폰을 착용해주세요!! </Tooltip>}
+                placement="right"
+        >
+            <img src="https://img.icons8.com/external-bearicons-gradient-bearicons/50/000000/external-question-call-to-action-bearicons-gradient-bearicons.png"/>
+        </OverlayTrigger> 
+      </div>
+
       <div className={styles.btngroup}>
         <button
           className={styles.btnCreate}
@@ -251,9 +183,6 @@ function Desk({ state }) {
       <Modal
         show={show}
         onHide={handleClose}
-        // backdrop="static"
-        // keyboard={false}
-        // className={styles.modalContent} //화면 전체 노랑
       >
         {/* 모달창만 해당하는 부분 */}
         <div className={styles.modposi}>
@@ -572,10 +501,6 @@ function Desk({ state }) {
                       type="radio"
                       name="public"
                       value="false"
-                      // value="open"
-                      // checked={opened == 'open'}
-                      // checked={opened}
-                      // onChange={(e) => {roomopenHandler(e)}}
                       onChange={roomopenHandler}
                       style={{ width: "20px", height: "20px" }}
                     />{" "}
@@ -589,10 +514,6 @@ function Desk({ state }) {
                       type="radio"
                       name="public"
                       value="true"
-                      // value="close"
-                      // checked={opened == 'close'}
-                      // checked={opened}
-                      // onChange={(e) => {roomopenHandler(e)}}
                       onChange={roomopenHandler}
                       style={{ width: "20px", height: "20px" }}
                     />{" "}
@@ -605,22 +526,14 @@ function Desk({ state }) {
                     onChange={getRoompw}
                     className={styles.roompw}
                   />
-                  {/* </div>
-                <div > */}
                 </div>
               </div>
               <div>
-                {/* <button className={styles.btn} >만들기</button> */}
                 <button className={styles.btn} onClick={onCreateRoom}>
                   만들기
                 </button>
               </div>
             </Modal.Body>
-            {/* <Modal.Footer > */}
-            {/* <div>
-              <Button className={styles.btn} >만들기</Button>
-              </div> */}
-            {/* </Modal.Footer> */}
           </div>
         </div>
       </Modal>
@@ -631,6 +544,4 @@ function mapStateToProps(state) {
   //state 받아오는 함수 - store에서 직빵으로 값 보내주는 것.
   return { state };
 }
-//   render(<Desk />);
-//connect에는 항상 인자 두개
 export default connect(mapStateToProps, null)(Desk);

@@ -39,7 +39,6 @@ function Screen ({mode, now, setstartScoreBoard}){
             closeScoreBoard();
             }}
             />
-    {/* <button onClick={sendYTUrl}>연습버튼</button> */}
         </div>
     )
 

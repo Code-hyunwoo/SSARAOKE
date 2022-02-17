@@ -1,32 +1,21 @@
 import axios from "axios";
-// import { useEffect } from "react";
 import { useState } from "react";
 import {  Modal } from "react-bootstrap";
-// import { connect } from "react-redux";
 import {useNavigate } from "react-router-dom";
 import Styles from "./RoomPw.module.css";
 import swal from 'sweetalert2';
 
-// function RoomPw({roomseq, show, onHide}) { //숏컷 연산
 function RoomPw(props) { //위의 숏컷 연산이 props안에 다 들어있음.
   //room 비밀번호용 - MainLobby로 이사예정
-  // const [roompwShow, setRoompwShow] = React.useState(false);
-
-  // console.log(roomseq, show, onHide);
-  console.log("props",props);
-  console.log("onHide",props.onHide);
-
   const { onHide } = props;
   
   //사용자가 입력한 비번
   const [enterpw, setEnterpw] = useState("");
   const getPW = (e) => {
     setEnterpw(e.target.value); //이게 이제 roomTitle을 이 값으로 지정한 것.
-    console.log(enterpw); //한글자 칠때마다 콘솔이 우수수 찍힘
   };
   const clearPW = (e) => {
     setEnterpw(""); //이게 이제 roomTitle을 이 값으로 지정한 것.
-    console.log(enterpw); //한글자 칠때마다 콘솔이 우수수 찍힘
   };
   
 
@@ -102,7 +91,7 @@ function RoomPw(props) { //위의 숏컷 연산이 props안에 다 들어있음.
   // 정상입장: {200, “Success”}
   //방 입장하려고 값 보내기
   const EnterRoom = (e) => {
-    axios //-> 500에러 발생
+    axios 
     .post(
       "https://i6a306.p.ssafy.io:8080/api/v1/lobby/enter",
       {
@@ -112,18 +101,12 @@ function RoomPw(props) { //위의 숏컷 연산이 props안에 다 들어있음.
       {
         headers:{
           "Content-Type": "application/json",
-          Authorization: props.state[0].token, // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌
-          // Authorization: state[0].token, // -> (헤란 토큰)승인. 토큰을 넣어 보내야, 백에서 승인해서 보내줌
+          Authorization: props.state[0].token, 
         },
       }
       )
       .then((res) => {
-        // console.log(res);
-        console.log("roompw창: ",res.data);
-        // alert("res값"+res.data);
-        // alert("방번호: ",roomseq, "비밀번호: ", enterpw);
         if(res.status === 200){
-          // alert("입장 성공!!")
           navigate(`/Room/${props.mode}/${props.roomseq}`)
         }
         else if(res.status !== 200){

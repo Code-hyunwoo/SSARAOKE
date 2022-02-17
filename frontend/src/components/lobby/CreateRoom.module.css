@@ -1,3 +1,14 @@
+.tooltip {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 8vw;
+  margin-bottom: -10vh;
+  padding-top: 1vh;
+  padding-bottom: 0.3vh;
+  top: 22.2vh;
+}
+
 .btngroup {
   display: flex;
   justify-content: flex-end;
@@ -47,7 +58,6 @@
 /* 노래방생성 */
 .createtitle {
   position: absolute;
-  /* width: 35%; */
   height: 10vh;
   left: 13.8vw;
   top: 4vh;
@@ -100,13 +110,11 @@
   display: flex;
   align-items: center;
   text-align: center;
-  /* color: #F9B208; */
 }
 
 /* 방타입 */
 .roomtype {
   position: absolute;
-  /* width: 18%; */
   height: 6.5vh;
   left: 3vw;
   top: 18vh;
@@ -114,7 +122,6 @@
   font-style: normal;
   font-weight: normal;
   font-size: 1.3vw;
-  /* line-height: 39px; */
   display: flex;
   align-items: center;
   text-align: center;
@@ -124,17 +131,14 @@
 
 .typeB {
   position: absolute;
-  /* width: 200%; */
   height: 3vh;
   left: 9.8vw;
   top: 17.2vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
   font-size: 1.1vw;
-  /* line-height: 39px; */
   display: flex;
   align-items: center;
   text-align: center;
@@ -144,12 +148,10 @@
 
 .typeF {
   position: absolute;
-  /* width: 200%; */
   height: 3vh;
   left: 21.5vw;
   top: 17.2vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
@@ -164,13 +166,10 @@
 
 .typeS {
   position: absolute;
-  /* width: 200%; */
   height: 3vh;
-  /* left: 55%; */
   left: 9.8vw;
   top: 22.5vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
@@ -185,13 +184,10 @@
 
 .typeD {
   position: absolute;
-  /* width: 200%; */
   height: 3vh;
   left: 21.5vw;
-  /* left: 25%; */
   top: 22.5vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
@@ -207,7 +203,6 @@
 /* 태그 */
 .roomtag {
   position: absolute;
-  /* width: 18%; */
   height: 6.5vh;
   left: 3vw;
   top: 27vh;
@@ -217,7 +212,6 @@
   font-style: normal;
   /* font-weight: bold; */
   font-size: 1.3vw;
-  /* line-height: 39px; */
   display: flex;
   align-items: center;
   text-align: center;
@@ -227,7 +221,6 @@
 
 .roomtag2 {
   position: absolute;
-  /* width: 18%; */
   height: 6.5vh;
   left: 2vw;
   top: 31vh;
@@ -237,7 +230,6 @@
   font-style: normal;
   /* font-weight: bold; */
   font-size: 1.2vw;
-  /* line-height: 39px; */
   display: flex;
   align-items: center;
   text-align: center;
@@ -247,18 +239,14 @@
 
 .tagB {
   position: absolute;
-  /* width: 200%; */
   height: 2.5vh;
-  /* left: 55%; */
   left: 9.8vw;
   top: 28.8vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
   font-size: 1vw;
-  /* line-height: 39px; */
   display: flex;
   align-items: center;
   text-align: center;
@@ -268,13 +256,10 @@
 
 .tagH {
   position: absolute;
-  /* width: 200%; */
   height: 2.5vh;
-  /* left: 55%; */
   left: 21.5vw;
   top: 28.8vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
@@ -289,13 +274,10 @@
 
 .tagQ {
   position: absolute;
-  /* width: 200%; */
   height: 2.5vh;
-  /* left: 55%; */
   left: 31.2vw;
   top: 28.8vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
@@ -310,13 +292,10 @@
 
 .tagT {
   position: absolute;
-  /* width: 200%; */
   height: 2.5vh;
-  /* left: 55%; */
   left: 9.8vw;
   top: 33.5vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
@@ -331,13 +310,10 @@
 
 .tagP {
   position: absolute;
-  /* width: 200%; */
   height: 2.5vh;
-  /* left: 55%; */
   left: 21.5vw;
   top: 33.5vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
@@ -352,13 +328,10 @@
 
 .tagW {
   position: absolute;
-  /* width: 200%; */
   height: 2.5vh;
-  /* left: 55%; */
   left: 31.2vw;
   top: 33.5vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
@@ -373,13 +346,10 @@
 
 .tagZ {
   position: absolute;
-  /* width: 200%; */
   height: 2.5vh;
-  /* left: 55%; */
   left: 9.8vw;
   top: 38.2vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
@@ -394,13 +364,10 @@
 
 .tagX {
   position: absolute;
-  /* width: 200%; */
   height: 2.5vh;
-  /* left: 55%; */
   left: 21.5vw;
   top: 38.2vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
@@ -414,13 +381,10 @@
 }
 .tagC {
   position: absolute;
-  /* width: 200%; */
   height: 2.5vh;
-  /* left: 55%; */
   left: 31.2vw;
   top: 38.2vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
@@ -434,13 +398,10 @@
 }
 .tag7080 {
   position: absolute;
-  /* width: 200%; */
   height: 2.5vh;
-  /* left: 55%; */
   left: 9.8vw;
   top: 42.9vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
@@ -455,13 +416,10 @@
 
 .tag1990 {
   position: absolute;
-  /* width: 200%; */
   height: 2.5vh;
-  /* left: 55%; */
   left: 21.5vw;
   top: 42.9vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
@@ -476,13 +434,10 @@
 
 .tag2000 {
   position: absolute;
-  /* width: 200%; */
   height: 2.5vh;
-  /* left: 55%; */
   left: 31.2vw;
   top: 42.9vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
@@ -497,13 +452,10 @@
 
 .tag2010 {
   position: absolute;
-  /* width: 200%; */
   height: 2.5vh;
-  /* left: 55%; */
   left: 9.8vw;
   top: 47.6vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
@@ -518,13 +470,10 @@
 
 .tag2020 {
   position: absolute;
-  /* width: 200%; */
   height: 2.5vh;
-  /* left: 55%; */
   left: 21.5vw;
   top: 47.6vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
@@ -540,7 +489,6 @@
 /* 공개여부 */
 .roomFC {
   position: absolute;
-  /* width: 20%; */
   height: 6.5vh;
   left: 3vw;
   top: 54vh;
@@ -559,18 +507,14 @@
 
 .roomFree {
   position: absolute;
-  /* width: 200%; */
   height: 3vh;
-  /* left: 55%; */
   left: 11vw;
   top: 55.5vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
   font-size: 1.2vw;
-  /* line-height: 26px; */
   display: flex;
   align-items: center;
   text-align: center;
@@ -582,11 +526,9 @@
   position: absolute;
   width: 20vw;
   height: 3vh;
-  /* left: 55%; */
   left: 18vw;
   top: 55.5vh;
 
-  /* font-family: Oregano; */
   font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: bold;
@@ -621,7 +563,6 @@
   color: #fff89a;
 }
 
-/* .createbtn { */
 .btn {
   position: absolute;
   width: 10vw;

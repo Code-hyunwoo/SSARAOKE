@@ -25,25 +25,10 @@ function NavbarLobby({ state, DispatchdeleteInfo }) {
   }
 
   const Logout = () => {
-    // 카카오 라이브러리 이용하면 인증코드(access, refresh token만 삭제 / 로컬의 JWT는 남겨둠)
-    // if (Kakao.Auth.getAccessToken()) {
-    //   console.log(
-    //     "카카오 인증 엑세스 토큰 존재",
-    //     window.Kakao.Auth.getAccessToken()
-    //   );
-    //   alert("로그아웃 완료! 이용해 주셔서 감사합니다!");
-    //   Kakao.Auth.logout(() => {
-    //     console.log("카카오 로그아웃 완료", window.Kakao.Auth.getAccessToken());
-    //   });
-    //   navigate("/");
-    // }
     DispatchdeleteInfo();
     logoutSuccess();
-    // alert("로그아웃 완료! 이용해 주셔서 감사합니다!");
-    console.log("로그아웃 후 state:", state);
     navigate("/");
   };
-  // console.log("방금 로그인한 사용자의 seq : ", state[0].seq);
   return (
     <div className={styles.navbar}>
       <div className={styles.left}>
@@ -106,7 +91,6 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  // console.log("ownProps입니다:", ownProps);
   return {
     DispatchdeleteInfo: () => dispatch(actionCreators.deleteInfo()),
   };

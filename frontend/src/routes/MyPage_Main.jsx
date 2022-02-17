@@ -14,7 +14,6 @@ import { useEffect } from "react";
 import axios from "axios";
 
 function Mypage_Main({ state }) {
-  console.log(state);
   // 모달용
   const [bookmarkShow, setBookmarkShow] = React.useState(false);
   const [videoShow, setVideoShow] = React.useState(false);
@@ -26,7 +25,6 @@ function Mypage_Main({ state }) {
 
   const [email, setEmail] = React.useState("");
   useEffect(() => {
-    console.log("이거 실행 안됨?");
     axios
       .get("https://i6a306.p.ssafy.io:8080/api/v1/user", {
         headers: {
@@ -34,20 +32,13 @@ function Mypage_Main({ state }) {
         },
       })
       .then((response) => {
-        console.log("DB에서 이메일 불러오기", response);
         setEmail(response.data.email);
-      })
-      .catch((e) => {
-        console.log("에러 발생");
-        console.log(e);
       });
   }, []);
 
   return (
     <div>
       <Forest />
-      {/* <SpaceBackground /> */}
-      {/* <LobbyBackGround /> */}
 
       <Link to="/lobby">
         <button className={Styles.backbtn}></button>
@@ -83,12 +74,10 @@ function Mypage_Main({ state }) {
                             top: "1vh",
                             borderRadius: "3vw",
                             display: "block",
-                            // border: '0.4vw dotted #ff77f8'
                           }
                         : { border: "none" }
                     }
                   >
-                    {/* <button onClick={() => setBookmarkShow(true)} className={Stylescan.canPink} style={{top:'6%',left: '4%'}}></button> */}
                     <Link to="/bookmark">
                     <button
                       className={Stylescan.canPink}
@@ -119,10 +108,6 @@ function Mypage_Main({ state }) {
                       style={{ top: "6%", left: "86%" }}
                     ></button>
                     </Link>
-                    {/* <Bookmark
-                            show={bookmarkShow}
-                            onHide={() => setBookmarkShow(false)}
-                        /> */}
                   </div>
                 </div>
               </div>
@@ -168,7 +153,6 @@ function Mypage_Main({ state }) {
                                 left: "0.5vw",
                                 top: "17vh",
                                 borderRadius: "3vw",
-                                // border: '0.4vw dotted #ff77f8'
                               }
                             : { border: "none" }
                         }
@@ -218,7 +202,6 @@ function Mypage_Main({ state }) {
               </div>
             </div>
           </div>
-          {/* <MyVideo show={videoShow} onHide={() => setVideoShow(false)} /> */}
           {/* 막대 바 */}
           <div className={Styles.canBar} style={{ top: "47vh" }}>
             My Video

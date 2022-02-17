@@ -1,9 +1,6 @@
 .ChatScreen {
-  /* position: absolute; */
   width: 31vw;
   height: 45vh;
-  /* left: 34.5vw; */
-  /* top: 22vh; */
   margin: 0.5vw;
   display: flex;
   justify-content: center;
@@ -20,10 +17,7 @@
 .Box {
   width: 95%;
   height: 95%;
-  /* border: 1px solid white; */
   border-radius: 1rem;
-  /* padding-top: 30px; */
-  /* margin-top: 30px; */
 }
 .ChatBox {
   height: 85%;
@@ -41,28 +35,17 @@
 }
 .Chat {
   display: block;
-  /* justify-content: start; */
-  /* align-items: center; */
-  /* width:95%; */
-  /* height:13%; */
-  /* border:1px solid sandybrown; */
   padding: 0.6vw;
   word-break: break-all;
   word-wrap: break-word;
   border-radius: 1rem;
-  /* background-color: #ff0000; */
 }
 .ChatContent {
-  /* width: 80%; */
   margin-left: 5%;
-  /* border:1px solid rgb(255, 0, 0); */
   color: #ffce43;
-  /* margin-left:1vw; */
 }
 .ChatName {
-  /* width: 50%; */
   font-weight: bold;
-  /* border:1px solid rgb(255, 0, 0); */
   color: white;
 }
 

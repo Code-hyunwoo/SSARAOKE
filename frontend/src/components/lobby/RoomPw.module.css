@@ -2,12 +2,6 @@
     display: flex;
     /* 가로 정렬 */
     justify-content: center;
-     /*세로  */
-     /* align-items: center; */
-     /* top: 40vh; */
-
-     /* align-content: center; */
-     /* -> 가로세로 정중앙 */
 }
 
 
@@ -15,20 +9,13 @@
     position: absolute;
     width: 27vw;
     height: 15vh;
-    /* width: 58rem; */
-    /* height: 34rem; */
-    /* left: 0.9vw;
-    top: 9vh; */
     
     background: #f9b108d8;
-    /* background-color: rgba(0, 0, 0, 0); */
-    /* background: rgba(228, 83, 21, 0.61); */
     border-radius: 2vw;
 }
 
 .inputPW{
     text-align: center;
-    /* align-items: center; */
     padding-top: 3vh;
     font-family: 'Cafe24SsurroundAir';
 }
