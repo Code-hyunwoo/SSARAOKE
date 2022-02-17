@@ -31,9 +31,8 @@ public class Bookmark {
     private String artist;
 
     @Builder
-    public Bookmark(String title, String artist, User user){
+    public Bookmark(String title,User user){
         this.title = title;
-        this.artist = artist;
         this.user = user;
     }
 

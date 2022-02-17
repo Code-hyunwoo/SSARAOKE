@@ -11,5 +11,4 @@ import lombok.Setter;
 @AllArgsConstructor
 public class BookmarkAddRequest {
     private String title;
-    private String artist;
 }

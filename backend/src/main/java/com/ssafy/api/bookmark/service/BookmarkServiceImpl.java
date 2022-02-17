@@ -33,7 +33,6 @@ public class BookmarkServiceImpl implements BookmarkService {
 //            throw new CustomException(ErrorCode.EXIST_SONG_NO);
 //        }
         Bookmark bookmark = Bookmark.builder()
-                .artist(bookmarks.getArtist())
                 .title(bookmarks.getTitle())
                 .user(user)
                 .build();
