@@ -1,6 +1,15 @@
 .itembg {
   height: 100vh;
-  background-image: url(../../assets/login-background5.png);
+  /* background-image: url(../../assets/login-background5.png); */
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 60%,
+      rgba(0, 0, 0, 0.25) 70%,
+      rgba(0, 0, 0, 0.5) 80%,
+      rgba(0, 0, 0, 0.75) 90%,
+      rgb(0, 0, 0) 100%
+    ),
+    url(../../assets/login-background5.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

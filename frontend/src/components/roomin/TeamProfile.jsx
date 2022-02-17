@@ -10,6 +10,7 @@ function TeamProfile() {
   return (
     <div>
       <p className={styles.teamHeader}>About Us</p>
+      <hr className={styles.line} />
       <div className={styles.wrapper}>
         <ul className={styles.team}>
           <li className={styles.team_item}>

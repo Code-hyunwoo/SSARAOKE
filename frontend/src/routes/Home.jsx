@@ -36,17 +36,20 @@ function Home() {
       <Login />
 
       <Container fluid className={styles.pxpx}>
-        <hr className={styles.line} />
+        <hr className={styles.line} style={{ borderColor: "black" }} />
         <Row className={styles.row}>
           <Col md={{ span: 5, offset: 1 }}>
             <img src={gif1} alt="" className={styles.introPic} />
           </Col>
           <Col md={{ span: 4, offset: 1 }}>
             <div className={styles.desc1}>
-              <h1>원하는 방 생성</h1>
+              <h1>친구들과 소통하며 즐기세요</h1>
             </div>
             <div className={styles.desc2}>
-              <h3>노래방을 만들어 사람들과 노래를 부를 수 있습니다.</h3>
+              <h3>
+                SSARAOKE에서 쓸 닉네임을 정하고, 로비에서 다른 사용자들과 대화를
+                나눠보세요
+              </h3>
             </div>
           </Col>
         </Row>
@@ -55,10 +58,10 @@ function Home() {
         <Row className={styles.row}>
           <Col md={{ span: 4, offset: 1 }}>
             <div className={styles.desc1}>
-              <h1>원하는 방 생성</h1>
+              <h1>방해받지 말고 불러보세요</h1>
             </div>
             <div className={styles.desc2}>
-              <h3>노래방을 만들어 사람들과 노래를 부를 수 있습니다.</h3>
+              <h3>비밀번호를 설정하면 비공개방을 생성할 수 있습니다</h3>
             </div>
           </Col>
           <Col md={{ span: 5, offset: 1 }}>
@@ -73,10 +76,12 @@ function Home() {
           </Col>
           <Col md={{ span: 4, offset: 1 }}>
             <div className={styles.desc1}>
-              <h1>원하는 방 생성</h1>
+              <h1>TJ 노래방과의 제휴</h1>
             </div>
             <div className={styles.desc2}>
-              <h3>노래방을 만들어 사람들과 노래를 부를 수 있습니다.</h3>
+              <h3>
+                TJ 노래방 전곡을 제공합니다. 다양한 노래를 마음껏 즐기세요!{" "}
+              </h3>
             </div>
           </Col>
         </Row>
@@ -85,10 +90,14 @@ function Home() {
         <Row className={styles.row}>
           <Col md={{ span: 4, offset: 1 }}>
             <div className={styles.desc1}>
-              <h1>원하는 방 생성</h1>
+              <h1>다양한 모드 제공</h1>
             </div>
             <div className={styles.desc2}>
-              <h3>노래방을 만들어 사람들과 노래를 부를 수 있습니다.</h3>
+              <h3>
+                기본모드 외에 자유모드, 솔로모드, 듀엣모드 등 다양한 UI를
+                제공합니다. 버튼을 눌러 노래 부르는사람에게 조명효과를 줄 수
+                있습니다.
+              </h3>
             </div>
           </Col>
           <Col md={{ span: 5, offset: 1 }}>
@@ -103,14 +112,17 @@ function Home() {
           </Col>
           <Col md={{ span: 4, offset: 1 }}>
             <div className={styles.desc1}>
-              <h1>원하는 방 생성</h1>
+              <h1>듀엣곡도 나혼자 자유롭게!</h1>
             </div>
             <div className={styles.desc2}>
-              <h3>노래방을 만들어 사람들과 노래를 부를 수 있습니다.</h3>
+              <h3>
+                듀엣곡 부르고 싶은데 같이부를 사람이 없을 때! 연예인과 함께
+                듀엣곡을 불러보세요. 연예인과 대화하는 느낌도 가질 수 있어요!
+              </h3>
             </div>
           </Col>
         </Row>
-        <hr className={styles.line} />
+        {/* <hr className={styles.line} /> */}
       </Container>
       <TeamProfile />
       <footer className={styles.footer}>
