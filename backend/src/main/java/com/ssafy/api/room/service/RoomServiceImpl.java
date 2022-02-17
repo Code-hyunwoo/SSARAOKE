@@ -82,8 +82,7 @@ public class RoomServiceImpl implements RoomService {
         Room room = roomRepository.findById(room_seq)
                 .orElseThrow(() -> new CustomException(ErrorCode.ROOM_NOT_FOUND));
         room.removeUser(user.getSeq());
-        
-        // 추가 : 방에서 사람이 나간 후 방에 남은 인원이 0명일 경우 자동으로 방이 삭제된다.
+
         if(room.getUsers().size()==0) {
             deleteRoom(room_seq);
         }
@@ -98,7 +97,7 @@ public class RoomServiceImpl implements RoomService {
         User deleted = userRepository.findById(room.getOwner_seq())
                 .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND));
         room.removeUser(deleted.getSeq());
-        //새로운 방장 정하기;
+        //새로운 방장 정하기
         User newOwner = room.getNewOwner();
         room.setOwner(newOwner.getSeq(), newOwner.getNickname());
         return new RoomUserResponse(newOwner.getSeq(), newOwner.getNickname());
