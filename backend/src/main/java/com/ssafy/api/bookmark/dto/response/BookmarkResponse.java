@@ -14,9 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookmarkResponse {
-    private int song_no;
     private String song_title;
-    private String artist;
 
     public static List<BookmarkResponse> of(List<Bookmark> bookmarks) {
         List<BookmarkResponse> list = new ArrayList<BookmarkResponse>();
@@ -27,7 +25,7 @@ public class BookmarkResponse {
     }
 
     private static BookmarkResponse of(Bookmark bookmark) {
-        return new BookmarkResponse(bookmark.getSong_no(), bookmark.getTitle(), bookmark.getArtist());
+        return new BookmarkResponse(bookmark.getTitle());
     }
 
 }
