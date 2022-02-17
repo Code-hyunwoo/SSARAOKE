@@ -92,7 +92,8 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
                   width: "3.2vw",
                   top: "20vh",
                   borderRadius: "30vh",
-                  backgroundColor: "#ffcd438f",
+                  // backgroundColor: "#ffcd438f",
+                  backgroundColor: "rgba(94, 163, 219, 0.753)",
                 }}
                 onClick={onChangeNickname}
               >
@@ -102,7 +103,8 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
                 style={{
                   top: "20vh",
                   borderRadius: "30vh",
-                  backgroundColor: "#ffcd438f",
+                  // backgroundColor: "#ffcd438f",
+                  backgroundColor: "rgba(94, 163, 219, 0.753)",
                 }}
                 onClick={onHide}
               >

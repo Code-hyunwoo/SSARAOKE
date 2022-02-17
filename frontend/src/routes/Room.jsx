@@ -402,6 +402,7 @@ function Room({ state }) {
       new Swal({
         title: "에코 추가 완료!",
         timer: 500,
+        showConfirmButton: false,
       });
     } else {
       setgsfilter(false);
@@ -409,6 +410,7 @@ function Room({ state }) {
       new Swal({
         title: "에코 제거 완료!",
         timer: 500,
+        showConfirmButton: false,
       });
     }
   }
@@ -423,6 +425,7 @@ function Room({ state }) {
       new Swal({
         title: "확성기 설정 완료!",
         timer: 500,
+        showConfirmButton: false,
       });
     } else {
       setgsfilter(false);
@@ -430,6 +433,7 @@ function Room({ state }) {
       new Swal({
         title: "확성기 해제 완료!",
         timer: 500,
+        showConfirmButton: false,
       });
     }
   }
@@ -443,6 +447,7 @@ function Room({ state }) {
       new Swal({
         title: "음성변조 설정 완료!",
         timer: 500,
+        showConfirmButton: false,
       });
     } else {
       setgsfilter(false);
@@ -450,6 +455,7 @@ function Room({ state }) {
       new Swal({
         title: "음성변조 해제 완료!",
         timer: 500,
+        showConfirmButton: false,
       });
     }
   }

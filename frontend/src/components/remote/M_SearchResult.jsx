@@ -2,8 +2,9 @@ import { Table } from "react-bootstrap";
 import Styles from "./remote.module.css";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { connect } from "react-redux";
 
-function MSearchResult({ items, roomseq }) {
+function MSearchResult({ items, roomseq, state }) {
   const failed = () => {
     Swal.fire({
       icon: "error",
@@ -22,12 +23,38 @@ function MSearchResult({ items, roomseq }) {
         new Swal({
           title: "예약목록에 추가되었습니다!",
           timer: 700,
+          showConfirmButton: false,
         });
       })
       .catch(() => {
         failed();
       });
   };
+
+  //북마크 보내기
+  const onCreateBM = (title) => {
+    axios
+        .post(
+          "https://i6a306.p.ssafy.io:8080/api/v1/bookmark/add",
+        {
+           title: title,
+        },
+        {
+          headers: {
+                "Content-Type": "application/json",
+                Authorization: state[0].token,
+            },
+        }
+    )
+    .then((res) => {
+        console.log("res: ",res);
+        new Swal({
+          title: "북마크에 추가되었습니다!",
+          timer: 700,
+          showConfirmButton: false,
+        });
+    });
+}
 
   return (
     <div className={Styles.searchcontent}>
@@ -37,7 +64,10 @@ function MSearchResult({ items, roomseq }) {
             <tr>
               <th>#</th>
               <th>노래 제목</th>
-              <th>예약</th>
+              {/* <th>노래 영상 링크</th> */}
+              <th></th>
+              <th style={{whiteSpace: "nowrap"}}></th>
+              <th></th>
               <th></th>
               <th></th>
             </tr>
@@ -58,12 +88,27 @@ function MSearchResult({ items, roomseq }) {
                   className="songbook"
                   type="radio"
                   value={item.snippet.title}
-                  style={{ whiteSpace: "nowrap" }}
+                  style={{ whiteSpace: "nowrap", borderRadius: "30vw", backgroundColor:"#94DAFF" }}
                   onClick={() => {
                     addToBooklist(item.snippet.title, item.id.videoId);
                   }}
                 >
-                  추가
+                  예약
+                </button>
+              </td>
+              <td></td>
+              <td>
+                <button
+                  // key={index}
+                  className="Bookmark"
+                  type="radio"
+                  value={item.snippet.title}
+                  style={{ whiteSpace: "nowrap", borderRadius: "30vw", backgroundColor:"#F999B7"  }}
+                  onClick={() => {
+                    onCreateBM(item.snippet.title);
+                  }}
+                >
+                  북마크
                 </button>
               </td>
               <td></td>
@@ -75,4 +120,9 @@ function MSearchResult({ items, roomseq }) {
     </div>
   );
 }
-export default MSearchResult;
+function mapStateToProps(state) {
+  //state 받아오는 함수 - store에서 직빵으로 값 보내주는 것.
+  return { state };
+}
+
+export default connect(mapStateToProps, null)(MSearchResult);

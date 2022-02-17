@@ -7,9 +7,12 @@
   top: 54vh;
 
   padding: 0.2vh 0;
-  background: #ffcd438f;
+  /* background: #ffcd438f; */
+  background: rgba(171, 214, 250, 0.541);
   font-size: 2.3vh;
   border-radius: 1vw;
+  box-shadow: 0 0 0.1vw #fff, 0 0 0.1vw #fff, 0 0 0.1vw #fff, 0 0 0.3vw #ffffff,
+      0 0 1.3vw #ffffff, inset 0 0 0.4vw #ffffff;
   font-family: "Cafe24SsurroundAir";
 }
 
@@ -21,8 +24,10 @@
   left: -59.5vh;
   top: 73.7vh;
 
-  background: rgba(255, 206, 67, 0.6);
-  border: 0.8vh solid #ffce43;
+  /* background: rgba(255, 206, 67, 0.6); */
+  background: rgba(171, 214, 250, 0.541);
+  /* border: 0.8vh solid #ffce43; */
+  border: 0.5vh solid white;
   box-sizing: border-box;
 
   font-weight: bold;
@@ -31,6 +36,8 @@
   text-align: center;
   padding: 0.5vh 0;
   color: white;
+  box-shadow: 0 0 0.1vw #fff, 0 0 0.1vw #fff, 0 0 0.1vw #fff, 0 0 0.3vw #ffffff,
+      0 0 1.3vw #ffffff, inset 0 0 0.4vw #ffffff;
 }
 
 /* 폰트 */
