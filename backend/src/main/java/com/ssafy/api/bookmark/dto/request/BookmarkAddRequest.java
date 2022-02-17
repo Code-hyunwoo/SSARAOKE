@@ -10,7 +10,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookmarkAddRequest {
-    private int song_no;
     private String title;
     private String artist;
 }

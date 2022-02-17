@@ -29,12 +29,11 @@ public class BookmarkServiceImpl implements BookmarkService {
     @Transactional
     @Override
     public void add(User user, BookmarkAddRequest bookmarks) {
-        if(!user.isBookmarkNotExist(bookmarks.getSong_no())){
-            throw new CustomException(ErrorCode.EXIST_SONG_NO);
-        }
+//        if(!user.isBookmarkNotExist(bookmarks.getSong_no())){
+//            throw new CustomException(ErrorCode.EXIST_SONG_NO);
+//        }
         Bookmark bookmark = Bookmark.builder()
                 .artist(bookmarks.getArtist())
-                .song_no(bookmarks.getSong_no())
                 .title(bookmarks.getTitle())
                 .user(user)
                 .build();
