@@ -164,3 +164,8 @@ li {
   font-family: "ROKABold";
   src: url(../../fonts/ROKABold.ttf);
 }
+
+.line {
+  border: 2px solid #fff89a;
+  margin: 20px 500px 0 500px;
+}

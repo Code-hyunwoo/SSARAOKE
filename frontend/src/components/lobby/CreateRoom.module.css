@@ -39,13 +39,15 @@
 /* 방생성 모달 */
 .createroombg {
   position: absolute;
-  width: 39vw;
-  height: 75vh;
-  /* left: -3.7vw; */
+  width: 40vw;
+  height: 78vh;
   top: 10vh;
-
-  background: #f9b108cb;
+  /* background: #f9b108cb; */
+  background: black;
+  /* background: rgba(228, 83, 21, 0.61); */
   border-radius: 2pc;
+  border: var(--clr-neonW) 0.125em solid;
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neonW), 0 0 0.5em 0 var(--clr-neonW);
 }
 
 .modposi {
@@ -66,9 +68,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Cafe24Ssurround";
+  font-family: "Cafe24SsurroundAir";
 
-  color: #000000;
+  color: #fff89a;
 }
 
 /* 방제목 */
@@ -76,9 +78,9 @@
   position: absolute;
   height: 6.5vh;
   left: 3vw;
-  top: 9vh;
-
-  font-family: "Cafe24Ssurround";
+  /* top: 80px; */
+  top: 8vh;
+  font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: normal;
   font-size: 1.3vw;
@@ -86,19 +88,22 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
+
 .titleinput {
   position: absolute;
   width: 25vw;
   left: 9.5vw;
-  top: 10.5vh;
-
+  top: 9.5vh;
   border-radius: 1pc;
-  border-color: #ffcd43a8;
-
+  /* border-color: #ffcd43a8; */
+  border: var(--clr-neonW) 0.125em solid;
   font-family: "Cafe24SsurroundAir";
-  background-color: #fff89a;
+  /* background-color: #fff89a; */
+  background-color: black;
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neonW), 0 0 0.5em 0 var(--clr-neonW);
+  color: #fff89a;
   font-style: normal;
   font-weight: normal;
   font-size: 1vw;
@@ -113,9 +118,7 @@
   height: 6.5vh;
   left: 3vw;
   top: 18vh;
-
-  /* font-family: Oregano; */
-  font-family: "Cafe24Ssurround";
+  font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: normal;
   font-size: 1.3vw;
@@ -123,7 +126,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .typeB {
@@ -140,7 +143,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .typeF {
@@ -158,7 +161,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .typeS {
@@ -176,7 +179,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .typeD {
@@ -194,7 +197,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 /* 태그 */
@@ -204,15 +207,16 @@
   left: 3vw;
   top: 27vh;
 
-  font-family: "Cafe24Ssurround";
+  /* font-family: Oregano; */
+  font-family: "Cafe24SsurroundAir";
   font-style: normal;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 1.3vw;
   display: flex;
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .roomtag2 {
@@ -221,15 +225,16 @@
   left: 2vw;
   top: 31vh;
 
-  font-family: "Cafe24Ssurround";
+  /* font-family: Oregano; */
+  font-family: "Cafe24SsurroundAir";
   font-style: normal;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 1.2vw;
   display: flex;
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .tagB {
@@ -246,7 +251,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .tagH {
@@ -264,7 +269,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .tagQ {
@@ -282,7 +287,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .tagT {
@@ -300,7 +305,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .tagP {
@@ -318,7 +323,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .tagW {
@@ -336,7 +341,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .tagZ {
@@ -354,7 +359,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .tagX {
@@ -372,7 +377,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 .tagC {
   position: absolute;
@@ -389,7 +394,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 .tag7080 {
   position: absolute;
@@ -406,7 +411,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .tag1990 {
@@ -424,7 +429,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .tag2000 {
@@ -442,7 +447,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .tag2010 {
@@ -460,7 +465,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .tag2020 {
@@ -478,7 +483,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 /* 공개여부 */
@@ -488,7 +493,8 @@
   left: 3vw;
   top: 54vh;
 
-  font-family: "Cafe24Ssurround";
+  /* font-family: Oregano; */
+  font-family: "Cafe24SsurroundAir";
   font-style: normal;
   font-weight: normal;
   font-size: 1.3vw;
@@ -496,7 +502,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .roomFree {
@@ -513,7 +519,7 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .roomclose {
@@ -531,29 +537,30 @@
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .roompw {
   position: absolute;
   width: 10vw;
-  left: 5.5vw;
-
+  /* height: 100%; */
+  left: 7vw;
+  /* margin-left: 20px; */
   border-radius: 1pc;
-  border-color: #ffcd43a8;
-
-  font-family: "Cafe24SsurroundAir";
-  background-color: #fff89a;
+  /* border-color: #ffcd43a8; */
+  border: var(--clr-neonW) 0.125em solid;
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neonW), 0 0 0.5em 0 var(--clr-neonW);
+  /* font-family: "Cafe24SsurroundAir"; */
+  /* background-color: #fff89a; */
+  background-color: black;
 
   font-family: Oregano;
-  font-style: normal;
-  font-weight: normal;
   font-size: 1.1vw;
   display: flex;
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: #fff89a;
 }
 
 .btn {
@@ -561,9 +568,10 @@
   width: 10vw;
   height: 4vh;
   left: 15vw;
-  top: 62vh;
+  top: 63vh;
   font-family: "Cafe24SsurroundAir";
-  background-color: rgba(132, 178, 248, 0.9);
+  background-color: #fff89a;
+  /* color: rgba(132, 178, 248, 0.9); */
   border-radius: 1pc;
   font-size: 1.2vw;
   font-weight: bold;

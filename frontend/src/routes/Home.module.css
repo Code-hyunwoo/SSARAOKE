@@ -1,19 +1,29 @@
 .introPic {
-  width: 450px;
-  height: 300px;
+  max-width: 100%;
+  height: auto;
 }
 
-.desc {
+.row {
+  /* margin: 0 auto; */
+  align-items: center;
+}
+
+.desc1 h1 {
+  color: #ffce43;
+  font-family: "surround";
+  font-size: 60px;
+  /* display: flex; */
+  align-items: center;
+}
+
+.desc2 {
   color: #fff89a;
-  font-size: xx-large;
-  text-align: center;
-  display: flex;
   font-family: "surroundAir";
 }
 
 .line {
   border: 3px solid #fff89a;
-  margin: 100px 0;
+  margin: 130px 0;
 }
 
 .footer {
@@ -24,12 +34,22 @@
   margin: 30px;
 }
 
+.pxpx {
+  padding-left: 4rem !important;
+  padding-right: 4rem !important;
+}
+
+@font-face {
+  font-family: "surround";
+  src: url(../fonts/Cafe24Ssurround.ttf);
+}
+
 @font-face {
   font-family: "surroundAir";
   src: url(../fonts/Cafe24SsurroundAir.ttf);
 }
 
-.pxpx {
-  padding-left: 4rem !important;
-  padding-right: 4rem !important;
+@font-face {
+  font-family: "ROKA";
+  src: url(../fonts/ROKABold.ttf);
 }

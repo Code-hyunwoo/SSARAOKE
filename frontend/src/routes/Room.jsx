@@ -71,6 +71,10 @@ function Room({ state }) {
   const [OV, setOV] = useState(undefined);
   const [gsfilter, setgsfilter] = useState(false);
   const [musicbartitle, setmusicbartitle] = useState("");
+
+  const [audio, setAudio] = useState(true);
+  const [video, setVideo] = useState(true);
+
   function transformBasic() {
     settransScreen(styles.ScreenBasic);
     settransCamBox(styles.BasicCamBox);
@@ -374,9 +378,11 @@ function Room({ state }) {
     const me = publisher;
     if (me.stream.audioActive) {
       me.publishAudio(false);
+      setAudio(false);
       console.log("마이크 끄기");
     } else {
       me.publishAudio(true);
+      setAudio(true);
       console.log("마이크 켜기");
     }
   }
@@ -385,9 +391,11 @@ function Room({ state }) {
     const me = publisher;
     if (me.stream.videoActive) {
       me.publishVideo(false);
+      setVideo(false);
       console.log("비디오 끄기");
     } else {
       me.publishVideo(true);
+      setVideo(true);
       console.log("비디오 켜기");
     }
   }
@@ -700,8 +708,17 @@ function Room({ state }) {
         <RoomChat mode={transChat} sendChat={sendChat} chatArr={chatArr} />
       </div>
       <div className={styles.ButtonBox}>
-        <Button text={"마이크"} getOnClick={audioMute} />
-        <Button text={"캠"} getOnClick={videoMute} />
+        {audio === true ? (
+          <Button text={"마이크 OFF"} getOnClick={audioMute} />
+        ) : (
+          <Button text={"마이크 ON"} getOnClick={audioMute} />
+        )}
+        {video === true ? (
+          <Button text={"캠 OFF"} getOnClick={videoMute} />
+        ) : (
+          <Button text={"캠 ON"} getOnClick={videoMute} />
+        )}
+
         {nowMode === "Basicmode" && (
           <Button text={"Singer"} getOnClick={basicsinger} />
         )}
