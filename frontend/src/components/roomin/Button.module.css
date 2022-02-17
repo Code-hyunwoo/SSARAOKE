@@ -87,9 +87,7 @@
   background-color: #fff89a;
   font-family: "ROKAFSansBold";
   font-size: 4vh;
-  /* font-weight: bold; */
   border-radius: 20px;
-  /* margin-top: 5vh; */
 }
 
 #modeLink {
@@ -182,7 +180,6 @@
   top: 25vh;
   justify-content: center;
   align-items: center;
-  /* font-family: "ROKAFSansBold"; */
   z-index: 100;
   flex-direction: column;
 }

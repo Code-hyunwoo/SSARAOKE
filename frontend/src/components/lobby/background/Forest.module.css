@@ -1,13 +1,4 @@
-/* html, body{
-    margin:0px; 
-    padding:0px;
-    height:100%;
-  } */
-  /* html{background: linear-gradient(to bottom, rgb(3,77,114) 1%,rgb(113,49,99) 100%);} */
-  /* body{
-    overflow:hidden;
-    width: 100%;
-  } */
+
   .scene{
     width: 100%;
     height:100%;
@@ -19,10 +10,8 @@
    @keyframes focus { 
     0% {-webkit-filter:blur(0px);}
     30% {-webkit-filter:blur(0px);}
-    /* 50% {-webkit-filter:blur(4px);} */
     60% {-webkit-filter:blur(0px);}
     80% {-webkit-filter:blur(0px);}
-    /* 90% {-webkit-filter:blur(10px);} */
     100% {-webkit-filter:blur(0px);}
   } 
   .ufoWrap{
@@ -171,7 +160,6 @@
   .thrust{
     width: 100%;
     padding-left: 100px;
-    /* padding-right: 100px; */
     position: relative;
     top: -40px;
     z-index: 1;

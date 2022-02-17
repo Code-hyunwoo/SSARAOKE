@@ -4,7 +4,6 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 function MSearchResult({ items, roomseq }) {
-  // console.log(roomseq);
   const failed = () => {
     Swal.fire({
       icon: "error",
@@ -20,7 +19,6 @@ function MSearchResult({ items, roomseq }) {
         title: videotitle,
       })
       .then((res) => {
-        console.log(res);
         new Swal({
           title: "예약목록에 추가되었습니다!",
           timer: 700,
@@ -39,7 +37,6 @@ function MSearchResult({ items, roomseq }) {
             <tr>
               <th>#</th>
               <th>노래 제목</th>
-              {/* <th>노래 영상 링크</th> */}
               <th>예약</th>
               <th></th>
               <th></th>
@@ -56,10 +53,8 @@ function MSearchResult({ items, roomseq }) {
                   ? item.snippet.title.slice(8, -13)
                   : item.snippet.title}
               </td>
-              {/* <td>{`https://www.youtube.com/watch?v=${item.id.videoId}`}</td> */}
               <td>
                 <button
-                  // key={index}
                   className="songbook"
                   type="radio"
                   value={item.snippet.title}

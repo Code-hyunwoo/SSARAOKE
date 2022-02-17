@@ -20,9 +20,7 @@ function Login({ DispatchaddInfo, state }) {
       icon: "success",
       confirmButtonColor: "#73E0C1",
       confirmButtonText: "확인",
-    }).then((result) => {
-      console.log("sweetalert", result);
-    });
+    })
   };
 
   const loginFail = () => {
@@ -32,15 +30,11 @@ function Login({ DispatchaddInfo, state }) {
       confirmButtonColor: '#73E0C1',
       confirmButtonText: '확인'
     })
-    .then((result) => {
-      console.log("sweetalert", result);
-    })
   }
 
   const LoginWithKakao = () => {
     Kakao.Auth.login({
       success: (response) => {
-        console.log(response);
         axios
           .post("https://i6a306.p.ssafy.io:8080/api/v1/auth/kakao", {
             accessToken: response.access_token,
@@ -49,7 +43,6 @@ function Login({ DispatchaddInfo, state }) {
           })
           .then((res) => {
             localStorage.setItem("token", res.data.token);
-            console.log("(JWT포함)백엔드로부터 받은 응답 : ", res);
             if (state.length === 0) {
               DispatchaddInfo({
                 seq: res.data.seq,
@@ -59,16 +52,12 @@ function Login({ DispatchaddInfo, state }) {
               });
             }
             loginSuccess();
-            // alert("로그인 성공! SSARAOKE에 오신 것을 환영합니다!");
             navigate("/lobby");
-            // console.log("로그인 성공 후 state : ", state);
           });
       },
       fail: (error) => {
         loginFail();
-        // alert("로그인에 실패했습니다.");
         navigate("/");
-        // alert(JSON.stringify(error));
       },
     });
   };

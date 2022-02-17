@@ -1,9 +1,7 @@
 .navbar {
   background-color: transparent;
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
-  /* z-index: 15; */
   font-family: "Oregano", cursive;
   border: none;
   padding: 1vw;
@@ -11,9 +9,6 @@
 
 .left {
   display: flex;
-  /* align-items: center; */
-  /* flex: none; */
-  /* margin: 10px 10px 8px; */
 }
 
 .title {

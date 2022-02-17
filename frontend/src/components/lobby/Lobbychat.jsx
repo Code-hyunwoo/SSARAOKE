@@ -28,7 +28,6 @@ function Lobbychat({ Nickname }) {
   }, []);
 
   const onButtonPress = (e) => {
-    // input 비워줘야되는데...
     setText("");
     buttonHandler();
   };
@@ -45,13 +44,6 @@ function Lobbychat({ Nickname }) {
     },
     [chat]
   );
-  // const changeName = useCallback(
-  //   (e) => {
-  //     setChat({ name: e.target.value, message: chat.message });
-  //     // console.log({Nickname}.Nickname)
-  //   },
-  //   [chat]
-  // );
 
   const onKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -74,7 +66,6 @@ function Lobbychat({ Nickname }) {
           </ReactScrollableFeed>
         </div>
         <div className="InputBox">
-          {/* <input placeholder={Nickname} className="Nick" onChange={changeName}></input> */}
           <div className="Nick">{Nickname}</div>
           <input
             placeholder="메세지를 입력하세요."

@@ -47,11 +47,6 @@ function Room({ state }) {
   const [openChangeMode, setOpenChangeMode] = useState(false);
   const [openContents, setOpenContents] = useState(false);
   const [openFirework, setOpenFirework] = useState(false);
-  // const practice = [
-  //   "Xk7_eEx58ds",
-  //   "4gXmClk8rKI",
-  //   "t8KtQ8-nImI",
-  // ];
   const [nowPlaymusic, setnowPlaymusic] = useState("");
   const [chatArr, setChatArr] = useState([]);
 
@@ -125,20 +120,10 @@ function Room({ state }) {
     // my-chat
     if (session !== undefined && OV !== undefined) {
       var mySession = session;
-      console.log("-----session changed-----");
-      console.log(mySession);
       mySession.on("signal:my-chat", (event) => {
-        console.log(event); // Message
-        console.log(event.data); // Message
-        console.log(event.from); // Connection object of the sender
-        // console.log(event.type); // The type of message ("my-chat")
-        console.log(`[receiveChat] ${event.data}를 받았습니다.`);
-        // setChatArr((chatArr) => chatArr.concat(event.data));
         const message = event.data.split(":");
         const chatmsg = { name: message[0], msg: message[1] };
         setChatArr((chatArr) => chatArr.concat(chatmsg));
-        console.log(chatArr);
-        console.log("[ReceiveMessage]" + event.data);
       });
       mySession.on("signal:YTUrl", (event) => {
         var data = JSON.parse(event.data);
@@ -153,7 +138,6 @@ function Room({ state }) {
       });
 
       mySession.on("signal:effect", (event) => {
-        console.log(`effect: ${event.data}`);
         if (event.data === "clap") {
           //clap 치기
           const audio = new Audio(Clap);
@@ -175,7 +159,6 @@ function Room({ state }) {
 
       mySession.on("signal:basicSinger", (event) => {
         document.getElementById(event.data).className = styles.basicSingercam;
-        console.log("내가 Singer다!");
       });
 
       mySession.on("signal:basicSingerout", (event) => {
@@ -184,57 +167,45 @@ function Room({ state }) {
 
       mySession.on("signal:soloSinger", (event) => {
         document.getElementById(event.data).className = styles.soloSingercam;
-        console.log("Solo캠 이동!");
       });
 
       mySession.on("signal:soloSingerout", (event) => {
         document.getElementById(event.data).className = "undefined";
-        console.log("Solo캠 아웃!");
       });
 
       mySession.on("signal:duetSinger", (event) => {
         document.getElementById(event.data).className = styles.duetSingercam;
-        console.log("Duet캠1 이동!");
       });
 
       mySession.on("signal:duetSingerout", (event) => {
         document.getElementById(event.data).className = "undefined";
-        console.log("Duet캠1 아웃!");
       });
 
       mySession.on("signal:duetSinger2", (event) => {
         document.getElementById(event.data).className = styles.duetSingercam2;
-        console.log("Duet캠2 이동!");
       });
 
       mySession.on("signal:duetSinger2out", (event) => {
         document.getElementById(event.data).className = "undefined";
-        console.log("Duet캠2 아웃!");
       });
 
       mySession.on("signal:changeMode", (event) => {
         if (event.data === "Basic") {
           transformBasic();
-          console.log("Basic 으로 Change!");
         } else if (event.data === "Free") {
           transformFree();
-          console.log("Free 로 Change!");
         } else if (event.data === "Solo") {
           transformSolo();
-          console.log("Solo 로 Change!");
         } else if (event.data === "Duet") {
           transformDuet();
-          console.log("Duet 으로 Change!");
         }
       });
 
       mySession.on("signal:Contents", (event) => {
         if (event.data === "Dream") {
           setstartDream(true);
-          console.log("듀엣컨텐츠 Dream");
         } else if (event.data === "GoodDay") {
           setstartGoodDay(true);
-          console.log("듀엣컨텐츠 GoodDay");
         }
       });
 
@@ -246,12 +217,6 @@ function Room({ state }) {
         let subs = subscribers;
         subs.push(Subscriber);
         setsubscribers(subs);
-        // setsubscribers([...subscribers, Subscriber]); //여기서 렌더가 되어야 하는데
-        // this.forceUpdate(); //강제 렌더
-
-        console.log("-----new sub-----");
-        console.log(Subscriber);
-        console.log(subscribers);
       });
 
       // On every Stream destroyed...
@@ -270,7 +235,6 @@ function Room({ state }) {
       // 'getToken' method is simulating what your server-side should do.
       // 'token' parameter should be retrieved and returned by your own backend
       getToken().then((token) => {
-        console.log("-----getToken then-----");
         // First param is the token got from OpenVidu Server. Second param can be retrieved by every user on event
         // 'streamCreated' (property Stream.connection.data), and will be appended to DOM as the user's nickname
         mySession
@@ -310,9 +274,6 @@ function Room({ state }) {
   }, [session]);
 
   useEffect(() => {
-    console.log("입장확인");
-    console.log({ roomnum });
-    console.log({ mode });
     register();
   }, []);
 
@@ -360,14 +321,7 @@ function Room({ state }) {
             Authorization: state[0].token,
           },
         }
-      )
-      .then((res) => {
-        console.log("out 성공", res);
-      })
-      .catch((res) => {
-        console.log(room);
-        console.log("out 실패", res);
-      });
+      );
   }
   function sendMessage(type, data) {
     const mySession = session;
@@ -376,26 +330,17 @@ function Room({ state }) {
         data: data, // Any string (optional)
         to: [], // Array of Connection objects (optional. Broadcast to everyone if empty)
         type: type, // The type of message (optional)
-      })
-      .then(() => {
-        console.log(type + " successfully sent");
-      })
-      .catch((error) => {
-        console.error(error);
       });
   }
 
   function register() {
-    console.log("-----Register-----");
     let OV = new OpenVidu();
     setOV(OV);
     setsession(OV.initSession());
   }
 
   function sendChat(msg) {
-    console.log("[sendChat] 이것은 채팅임");
     var chatMsg = state[0].nickname + ":" + msg;
-    console.log(`[sendChat] ${chatMsg}`);
     sendMessage("my-chat", chatMsg);
   }
 
@@ -404,19 +349,12 @@ function Room({ state }) {
     axios
       .get(`https://i6a306.p.ssafy.io:8080/api/v1/reservation/first/${room}`)
       .then((res) => {
-        console.log("예약첫번째곡 불러옴", res.data);
         //title어디다 저장해두지 뮤직바 어디지
         var data = {
           url: res.data.song_no,
           title: res.data.song_title,
         };
         sendMessage("YTUrl", JSON.stringify(data)); //전송
-        console.log(
-          `[sendYTUrl]유튜브 요청 보냄, url: ${res.data.song_no} at room ${room}`
-        );
-      })
-      .catch((res) => {
-        console.log("불러오기 실패", res);
       });
   }
 
@@ -465,7 +403,6 @@ function Room({ state }) {
         title: "에코 추가 완료!",
         timer: 500,
       });
-      console.log("에코 추가");
     } else {
       setgsfilter(false);
       me.stream.removeFilter();
@@ -473,7 +410,6 @@ function Room({ state }) {
         title: "에코 제거 완료!",
         timer: 500,
       });
-      console.log("에코 제거");
     }
   }
 
@@ -488,7 +424,6 @@ function Room({ state }) {
         title: "확성기 설정 완료!",
         timer: 500,
       });
-      console.log("확성기 추가");
     } else {
       setgsfilter(false);
       me.stream.removeFilter();
@@ -496,7 +431,6 @@ function Room({ state }) {
         title: "확성기 해제 완료!",
         timer: 500,
       });
-      console.log("확성기 제거");
     }
   }
 
@@ -510,7 +444,6 @@ function Room({ state }) {
         title: "음성변조 설정 완료!",
         timer: 500,
       });
-      console.log("음성 변조 추가");
     } else {
       setgsfilter(false);
       me.stream.removeFilter();
@@ -518,7 +451,6 @@ function Room({ state }) {
         title: "음성변조 해제 완료!",
         timer: 500,
       });
-      console.log("음성 변조 제거");
     }
   }
 
@@ -538,7 +470,6 @@ function Room({ state }) {
           },
         })
         .then((response) => {
-          console.log("CREATE SESION", response);
           resolve(response.data.id);
         })
         .catch((response) => {
@@ -546,7 +477,6 @@ function Room({ state }) {
           if (error?.response?.status === 409) {
             resolve(sessionId);
           } else {
-            console.log(error);
             console.warn(
               "No connection to OpenVidu Server. This may be a certificate error at " +
                 OPENVIDU_SERVER_URL
@@ -592,7 +522,6 @@ function Room({ state }) {
           }
         )
         .then((response) => {
-          console.log("TOKEN", response);
           resolve(response.data.token);
         })
         .catch((error) => reject(error));
@@ -601,39 +530,31 @@ function Room({ state }) {
 
   function basicsinger() {
     if (document.getElementById(name).className !== styles.basicSingercam) {
-      // document.getElementById(name).className = styles.basicSingercam;
       sendMessage("basicSinger", name);
     } else {
-      // document.getElementById(name).className = "undefined";
       sendMessage("basicSingerout", name);
     }
   }
 
   function solosinger() {
     if (document.getElementById(name).className !== styles.soloSingercam) {
-      // document.getElementById(name).className = styles.soloSingercam;
       sendMessage("soloSinger", name);
     } else {
-      // document.getElementById(name).className = "undefined";
       sendMessage("soloSingerout", name);
     }
   }
   function duetsinger() {
     if (document.getElementById(name).className !== styles.duetSingercam) {
-      // document.getElementById(name).className = styles.duetSingercam;
       sendMessage("duetSinger", name);
     } else {
-      // document.getElementById(name).className = "undefined";
       sendMessage("duetSingerout", name);
     }
   }
 
   function duetsinger2() {
     if (document.getElementById(name).className !== styles.duetSingercam2) {
-      // document.getElementById(name).className = styles.duetSingercam2;
       sendMessage("duetSinger2", name);
     } else {
-      // document.getElementById(name).className = "undefined";
       sendMessage("duetSinger2out", name);
     }
   }
@@ -668,29 +589,6 @@ function Room({ state }) {
     sendMessage("Contents", "GoodDay");
   }
 
-  //////////////////////////////////////////////////////////////////////S3 파일 업로드
-  //S3 버킷관련 정보들을 포함하고 있는 객체 -> process.env~가 붙은 것은 환경변수 -> 외부에 보여주지 않기 위함. -> npm i dotenv 설치해야
-  // const s3 = new AWS.S3({
-  //   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  //   secretAccessKey: process.env.AWS_DEFAULT_REGION,
-  //   region: process.env.AWS_DEFAULT_REGION,
-  //   //아마존.doc
-  //   //apiVersion:
-  //   //params: {Bucket: }
-  // });
-
-  //UUID 사용할거면, npm i uuid하고 import{v1, v3, v4, v5} from 'uuid';해야
-  //v1: 타임스탬프 기준, v3: MD5 해시, v4:랜덤값, v5: SHA-1해시 기준
-  // const uploadParams = {
-  //   Bucket: process.env.AWS_BUCKET,
-  //   Body: file,
-  //   key: `image/${v1().toString().replace("-","")}.${file.type.split("/")[1]}`,
-  //   ContentType: file.type,
-  //   ACL: "public-read",
-  // }
-
-  //npm i uuid, npm i 'aws-sdk' 설치
-  //import AWS from "aws-sdk"; 임포트
   //버킷, region 값 생성
   const S3_BUCKET = "YOUR_BUCKET_NAME_HERE"; //BUCKET 이름 자리
   const REGION = "YOUR_DESIRED_REGION_HERE"; //Region 값 자리
@@ -755,7 +653,6 @@ function Room({ state }) {
       )}
 
       <div className={transCamBox}>
-        {/* 캠무빙  style={{opacity: Opacity? "0.6" : "1"}} -> 넣으면 잡았을때 반투명 되는데 넣으면 빨간줄ㅠㅜ*/}
         {nowMode === "Freemode" ? (
           <div id="video-container" style={{ opacity: Opacity ? "0.6" : "1" }}>
             {session !== undefined ? (
@@ -881,9 +778,5 @@ function mapStateToProps(state) {
   return { state };
 }
 
-// function mapStateToProps(state) {
-//     const Nickname = state[0].nickname;
-//     return { Nickname };
-// }
 
 export default connect(mapStateToProps, null)(Room);

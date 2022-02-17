@@ -70,8 +70,6 @@ function Controller({
       .get("https://www.googleapis.com/youtube/v3/search", { params })
       .then((res) => {
         setSearchresult(res.data.items);
-        console.log(res.data.items);
-        // console.log(searchresult);
       })
       .catch(() => {
         failed();

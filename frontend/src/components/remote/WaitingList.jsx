@@ -10,7 +10,6 @@ function WaitingList({ roomseq }) {
   const [show, setShow] = useState(false);
   const [waitlist, setWaitlist] = useState([]);
   const getBooklist = () => {
-    // console.log(roomseq);
     axios
       .get(
         `https://i6a306.p.ssafy.io:8080/api/v1/reservation/list/${roomseq}`,
@@ -46,7 +45,6 @@ function WaitingList({ roomseq }) {
   const deleteItem = (seq) => {
     axios
       .delete("https://i6a306.p.ssafy.io:8080/api/v1/reservation/delete", {
-        // delete 메서드는 data에 값을 넣어줘야 함
         data: {
           reservation_seq: seq,
           room_seq: roomseq,
