@@ -3,44 +3,45 @@
 
 .Myvideobg {
     position: absolute;
-    /* width: 80%;
-    height: 550px;
-    left: 1.5%;
-    top: 45px; */
     width: 60vw;
     height: 77vh;
     left: 0.9vw;
     top: 9vh;
     
-    /* background: #ffcd438f; */
     background: #f9b108cb;
-    /* background: rgba(228, 83, 21, 0.61); */
     border-radius: 2vw;
 }
 
 /* 본문 들어갈 부분 */
+.machineInline {
+    position: absolute;
+    width: 64vw;
+    height: 55vh;
+    left: 1.6vw;
+    top: 3%;
+  
+    background: rgba(171, 214, 250, 0.541);
+    border: 0.4vw solid #ffffff;
+    box-sizing: border-box;
+    border-radius: 2vw;
+    box-shadow: 0 0 0.1vw #fff, 0 0 0.1vw #fff, 0 0 0.1vw #fff, 0 0 0.3vw #ffffff,
+      0 0 1.3vw #ffffff, inset 0 0 0.4vw #ffffff;
+  }
 
 /* My Video 제목 */
 .Sh1 {
     position: absolute;
-    /* width: 20%;
-    height: 10%;
-    left: 5%;
-    top: 9%; */
 
     width: 20vw;
     height: 10vh;
-    left: 3vw;
-    top: 6vh;
+    left: 2.8vw;
+    top: 5.8vh;
 
     font-weight: bold;
     font-family: 'Oregano', cursive;
-    /* font-family: 'Cafe24SsurroundAir'; */
     font-style: normal;
     font-weight: normal;
-    /* font-size: 280%; */
-    font-size: 2.5vw;
-    /* line-height: 58px; */
+    font-size: 3.5vw;
     display: flex;
     align-items: center;
     text-align: center;
@@ -51,27 +52,11 @@
 /* 본문 테이블 */
 .table{
     position: absolute;
-    /* width: 60%; */
-    /* width: 90%;
-    height: 1300%; */
-    width: 55vw;
-    height: 55vh;
-    left: 2.7vw;
+    width: 57vw;
+    height: 60vh;
+    left: 3vw;
     top: 10vh;
     overflow-y: scroll;
-
-    /* font-weight: bold; */
-    /* font-family: 'Oregano', cursive; */
-    /* font-family: 'Cafe24SsurroundAir'; */
-    /* font-style: normal; */
-    /* font-weight: normal; */
-    /* font-size: 45px; */
-    /* line-height: 58px; */
-    /* display: flex; */
-    /* align-items: center; */
-    /* text-align: center; */
-
-    /* color: #FFFFFF; */
 }
 
 /* 비디오 */
@@ -88,15 +73,13 @@
 
 /* 테이블 헤더 글자 */
 .tablehead{
-    /* font-size: 140%; */
-    font-size: 1.3vw;
+    font-size: 1.6vw;
     font-family: 'Cafe24Ssurround';
     text-align: center;  
 }
 
 .tablebody{
-    /* font-size: 120%; */
-    font-size: 1.05vw;
+    font-size: 1.3vw;
     font-family: 'Cafe24SsurroundAir';
     text-align: center; 
 }
@@ -105,6 +88,199 @@
     width: 300vw;
     height: 200vh;
     background-color: FFCE43;
+}
+
+/* 캔 쌓기 */
+
+/* 분홍캔 */
+.pink{
+    position: absolute;
+    width: 9vw;
+    height: 31vh;
+    left: 3.7vw;
+    top: 47vh;
+    
+    background: rgba(237, 137, 181, 0.12);
+    border: 10px solid #ED89B5;
+    box-sizing: border-box;
+    border-radius: 30px;
+
+    background: rgba(237, 137, 180, 0.3);
+    border: 0.5pc solid #ed89b4;
+    box-shadow: 
+        0 0 .10rem #ED89B5, 
+        0 0 .10rem #ED89B5, 
+        0 0 .10rem #ED89B5, 
+        0 0 0.5rem #ED89B5, 
+        0 0 2.0rem #ED89B5, 
+        inset 0 0 0.5rem #ED89B5;
+
+    transform: rotate(-65.89deg);
+    z-index: -10;
+}
+
+/* 노랑캔 */
+.yellow{
+    position: absolute;
+    width: 9vw;
+    height: 31vh;
+    left: 17vw;
+    top: 50vh;
+    
+    background: rgba(244, 230, 104, 0.12);
+    border: 10px solid #F4E668;
+    box-sizing: border-box;
+    border-radius: 30px;
+
+    background: rgba(244, 230, 104, 0.3);
+    border: 0.5pc solid #F4E668;
+    box-shadow: 
+        0 0 .10rem #F4E668, 
+        0 0 .10rem #F4E668, 
+        0 0 .10rem #F4E668, 
+        0 0 0.5rem #F4E668, 
+        0 0 2.0rem #F4E668, 
+        inset 0 0 0.5rem #F4E668;
+
+    transform: rotate(82.22deg);
+    z-index: -10;
+}
+
+/* 보라캔 */
+.bora{
+    position: absolute;
+    width: 9vw;
+    height: 31vh;
+    left: 32.2vw;
+    top: 52vh;
+    
+    background: rgba(196, 69, 217, 0.12);
+    border: 10px solid #C445D9;
+    box-sizing: border-box;
+    border-radius: 30px;
+
+    background: rgba(196, 69, 217, 0.3);
+    border: 0.5pc solid #C445D9;
+    box-shadow: 
+        0 0 .10rem #C445D9, 
+        0 0 .10rem #C445D9, 
+        0 0 .10rem #C445D9, 
+        0 0 0.5rem #C445D9, 
+        0 0 2.0rem #C445D9, 
+        inset 0 0 0.5rem #C445D9;
+
+    transform: rotate(-89.86deg);
+    z-index: -10;
+}
+
+
+/* 남색캔 */
+.navy{
+    position: absolute;
+    width: 9vw;
+    height: 31vh;
+    left: 32.8vw;
+    top: 28.4vh;
+    
+    background: rgba(14, 56, 146, 0.12);
+    border: 10px solid #0E3892;
+    box-sizing: border-box;
+    border-radius: 30px;
+
+    background: rgba(14, 56, 146, 0.3);
+    border: 0.5pc solid #0E3892;
+    box-shadow: 
+    0 0 .10rem #0E3892, 
+    0 0 .10rem #0E3892, 
+    0 0 .10rem #0E3892, 
+    0 0 0.5rem #0E3892, 
+    0 0 2.0rem #0E3892, 
+    inset 0 0 0.5rem #0E3892;
+
+    transform: rotate(61.03deg);
+    z-index: -10;
+}
+
+
+/* 파랑캔 */
+.blue{
+    position: absolute;
+    width: 9vw;
+    height: 31vh;
+    left: 44.1vw;
+    top: 44.5vh;
+    
+    background: rgba(3, 129, 215, 0.12);
+    border: 10px solid #0381D7;
+    box-sizing: border-box;
+    border-radius: 30px;
+
+    background: rgba(3, 129, 215, 0.3);
+    border: 0.5pc solid #0381D7;
+    box-shadow: 
+        0 0 .10rem #0381D7, 
+        0 0 .10rem #0381D7, 
+        0 0 .10rem #0381D7, 
+        0 0 0.5rem #0381D7, 
+        0 0 2.0rem #0381D7, 
+    inset 0 0 0.5rem #0381D7;
+
+    transform: rotate(-19.03deg);
+    z-index: -10;
+}
+
+/* 하늘캔 */
+.sky{
+    position: absolute;
+    width: 9vw;
+    height: 31vh;
+    left: 19.8vw;
+    top: 24.7vh;
+    
+    background: rgba(117, 183, 236, 0.12);
+    border: 10px solid #75B7EC;
+    box-sizing: border-box;
+    border-radius: 30px;
+
+    background: rgba(117, 183, 236, 0.3);
+    border: 0.5pc solid #75B7EC;
+    box-shadow: 
+        0 0 .10rem #75B7EC,
+        0 0 .10rem #75B7EC, 
+        0 0 .10rem #75B7EC, 
+        0 0 0.5rem #75B7EC, 
+        0 0 2.0rem #75B7EC, 
+    inset 0 0 0.5rem #75B7EC;
+
+    transform: rotate(44.96deg);
+    z-index: -10;
+}
+
+/* 빨강캔 */
+.red{
+    position: absolute;
+    width: 9vw;
+    height: 31vh;
+    left: 52.8vw;
+    top: 44.5vh;
+    
+    background: rgba(214, 25, 94, 0.12);
+    border: 10px solid #D6195E;
+    box-sizing: border-box;
+    border-radius: 30px;
+
+    background: rgba(214, 25, 94, 0.3);
+    border: 0.5pc solid #D6195E;
+    box-shadow: 
+        0 0 .10rem #D6195E, 
+        0 0 .10rem #D6195E, 
+        0 0 .10rem #D6195E, 
+        0 0 0.5rem #D6195E, 
+        0 0 2.0rem #D6195E, 
+    inset 0 0 0.5rem #D6195E;
+
+    transform: rotate(17.33deg);
+    z-index: -10;
 }
 
 /* 폰트 */

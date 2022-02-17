@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Button.module.css";
 
-function ChangeMode({ closeChangeMode,transformBasic,transformSolo,transformDuet,transformFree }) {
+function ChangeMode({ closeChangeMode,sendChangeModeB,sendChangeModeF,sendChangeModeS,sendChangeModeD }) {
   return (
     <div className={styles.ChangeModeBackground}>
       <div className={styles.ChangeModeContainer}>
@@ -10,22 +10,22 @@ function ChangeMode({ closeChangeMode,transformBasic,transformSolo,transformDuet
         </div>
         <div className={styles.body}>
           <button id={styles.modeButton} onClick={() => {
-            transformBasic();
+            sendChangeModeB();
             closeChangeMode(false)}}>
               Basic
           </button>
           <button id={styles.modeButton} onClick={() => {
-            transformFree();
+            sendChangeModeF();
             closeChangeMode(false)}}>
               Free
           </button>
           <button id={styles.modeButton} onClick={() => {
-            transformSolo();
+            sendChangeModeS();
             closeChangeMode(false)}}>
               Solo
           </button>
           <button id={styles.modeButton} onClick={() => {
-            transformDuet();
+            sendChangeModeD();
             closeChangeMode(false)}}>
               duet
           </button>
