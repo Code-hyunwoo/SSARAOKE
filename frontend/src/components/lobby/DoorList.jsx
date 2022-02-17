@@ -4,77 +4,30 @@ import CreateRoom from "./CreateRoom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Lobbychat from "./Lobbychat";
+import MovingCam from "../roomin/MovingCam";
 
 function DoorList() {
-  // Door.js에서 map쓸거면 선택한 태그(tags)를 배열로 받아와야함
-  // OR 객체로 받아와서 배열로 변환
-  //여기로 값을 가져오면, 각 Door로 값이 자동으로 갈까?
-
   //백에서 받은값 저장하기
   const [roomdata, setRoomdata] = useState([]);
-  // const [doordata, setDoordata] = useState([]);
-  // const [loading, setLoading] = useState(false)
 
   //함수로 감싸지 않고 하기
-  // console.log("doorlist"); //값 받기 전에 찍고
   useEffect(() => {
     //페이지 호출과 동시에 불러오기 위해 사용
     axios
       .get("https://i6a306.p.ssafy.io:8080/api/v1/lobby")
       .then((response) => {
-        // console.log(response.data); //값 너머오는지 찍고
         setRoomdata(response.data); //값 저장하고
-        console.log("룸데이타:", roomdata); //값 저장되었는지 확인
-        // console.log("roomseq: ", roomdata[0].room_seq); 
-        console.log("roommode: ", roomdata[0].mode); 
-        console.log("roomisPrivate: ", roomdata[0].private); 
       })
       .catch((e) => {
         console.log("에러 발생");
         console.error(e);
       });
-    // console.log("doorlist useEffect"); //실행되는지 찍고
   }, []); //,[]는 무한 랜더링 방지
 
-  //로비에서 DoorList뺴고는 다 불러오는데 list를 데이터 초과로 받지 못함. 한번만 받게 해야하는데
-  //왜이리 많이 받아지냐
-  // //const fetchData = async () => {
-  // const fetchData = () => {
-  //   // asyno를 사용한 함수 따로 선언
-  //     setLoading(true);
-  //     try{
-  //       const response = await axios.get('https://i6a306.p.ssafy.io:8080/api/v1/lobby',);
-  //       console.log(response.data);
-  //       setDoordata(response.data);
-  //       console.log(doordata);
-  //     }
-  //     catch(e) {
-  //       console.log(e);
-  //     }
-  //     setLoading(false);
-  // };
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
-  //대기중일때
-  // if(loading) {
-  //   return <DoorList>방 불러오는 중...</DoorList>
-  // }
-
-  // //아직 roomdata가 설정되지 않았을때
-  // if(!doordata){
-  //   return [];
-  // }
-
-  //태그 값
-  // const tags = []; //arrcheckedTags
-
+  
   //roomdata 값이 유효할 때
   return (
     <>
-      {/* <button onClick={Roomdata}>button</button> */}
       <CreateRoom />
       <div className={styles.firstcontainer}>
         <Door
@@ -84,7 +37,6 @@ function DoorList() {
           thumnail={roomdata[0]?.thumbnail_url}
           user={roomdata[0]?.owner_nickname}
           current={roomdata[0]?.current}
-          // isPrivate={roomdata[0]?.isPrivate}
           isPrivate={roomdata[0]?.private}
           mode={roomdata[0]?.mode}
         />
@@ -96,12 +48,10 @@ function DoorList() {
           thumnail={roomdata[1]?.thumbnail_url}
           user={roomdata[1]?.owner_nickname}
           current={roomdata[1]?.current}
-          // isPrivate={roomdata[1]?.isPrivate}
           isPrivate={roomdata[1]?.private}
           mode={roomdata[1]?.mode}
         />
       </div>
-      {/* 두번째줄 */}
       <div className={styles.gridcontainer}>
         <Door
           tags={roomdata[2]?.tagList}
@@ -110,11 +60,9 @@ function DoorList() {
           thumnail={roomdata[2]?.thumnail}
           user={roomdata[2]?.owner_nickname}
           current={roomdata[2]?.current}
-          // isPrivate={roomdata[2]?.isPrivate}
           isPrivate={roomdata[2]?.private}
           mode={roomdata[2]?.mode}
         />
-        {/* <Door /> */}
         <div className={styles.griditem}>
           <Door
             tags={roomdata[3]?.tagList}
@@ -123,12 +71,9 @@ function DoorList() {
             thumnail={roomdata[3]?.thumnail}
             user={roomdata[3]?.owner_nickname}
             current={roomdata[3]?.current}
-            // isPrivate={roomdata[3]?.isPrivate}
             isPrivate={roomdata[3]?.private}
             mode={roomdata[3]?.mode}
           />
-          {/* <Door /> */}
-          {/* <Door /> */}
           <Door
             tags={roomdata[4]?.tagList}
             roomseq={roomdata[4]?.room_seq}
@@ -136,12 +81,10 @@ function DoorList() {
             thumnail={roomdata[4]?.thumnail}
             user={roomdata[4]?.owner_nickname}
             current={roomdata[4]?.current}
-            // isPrivate={roomdata[4]?.isPrivate}
             isPrivate={roomdata[4]?.private}
             mode={roomdata[4]?.mode}
           />
         </div>
-        {/* <Door /> */}
         <Door
           tags={roomdata[5]?.tagList}
           roomseq={roomdata[5]?.room_seq}
@@ -149,12 +92,10 @@ function DoorList() {
           thumnail={roomdata[5]?.thumnail}
           user={roomdata[5]?.owner_nickname}
           current={roomdata[5]?.current}
-          // isPrivate={roomdata[5]?.isPrivate}
           isPrivate={roomdata[5]?.private}
           mode={roomdata[5]?.mode}
         />
       </div>
-      {/* 세번째줄 */}
       <div className={styles.gridcontainer}>
         <Door
           tags={roomdata[6]?.tagList}
@@ -163,7 +104,6 @@ function DoorList() {
           thumnail={roomdata[6]?.thumnail}
           user={roomdata[6]?.owner_nickname}
           current={roomdata[6]?.current}
-          // isPrivate={roomdata[6]?.isPrivate}
           isPrivate={roomdata[6]?.private}
           mode={roomdata[6]?.mode}
         />
@@ -175,7 +115,6 @@ function DoorList() {
             thumnail={roomdata[7]?.thumnail}
             user={roomdata[7]?.owner_nickname}
             current={roomdata[7]?.current}
-            // isPrivate={roomdata[7]?.isPrivate}
             isPrivate={roomdata[7]?.private}
             mode={roomdata[7]?.mode}
           />
@@ -186,7 +125,6 @@ function DoorList() {
             thumnail={roomdata[8]?.thumnail}
             user={roomdata[8]?.owner_nickname}
             current={roomdata[8]?.current}
-            // isPrivate={roomdata[8]?.isPrivate}
             isPrivate={roomdata[8]?.private}
             mode={roomdata[8]?.mode}
           />
@@ -198,12 +136,10 @@ function DoorList() {
           thumnail={roomdata[9]?.thumnail}
           user={roomdata[9]?.owner_nickname}
           current={roomdata[9]?.current}
-          // isPrivate={roomdata[9]?.isPrivate}
           isPrivate={roomdata[9]?.private}
           mode={roomdata[9]?.mode}
         />
       </div>
-      {/* 네번째줄 */}
       <div className={styles.gridcontainer}>
         <Door
           tags={roomdata[10]?.tagList}
@@ -212,7 +148,6 @@ function DoorList() {
           thumnail={roomdata[10]?.thumnail}
           user={roomdata[10]?.owner_nickname}
           current={roomdata[10]?.current}
-          // isPrivate={roomdata[10]?.isPrivate}
           isPrivate={roomdata[10]?.private}
           mode={roomdata[10]?.mode}
         />
@@ -224,7 +159,6 @@ function DoorList() {
             thumnail={roomdata[11]?.thumnail}
             user={roomdata[11]?.owner_nickname}
             current={roomdata[11]?.current}
-            // isPrivate={roomdata[11]?.isPrivate}
             isPrivate={roomdata[11]?.private}
             mode={roomdata[11]?.mode}
           />
@@ -235,7 +169,6 @@ function DoorList() {
             thumnail={roomdata[12]?.thumnail}
             user={roomdata[12]?.owner_nickname}
             current={roomdata[12]?.current}
-            // isPrivate={roomdata[12]?.isPrivate}
             isPrivate={roomdata[12]?.private}
             mode={roomdata[12]?.mode}
           />
@@ -247,12 +180,10 @@ function DoorList() {
           thumnail={roomdata[13]?.thumnail}
           user={roomdata[13]?.owner_nickname}
           current={roomdata[13]?.current}
-          // isPrivate={roomdata[13]?.isPrivate}
           isPrivate={roomdata[13]?.private}
           mode={roomdata[13]?.mode}
         />
       </div>
-      {/* 다섯번째줄 */}
       <div className={styles.gridcontainer}>
         <Door
           tags={roomdata[14]?.tagList}
@@ -261,7 +192,6 @@ function DoorList() {
           thumnail={roomdata[14]?.thumnail}
           user={roomdata[14]?.owner_nickname}
           current={roomdata[14]?.current}
-          // isPrivate={roomdata[14]?.isPrivate}
           isPrivate={roomdata[14]?.private}
           mode={roomdata[14]?.mode}
         />
@@ -273,7 +203,6 @@ function DoorList() {
             thumnail={roomdata[15]?.thumnail}
             user={roomdata[15]?.owner_nickname}
             current={roomdata[15]?.current}
-            // isPrivate={roomdata[15]?.isPrivate}
             isPrivate={roomdata[15]?.private}
             mode={roomdata[15]?.mode}
           />
@@ -284,7 +213,6 @@ function DoorList() {
             thumnail={roomdata[16]?.thumnail}
             user={roomdata[16]?.owner_nickname}
             current={roomdata[16]?.current}
-            // isPrivate={roomdata[16]?.isPrivate}
             isPrivate={roomdata[16]?.private}
             mode={roomdata[16]?.mode}
           />
@@ -296,7 +224,6 @@ function DoorList() {
           thumnail={roomdata[17]?.thumnail}
           user={roomdata[17]?.owner_nickname}
           current={roomdata[17]?.current}
-          // isPrivate={roomdata[17]?.isPrivate}
           isPrivate={roomdata[17]?.private}
           mode={roomdata[17]?.mode}
         />

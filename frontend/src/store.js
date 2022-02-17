@@ -33,21 +33,13 @@ const reducer = (state = [], action) => {
         },
         ...state,
       ];
-      console.log("newUserInfo:", newUserInfo);
       return newUserInfo;
     case DELETE:
       state.splice(0);
-      // const deletedInfo = [];
-      // console.log("deletedInfo:", deletedInfo);
-      // const deletedInfo = [{ ...state[0], token: undefined }];
-      // return deletedInfo;
       return state;
     case UPDATENICKNAME:
       const updatedInfo = [...state];
       updatedInfo[0] = { ...state[0], nickname: action.newNickname };
-      // const updatedInfo = [
-      //   Object.assign({}, state[0], { nickname: action.newNickname }),
-      // ];
       return updatedInfo;
     case UPDATEEMAIL:
       const updatedInfo2 = [...state];

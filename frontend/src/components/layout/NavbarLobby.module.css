@@ -11,34 +11,25 @@
 
 .left {
   display: flex;
-  /* align-items: center; */
-  /* flex: none; */
-  /* margin: 10px 10px 8px; */
   font-family: "Oregano", cursive;
 }
 
 .right {
   display: flex;
-  /* margin-left: auto; */
-  /* flex-direction: row; */
-  /* flex: none; */
   font-family: "Oregano", cursive;
 }
 
 .roomnamesearch {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
 }
 
 .roomtagsearch {
   border-radius: 0.7rem;
   margin-left: 0.1vw;
-  /* margin-right: 3px; */
   background-color: transparent;
   color: #fff89a;
   border: none;
-  /* border-color: #fff89a; */
   font-weight: bold;
 }
 

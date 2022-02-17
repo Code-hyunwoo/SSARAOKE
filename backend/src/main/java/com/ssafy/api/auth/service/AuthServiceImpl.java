@@ -36,7 +36,6 @@ public class AuthServiceImpl implements AuthService {
         KaKaoOAuthResponse profile = oAuthClient.getInfo(requestDto.getAccessToken());    //kakao만 잡혀 있음
         Optional<User> existUser = userRepository.findByOAuthSeq(profile.getId());
         //로그인 로직
-        //굳이 Optional객체 이렇게 써야하나 현타옴...
         if(existUser.isPresent()){
             String token = "Bearer " + JwtTokenProvider.getToken(existUser.get().getSeq());
             return new OAuthDto(existUser.get().getSeq(), token, requestDto.getOAuthType(), existUser.get().getNickname(), false, existUser.get().getEmail());
