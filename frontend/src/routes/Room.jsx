@@ -464,6 +464,7 @@ function Room({ state }) {
       new Swal({
         title: "에코 추가 완료!",
         timer: 500,
+        showConfirmButton: false,
       });
       console.log("에코 추가");
     } else {
@@ -472,6 +473,7 @@ function Room({ state }) {
       new Swal({
         title: "에코 제거 완료!",
         timer: 500,
+        showConfirmButton: false,
       });
       console.log("에코 제거");
     }
@@ -487,6 +489,7 @@ function Room({ state }) {
       new Swal({
         title: "확성기 설정 완료!",
         timer: 500,
+        showConfirmButton: false,
       });
       console.log("확성기 추가");
     } else {
@@ -495,6 +498,7 @@ function Room({ state }) {
       new Swal({
         title: "확성기 해제 완료!",
         timer: 500,
+        showConfirmButton: false,
       });
       console.log("확성기 제거");
     }
@@ -509,6 +513,7 @@ function Room({ state }) {
       new Swal({
         title: "음성변조 설정 완료!",
         timer: 500,
+        showConfirmButton: false,
       });
       console.log("음성 변조 추가");
     } else {
@@ -517,6 +522,7 @@ function Room({ state }) {
       new Swal({
         title: "음성변조 해제 완료!",
         timer: 500,
+        showConfirmButton: false,
       });
       console.log("음성 변조 제거");
     }

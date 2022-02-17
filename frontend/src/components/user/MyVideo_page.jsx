@@ -5,8 +5,13 @@ import { BsTrash2Fill, BsTrash2 } from "react-icons/bs";
 import React from "react";
 import { Link } from "react-router-dom";
 import Forest from "../lobby/background/Forest";
+// import { connect } from "react-redux";
+// import axios from "axios";
+// import Swal from "sweetalert2";
 
 function MyVideoPage() {
+
+
 
     return(
         <div>
