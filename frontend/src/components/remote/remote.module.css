@@ -16,7 +16,6 @@
   box-shadow: rgba(255, 255, 255, 0.35) 0px 10px 25px;
 }
 
-
 .searchpage {
   position: absolute;
   left: 10px;
@@ -190,7 +189,6 @@
   border-right: 20px solid transparent;
   background: none;
   transform: rotate(90deg);
-
 }
 
 /* 필터, 배경 */
@@ -198,13 +196,6 @@
   position: absolute;
   width: 5.2vw;
   height: 3.4vh;
-<<<<<<< HEAD
-  /* left: 918.56px;
-  top: 677.44px; */
-  /* background: #C4C4C4; */
-=======
-
->>>>>>> front
   background: #fff89a;
   border-radius: 30px;
   font-family: "ROKAFSansBold";
