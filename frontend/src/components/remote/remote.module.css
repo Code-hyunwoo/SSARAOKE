@@ -12,22 +12,10 @@
   opacity: 1;
   background-color: #f9b208;
   border-radius: 30px;
-  /* left: 11.5vw; */
   margin-top: 3vh;
   box-shadow: rgba(255, 255, 255, 0.35) 0px 10px 25px;
 }
 
-/* remote 검색 페이지 배경 */
-/* .searchbg{
-  position: absolute;
-  width: 905px;
-  height: 400px;
-  left: 42px;
-  top: 30px;
-  
-  background: #4b4848cc;
-  border-radius: 60px;    
-} */
 
 .searchpage {
   position: absolute;
@@ -53,9 +41,7 @@
   background: #c4c4c4;
   border-radius: 30px;
   font-size: 1.5vw;
-  /* font-family: 'Cafe24SsurroundAir'; */
   font-family: "Cafe24Ssurround";
-  /* font-family: 'ROKAFSansBold'; */
 }
 
 .serachbtn {
@@ -65,15 +51,12 @@
   left: 35.5vw;
   top: 1.5vh;
   border-radius: 30px;
-  /* font-family: 'Cafe24SsurroundAir'; */
-  /* font-family: 'Cafe24Ssurround'; */
   font-family: "ROKAFSansBold";
   font-size: 1.3vw;
 }
 
 /* 검색 내용 나오는 창 */
 .searchcontent {
-  /* display: flex; */
   position: absolute;
   width: 40.5vw;
   height: 32vh;
@@ -112,9 +95,6 @@
 /* 리모콘 기능들 있는 부분 */
 .remotepage {
   position: absolute;
-  /* width: 711.97px;
-  height: 249.78px;
-  left: 556.28px; */
   width: 44vw;
   height: 26vh;
   left: 2.1vw;
@@ -147,55 +127,6 @@
   border-radius: 30px;
   font-family: "ROKAFSansBold";
 }
-
-/* .tempoupbtn{
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  left: 60px;
-  top: -9px;
-  border-bottom: 10px solid transparent;
-  border-top: 10px solid transparent;
-  border-left: 15px solid #F9B208;
-  border-right: 20px solid transparent;
-  background: none;
-  transform: rotate(-90deg);
-
-  background: none;
-} */
-
-/* 템포 다운 */
-/* .tempodown{
-  position: absolute;
-  width: 96.55px;
-  height: 29.29px;
-  left: 599.09px;
-  top: 714.05px;
-
-  background: #F3E66D;
-  border-radius: 30px;
-} */
-
-/* .tempodownbtn{
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  left: 60px;
-  top: 14px;
-  
-  border-bottom: 10px solid transparent;
-  border-top: 10px solid transparent;
-  border-left: 15px solid #F9B208;
-  border-right: 20px solid transparent;
-  background: none;
-  transform: rotate(90deg); */
-
-/* background: #F9B208; */
-/* background: none;s */
-/* background: #FFCE43; */
-/* transform: rotate(-90deg); */
-/* transform: matrix(-1, 0, 0, -1, 0, 0); */
-/* } */
 
 /* 에코 설정 */
 .echo {
@@ -230,10 +161,6 @@
   position: absolute;
   width: 5.2vw;
   height: 3.4vh;
-  /* left: 50%; */
-  /* top: 677.44px; */
-
-  /* background: #C4C4C4; */
   background: #fff89a;
   border-radius: 30px;
   font-family: "ROKAFSansBold";
@@ -241,8 +168,6 @@
 
 .lightup {
   position: absolute;
-  /* width: 1vw; */
-  /* height: 50%; */
   left: 2.8vw;
   top: -0.9vh;
 
@@ -252,14 +177,10 @@
   border-right: 20px solid transparent;
   background: none;
   transform: rotate(-90deg);
-
-  /* background: #4B4848; */
 }
 
 .lightdown {
   position: absolute;
-  /* width: 20px; */
-  /* height: 20px; */
   left: 2.8vw;
   top: 1.7vh;
 
@@ -270,8 +191,6 @@
   background: none;
   transform: rotate(90deg);
 
-  /* background: #4B4848; */
-  /* transform: matrix(-1, 0, 0, -1, 0, 0); */
 }
 
 /* 필터, 배경 */
@@ -279,10 +198,7 @@
   position: absolute;
   width: 5.2vw;
   height: 3.4vh;
-  /* left: 918.56px;
-  top: 677.44px; */
 
-  /* background: #C4C4C4; */
   background: #fff89a;
   border-radius: 30px;
   font-family: "ROKAFSansBold";
@@ -293,8 +209,6 @@
   position: absolute;
   width: 3vw;
   height: 3vw;
-  /* left: 1024px;
-  top: 10px; */
   border-radius: 50%;
 }
 
@@ -308,7 +222,6 @@
   font-size: 1vw;
   border-radius: 50%;
   background: #e4d76a;
-  /* border: 2px solid #000000; */
 }
 
 /* 노래 취소 */

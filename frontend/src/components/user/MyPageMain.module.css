@@ -3,8 +3,6 @@
 /* 로비로 나가는 버튼 */
 .backbtn {
   position: absolute;
-  /* width: 129.08px;
-    height: 134.5px; */
   width: 0vw;
   height: 0vh;
   left: -1vw;
@@ -24,8 +22,6 @@
   position: absolute;
   width: 68vw;
   height: 85vh;
-  /* width: 65rem;
-height: 3rem; */
   left: 10vw;
   top: 7vh;
 
@@ -33,12 +29,10 @@ height: 3rem; */
   border: 0.4vw solid #ffffff;
   box-sizing: border-box;
 
-  /* border: 0.2rem solid #fff;  */
   border-radius: 1vw;
   padding: 0.4vw;
   box-shadow: 0 0 0.15vw #fff, 0 0 0.15vw #fff, 0 0 1vw #fff, 0 0 0.4vw #ffffff,
     0 0 1.8vw #ffffff, inset 0 0 1.1vw #ffffff;
-  /* box-shadow: 0 0 .2rem #fff, 0 0 .2rem #fff, 0 0 2rem #bc13fe, 0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe; */
 }
 
 /* 자판기 음료칸 */
@@ -49,7 +43,6 @@ height: 3rem; */
   left: 1.6vw;
   top: 3%;
 
-  /* background: rgba(184, 222, 253, 0.315);; */
   background: rgba(171, 215, 250, 0.4);
   border: 0.4vw solid #ffffff;
   box-sizing: border-box;
@@ -58,8 +51,6 @@ height: 3rem; */
     0 0 1.3vw #ffffff, inset 0 0 0.4vw #ffffff;
 }
 
-/* 음료캔_하나만 만들어서 증식하자 */
-/* MyPage_Can css 파일로 따로 만듦. */
 
 /* 윗줄 클릭신 전체 반짝 */
 .upCanline {
@@ -82,12 +73,9 @@ height: 3rem; */
 }
 
 .tooltiptext {
-  /* display: none; */
   position: absolute;
-  /* max-width: 2px; */
   border: 1px solid;
   border-radius: 5px;
-  /* padding: 5px; */
   font-size: 0.8em;
   color: white;
   background: #092f808e;
@@ -99,14 +87,12 @@ height: 3rem; */
   width: 63.25vw;
   height: 3.5vh;
   left: 0vw;
-  /* top: 230px; */
   border-radius: 0.5vw;
   font-weight: bold;
   text-align: center;
   align-items: center;
   font-size: 1.3vw;
   font-family: "Cafe24SsurroundAir";
-  /* font-family: "Oregano", cursive; */
   background: #e2b73d;
 }
 
@@ -122,7 +108,6 @@ height: 3rem; */
   border: 0.3vw solid #ffce43;
   box-sizing: border-box;
   font-weight: bold;
-  /* font-family: "Oregano", cursive; */
   font-family: "Cafe24SsurroundAir";
   font-size: 1.7vw;
   align-items: center;
@@ -145,7 +130,6 @@ height: 3rem; */
 
   font-weight: bold;
   font-family: "Cafe24SsurroundAir";
-  /* font-family: "Oregano", cursive; */
   font-size: 1.5vw;
   align-items: center;
   text-align: center;
@@ -167,7 +151,6 @@ height: 3rem; */
 
   font-weight: bold;
   font-family: "Cafe24SsurroundAir";
-  /* font-family: "Oregano", cursive; */
   font-size: 1vw;
   text-align: center;
   padding: 0.7vh 0;
@@ -185,11 +168,9 @@ height: 3rem; */
   background: rgba(255, 206, 67, 0.6);
   border: 0.3vw solid #ffce43;
   box-sizing: border-box;
-  /* box-shadow: 0vw 4vw 4vw rgba(0, 0, 0, 0.25); */
 
   font-weight: bold;
   font-family: "Cafe24SsurroundAir";
-  /* font-family: "Oregano", cursive; */
   font-size: 2.1vw;
   text-align: center;
   padding: 1vh 0;
@@ -205,20 +186,13 @@ height: 3rem; */
   top: 65vh;
 
   border: 10px solid rgba(255, 206, 67, 0.8);
-  /* border: 10px solid #FFCE43; */
 }
 
 .cashbar {
   position: absolute;
-  /* width: 0px; */
   height: 4vh;
-  /* left: 720px;
-    top: 682px; */
 
-  /* border: 10px solid #FFCE43; */
   border: 10px solid rgba(255, 206, 67, 0.8);
-  /* background-color: rgba(255, 206, 67, 0.8); */
-  /* color: rgba(255, 206, 67, 0.8); */
 }
 
 /* 동전칸 */
@@ -279,8 +253,6 @@ height: 3rem; */
   height: 18vh;
   left: 80vw;
   top: 75vh;
-  /* background: #0381D7; */
-  /* border: 5px solid #0381D7; */
 }
 
 /* 쓰레기통 캔들 */
@@ -290,12 +262,10 @@ height: 3rem; */
   height: 7vh;
   left: 86vw;
   top: 74.5vh;
-  /* top: 810px; */
 
   background: #f4e668;
   border-radius: 0.8vw;
   transform: matrix(0.99, -0.35, 0.45, 0.99, 0, 0);
-  /* transform: matrix(0.87, 0.45, -0.51, 0.88, 0, 0); */
 }
 
 /* Rectangle 260 */
@@ -312,21 +282,6 @@ height: 3rem; */
   box-sizing: border-box;
   border-radius: 0.8vw;
 }
-/* Rectangle 254 */
-
-/* .trash3{    
-    position: absolute;
-    width: 2vw;
-    height: 7vh;
-    left: 88vw;
-    top: 74vh;
-    
-    background: #0381D7;
-    border: 0.1vw solid #0381D7;
-    box-sizing: border-box;
-    border-radius: 0.8vw;
-    transform: matrix(0.93, -0.33, 0.38, 0.94, 0, 0);
-}     */
 
 /* Rectangle 255 */
 

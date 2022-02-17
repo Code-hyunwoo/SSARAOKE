@@ -89,10 +89,8 @@
   height: 3.5vh;
   top: 26vh;
   text-align: center;
-  /* font-family: "Cafe24Ssurround"; */
   font-family: "Cafe24SsurroundAir";
   font-size: 0.8vw;
-  /* font-weight: bold; */
   color: white;
   padding: 0.04vw;
   border-radius: 5vh;
@@ -107,7 +105,6 @@
 .joinbtn {
   width: 11vw;
   height: 5vh;
-  /* background-color: #e9d4fa; */
   border-radius: 5vh;
   font-weight: bold;
   font-family: "Oregano";
@@ -115,7 +112,6 @@
   text-align: center;
   text-decoration: none;
   padding: 0.05vw;
-  /* color: #350061da; */
   border: none;
 }
 
@@ -129,7 +125,6 @@
 .chat {
   position: absolute;
   width: 29vw;
-  /* height: 420px; */
   height: 40vh;
   left: 35.6vw;
   top: 24vh;
@@ -144,14 +139,7 @@
 }
 
 .chatcolor {
-  /* position: absolute;
-  width: 678px;
-  height: 420px;
-  left: 586px;
-  top: 163px; */
-
   background: #ffffff;
-  /* border: 5px solid #FFCE43; */
   border: none;
   box-sizing: border-box;
   border-radius: 2vh;

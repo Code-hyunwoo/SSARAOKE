@@ -1,22 +1,11 @@
 .itembg {
   height: 100vh;
-  /* margin-top: -90.7px; */
   background-image: url(../../assets/login-background5.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 1;
   position: relative;
-  /* overflow: hidden; */
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* position: relative; */
-  /* z-index: -100; */
-  /* -webkit-box-pack: center; /
-  justify-content: center;
-  / -webkit-box-align: center; */
 }
 
 .temp {
@@ -33,11 +22,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  /* top: 100vh; */
-  /* padding-top: 300px; */
-  /* left: 25vw; */
-  /* text-align: center; */
-  /* top: 35vh; */
 }
 
 .btnNotLoggedIn {
@@ -50,8 +34,6 @@
   transition-duration: 0.4s;
   font-family: "ROKA";
   color: #ffce43;
-  /* position: relative; */
-  /* z-index: 10; */
 }
 
 .btnNotLoggedIn:hover {
@@ -77,13 +59,10 @@
 }
 
 .main {
-  /* justify-content: center; */
-  /* margin-top: 200; */
   color: #fff89a;
   font-family: "bi";
   font-size: 7rem;
   animation: flicker 2s infinite alternate;
-  /* display: inline; */
   cursor: default;
 }
 

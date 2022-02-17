@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 import { connect } from "react-redux";
 
 function MSearchResult({ items, roomseq, state }) {
-  console.log("토큰뭐냐",state);
   const failed = () => {
     Swal.fire({
       icon: "error",
@@ -21,7 +20,6 @@ function MSearchResult({ items, roomseq, state }) {
         title: videotitle,
       })
       .then((res) => {
-        console.log(res);
         new Swal({
           title: "예약목록에 추가되었습니다!",
           timer: 700,
@@ -85,10 +83,8 @@ function MSearchResult({ items, roomseq, state }) {
                   ? item.snippet.title.slice(8, -13)
                   : item.snippet.title}
               </td>
-              {/* <td>{`https://www.youtube.com/watch?v=${item.id.videoId}`}</td> */}
               <td>
                 <button
-                  // key={index}
                   className="songbook"
                   type="radio"
                   value={item.snippet.title}
