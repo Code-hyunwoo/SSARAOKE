@@ -31,10 +31,11 @@ public class Bookmark {
     private String artist;
 
     @Builder
-    public Bookmark(int song_no, String title, String artist){
+    public Bookmark(int song_no, String title, String artist, User user){
         this.song_no = song_no;
         this.title = title;
         this.artist = artist;
+        this.user = user;
     }
 
 }

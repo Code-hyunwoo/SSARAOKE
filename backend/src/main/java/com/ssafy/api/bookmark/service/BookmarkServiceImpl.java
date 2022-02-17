@@ -36,6 +36,7 @@ public class BookmarkServiceImpl implements BookmarkService {
                 .artist(bookmarks.getArtist())
                 .song_no(bookmarks.getSong_no())
                 .title(bookmarks.getTitle())
+                .user(user)
                 .build();
         bookmarkRepository.save(bookmark);
     }
