@@ -85,7 +85,7 @@ function MyVideoPage() {
                 </div>
             </div>
             {/* 쓰레기통 */}
-                <button style={{ backgroundColor: "black", borderColor: "black" }}>
+                <div style={{ backgroundColor: "black", borderColor: "black" }}>
                     <div className={Styles.trash1}></div>
                     <div className={Styles.trash2}></div>
                     <div className={Styles.trash4}></div>
@@ -94,14 +94,14 @@ function MyVideoPage() {
                     <div className={Styles.trash6}></div>
                     <div className={Styles.trashCan}></div>
 
-                    <Link to="/">
+                    {/* <Link to="/"> */}
                     <div>
                         {" "}
                         <BsTrash2Fill className={Styles.trashCan} color="#0381D7" />
                         <BsTrash2 className={Styles.trashCan} color="#0381D7" />
                     </div>
-                    </Link>
-                </button>   
+                    {/* </Link> */}
+                </div>   
         </div>
     )
     
