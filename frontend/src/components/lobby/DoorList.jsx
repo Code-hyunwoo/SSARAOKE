@@ -4,7 +4,6 @@ import CreateRoom from "./CreateRoom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Lobbychat from "./Lobbychat";
-import MovingCam from "../roomin/MovingCam";
 
 function DoorList() {
   //백에서 받은값 저장하기

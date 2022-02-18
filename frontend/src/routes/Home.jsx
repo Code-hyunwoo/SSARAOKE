@@ -1,9 +1,9 @@
 import { Col, Container, Row } from "react-bootstrap";
-import img1 from "../assets/login-background.png";
-import img2 from "../assets/login-background2.png";
-import img3 from "../assets/login-background3.png";
-import img4 from "../assets/login-background4.png";
-import img5 from "../assets/login-background5.png";
+import gif1 from "../assets/modifyNick.gif";
+import gif2 from "../assets/passwordroom.gif";
+import gif3 from "../assets/songsearch.gif";
+import gif4 from "../assets/modechange.gif";
+import gif5 from "../assets/duetcontents.gif";
 import styles from "./Home.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -24,7 +24,7 @@ function Home() {
 
     // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
     offset: 120, // offset (in px) from the original trigger point
-    delay: 100, // values from 0 to 3000, with step 50ms
+    delay: 300, // values from 0 to 3000, with step 50ms
     duration: 400, // values from 0 to 3000, with step 50ms
     easing: "ease", // default easing for AOS animations
     once: false, // whether animation should happen only once - while scrolling down
@@ -34,72 +34,109 @@ function Home() {
   return (
     <div>
       <Login />
+
       <Container fluid className={styles.pxpx}>
-        <hr className={styles.line} />
-        <Row className="mx-5" data-aos="fade-right">
-          <Col md={{ span: 4, offset: 1 }}>
-            <img src={img1} alt="" className={styles.introPic} />
+        <hr className={styles.line} style={{ borderColor: "black" }} />
+        <Row className={styles.row} data-aos="fade-up">
+          <Col md={{ span: 5, offset: 1 }}>
+            <img src={gif1} alt="" className={styles.introPic} />
           </Col>
-          <Col md={{ span: 4, offset: 2 }}>
-            <div className={styles.desc}>
-              (싸라오케 이런것도 됩니다1) Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Nunc dignissim in mauris in feugiat.
+          <Col md={{ span: 4, offset: 1 }}>
+            <div className={styles.desc1}>
+              <h1>친구들과 </h1>
+              <h1>소통하며 즐기세요</h1>
+            </div>
+            <div className={styles.desc2}>
+              <h3>
+                SSARAOKE에서 쓸 닉네임을 정하고,
+                <br />
+                로비에서 다른 사용자들과 <br />
+                대화를 나눠보세요.
+              </h3>
             </div>
           </Col>
         </Row>
         <hr className={styles.line} />
 
-        <Row className="mx-5" data-aos="fade-left">
+        <Row className={styles.row} data-aos="fade-up">
           <Col md={{ span: 4, offset: 1 }}>
-            <div className={styles.desc}>
-              (싸라오케 이런것도 됩니다2) Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Nunc dignissim in mauris in feugiat.
+            <div className={styles.desc1}>
+              <h1>프라이빗한</h1>
+              <h1>나만의 노래방</h1>
+            </div>
+            <div className={styles.desc2}>
+              <h3>
+                비밀번호를 설정하면
+                <br /> 비공개방을 생성할 수 있습니다.
+              </h3>
             </div>
           </Col>
-          <Col md={{ span: 4, offset: 2 }}>
-            <img src={img2} alt="" className={styles.introPic} />
+          <Col md={{ span: 5, offset: 1 }}>
+            <img src={gif2} alt="" className={styles.introPic} />
           </Col>
         </Row>
         <hr className={styles.line} />
 
-        <Row className="mx-5" data-aos="fade-right">
-          <Col md={{ span: 4, offset: 1 }}>
-            <img src={img3} alt="" className={styles.introPic} />
+        <Row className={styles.row} data-aos="fade-up">
+          <Col md={{ span: 5, offset: 1 }}>
+            <img src={gif3} alt="" className={styles.introPic} />
           </Col>
-          <Col md={{ span: 4, offset: 2 }}>
-            <div className={styles.desc}>
-              (싸라오케 이런것도 됩니다3) Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Nunc dignissim in mauris in feugiat.
+          <Col md={{ span: 4, offset: 1 }}>
+            <div className={styles.desc1}>
+              <h1>TJ 노래방</h1>
+              <h1>공식파트너</h1>
+              {/* <h1>공식파트너</h1> */}
+            </div>
+            <div className={styles.desc2}>
+              <h3>
+                TJ 노래방 전곡을 제공합니다.
+                <br /> 다양한 노래를 마음껏 불러보세요! <br />
+                노래를 검색/예약하고, 좋아하는 노래를 북마크에 저장할 수
+                있습니다.
+              </h3>
             </div>
           </Col>
         </Row>
         <hr className={styles.line} />
 
-        <Row className="mx-5" data-aos="fade-left">
+        <Row className={styles.row} data-aos="fade-up">
           <Col md={{ span: 4, offset: 1 }}>
-            <div className={styles.desc}>
-              (싸라오케 이런것도 됩니다4) Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Nunc dignissim in mauris in feugiat.
+            <div className={styles.desc1}>
+              <h1>다양한 모드</h1>
+            </div>
+            <div className={styles.desc2}>
+              <h3>
+                기본모드 외에 자유모드, 솔로모드, <br />
+                듀엣모드 등 다양한 UI를 제공합니다.
+                <br /> 버튼을 눌러 노래 부르는사람에게 <br />
+                조명효과를 줄 수 있습니다.
+              </h3>
             </div>
           </Col>
-          <Col md={{ span: 4, offset: 2 }}>
-            <img src={img4} alt="" className={styles.introPic} />
+          <Col md={{ span: 5, offset: 1 }}>
+            <img src={gif4} alt="" className={styles.introPic} />
           </Col>
         </Row>
         <hr className={styles.line} />
 
-        <Row className="mx-5" data-aos="fade-right">
-          <Col md={{ span: 4, offset: 1 }}>
-            <img src={img5} alt="" className={styles.introPic} />
+        <Row className={styles.row} data-aos="fade-up">
+          <Col md={{ span: 5, offset: 1 }}>
+            <img src={gif5} alt="" className={styles.introPic} />
           </Col>
-          <Col md={{ span: 4, offset: 2 }}>
-            <div className={styles.desc}>
-              (싸라오케 이런것도 됩니다5) Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Nunc dignissim in mauris in feugiat.
+          <Col md={{ span: 4, offset: 1 }}>
+            <div className={styles.desc1}>
+              <h1>스타와 함께 듀엣</h1>
+            </div>
+            <div className={styles.desc2}>
+              <h3>
+                듀엣곡 부르고 싶은데 같이 부를 사람이 없을 때, <br />
+                스타와 함께 듀엣곡을 부를 수 있는 기회!! <br />
+                스타와 교감하며 노래를 불러보세요
+              </h3>
             </div>
           </Col>
         </Row>
-        <hr className={styles.line} />
+        {/* <hr className={styles.line} /> */}
       </Container>
       <TeamProfile />
       <footer className={styles.footer}>

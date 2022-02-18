@@ -16,7 +16,6 @@
   box-shadow: rgba(255, 255, 255, 0.35) 0px 10px 25px;
 }
 
-
 .searchpage {
   position: absolute;
   left: 10px;
@@ -138,7 +137,7 @@
 
   background: #ffce43;
   border-radius: 30px;
-  font-size: 0.7vw;
+  font-size: 1vw;
   font-family: "ROKAFSansBold";
 }
 
@@ -148,11 +147,11 @@
   width: 6.5vw;
   height: 3.4vh;
   left: 7.8vw;
-  top: 5.2vh;
+  top: 5vh;
 
   background: #ffce43;
   border-radius: 30px;
-  font-size: 0.7vw;
+  font-size: 1vw;
   font-family: "ROKAFSansBold";
 }
 
@@ -190,7 +189,6 @@
   border-right: 20px solid transparent;
   background: none;
   transform: rotate(90deg);
-
 }
 
 /* 필터, 배경 */
@@ -198,7 +196,6 @@
   position: absolute;
   width: 5.2vw;
   height: 3.4vh;
-
   background: #fff89a;
   border-radius: 30px;
   font-family: "ROKAFSansBold";

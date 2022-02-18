@@ -4,7 +4,7 @@ import { Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { actionCreators } from "../../store";
 import Styles from "./Mypage.module.css";
-import swal from 'sweetalert2';
+import swal from "sweetalert2";
 
 function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
   //변경할 닉네임값 받아오기
@@ -15,22 +15,30 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
 
   //동일 닉네임 입력 경고창
   const sameNickname = () => {
-    swal.fire({
-      title: '동일 닉네임이 존재합니다.',
-      icon: 'error',
-      showConfirmButton: false,
-      timer: 1500
-    })
-  }
-  
+    swal
+      .fire({
+        title: "동일 닉네임이 존재합니다.",
+        icon: "error",
+        showConfirmButton: false,
+        timer: 1500,
+      })
+      .then((result) => {
+        console.log("sweetalert", result);
+      });
+  };
+
   const success = () => {
-    swal.fire({
-      title: '닉네임 수정 성공!',
-      icon: 'success',
-      showConfirmButton: false,
-      timer: 1500
-    })
-  }
+    swal
+      .fire({
+        title: "닉네임 수정 성공!",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1500,
+      })
+      .then((result) => {
+        console.log("sweetalert", result);
+      });
+  };
 
   const onChangeNickname = () => {
     axios
@@ -42,12 +50,12 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: state[0].token, 
+            Authorization: state[0].token,
           },
         }
       )
       .then((res) => {
-        if(res.status === 200){
+        if (res.status === 200) {
           DispatchmodifyNickname(newnickname);
           onHide();
           success();
@@ -67,15 +75,11 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
 
   return (
     <div>
-      <Modal
-        show={show}
-        onHide={onHide}
-        size="sm"
-      >
+      <Modal show={show} onHide={onHide} size="sm">
         <div className={Styles.NicknameModal}>
           <Modal.Body>
             <div style={{ textAlign: "center" }}>
-              Nickname 수정 :{" "} 
+              Nickname 수정 :{" "}
               <input
                 type="text"
                 style={{ left: "90vw" }}
@@ -84,15 +88,16 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
                 onChange={getNickname}
                 onKeyPress={entermodify}
                 maxLength="5"
-                />
+              />
               &nbsp;
-                <br/>
+              <br />
               <button
                 style={{
                   width: "3.2vw",
                   top: "20vh",
                   borderRadius: "30vh",
-                  backgroundColor: "#ffcd438f",
+                  whiteSpace: "nowrap",
+                  backgroundColor: "rgba(94, 163, 219, 0.753)",
                 }}
                 onClick={onChangeNickname}
               >
@@ -102,7 +107,7 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
                 style={{
                   top: "20vh",
                   borderRadius: "30vh",
-                  backgroundColor: "#ffcd438f",
+                  backgroundColor: "rgba(94, 163, 219, 0.753)",
                 }}
                 onClick={onHide}
               >
@@ -115,7 +120,6 @@ function Nickname({ show, onHide, state, DispatchmodifyNickname }) {
     </div>
   );
 }
-
 
 function mapStateToProps(state) {
   return { state };
