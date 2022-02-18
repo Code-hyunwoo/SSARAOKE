@@ -4,7 +4,6 @@ import CreateRoom from "./CreateRoom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Lobbychat from "./Lobbychat";
-// import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 function DoorList() {
   //백에서 받은값 저장하기
@@ -28,7 +27,6 @@ function DoorList() {
   //roomdata 값이 유효할 때
   return (
     <>
-      {/* <button onClick={Roomdata}>button</button> */}
       <CreateRoom />
       <div className={styles.firstcontainer}>
         <Door
