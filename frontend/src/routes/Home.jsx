@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
-import gif1 from "../assets/lobbychat_mypage.gif";
+import gif1 from "../assets/modifyNick.gif";
 import gif2 from "../assets/passwordroom.gif";
-import gif3 from "../assets/booksong.gif";
+import gif3 from "../assets/songsearch.gif";
 import gif4 from "../assets/modechange.gif";
 import gif5 from "../assets/duetcontents.gif";
 import styles from "./Home.module.css";
@@ -90,7 +90,9 @@ function Home() {
             <div className={styles.desc2}>
               <h3>
                 TJ 노래방 전곡을 제공합니다.
-                <br /> 다양한 노래를 마음껏 불러보세요!{" "}
+                <br /> 다양한 노래를 마음껏 불러보세요! <br />
+                노래를 검색/예약하고, 좋아하는 노래를 북마크에 저장할 수
+                있습니다.
               </h3>
             </div>
           </Col>
