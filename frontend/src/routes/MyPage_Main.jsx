@@ -2,7 +2,7 @@ import Styles from "../components/user/MyPageMain.module.css";
 import Stylescan from "../components/user/MypageCan.module.css";
 import { BsTrash2Fill, BsTrash2 } from "react-icons/bs";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Nickname from "../components/user/Nickname";
 import Email from "../components/user/Email";
 import Forest from "../components/lobby/background/Forest";
@@ -10,11 +10,13 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import axios from "axios";
+import { actionCreators } from "../store";
+import swal from 'sweetalert2';
 
-function Mypage_Main({ state }) {
+function Mypage_Main({ state, DispatchdeleteInfo }) {
   // 모달용
-  const [bookmarkShow, setBookmarkShow] = React.useState(false);
-  const [videoShow, setVideoShow] = React.useState(false);
+  // const [bookmarkShow, setBookmarkShow] = React.useState(false);
+  // const [videoShow, setVideoShow] = React.useState(false);
   const [nicknameShow, setNicknameShow] = React.useState(false);
   const [emailShow, setEmailShow] = React.useState(false);
   // 마우스오버용
@@ -22,6 +24,7 @@ function Mypage_Main({ state }) {
   const [videoMShow, setVideoMShow] = React.useState(false);
 
   const [email, setEmail] = React.useState("");
+
   useEffect(() => {
     axios
       .get("https://i6a306.p.ssafy.io:8080/api/v1/user", {
@@ -33,6 +36,26 @@ function Mypage_Main({ state }) {
         setEmail(response.data.email);
       });
   }, []);
+
+  const navigate = useNavigate();
+  const logoutSuccess = () => {
+    swal.fire({
+      title:"로그아웃 완료!",
+      text: "이용해 주셔서 감사합니다!",
+      icon: 'success',
+      confirmButtonColor: '#73E0C1',
+      confirmButtonText: '확인'
+    })
+    .then((result) => {
+      console.log("sweetalert", result);
+    })
+  }
+
+  const Logout = () => {
+    DispatchdeleteInfo();
+    logoutSuccess();
+    navigate("/");
+  };
 
   return (
     <div>
@@ -49,7 +72,7 @@ function Mypage_Main({ state }) {
           {/* 윗층 캔 */}
           {/* 모달, 마우스오버.아웃 */}
           <div
-            onClick={() => setBookmarkShow(true)}
+            // onClick={() => setBookmarkShow(true)}
             onMouseOver={() => setBookMShow(true)}
             onMouseOut={() => setBookMShow(false)}
           >
@@ -123,7 +146,7 @@ function Mypage_Main({ state }) {
           {/* 아랫층 캔 */}
           {/* 모달, 마우스오버/아웃 */}
           <div
-            onClick={() => setVideoShow(true)}
+            // onClick={() => setVideoShow(true)}
             onMouseOver={() => setVideoMShow(true)}
             onMouseOut={() => setVideoMShow(false)}
           >
@@ -228,7 +251,7 @@ function Mypage_Main({ state }) {
       </div>
 
       {/* 쓰레기통 */}
-      <button style={{ backgroundColor: "black", borderColor: "black" }}>
+      <button style={{ backgroundColor: "black", borderColor: "black" }} onClick={Logout}>
         <div className={Styles.trash1}></div>
         <div className={Styles.trash2}></div>
         <div className={Styles.trash4}></div>
@@ -237,13 +260,13 @@ function Mypage_Main({ state }) {
         <div className={Styles.trash6}></div>
         <div className={Styles.trashCan}></div>
 
-        <Link to="/">
+        {/* <Link to="/"> */}
           <div>
             {" "}
             <BsTrash2Fill className={Styles.trashCan} color="#0381D7" />
             <BsTrash2 className={Styles.trashCan} color="#0381D7" />
           </div>
-        </Link>
+        {/* </Link> */}
       </button>
     </div>
   );
@@ -252,5 +275,10 @@ function Mypage_Main({ state }) {
 function mapStateToProps(state) {
   return { state };
 }
+function mapDispatchToProps(dispatch) {
+  return {
+    DispatchdeleteInfo: () => dispatch(actionCreators.deleteInfo()),
+  };
+}
 
-export default connect(mapStateToProps, null)(Mypage_Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Mypage_Main);
