@@ -70,13 +70,15 @@ function Email({ show, onHide, state, DispatchmodifyEmail }) {
               />
               &nbsp;
               <button
-                style={{ borderRadius: "30vh", backgroundColor: "#ffcd438f" }}
+                style={{ borderRadius: "30vh", backgroundColor: "rgba(94, 163, 219, 0.753)", }}
+                // onClick={onChangeEmail, props.onHide }
                 onClick={onChangeEmail}
               >
                 수정
               </button>
               <button
-                style={{ borderRadius: "30vh", backgroundColor: "#ffcd438f" }}
+                style={{ borderRadius: "30vh", backgroundColor: "rgba(94, 163, 219, 0.753)" }}
+                // onClick={onChangeEmail, props.onHide }
                 onClick={onHide}
               >
                 닫기

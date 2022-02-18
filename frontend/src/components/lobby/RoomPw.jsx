@@ -110,19 +110,12 @@ function RoomPw(props) { //위의 숏컷 연산이 props안에 다 들어있음.
           navigate(`/Room/${props.mode}/${props.roomseq}`)
         }
         else if(res.status !== 200){
-          // if(res.status !== 200){
-            // alert("입장 실패!"); //왜 안되냐
           }
         })
         .catch((res) => {
       // 입장거절: {402, "차단된 사용자"}, {403, "방 정원초과"}, {404, "비밀번호 불일치"}, {405, "존재하지 않는 방"}
           console.log("catch:",res);
           fail();
-          // wrongPw(); //404 비번 오류
-          // roomPull(); //403 방 정원 풀
-          // noRoom(); //405 방이 없음
-          // Ban(); // 402 차단된 사용자
-          // alert("입장 실패!");
         })
         
   };
@@ -130,19 +123,10 @@ function RoomPw(props) { //위의 숏컷 연산이 props안에 다 들어있음.
 
   return (
     <div>
-      {/* onClick={() => setRoompwShow(true)} */}
-      {/* <RoomPw 
-                show={roompwShow} 
-                onHide={() => setRoompwShow(false)}
-            /> */}
 
       <Modal
-        // {onHide}
         {...props}
-        // size="sm"
       >
-        {/* <div className={Styles.bigtable}> */}
-        {/* <div> */}
           <div className={Styles.bigtable}>
             <Modal.Body className={Styles.createroombg}>
               <div className={Styles.inputPW}>
@@ -165,14 +149,8 @@ function RoomPw(props) { //위의 숏컷 연산이 props안에 다 들어있음.
               </div>
             </Modal.Body>
           </div>
-        {/* </div> */}
       </Modal>
     </div>
   );
 }
-// function mapStateToProps(state) { //state 받아오는 함수 - store에서 직빵으로 값 보내주는 것.
-//   return { state };
-// }
-
-// export default connect(mapStateToProps, null)(RoomPw);
 export default RoomPw;
