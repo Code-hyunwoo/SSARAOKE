@@ -666,9 +666,7 @@ function Room({ state }) {
       {openFirework && <Firework />}
       {startDream && <Dream setstartDream={setstartDream} />}
       {startGoodDay && <GoodDay setstartGoodDay={setstartGoodDay} />}
-      {startScoreBoard && (
-        <ScoreBoard setstartScoreBoard={setstartScoreBoard} />
-      )}
+      {startScoreBoard && <ScoreBoard />}
 
       <div className={transCamBox}>
         {nowMode === "Freemode" ? (
