@@ -75,6 +75,11 @@ function Room({ state }) {
   const [audio, setAudio] = useState(true);
   const [video, setVideo] = useState(true);
 
+  const [nowplaying, setNowplaying] = useState(false);
+  const getNowplaying = (bool) => {
+    setNowplaying(bool);
+  };
+
   function transformBasic() {
     settransScreen(styles.ScreenBasic);
     settransCamBox(styles.BasicCamBox);
@@ -313,28 +318,26 @@ function Room({ state }) {
     setsubscribers([]);
     setpublisher(undefined);
 
-    axios
-      .post(
-        "https://i6a306.p.ssafy.io:8080/api/v1/room/out",
-        {
-          room_seq: room,
+    axios.post(
+      "https://i6a306.p.ssafy.io:8080/api/v1/room/out",
+      {
+        room_seq: room,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: state[0].token,
         },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: state[0].token,
-          },
-        }
-      );
+      }
+    );
   }
   function sendMessage(type, data) {
     const mySession = session;
-    mySession
-      .signal({
-        data: data, // Any string (optional)
-        to: [], // Array of Connection objects (optional. Broadcast to everyone if empty)
-        type: type, // The type of message (optional)
-      });
+    mySession.signal({
+      data: data, // Any string (optional)
+      to: [], // Array of Connection objects (optional. Broadcast to everyone if empty)
+      type: type, // The type of message (optional)
+    });
   }
 
   function register() {
@@ -658,6 +661,7 @@ function Room({ state }) {
         now={nowPlaymusic}
         // nextMusic={nextMusic}
         setstartScoreBoard={setstartScoreBoard}
+        getNowplaying={getNowplaying}
       />
       {openFirework && <Firework />}
       {startDream && <Dream setstartDream={setstartDream} />}
@@ -748,6 +752,8 @@ function Room({ state }) {
           sendClap={sendClap}
           sendTambourine={sendTambourine}
           sendFire={sendFire}
+          getNowplaying={getNowplaying}
+          nowplaying={nowplaying}
         />
         <button
           className={(styles.btn, styles.neon)}
@@ -800,6 +806,5 @@ function Room({ state }) {
 function mapStateToProps(state) {
   return { state };
 }
-
 
 export default connect(mapStateToProps, null)(Room);
