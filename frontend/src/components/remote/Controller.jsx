@@ -51,9 +51,9 @@ function Controller({
     key: apiKey,
     part: "snippet",
     // TJ 노래방 channelId
-    // channelId: "UCZUhx8ClCv6paFW7qi3qljg",
+    channelId: "UCZUhx8ClCv6paFW7qi3qljg",
     // JW 노래방 channelId
-    channelId: "UC58ttsbMu6kCeWRrEsDI2ww",
+    // channelId: "UC58ttsbMu6kCeWRrEsDI2ww",
     channelType: "any",
     q: searchitem,
     type: "video",
