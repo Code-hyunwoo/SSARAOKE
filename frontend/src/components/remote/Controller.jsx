@@ -24,13 +24,18 @@ function Controller({
   voiceFilterEcho,
   voiceFilterMegaPhone,
   voiceFilterModulation,
+  getNowplaying,
+  nowplaying,
 }) {
   const [show, setShow] = useState(false);
-  const [nowplaying, setnowplaying] = useState(false);
+
+  const sendNowplaying = (bool) => {
+    getNowplaying(bool);
+  };
 
   const startbookList = () => {
     sendYTUrl();
-    setnowplaying(true);
+    sendNowplaying(true);
   };
 
   // 리모콘 끄기
@@ -142,7 +147,9 @@ function Controller({
                 {/* 노래 관련 버튼 */}
                 <div>
                   {/* 북마크 목록 */}
-                  <button className={Styles.bookmarklist} disabled >BookMark</button>
+                  <button className={Styles.bookmarklist} disabled>
+                    BookMark
+                  </button>
                   <button
                     className={Styles.songstart}
                     onClick={startbookList}
@@ -160,7 +167,7 @@ function Controller({
                     onClick={() => {
                       setstartDream(false);
                       setstartGoodDay(false);
-                      setnowplaying(false);
+                      sendNowplaying(false);
                       cancelMusic();
                     }}
                   >
@@ -172,7 +179,9 @@ function Controller({
                   <div>
                     {/* <button className={Styles.booklist}>예약 목록</button> */}
                     <WaitingList roomseq={roomseq} />
-                    <button className={Styles.book} disabled>예약</button>
+                    <button className={Styles.book} disabled>
+                      예약
+                    </button>
                   </div>
                 </div>
               </div>
