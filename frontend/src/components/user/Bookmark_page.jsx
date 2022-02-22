@@ -28,13 +28,13 @@ function BookmarkPage({ state }) {
               }
           )
           .then((response) => {
-            console.log("북마크 넘어오냐: ",response.data); //값 너머오는지 찍고
+            // console.log("북마크 넘어오냐: ",response.data); //값 너머오는지 찍고
             setBookmark(response.data); //값 저장하고
-            console.log("bookmark:", bookmark); //값 저장되었는지 확인
+            // console.log("bookmark:", bookmark); //값 저장되었는지 확인
           })
           .catch((e) => {
-            console.log("에러 발생");
-            console.error(e);
+            // console.log("에러 발생");
+            // console.error(e);
           });
       }, [bookmark]); //,[]는 무한 랜더링 방지
 
@@ -52,7 +52,7 @@ function BookmarkPage({ state }) {
                     },
                 })
               .then((res) => {
-                  console.log(res);
+                //   console.log(res);
                   new Swal({
                     title: "북마크가 삭제되었습니다!",
                     timer: 700,
@@ -61,7 +61,7 @@ function BookmarkPage({ state }) {
                   });
               })
               .catch((e) => {
-                  console.log(e);
+                //   console.log(e);
               });
       };
 

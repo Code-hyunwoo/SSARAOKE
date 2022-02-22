@@ -51,6 +51,19 @@ function Mypage_Main({ state, DispatchdeleteInfo }) {
     })
   }
 
+  const videobtn = () => {
+    swal.fire({
+      // title:"로그아웃 완료!",
+      text: "서비스 준비중입니다!",
+      icon: 'info',
+      confirmButtonColor: '#73E0C1',
+      confirmButtonText: '확인'
+    })
+    .then((result) => {
+      console.log("sweetalert", result);
+    })
+  }
+
   const Logout = () => {
     DispatchdeleteInfo();
     logoutSuccess();
@@ -177,36 +190,43 @@ function Mypage_Main({ state, DispatchdeleteInfo }) {
                             : { border: "none" }
                         }
                       >
-                      <Link to="/video">  
+                      {/* <Link to="/video">   */}
                         <button
+                          onClick={videobtn}
                           className={Stylescan.canB}
                           style={{ top: "52.5%", left: "4%" }}
                         ></button>
                         <button
+                          onClick={videobtn}
                           className={Stylescan.canBB}
                           style={{ top: "52.5%", left: "17.5%" }}
                         ></button>
                         <button
+                          onClick={videobtn}
                           className={Stylescan.canR}
                           style={{ top: "52.5%", left: "31%" }}
                         ></button>
                         <button
+                          onClick={videobtn}
                           className={Stylescan.canPink}
                           style={{ top: "52.5%", left: "45%" }}
                         ></button>
                         <button
+                          onClick={videobtn}
                           className={Stylescan.canY}
                           style={{ top: "52.5%", left: "59%" }}
                         ></button>
                         <button
+                          onClick={videobtn}
                           className={Stylescan.canP}
                           style={{ top: "52.5%", left: "72%" }}
                         ></button>
                         <button
+                          onClick={videobtn}
                           className={Stylescan.canN}
                           style={{ top: "52.5%", left: "86%" }}
                         ></button>
-                      </Link>
+                      {/* </Link> */}
                       </div>
                     </OverlayTrigger>{" "}
                     {/* 툴팁 */}
