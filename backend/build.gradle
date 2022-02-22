@@ -44,7 +44,7 @@ repositories {
 group 'com.ssafy'
 version '1.0-SNAPSHOT'
 sourceCompatibility = '1.8'
-
+//
 //node {
 //    download = true
 //    version = '14.17.0'
@@ -66,7 +66,52 @@ configurations {
 
 // processResources is a Java task. Run the webpack bundling before this task using the 'build' task in the package.json
 //processResources.dependsOn 'webpack'
-
+//def webappDir = "${project.projectDir}/../frontend"
+//
+//sourceSets {
+//    main {
+//        resources {
+//            srcDirs = ["$webappDir/build", "$projectDir/src/main/resources"]
+//        }
+//    }
+//}
+//
+//processResources {
+//    dependsOn "copyWebApp"
+//}
+//
+//
+//task copyWebApp(type: Copy) {
+//    dependsOn "buildReact"
+//    from "$webappDir/build"
+//    into "$projectDir/src/main/resources/static"
+//}
+//
+//
+//task buildReact(type: Exec) {
+//    dependsOn "installReact"
+//    workingDir "$webappDir"
+//    inputs.dir "$webappDir"
+//    group = BasePlugin.BUILD_GROUP
+//    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+//        commandLine "npm.cmd", "run-script", "build"
+//    } else {
+//        commandLine "npm", "run-script", "build"
+//    }
+//}
+//
+//task installReact(type: Exec) {
+//    workingDir "$webappDir"
+//    inputs.dir "$webappDir"
+//    group = BasePlugin.BUILD_GROUP
+//    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+//        commandLine "npm.cmd", "audit", "fix"
+//        commandLine 'npm.cmd', 'install'
+//    } else {
+//        commandLine "npm", "audit", "fix"
+//        commandLine 'npm', 'install'
+//    }
+//}
 //set build time and inject value to application.properties
 def buildTime() {
     def date = new Date()
