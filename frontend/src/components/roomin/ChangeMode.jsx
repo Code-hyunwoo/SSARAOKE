@@ -27,7 +27,7 @@ function ChangeMode({ closeChangeMode,sendChangeModeB,sendChangeModeF,sendChange
           <button id={styles.modeButton} onClick={() => {
             sendChangeModeD();
             closeChangeMode(false)}}>
-              duet
+              Duet
           </button>
         </div>
         <div className={styles.footer}>
