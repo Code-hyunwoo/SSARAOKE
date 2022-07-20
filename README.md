@@ -42,7 +42,25 @@ SSAFY + KARAOKE
 
 김혜란(FE): Frontend (Lobby, Mypage)
 
-이현우(FE): 노래방 생성 모달, 노래방 내부 component 디자인 및 각종 기능, 로비&방 내부 채팅 기능, 모드별 노래방 UI, 화면 및 호응 이펙트, 노래방 점수, 듀엣 컨텐츠 구현  // WebRTC - Frontend 세션 연결 // UCC 기획 및 제작
+이현우(FE): Frontend( Room, Mode, Contents, Chat, Effect )
+
+- 노래방 Component Design
+
+- Mode별 노래방 UI
+
+- 노래방 Create Modal
+
+- 호응 Effect, Sound Effect
+
+- 노래방 점수기능
+
+- Duet Contents(IU, 백현)
+
+- WebRtc- Frontend 연결
+
+- UCC 기획 및 제작 
+
+  
 
 ​                                                 	
 
