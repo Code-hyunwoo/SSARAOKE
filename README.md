@@ -42,7 +42,7 @@ SSAFY + KARAOKE
 
 김혜란(FE): Frontend (Lobby, Mypage)
 
-이현우(FE): Frontend( Room, Mode, Contents, Chat, Effect )
+이현우(FE): Frontend(Room, Mode, Contents, Chat, Effect )
 
 - 노래방 Component Design
 
